@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CGIAR Climate Data Hub: a curated portal connecting users to trusted climate and agricultural datasets, news, and tools.">
+<title>CGIAR Climate Data Hub</title>
+<link rel="icon" type="image/png" href="assets/cgiar-logo.png">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#top" class="brand-link" aria-label="CGIAR Climate Action home">
+      <img src="assets/cgiar-logo.png" alt="CGIAR Climate Action" height="42">
+    </a>
+    <nav aria-label="Primary">
+      <a href="#datasets">Datasets</a>
+      <a href="#tools">Tools</a>
+      <a href="#news">News</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-right">
+      <div class="header-search" role="search">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true" style="color:rgba(255,255,255,.5)"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <label for="headerSearch" class="sr-only" style="position:absolute;left:-9999px;">Search</label>
+        <input id="headerSearch" type="text" placeholder="Search datasets, countries…">
+      </div>
+      <button id="headerAskBtn" class="btn-ask" type="button">Ask the Hub ✦</button>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="persona-pills">
+      <span class="persona-label">I am a</span>
+      <button class="pill active" type="button" data-persona="finance">Climate Finance Author</button>
+      <button class="pill"        type="button" data-persona="scientist">Scientist / Modeller</button>
+      <button class="pill"        type="button" data-persona="policy">Policymaker</button>
+      <button class="pill"        type="button" data-persona="public">Public / Media</button>
+    </div>
+
+    <div class="hero-body">
+      <div class="hero-left">
+        <h1 id="heroTitle">Find climate evidence for your GCF proposal</h1>
+        <p id="heroDesc">Access country risk data, adaptation evidence and CGIAR-reviewed citations. Build a shareable brief in minutes, powered by the world's largest agricultural research network.</p>
+        <div class="hero-search-lg" role="search">
+          <label for="heroInput" style="position:absolute;left:-9999px;">Search the Hub</label>
+          <input id="heroInput" type="text" placeholder="e.g. drought risk in Ethiopia, rainfall trends West Africa…">
+          <button id="heroSearchBtn" type="button">Search</button>
+        </div>
+        <div class="hero-tags" id="heroTags">
+          <span class="hero-tag" data-tag>GCF climate rationale</span>
+          <span class="hero-tag" data-tag>Adaptation options Kenya</span>
+          <span class="hero-tag" data-tag>Rainfall trends Sahel</span>
+          <span class="hero-tag" data-tag>Drought risk East Africa</span>
+        </div>
+      </div>
+
+      <aside class="persona-context" id="personaCtx" aria-label="Quick links for your role">
+        <div class="pc-header">
+          <div class="pc-badge" id="pcIcon" aria-hidden="true">💼</div>
+          <div>
+            <div class="pc-name" id="pcName">Climate Finance Author</div>
+            <div class="pc-sub" id="pcSub">GCF, Adaptation Fund, bilateral donors</div>
+          </div>
+        </div>
+        <div class="pc-links" id="pcLinks">
+          <a href="#" class="pc-link">📊 Country climate risk summary <span class="pc-link-arrow">→</span></a>
+          <a href="#" class="pc-link">📄 Build a country brief (Flyer Builder) <span class="pc-link-arrow">→</span></a>
+          <a href="#" class="pc-link">💬 Ask the Hub for evidence and citations <span class="pc-link-arrow">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED DATASETS -->
+<section class="section" id="datasets" style="scroll-margin-top:80px;">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Datasets &amp; Tools</div>
+      <h2>Browse featured datasets</h2>
+    </div>
+    <a href="#catalogue">View all in catalogue →</a>
+  </div>
+  <div class="datasets-grid">
+    <article class="dataset-card">
+      <span class="ds-type geo">Geospatial</span>
+      <span class="ds-name">African Agriculture Adaptation Atlas</span>
+      <span class="ds-desc">Spatial climate risk, adaptation options and food security across Africa at country and sub-national scales.</span>
+      <div class="ds-footer"><span class="ds-source">CGIAR · 2023</span><a href="#" class="ds-btn">Explore →</a></div>
+    </article>
+    <article class="dataset-card">
+      <span class="ds-type open">Open Data</span>
+      <span class="ds-name">Gardian</span>
+      <span class="ds-desc">CGIAR's flagship open data portal. Research datasets, publications and project outputs.</span>
+      <div class="ds-footer"><span class="ds-source">CGIAR · Live</span><a href="#" class="ds-btn">Explore →</a></div>
+    </article>
+    <article class="dataset-card">
+      <span class="ds-type emit">Emissions</span>
+      <span class="ds-name">AgMRV</span>
+      <span class="ds-desc">Monitoring, reporting and verification for agricultural greenhouse gas emissions. IPCC-aligned methodology.</span>
+      <div class="ds-footer"><span class="ds-source">CGIAR · 2024</span><a href="#" class="ds-btn">Explore →</a></div>
+    </article>
+    <article class="dataset-card">
+      <span class="ds-type geo">Geospatial</span>
+      <span class="ds-name">IWMI Drought Monitor</span>
+      <span class="ds-desc">Near real-time drought indices for South Asia and sub-Saharan Africa. Updated weekly.</span>
+      <div class="ds-footer"><span class="ds-source">IWMI · Live</span><a href="#" class="ds-btn">Explore →</a></div>
+    </article>
+    <article class="dataset-card">
+      <span class="ds-type api">API</span>
+      <span class="ds-name">AgWise</span>
+      <span class="ds-desc">Location-specific climate-smart agronomic recommendations with API and GIS integration.</span>
+      <div class="ds-footer"><span class="ds-source">CGIAR · 2024</span><a href="#" class="ds-btn">Explore →</a></div>
+    </article>
+    <article class="dataset-card">
+      <span class="ds-type geo">Geospatial</span>
+      <span class="ds-name">MapSPAM</span>
+      <span class="ds-desc">Global spatially-explicit crop production surfaces (yield, area, value) at 5 arcminute resolution.</span>
+      <div class="ds-footer"><span class="ds-source">IFPRI · 2020</span><a href="#" class="ds-btn">Explore →</a></div>
+    </article>
+    <article class="dataset-card">
+      <span class="ds-type open">Analysis</span>
+      <span class="ds-name">Climate Security Observatory</span>
+      <span class="ds-desc">Rigorous evidence base on climate, conflict and food security nexus, with country profiles.</span>
+      <div class="ds-footer"><span class="ds-source">CGIAR · 2024</span><a href="#" class="ds-btn">Explore →</a></div>
+    </article>
+    <article class="dataset-card">
+      <span class="ds-type open">Repository</span>
+      <span class="ds-name">CGSpace</span>
+      <span class="ds-desc">Open-access institutional repository for CGIAR research outputs. Over 100,000 records.</span>
+      <div class="ds-footer"><span class="ds-source">CGIAR · Live</span><a href="#" class="ds-btn">Explore →</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- ASK THE HUB + FLYER BUILDER -->
+<section class="ask-section" id="tools" style="scroll-margin-top:60px;">
+  <div class="section">
+    <div class="ask-inner">
+
+      <div class="ask-panel">
+        <div class="section-label">AI Assistant</div>
+        <h2>Ask the Hub, get cited answers fast</h2>
+        <p>Ask any question in plain English. Answers are drawn from CGIAR sources only, with full citations. Coverage of FAO and other partner datasets is planned. This tool does not replace expert advice.</p>
+        <div class="ask-box">
+          <div class="ask-prompt">
+            <label for="askInput" style="position:absolute;left:-9999px;">Ask the Hub</label>
+            <input id="askInput" type="text" placeholder="What are the main climate risks in Mali?">
+            <button id="askGoBtn" class="btn-go" type="button">Go</button>
+          </div>
+          <div class="ask-example-qs">
+            <div class="example-q">What are the main climate risks for smallholders in Bangladesh?</div>
+            <div class="example-q">Which datasets support a GCF concept note for dryland Ethiopia?</div>
+            <div class="example-q">What adaptation options have evidence for the Sahel?</div>
+          </div>
+          <div class="ask-response" id="askResponse" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="flyer-panel">
+        <div class="section-label">Flyer Builder</div>
+        <h2>Create a 2 to 4 page country brief</h2>
+        <p>Select a country, audience and topic. The Flyer Builder auto-generates a 2 to 4 page brief from the latest CGIAR evidence. Review and edit the draft before exporting to PDF.</p>
+        <div class="flyer-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="flyerCountry">Country</label>
+              <select id="flyerCountry">
+                <option>Select country…</option>
+                <option>Ethiopia</option><option>Kenya</option><option>Nigeria</option>
+                <option>Mali</option><option>Bangladesh</option><option>Colombia</option>
+                <option>Nepal</option><option>Ghana</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="flyerAudience">Audience</label>
+              <select id="flyerAudience">
+                <option>Select audience…</option>
+                <option>GCF proposal team</option>
+                <option>Ministry official</option>
+                <option>NGO programme officer</option>
+                <option>Journalist</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="flyerTopic">Topic focus</label>
+              <select id="flyerTopic">
+                <option>Select topic…</option>
+                <option>Climate risks</option>
+                <option>Adaptation options</option>
+                <option>Food security</option>
+                <option>Water stress</option>
+                <option>Gender and climate</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="flyerLength">Length</label>
+              <select id="flyerLength">
+                <option>2 pages</option>
+                <option>4 pages</option>
+              </select>
+            </div>
+          </div>
+          <button id="flyerBuildBtn" class="btn-build" type="button">Build brief (PDF) →</button>
+          <p class="flyer-note">Auto-generated, review and edit before PDF export. Attribution included on all data.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWS WIDGET -->
+<section class="news-section" id="news" style="scroll-margin-top:60px;">
+  <div class="section">
+    <div class="section-header">
+      <div>
+        <div class="section-label">News &amp; Events</div>
+        <h2>Funding calls, conferences and new publications</h2>
+      </div>
+    </div>
+    <div class="news-tabs" role="tablist">
+      <button class="news-tab active" type="button" data-pane="funding">Funding calls</button>
+      <button class="news-tab"        type="button" data-pane="conference">Conferences</button>
+      <button class="news-tab"        type="button" data-pane="papers">Calls for papers</button>
+      <button class="news-tab"        type="button" data-pane="pubs">Publications</button>
+    </div>
+
+    <div class="news-pane active pane-funding" id="pane-funding">
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">Deadline: 30 June 2026</span><span class="news-badge badge-fund">Funding</span></div>
+        <div class="news-title">GCF Simplified Approval Process, Readiness and Preparatory Support Programme</div>
+        <div class="news-source">Green Climate Fund</div>
+        <a href="#" class="news-cta">View call →</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">Deadline: 15 August 2026</span><span class="news-badge badge-fund">Funding</span></div>
+        <div class="news-title">Adaptation Fund, Innovation Grants for Climate-Smart Agriculture, Africa</div>
+        <div class="news-source">Adaptation Fund</div>
+        <a href="#" class="news-cta">View call →</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">Rolling deadline</span><span class="news-badge badge-fund">Funding</span></div>
+        <div class="news-title">IFAD Climate Finance Window, co-financing for NAP implementation projects</div>
+        <div class="news-source">IFAD</div>
+        <a href="#" class="news-cta">View call →</a>
+      </article>
+    </div>
+
+    <div class="news-pane pane-conference" id="pane-conference">
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">14 to 18 July 2026, Nairobi</span><span class="news-badge badge-conf">Event</span></div>
+        <div class="news-title">Africa Climate Week 2026, Accelerating Adaptation Action</div>
+        <div class="news-source">UNFCCC</div>
+        <a href="#" class="news-cta">Register →</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">9 to 20 November 2026, Belém</span><span class="news-badge badge-conf">Event</span></div>
+        <div class="news-title">COP31, UNFCCC Conference of the Parties</div>
+        <div class="news-source">UNFCCC</div>
+        <a href="#" class="news-cta">Register →</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">2 to 4 September 2026, Addis Ababa</span><span class="news-badge badge-conf">Event</span></div>
+        <div class="news-title">2nd CGIAR Science Week, Climate and Food Systems</div>
+        <div class="news-source">CGIAR</div>
+        <a href="#" class="news-cta">Register →</a>
+      </article>
+    </div>
+
+    <div class="news-pane pane-papers" id="pane-papers">
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">Abstract deadline: 1 May 2026</span><span class="news-badge badge-paper">Call</span></div>
+        <div class="news-title">Global Food Security Journal, Special Issue: Climate adaptation evidence from the Global South</div>
+        <div class="news-source">Global Food Security</div>
+        <a href="#" class="news-cta">Submit →</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">Manuscript deadline: 30 June 2026</span><span class="news-badge badge-paper">Call</span></div>
+        <div class="news-title">Nature Climate Change, Transformative adaptation pathways in agri-food systems</div>
+        <div class="news-source">Nature Portfolio</div>
+        <a href="#" class="news-cta">Submit →</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">Rolling submissions</span><span class="news-badge badge-paper">Call</span></div>
+        <div class="news-title">CGIAR Working Papers Series, open call for climate and food security research</div>
+        <div class="news-source">CGIAR</div>
+        <a href="#" class="news-cta">Submit →</a>
+      </article>
+    </div>
+
+    <div class="news-pane pane-pubs" id="pane-pubs">
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">April 2026</span><span class="news-badge badge-pub">Publication</span></div>
+        <div class="news-title">Transforming agri-food systems under climate change: 2026 evidence synthesis</div>
+        <div class="news-source">CGIAR · CGSpace</div>
+        <a href="#" class="news-cta">Read →</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">March 2026</span><span class="news-badge badge-pub">Publication</span></div>
+        <div class="news-title">Climate risks and food systems in the Sahel: updated modelling scenarios to 2050</div>
+        <div class="news-source">CGIAR / IFPRI · Working Paper</div>
+        <a href="#" class="news-cta">Read →</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><span class="news-date">February 2026</span><span class="news-badge badge-pub">Publication</span></div>
+        <div class="news-title">AgMRV methodology guide v2.1: GHG accounting for smallholder agricultural systems</div>
+        <div class="news-source">CGIAR / CCAFS</div>
+        <a href="#" class="news-cta">Read →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES STRIP -->
+<section class="sources-strip" id="catalogue" style="scroll-margin-top:60px;">
+  <div class="section" style="padding:40px 24px;">
+    <div class="section-header" style="margin-bottom:20px;">
+      <div>
+        <div class="section-label">All Sources</div>
+        <h2>Every linked dataset and platform</h2>
+      </div>
+    </div>
+    <div class="sources-list">
+      <a href="#" class="source-pill"><span class="sp-name">African Agriculture Adaptation Atlas</span><span class="sp-tag">Geospatial · CGIAR</span></a>
+      <a href="#" class="source-pill"><span class="sp-name">Gardian</span><span class="sp-tag">Open Data · CGIAR</span></a>
+      <a href="#" class="source-pill"><span class="sp-name">TAAT Catalogue</span><span class="sp-tag">Technologies · CGIAR</span></a>
+      <a href="#" class="source-pill"><span class="sp-name">AgMRV</span><span class="sp-tag">Emissions · CGIAR</span></a>
+      <a href="#" class="source-pill"><span class="sp-name">AgWise</span><span class="sp-tag">Advisory · CGIAR</span></a>
+      <a href="#" class="source-pill"><span class="sp-name">IWMI Drought Monitor</span><span class="sp-tag">Monitoring · IWMI</span></a>
+      <a href="#" class="source-pill"><span class="sp-name">MapSPAM</span><span class="sp-tag">Geospatial · IFPRI</span></a>
+      <a href="#" class="source-pill"><span class="sp-name">Climate Security Observatory</span><span class="sp-tag">Analysis · CGIAR</span></a>
+      <a href="#" class="source-pill"><span class="sp-name">CGSpace</span><span class="sp-tag">Repository · CGIAR</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="about" style="scroll-margin-top:60px;">
+  <div class="section">
+    <div class="section-header"><div><div class="section-label">Help</div><h2>Common questions about the Hub</h2></div></div>
+    <div class="faq-cols">
+      <div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What is the CGIAR Climate Data Hub? <span class="faq-icon">+</span></button>
+          <div class="faq-a">A single portal that routes users to authoritative CGIAR and partner climate and agricultural datasets. It curates and links, it does not re-host or replace existing platforms.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Can I download data from the Hub? <span class="faq-icon">+</span></button>
+          <div class="faq-a">The Hub links to the original source platform for each dataset. Downloads, licences and access conditions are governed by each source. Attribution is visible on every dataset card.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">How do I use the Flyer Builder? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Select a country, audience and topic focus, then choose a page length. The system assembles a brief from the latest CGIAR evidence. You can review and edit the draft before exporting to PDF.</div>
+        </div>
+      </div>
+      <div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">How current is the data? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Currency varies by dataset and is displayed on each source card. The news widget is automatically compiled from monitored sources and editorially curated. Ask the Hub draws on CGIAR publications only. FAO and broader partner sources are planned.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Does Ask the Hub cite its sources? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Every answer includes a citation list naming the CGIAR publication or dataset used. The Hub currently cites CGIAR sources only. FAO and broader partner sources are planned. Answers do not replace expert advice or peer review.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">How do I suggest a dataset for inclusion? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Use the contact form or email the Hub team. Datasets are reviewed against CGIAR data quality standards before being added. Attribution and metadata completeness are required.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/cgiar-logo.png" alt="CGIAR Climate Action" height="48">
+        <p>The CGIAR Climate Data Hub is a curated portal connecting users to trusted climate and agricultural data. It does not replace existing platforms.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Datasets</h4>
+        <a href="#">African Agriculture Adaptation Atlas</a>
+        <a href="#">Gardian</a>
+        <a href="#">MapSPAM</a>
+        <a href="#">CGSpace</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="#tools">Ask the Hub</a>
+        <a href="#tools">Flyer Builder</a>
+        <a href="#">STAC Catalogue</a>
+        <a href="#">API Access</a>
+      </div>
+      <div class="footer-col">
+        <h4>Organisation</h4>
+        <a href="#">About CGIAR</a>
+        <a href="#">Data policy</a>
+        <a href="#">Contact</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CGIAR. Content licensed under <a href="#" style="color:rgba(255,255,255,.7)">CC BY 4.0</a> unless stated otherwise. Attribution required on all datasets.</span>
+      <span>British English · v0.1 prototype · Not for public release</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FEEDBACK FAB -->
+<button id="feedbackFab" class="feedback-fab" type="button" aria-haspopup="dialog" aria-controls="feedbackModal">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  Give feedback
+</button>
+
+<div id="feedbackModal" class="feedback-modal-bg" role="dialog" aria-modal="true" aria-labelledby="fbTitle">
+  <form id="fbForm" class="feedback-modal" novalidate>
+    <h3 id="fbTitle">Share feedback on this prototype</h3>
+    <p>Your comment will open a pre-filled email so you can send it to the Hub team. Nothing leaves your browser until you press send.</p>
+    <label for="fbName">Your name (optional)</label>
+    <input id="fbName" type="text" autocomplete="name" placeholder="e.g. Aïsha Diop">
+    <label for="fbRole">Your role</label>
+    <select id="fbRole">
+      <option>Climate Finance Author</option>
+      <option>Scientist / Modeller</option>
+      <option>Policymaker</option>
+      <option>Public / Media</option>
+      <option>CGIAR colleague</option>
+      <option>Other</option>
+    </select>
+    <label for="fbSection">Section this relates to</label>
+    <select id="fbSection">
+      <option>General impression</option>
+      <option>Header and navigation</option>
+      <option>Hero and persona router</option>
+      <option>Featured datasets</option>
+      <option>Ask the Hub</option>
+      <option>Flyer Builder</option>
+      <option>News and events</option>
+      <option>Catalogue</option>
+      <option>FAQ</option>
+      <option>Footer</option>
+    </select>
+    <label for="fbMessage">Comment</label>
+    <textarea id="fbMessage" placeholder="What works, what doesn't, what's missing…"></textarea>
+    <div class="feedback-actions">
+      <button id="fbClose" class="btn-secondary" type="button">Cancel</button>
+      <button class="btn-primary" type="submit">Send feedback</button>
+    </div>
+  </form>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
