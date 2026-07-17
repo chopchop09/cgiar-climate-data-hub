@@ -5,35 +5,108 @@
 (function () {
   'use strict';
 
-  /* ---------- Persona switcher ---------- */
-  const personas = {
-    finance: {
-      title: 'Find climate evidence for your GCF proposal',
-      desc:  "Access country risk data, adaptation evidence and CGIAR-reviewed citations. Build a shareable brief in minutes, powered by the world's largest agricultural research network.",
-      icon:  '💼', name: 'Climate Finance Author', sub: 'GCF, Adaptation Fund, bilateral donors',
+  /* ---------- Use-case switcher ----------
+   * Mirrors the CDH use-case portfolio:
+   * https://cgiar-climate-data-hub.github.io/use-cases/
+   */
+  const UC_BASE = 'https://cgiar-climate-data-hub.github.io/use-cases/use-cases/';
+
+  const useCases = {
+    all: {
+      title: 'Trusted climate data for every CGIAR use case',
+      desc:  'The Climate Data Hub curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Choose a use case above, or search across everything.',
+      icon:  '🗂️', name: 'All use cases', sub: 'CGIAR Climate Data Hub use-case portfolio',
+      meta:  [{ cls: 'st-active', label: '3 in active development' }, { cls: 'st-idea', label: '4 ideas' }],
       tags:  ['GCF climate rationale', 'Adaptation options Kenya', 'Rainfall trends Sahel', 'Drought risk East Africa'],
-      links: ['📊 Country climate risk summary', '📄 Build a country brief (Flyer Builder)', '💬 Ask the Hub for evidence and citations']
+      links: [
+        { icon: '🗂️', label: 'View the use-case portfolio', href: 'https://cgiar-climate-data-hub.github.io/use-cases/', external: true },
+        { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+      ]
     },
-    scientist: {
-      title: 'Explore geospatial data, APIs and STAC catalogues',
-      desc:  'Fast discovery of model outputs, gridded datasets and machine-readable catalogues. STAC-aligned metadata, API access and direct download where available.',
-      icon:  '🔬', name: 'Scientist / Modeller', sub: 'CGIAR centres, universities, research institutes',
-      tags:  ['STAC catalogue Africa', 'MapSPAM API', 'AgWise geospatial layer', 'Climate model outputs'],
-      links: ['🗂️ Browse STAC catalogue', '⚙️ API endpoints and documentation', '🗺️ Geospatial layer explorer']
+    gcf: {
+      title: 'Build the climate rationale for your GCF proposal',
+      desc:  'A Climate Rationale notebook auto-generating evidence-based climate risk narratives, hazard-exposure tables and statistical summaries for Green Climate Fund proposal writers.',
+      icon:  '💼', name: 'GCF Preparation Facility', sub: 'Climate Data & Innovations Hub (CACC2) · AoW5-Finance',
+      meta:  [{ cls: 'st-active', label: 'Active development' }, { cls: 'st-champ', label: 'Champion: Cesare Scartozzi' }],
+      tags:  ['GCF climate rationale', 'Hazard-exposure tables', 'Climate trends and projections', 'Extreme events'],
+      links: [
+        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'gcf-preparation-facility/', external: true },
+        { icon: '🔎', label: 'Data, skills and notebook review', href: 'https://cgiar-climate-data-hub.github.io/use-cases/gcf-preparation-facility/gcf-prep-review.html', external: true },
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+      ]
     },
-    policy: {
-      title: 'National climate insights for decision-makers',
-      desc:  'Digestible summaries of climate risks, adaptation priorities and NAP-relevant data. One-page ministerial briefs available for most countries.',
-      icon:  '🏛️', name: 'Policymaker / Negotiator', sub: 'Ministries, UNFCCC delegations, regional bodies',
-      tags:  ['NAP data Ethiopia', 'National climate risk profiles', 'Adaptation priorities Sahel', 'UNFCCC NDC evidence'],
-      links: ['🌍 National climate dashboards', '📋 One-page ministerial briefs', '📑 NAP-aligned datasets']
+    b4t: {
+      title: 'A defensible crop risk index for breeding decisions',
+      desc:  'Clarifying, auditing and updating the Breeding for Tomorrow Climate and Environmental Crop Risk Index so its hazard inputs, scoring logic and prioritisation role are methodologically defensible and use current climate data where feasible.',
+      icon:  '🌾', name: 'B4T Crop Risk Index (CRI)', sub: 'Breeding for Tomorrow',
+      meta:  [{ cls: 'st-active', label: 'Active development' }, { cls: 'st-champ', label: 'Champion: Bert Lenaerts (IRRI)' }],
+      tags:  ['Crop risk index', 'Hazard inputs', 'Breeding prioritisation', 'Climate data audit'],
+      links: [
+        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'b4t/', external: true },
+        { icon: '🔎', label: 'CRI review: data and methods', href: 'https://cgiar-climate-data-hub.github.io/use-cases/b4t/cri-review.html', external: true },
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+      ]
     },
-    public: {
-      title: 'Climate facts, explained in plain English',
-      desc:  'Ask any question and get a clear, sourced answer. No technical knowledge required: the Hub guides you to the right information.',
-      icon:  '📰', name: 'Public / Media', sub: 'Journalists, civil society, interested public',
-      tags:  ['What is climate change?', 'Food and climate', 'Africa drought explained', 'Ask me anything'],
-      links: ['💬 Ask the Hub (Q&A)', '📖 Plain-language explainers', '📷 Shareable infographics']
+    agwise: {
+      title: 'Climate data for process-based crop modelling',
+      desc:  'Integrating historical and forecast climate data into the AgWise fertilisation module to support process-based crop model simulations and decision support tools across Africa.',
+      icon:  '🌱', name: 'AgWise Climate Data Integration', sub: 'Sustainable Farming (SFP) · AoW2-Adapt',
+      meta:  [{ cls: 'st-active', label: 'Active development' }],
+      tags:  ['AgWise fertilisation module', 'Seasonal climate forecasts', 'Process-based crop models', 'Decision support tools'],
+      links: [
+        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'agwise/', external: true },
+        { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+      ]
+    },
+    icleaned: {
+      title: 'Environmental data for livestock decision support',
+      desc:  'Exploring how Hub climate and environmental data can support iCLEANED, a decision support tool for assessing the environmental benefits and risks of livestock interventions.',
+      icon:  '🐄', name: 'iCLEANED Climate Data Support', sub: 'Sustainable Animal and Aquatic Foods (SAAF) · Climate Action',
+      meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Emmanuel Mwema (Alliance)' }],
+      tags:  ['Livestock interventions', 'Environmental benefits and risks', 'Water and feed data', 'Emissions intensity'],
+      links: [
+        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'icleaned/', external: true },
+        { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+      ]
+    },
+    meliaf: {
+      title: "Measuring CGIAR's adaptation potential and benefits",
+      desc:  "Exploring how Hub climate data, intermediate products and methodological expertise can support the MELIAF Climate Adaptation Activator to measure and track CGIAR's adaptation potential and benefits.",
+      icon:  '📈', name: 'MELIAF Adaptation Activator', sub: 'Climate Action',
+      meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Andreea Nowak (Alliance)' }],
+      tags:  ['Adaptation tracking', 'Adaptation metrics', 'Intermediate climate products', 'MEL frameworks'],
+      links: [
+        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'meliaf/', external: true },
+        { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+      ]
+    },
+    mfl: {
+      title: 'Climate data for multifunctional landscapes',
+      desc:  'Exploring how Hub climate data can support the Multifunctional Landscapes Science Programme, with a focus on digital twins, geospatial intelligence frameworks, and MRV and adaptation tracking.',
+      icon:  '🏞️', name: 'MFL Climate Data', sub: 'Multifunctional Landscapes (MFL)',
+      meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Chris Kettle' }],
+      tags:  ['Digital twins', 'Geospatial intelligence', 'MRV', 'Adaptation tracking'],
+      links: [
+        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'mfl/', external: true },
+        { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+      ]
+    },
+    tier2: {
+      title: 'Uncertainty estimates for livestock GHG inventories',
+      desc:  'Exploring opportunities to apply a CGIAR emissions uncertainty calculator, developed for the Global Methane Hub, to greenhouse gas inventories for livestock systems in Colombia and Nigeria.',
+      icon:  '🧮', name: 'Tier 2 Livestock Uncertainty', sub: 'Climate Action',
+      meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Ciniro Costa Junior (Alliance)' }],
+      tags:  ['Tier 2 GHG inventories', 'Emissions uncertainty', 'Livestock systems', 'Colombia and Nigeria'],
+      links: [
+        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'tier2-livestock-uncertainty/', external: true },
+        { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+      ]
     }
   };
 
@@ -43,22 +116,26 @@
       .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
   }
 
-  function switchPersona(btn, key) {
-    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  function switchUseCase(btn, key) {
+    document.querySelectorAll('.persona-pills .pill').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
-    const p = personas[key];
-    if (!p) return;
-    document.getElementById('heroTitle').textContent = p.title;
-    document.getElementById('heroDesc').textContent  = p.desc;
-    document.getElementById('pcIcon').textContent    = p.icon;
-    document.getElementById('pcName').textContent    = p.name;
-    document.getElementById('pcSub').textContent     = p.sub;
+    const u = useCases[key];
+    if (!u) return;
+    document.getElementById('heroTitle').textContent = u.title;
+    document.getElementById('heroDesc').textContent  = u.desc;
+    document.getElementById('pcIcon').textContent    = u.icon;
+    document.getElementById('pcName').textContent    = u.name;
+    document.getElementById('pcSub').textContent     = u.sub;
 
-    document.getElementById('pcLinks').innerHTML = p.links.map(l =>
-      `<a href="#" class="pc-link">${escapeHtml(l)} <span class="pc-link-arrow">→</span></a>`
+    document.getElementById('pcMeta').innerHTML = (u.meta || []).map(m =>
+      `<span class="pc-status ${escapeHtml(m.cls)}">${escapeHtml(m.label)}</span>`
     ).join('');
 
-    document.getElementById('heroTags').innerHTML = p.tags.map(t =>
+    document.getElementById('pcLinks').innerHTML = u.links.map(l =>
+      `<a href="${escapeHtml(l.href)}" class="pc-link"${l.external ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(l.icon + ' ' + l.label)} <span class="pc-link-arrow">→</span></a>`
+    ).join('');
+
+    document.getElementById('heroTags').innerHTML = u.tags.map(t =>
       `<span class="hero-tag" data-tag>${escapeHtml(t)}</span>`
     ).join('');
     bindHeroTags();
@@ -179,9 +256,9 @@
 
   /* ---------- Wire everything up on DOM ready ---------- */
   document.addEventListener('DOMContentLoaded', () => {
-    // Persona pills
+    // Use-case pills
     document.querySelectorAll('.persona-pills .pill').forEach(btn => {
-      btn.addEventListener('click', () => switchPersona(btn, btn.dataset.persona));
+      btn.addEventListener('click', () => switchUseCase(btn, btn.dataset.usecase));
     });
 
     // Hero tag clicks (initial set)

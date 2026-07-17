@@ -40,17 +40,21 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="persona-pills">
-      <span class="persona-label">I am a</span>
-      <button class="pill active" type="button" data-persona="finance">Climate Finance Author</button>
-      <button class="pill"        type="button" data-persona="scientist">Scientist / Modeller</button>
-      <button class="pill"        type="button" data-persona="policy">Policymaker</button>
-      <button class="pill"        type="button" data-persona="public">Public / Media</button>
+      <span class="persona-label">I'm working on</span>
+      <button class="pill active" type="button" data-usecase="all">All use cases</button>
+      <button class="pill"        type="button" data-usecase="gcf">GCF Preparation Facility</button>
+      <button class="pill"        type="button" data-usecase="b4t">B4T Crop Risk Index</button>
+      <button class="pill"        type="button" data-usecase="agwise">AgWise Crop Modelling</button>
+      <button class="pill"        type="button" data-usecase="icleaned">iCLEANED Livestock</button>
+      <button class="pill"        type="button" data-usecase="meliaf">MELIAF Adaptation</button>
+      <button class="pill"        type="button" data-usecase="mfl">MFL Landscapes</button>
+      <button class="pill"        type="button" data-usecase="tier2">Tier 2 Livestock Uncertainty</button>
     </div>
 
     <div class="hero-body">
       <div class="hero-left">
-        <h1 id="heroTitle">Find climate evidence for your GCF proposal</h1>
-        <p id="heroDesc">Access country risk data, adaptation evidence and CGIAR-reviewed citations. Build a shareable brief in minutes, powered by the world's largest agricultural research network.</p>
+        <h1 id="heroTitle">Trusted climate data for every CGIAR use case</h1>
+        <p id="heroDesc">The Climate Data Hub curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Choose a use case above, or search across everything.</p>
         <div class="hero-search-lg" role="search">
           <label for="heroInput" style="position:absolute;left:-9999px;">Search the Hub</label>
           <input id="heroInput" type="text" placeholder="e.g. drought risk in Ethiopia, rainfall trends West Africa…">
@@ -64,18 +68,22 @@
         </div>
       </div>
 
-      <aside class="persona-context" id="personaCtx" aria-label="Quick links for your role">
+      <aside class="persona-context" id="personaCtx" aria-label="Quick links for your use case">
         <div class="pc-header">
-          <div class="pc-badge" id="pcIcon" aria-hidden="true">💼</div>
+          <div class="pc-badge" id="pcIcon" aria-hidden="true">🗂️</div>
           <div>
-            <div class="pc-name" id="pcName">Climate Finance Author</div>
-            <div class="pc-sub" id="pcSub">GCF, Adaptation Fund, bilateral donors</div>
+            <div class="pc-name" id="pcName">All use cases</div>
+            <div class="pc-sub" id="pcSub">CGIAR Climate Data Hub use-case portfolio</div>
           </div>
         </div>
+        <div class="pc-meta" id="pcMeta">
+          <span class="pc-status st-active">3 in active development</span>
+          <span class="pc-status st-idea">4 ideas</span>
+        </div>
         <div class="pc-links" id="pcLinks">
-          <a href="#" class="pc-link">📊 Country climate risk summary <span class="pc-link-arrow">→</span></a>
-          <a href="#" class="pc-link">📄 Build a country brief (Flyer Builder) <span class="pc-link-arrow">→</span></a>
-          <a href="#" class="pc-link">💬 Ask the Hub for evidence and citations <span class="pc-link-arrow">→</span></a>
+          <a href="https://cgiar-climate-data-hub.github.io/use-cases/" class="pc-link" target="_blank" rel="noopener">🗂️ View the use-case portfolio <span class="pc-link-arrow">→</span></a>
+          <a href="#datasets" class="pc-link">📊 Browse featured datasets <span class="pc-link-arrow">→</span></a>
+          <a href="#tools" class="pc-link">💬 Ask the Hub for evidence and citations <span class="pc-link-arrow">→</span></a>
         </div>
       </aside>
     </div>
@@ -441,6 +449,7 @@
       <option>Scientist / Modeller</option>
       <option>Policymaker</option>
       <option>Public / Media</option>
+      <option>Use-case champion / team</option>
       <option>CGIAR colleague</option>
       <option>Other</option>
     </select>
@@ -448,7 +457,7 @@
     <select id="fbSection">
       <option>General impression</option>
       <option>Header and navigation</option>
-      <option>Hero and persona router</option>
+      <option>Hero and use-case selector</option>
       <option>Featured datasets</option>
       <option>Ask the Hub</option>
       <option>Flyer Builder</option>
