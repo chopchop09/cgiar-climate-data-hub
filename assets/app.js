@@ -10,6 +10,8 @@
    * https://cgiar-climate-data-hub.github.io/use-cases/
    */
   const UC_BASE = 'https://cgiar-climate-data-hub.github.io/use-cases/use-cases/';
+  // Sample use-case briefs served from this site.
+  const BRIEF = 'assets/briefs/';
 
   const useCases = {
     all: {
@@ -31,7 +33,7 @@
       meta:  [{ cls: 'st-active', label: 'Active development' }, { cls: 'st-champ', label: 'Champion: Cesare Scartozzi' }],
       tags:  ['GCF climate rationale', 'Hazard-exposure tables', 'Climate trends and projections', 'Extreme events'],
       links: [
-        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'gcf-preparation-facility/', external: true },
+        { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'gcf-preparation-facility-brief.pdf', external: true },
         { icon: '🔎', label: 'Data, skills and notebook review', href: 'https://cgiar-climate-data-hub.github.io/use-cases/gcf-preparation-facility/gcf-prep-review.html', external: true },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
@@ -43,7 +45,7 @@
       meta:  [{ cls: 'st-active', label: 'Active development' }, { cls: 'st-champ', label: 'Champion: Bert Lenaerts (IRRI)' }],
       tags:  ['Crop risk index', 'Hazard inputs', 'Breeding prioritisation', 'Climate data audit'],
       links: [
-        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'b4t/', external: true },
+        { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'b4t-crop-risk-index-brief.pdf', external: true },
         { icon: '🔎', label: 'CRI review: data and methods', href: 'https://cgiar-climate-data-hub.github.io/use-cases/b4t/cri-review.html', external: true },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
@@ -55,7 +57,7 @@
       meta:  [{ cls: 'st-active', label: 'Active development' }],
       tags:  ['AgWise fertilisation module', 'Seasonal climate forecasts', 'Process-based crop models', 'Decision support tools'],
       links: [
-        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'agwise/', external: true },
+        { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'agwise-climate-data-integration-brief.pdf', external: true },
         { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
@@ -67,7 +69,7 @@
       meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Emmanuel Mwema (Alliance)' }],
       tags:  ['Livestock interventions', 'Environmental benefits and risks', 'Water and feed data', 'Emissions intensity'],
       links: [
-        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'icleaned/', external: true },
+        { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'icleaned-climate-data-support-brief.pdf', external: true },
         { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
@@ -79,7 +81,7 @@
       meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Andreea Nowak (Alliance)' }],
       tags:  ['Adaptation tracking', 'Adaptation metrics', 'Intermediate climate products', 'MEL frameworks'],
       links: [
-        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'meliaf/', external: true },
+        { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'meliaf-adaptation-activator-brief.pdf', external: true },
         { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
@@ -91,7 +93,7 @@
       meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Chris Kettle' }],
       tags:  ['Digital twins', 'Geospatial intelligence', 'MRV', 'Adaptation tracking'],
       links: [
-        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'mfl/', external: true },
+        { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'mfl-climate-data-brief.pdf', external: true },
         { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
@@ -103,7 +105,7 @@
       meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Ciniro Costa Junior (Alliance)' }],
       tags:  ['Tier 2 GHG inventories', 'Emissions uncertainty', 'Livestock systems', 'Colombia and Nigeria'],
       links: [
-        { icon: '📄', label: 'View the use-case brief', href: UC_BASE + 'tier2-livestock-uncertainty/', external: true },
+        { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'tier2-livestock-uncertainty-brief.pdf', external: true },
         { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
@@ -148,15 +150,241 @@
   }
 
   function setSearch(el) {
-    document.getElementById('heroInput').value = el.textContent;
+    const input = document.getElementById('heroInput');
+    input.value = el.textContent;
+    activeInput = input;
+    input.focus();
+    renderPanel(input.value);
+  }
+
+  /* ---------- Site search (real, client-side) ----------
+   * Indexes what is actually on the page: use cases, dataset cards, linked
+   * platforms, news and events, and FAQ entries. No network calls.
+   */
+  let searchIndex = null;
+  let panel = null;
+  let activeInput = null;
+  let results = [];
+  let cursor = -1;
+
+  function buildIndex() {
+    const idx = [];
+
+    Object.keys(useCases).forEach(key => {
+      if (key === 'all') return;
+      const u = useCases[key];
+      idx.push({
+        title: u.name,
+        meta: 'Use case · ' + u.sub,
+        text: [u.title, u.desc, (u.tags || []).join(' ')].join(' '),
+        kind: 'Use case',
+        ucKey: key
+      });
+    });
+
+    document.querySelectorAll('.dataset-card').forEach(card => {
+      const t = card.querySelector('.ds-name');
+      const d = card.querySelector('.ds-desc');
+      const s = card.querySelector('.ds-source');
+      const a = card.querySelector('.ds-btn');
+      if (!t) return;
+      idx.push({
+        title: t.textContent.trim(),
+        meta: 'Dataset · ' + (s ? s.textContent.trim() : ''),
+        text: d ? d.textContent : '',
+        kind: 'Dataset',
+        href: a ? a.getAttribute('href') : null,
+        external: true
+      });
+    });
+
+    document.querySelectorAll('.source-pill').forEach(p => {
+      const t = p.querySelector('.sp-name');
+      const g = p.querySelector('.sp-tag');
+      if (!t) return;
+      idx.push({
+        title: t.textContent.trim(),
+        meta: 'Platform · ' + (g ? g.textContent.trim() : ''),
+        text: g ? g.textContent : '',
+        kind: 'Platform',
+        href: p.getAttribute('href'),
+        external: true
+      });
+    });
+
+    document.querySelectorAll('.news-item').forEach(n => {
+      const t = n.querySelector('.news-title');
+      const s = n.querySelector('.news-source');
+      const dt = n.querySelector('.news-date');
+      const b = n.querySelector('.news-badge');
+      const a = n.querySelector('.news-cta');
+      if (!t) return;
+      idx.push({
+        title: t.textContent.trim(),
+        meta: (b ? b.textContent.trim() + ' · ' : '') + (s ? s.textContent.trim() : ''),
+        text: (dt ? dt.textContent : '') + ' ' + (s ? s.textContent : ''),
+        kind: b ? b.textContent.trim() : 'News',
+        href: a ? a.getAttribute('href') : null,
+        external: true
+      });
+    });
+
+    document.querySelectorAll('.faq-item').forEach(f => {
+      const q = f.querySelector('.faq-q');
+      const a = f.querySelector('.faq-a');
+      if (!q) return;
+      idx.push({
+        title: q.textContent.replace(/\+\s*$/, '').trim(),
+        meta: 'Help',
+        text: a ? a.textContent : '',
+        kind: 'FAQ',
+        el: f
+      });
+    });
+
+    return idx;
+  }
+
+  function runSearch(q) {
+    if (!searchIndex) searchIndex = buildIndex();
+    const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
+    if (!tokens.length) return [];
+    const scored = [];
+    searchIndex.forEach(item => {
+      const title = item.title.toLowerCase();
+      const meta = (item.meta || '').toLowerCase();
+      const text = (item.text || '').toLowerCase();
+      let score = 0;
+      const hitAll = tokens.every(tk => {
+        let s = 0;
+        if (title.indexOf(tk) !== -1) s += 6;
+        if (meta.indexOf(tk) !== -1) s += 2;
+        if (text.indexOf(tk) !== -1) s += 1;
+        if (s && title.indexOf(tk) === 0) s += 3;
+        score += s;
+        return s > 0;
+      });
+      if (hitAll) scored.push({ item: item, score: score });
+    });
+    scored.sort((a, b) => b.score - a.score);
+    return scored.slice(0, 8).map(s => s.item);
+  }
+
+  function ensurePanel() {
+    if (panel) return panel;
+    panel = document.createElement('div');
+    panel.className = 'search-panel';
+    panel.setAttribute('role', 'listbox');
+    document.body.appendChild(panel);
+    return panel;
+  }
+
+  function positionPanel(input) {
+    const r = input.getBoundingClientRect();
+    const width = Math.max(r.width, 340);
+    let left = r.left + window.scrollX;
+    const maxLeft = window.scrollX + document.documentElement.clientWidth - width - 12;
+    if (left > maxLeft) left = Math.max(window.scrollX + 12, maxLeft);
+    panel.style.left = left + 'px';
+    panel.style.top = (r.bottom + window.scrollY + 6) + 'px';
+    panel.style.width = width + 'px';
+  }
+
+  function closePanel() {
+    if (panel) panel.classList.remove('visible');
+    cursor = -1;
+  }
+
+  function renderPanel(q) {
+    ensurePanel();
+    results = runSearch(q);
+    cursor = -1;
+    if (!q.trim()) { closePanel(); return; }
+    if (!results.length) {
+      panel.innerHTML = '<div class="sp-empty">No matches for &ldquo;' + escapeHtml(q) +
+        '&rdquo;. Try a dataset, country, platform or use case.</div>';
+    } else {
+      panel.innerHTML = results.map((r, i) =>
+        '<button class="sp-item" type="button" role="option" data-i="' + i + '">' +
+          '<span class="sp-kind">' + escapeHtml(r.kind) + '</span>' +
+          '<span class="sp-body">' +
+            '<span class="sp-title">' + escapeHtml(r.title) + '</span>' +
+            '<span class="sp-meta">' + escapeHtml(r.meta || '') + '</span>' +
+          '</span>' +
+          (r.external ? '<span class="sp-ext" aria-hidden="true">↗</span>' : '') +
+        '</button>'
+      ).join('');
+      panel.querySelectorAll('.sp-item').forEach(btn => {
+        btn.addEventListener('mousedown', e => {
+          e.preventDefault();
+          go(results[parseInt(btn.dataset.i, 10)]);
+        });
+      });
+    }
+    positionPanel(activeInput);
+    panel.classList.add('visible');
+  }
+
+  function moveCursor(delta) {
+    if (!panel || !panel.classList.contains('visible') || !results.length) return;
+    const items = panel.querySelectorAll('.sp-item');
+    cursor += delta;
+    if (cursor < 0) cursor = items.length - 1;
+    if (cursor >= items.length) cursor = 0;
+    items.forEach((el, i) => el.classList.toggle('active', i === cursor));
+    if (items[cursor]) items[cursor].scrollIntoView({ block: 'nearest' });
+  }
+
+  function go(item) {
+    if (!item) return;
+    closePanel();
+    if (item.ucKey) {
+      const pill = document.querySelector('.persona-pills .pill[data-usecase="' + item.ucKey + '"]');
+      if (pill) { switchUseCase(pill, item.ucKey); pill.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      return;
+    }
+    if (item.el) {
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      item.el.classList.add('open');
+      item.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    if (!item.href || item.href === '#') return;
+    if (item.href.charAt(0) === '#') {
+      const t = document.querySelector(item.href);
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    window.open(item.href, '_blank', 'noopener');
   }
 
   function doSearch() {
-    const q = (document.getElementById('heroInput').value || '').trim();
-    if (q) {
-      document.getElementById('askInput').value = q;
-      document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
-    }
+    const q = (activeInput && activeInput.value ? activeInput.value : '').trim() ||
+              (document.getElementById('heroInput').value || '').trim();
+    if (!q) return;
+    const r = runSearch(q);
+    if (r.length) { go(r[0]); return; }
+    // Nothing indexed matches: fall back to Ask the Hub with the query.
+    document.getElementById('askInput').value = q;
+    document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function wireSearchInput(input) {
+    if (!input) return;
+    input.addEventListener('focus', () => { activeInput = input; });
+    input.addEventListener('input', () => { activeInput = input; renderPanel(input.value); });
+    input.addEventListener('keydown', e => {
+      activeInput = input;
+      if (e.key === 'ArrowDown') { e.preventDefault(); moveCursor(1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); moveCursor(-1); }
+      else if (e.key === 'Escape') { closePanel(); }
+      else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (cursor >= 0 && results[cursor]) go(results[cursor]);
+        else doSearch();
+      }
+    });
+    input.addEventListener('blur', () => { setTimeout(closePanel, 120); });
   }
 
   function jumpToAsk() {
@@ -268,11 +496,17 @@
     const askBtn = document.getElementById('headerAskBtn');
     if (askBtn) askBtn.addEventListener('click', jumpToAsk);
 
-    // Hero search
-    const heroSearchBtn = document.getElementById('heroSearchBtn');
-    if (heroSearchBtn) heroSearchBtn.addEventListener('click', doSearch);
+    // Search: hero and header, both backed by the real index
     const heroInput = document.getElementById('heroInput');
-    if (heroInput) heroInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+    const headerInput = document.getElementById('headerSearch');
+    wireSearchInput(heroInput);
+    wireSearchInput(headerInput);
+    const heroSearchBtn = document.getElementById('heroSearchBtn');
+    if (heroSearchBtn) heroSearchBtn.addEventListener('click', () => {
+      activeInput = heroInput; doSearch();
+    });
+    window.addEventListener('resize', () => { if (activeInput) closePanel(); });
+    window.addEventListener('scroll', () => { if (activeInput) closePanel(); }, { passive: true });
 
     // News tabs
     document.querySelectorAll('.news-tab').forEach(btn => {
