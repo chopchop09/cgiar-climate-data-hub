@@ -404,7 +404,7 @@
   const mockAnswers = {
     default: {
       text: 'Kenya faces increasing drought frequency, declining and erratic rainfall, and rising temperatures that threaten maize and bean production. The Arid and Semi-Arid Lands (ASALs), covering over 80% of the country, are particularly at risk. CGIAR evidence points to drought-tolerant variety adoption and index-based insurance as cost-effective adaptation options with strong evidence bases.',
-      cite: 'Sources: African Agriculture Adaptation Atlas (CGIAR, 2023), IWMI Drought Monitor, Climate Security Observatory, CGSpace (2024).'
+      cite: 'Illustrative sources: African Agriculture Adaptation Atlas (CGIAR), Climate Security Observatory (CGIAR), CGSpace (CGIAR).'
     }
   };
 
@@ -417,11 +417,12 @@
     const q = (document.getElementById('askInput').value || '').trim();
     if (!q) return;
     const el = document.getElementById('askResponse');
-    el.innerHTML = '<em style="color:var(--text-3)">Searching CGIAR sources…</em>';
+    el.innerHTML = '<em style="color:var(--text-3)">Preparing the sample answer…</em>';
     el.classList.add('visible');
     setTimeout(() => {
       const a = mockAnswers.default;
-      el.innerHTML = '<p>' + escapeHtml(a.text) + '</p><p class="cite">📚 ' + escapeHtml(a.cite) + '</p>';
+      el.innerHTML = '<p class="ask-demo">Demonstration answer, not a live retrieval. The same sample response is returned for every question.</p>' +
+        '<p>' + escapeHtml(a.text) + '</p><p class="cite">📚 ' + escapeHtml(a.cite) + '</p>';
     }, 800);
   }
 
@@ -439,7 +440,7 @@
     btn.textContent = 'Generating…';
     btn.disabled = true;
     setTimeout(() => {
-      btn.textContent = '✓ Draft ready for review';
+      btn.textContent = '✓ Demonstration only, no file created';
       btn.style.background = 'var(--green-800)';
       setTimeout(() => {
         btn.textContent = original;
