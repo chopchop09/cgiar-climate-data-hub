@@ -1,4 +1,4 @@
-/* CGIAR Climate Data Hub - in-page review comments
+/* CGIAR Climate Commons - in-page review comments
  *
  * A ruttl-style annotation layer, self-contained: no accounts, no backend, no
  * third-party script. A reviewer turns on Comment mode, clicks anywhere on the
@@ -6,7 +6,7 @@
  * so it survives reflow and returns to the right place on reload.
  *
  * Comments live in this browser's localStorage. They are private to the
- * reviewer until they choose to send them, which is deliberate: the Hub has no
+ * reviewer until they choose to send them, which is deliberate: the Commons has no
  * server, so nothing is transmitted silently. "Send all" composes an email and
  * always shows the text with a copy button, so a comment cannot be lost when a
  * machine has no mail client registered.
@@ -248,7 +248,7 @@
 
   /* ---------------- export ---------------- */
   function asPlainText() {
-    var lines = ['Climate Data Hub review comments',
+    var lines = ['CGIAR Climate Commons review comments',
                  'Page: ' + location.href,
                  'Sent: ' + new Date().toLocaleString('en-GB'),
                  'Comments: ' + state.comments.length, ''];
@@ -263,7 +263,7 @@
   function sendAll() {
     if (!state.comments.length) return;
     var plain = asPlainText();
-    var subject = encodeURIComponent('Climate Data Hub - ' + state.comments.length + ' review comment' +
+    var subject = encodeURIComponent('CGIAR Climate Commons - ' + state.comments.length + ' review comment' +
                                      (state.comments.length === 1 ? '' : 's'));
     window.location.href = 'mailto:' + EMAIL + '?subject=' + subject + '&body=' + encodeURIComponent(plain);
     els.exportBox.style.display = 'block';

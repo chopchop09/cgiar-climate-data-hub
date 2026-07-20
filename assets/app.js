@@ -1,4 +1,4 @@
-/* CGIAR Climate Data Hub - Variant B: Medium
+/* CGIAR Climate Commons - Variant B: Medium
  * Front-end interactions
  */
 
@@ -14,8 +14,8 @@
   const useCases = {
     all: {
       title: 'Trusted climate data for every CGIAR use case',
-      desc:  'The Climate Data Hub curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Choose a use case above, or search across everything.',
-      icon:  '🗂️', name: 'All use cases', sub: 'CGIAR Climate Data Hub use-case portfolio',
+      desc:  'The Climate Commons curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Choose a use case above, or search across everything.',
+      icon:  '🗂️', name: 'All use cases', sub: 'CGIAR Climate Commons use-case portfolio',
       meta:  [{ cls: 'st-active', label: '3 in active development' }, { cls: 'st-idea', label: '4 ideas' }],
       tags:  ['GCF climate rationale', 'Adaptation options Kenya', 'Rainfall trends Sahel', 'Drought risk East Africa'],
       links: [
@@ -63,7 +63,7 @@
     },
     icleaned: {
       title: 'Environmental data for livestock decision support',
-      desc:  'Exploring how Hub climate and environmental data can support iCLEANED, a decision support tool for assessing the environmental benefits and risks of livestock interventions.',
+      desc:  'Exploring how Commons climate and environmental data can support iCLEANED, a decision support tool for assessing the environmental benefits and risks of livestock interventions.',
       icon:  '🐄', name: 'iCLEANED Climate Data Support', sub: 'Sustainable Animal and Aquatic Foods (SAAF) · Climate Action',
       meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Emmanuel Mwema (Alliance)' }],
       tags:  ['Livestock interventions', 'Environmental benefits and risks', 'Water and feed data', 'Emissions intensity'],
@@ -75,7 +75,7 @@
     },
     meliaf: {
       title: "Measuring CGIAR's adaptation potential and benefits",
-      desc:  "Exploring how Hub climate data, intermediate products and methodological expertise can support the MELIAF Climate Adaptation Activator to measure and track CGIAR's adaptation potential and benefits.",
+      desc:  "Exploring how Commons climate data, intermediate products and methodological expertise can support the MELIAF Climate Adaptation Activator to measure and track CGIAR's adaptation potential and benefits.",
       icon:  '📈', name: 'MELIAF Adaptation Activator', sub: 'Climate Action',
       meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Andreea Nowak (Alliance)' }],
       tags:  ['Adaptation tracking', 'Adaptation metrics', 'Intermediate climate products', 'MEL frameworks'],
@@ -87,7 +87,7 @@
     },
     mfl: {
       title: 'Climate data for multifunctional landscapes',
-      desc:  'Exploring how Hub climate data can support the Multifunctional Landscapes Science Programme, with a focus on digital twins, geospatial intelligence frameworks, and MRV and adaptation tracking.',
+      desc:  'Exploring how Commons climate data can support the Multifunctional Landscapes Science Programme, with a focus on digital twins, geospatial intelligence frameworks, and MRV and adaptation tracking.',
       icon:  '🏞️', name: 'MFL Climate Data', sub: 'Multifunctional Landscapes (MFL)',
       meta:  [{ cls: 'st-idea', label: 'Idea' }, { cls: 'st-champ', label: 'Champion: Chris Kettle' }],
       tags:  ['Digital twins', 'Geospatial intelligence', 'MRV', 'Adaptation tracking'],
@@ -556,7 +556,7 @@
       alert('Please add a short comment before sending.');
       return false;
     }
-    const subject = encodeURIComponent('CGIAR Climate Data Hub - feedback from ' + name);
+    const subject = encodeURIComponent('CGIAR Climate Commons - feedback from ' + name);
     const body = encodeURIComponent(
       'Reviewer: ' + name + '\n' +
       'Role: ' + role + '\n' +
@@ -566,7 +566,7 @@
     );
     const plain =
       'To: ' + FEEDBACK_EMAIL + '\n' +
-      'Subject: CGIAR Climate Data Hub - feedback from ' + name + '\n\n' +
+      'Subject: CGIAR Climate Commons - feedback from ' + name + '\n\n' +
       'Reviewer: ' + name + '\n' +
       'Role: ' + role + '\n' +
       'Section: ' + section + '\n\n' +

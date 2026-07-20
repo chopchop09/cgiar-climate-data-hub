@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CGIAR Climate Data Hub: a curated portal connecting users to trusted climate and agricultural datasets, news, and tools.">
+<meta name="description" content="CGIAR Climate Commons: a curated portal connecting users to trusted climate and agricultural datasets, news, and tools.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="CGIAR Climate Data Hub">
-<meta property="og:title" content="CGIAR Climate Data Hub">
-<meta property="og:description" content="The CGIAR Climate Data Hub curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Prototype, shared for review.">
+<meta property="og:site_name" content="CGIAR Climate Commons">
+<meta property="og:title" content="CGIAR Climate Commons">
+<meta property="og:description" content="The CGIAR Climate Commons curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Prototype, shared for review.">
 <meta property="og:url" content="https://cgiar-climate-data-hub-lcyq.vercel.app/">
 <meta property="og:image" content="https://cgiar-climate-data-hub-lcyq.vercel.app/assets/social-preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="CGIAR Climate Data Hub, v0.2 prototype shared for review">
+<meta property="og:image:alt" content="CGIAR Climate Commons, v0.2 prototype shared for review">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CGIAR Climate Data Hub">
-<meta name="twitter:description" content="The CGIAR Climate Data Hub curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Prototype, shared for review.">
+<meta name="twitter:title" content="CGIAR Climate Commons">
+<meta name="twitter:description" content="The CGIAR Climate Commons curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Prototype, shared for review.">
 <meta name="twitter:image" content="https://cgiar-climate-data-hub-lcyq.vercel.app/assets/social-preview.png">
 <meta name="theme-color" content="#1B5E20">
-<title>CGIAR Climate Data Hub</title>
+<title>CGIAR Climate Commons</title>
 <link rel="icon" type="image/png" href="assets/cgiar-logo.png">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -55,6 +55,10 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
+    <div class="hub-banner">
+      <div class="hub-banner-text"><strong>Work with the data directly?</strong> The Data Hub is the technical layer of the Commons: a searchable dataset catalogue, runnable notebooks and documentation.</div>
+      <a class="hub-banner-btn" href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Open the Data Hub ↗</a>
+    </div>
     <div class="persona-pills">
       <span class="persona-label">I'm working on</span>
       <button class="pill active" type="button" data-usecase="all">All use cases</button>
@@ -70,9 +74,9 @@
     <div class="hero-body">
       <div class="hero-left">
         <h1 id="heroTitle">Trusted climate data for every CGIAR use case</h1>
-        <p id="heroDesc">The Climate Data Hub curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Choose a use case above, or search across everything.</p>
+        <p id="heroDesc">The Climate Commons curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Choose a use case above, or search across everything.</p>
         <div class="hero-search-lg" role="search">
-          <label for="heroInput" style="position:absolute;left:-9999px;">Search the Hub</label>
+          <label for="heroInput" style="position:absolute;left:-9999px;">Search the Commons</label>
           <input id="heroInput" type="text" placeholder="e.g. drought, MapSPAM, GCF, livestock…" role="combobox" aria-expanded="false" aria-controls="searchPanel" aria-autocomplete="list" autocomplete="off">
           <button id="heroSearchBtn" type="button">Search</button>
         </div>
@@ -89,7 +93,7 @@
           <div class="pc-badge" id="pcIcon" aria-hidden="true">🗂️</div>
           <div>
             <div class="pc-name" id="pcName">All use cases</div>
-            <div class="pc-sub" id="pcSub">CGIAR Climate Data Hub use-case portfolio</div>
+            <div class="pc-sub" id="pcSub">CGIAR Climate Commons use-case portfolio</div>
           </div>
         </div>
         <div class="pc-meta" id="pcMeta">
@@ -257,16 +261,16 @@
     <div>
       <div class="section-label" style="color:#BFD8BF">Go deeper</div>
       <h2>Working with the datasets directly?</h2>
-      <p>This Hub is the general entry point: what climate data exists across CGIAR, which use
+      <p>The Commons is the general entry point: what climate data exists across CGIAR, which use
       cases it serves, and where to find it. If you are a data scientist who needs the catalogue
-      itself, the technical Climate Data Hub is the layer below this one.</p>
+      itself, the Data Hub is the layer below this one, a subset of the Commons.</p>
       <ul class="tier-list">
         <li>A searchable dataset catalogue, consistently formatted and openly licensed</li>
         <li>Runnable tutorials and dataset documentation</li>
         <li>The full use-case portfolio, with champions, coordinators and action plans</li>
         <li>A contribution path for adding data or docs, and agent access for AI tooling</li>
       </ul>
-      <a class="tier-btn" href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Open the technical Climate Data Hub ↗</a>
+      <a class="tier-btn" href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Open the Data Hub ↗</a>
     </div>
   </div>
 </section>
@@ -399,16 +403,16 @@
 <!-- FAQ -->
 <section class="faq-section" id="about" style="scroll-margin-top:60px;">
   <div class="section">
-    <div class="section-header"><div><div class="section-label">Help</div><h2>Common questions about the Hub</h2></div></div>
+    <div class="section-header"><div><div class="section-label">Help</div><h2>Common questions about the Commons</h2></div></div>
     <div class="faq-cols">
       <div>
         <div class="faq-item">
-          <button class="faq-q" type="button">What is the CGIAR Climate Data Hub? <span class="faq-icon">+</span></button>
+          <button class="faq-q" type="button">What is the CGIAR Climate Commons? <span class="faq-icon">+</span></button>
           <div class="faq-a">A single portal that routes users to authoritative CGIAR and partner climate and agricultural datasets. It curates and links, it does not re-host or replace existing platforms.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button">Can I download data from the Hub? <span class="faq-icon">+</span></button>
-          <div class="faq-a">The Hub links to the original source platform for each dataset. Downloads, licences and access conditions are governed by each source. Attribution is visible on every dataset card.</div>
+          <button class="faq-q" type="button">Can I download data from the Commons? <span class="faq-icon">+</span></button>
+          <div class="faq-a">The Commons links to the original source platform for each dataset. Downloads, licences and access conditions are governed by each source. Attribution is visible on every dataset card.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">How do I use the Flyer Builder? <span class="faq-icon">+</span></button>
@@ -426,7 +430,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">How do I suggest a dataset for inclusion? <span class="faq-icon">+</span></button>
-          <div class="faq-a">Use the contact form or email the Hub team. Datasets are reviewed against CGIAR data quality standards before being added. Attribution and metadata completeness are required.</div>
+          <div class="faq-a">Use the contact form or email the Commons team. Datasets are reviewed against CGIAR data quality standards before being added. Attribution and metadata completeness are required.</div>
         </div>
       </div>
     </div>
@@ -439,7 +443,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="assets/cgiar-logo.png" alt="CGIAR Climate Action" height="48">
-        <p>The CGIAR Climate Data Hub is a curated portal connecting users to trusted climate and agricultural data. It does not replace existing platforms.</p>
+        <p>The CGIAR Climate Commons is a curated portal connecting users to trusted climate and agricultural data. It does not replace existing platforms.</p>
       </div>
       <div class="footer-col">
         <h4>Datasets</h4>
@@ -481,7 +485,7 @@
 <div id="feedbackModal" class="feedback-modal-bg" role="dialog" aria-modal="true" aria-labelledby="fbTitle">
   <form id="fbForm" class="feedback-modal" novalidate>
     <h3 id="fbTitle">Share feedback on this prototype</h3>
-    <p>Your comment will open a pre-filled email so you can send it to the Hub team. Nothing leaves your browser until you press send.</p>
+    <p>Your comment will open a pre-filled email so you can send it to the Commons team. Nothing leaves your browser until you press send.</p>
     <label for="fbName">Your name (optional)</label>
     <input id="fbName" type="text" autocomplete="name" placeholder="e.g. Aïsha Diop">
     <label for="fbRole">Your role</label>

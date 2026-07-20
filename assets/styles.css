@@ -1,4 +1,4 @@
-/* CGIAR Climate Data Hub - Variant B: Medium
+/* CGIAR Climate Commons - Variant B: Medium
  * Production stylesheet
  */
 
@@ -71,6 +71,24 @@ nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
   color: #fff; padding: 56px 24px 0;
 }
 .hero-inner { max-width: 1200px; margin: 0 auto; }
+
+/* HERO CALL-OUT BANNER (shortcut to the Data Hub) */
+.hub-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: var(--radius);
+  padding: 14px 20px; margin-bottom: 28px;
+}
+.hub-banner-text { color: #fff; font-size: .95rem; line-height: 1.5; max-width: 760px; }
+.hub-banner-text strong { font-weight: 700; }
+.hub-banner-btn {
+  background: var(--amber); color: #fff; text-decoration: none;
+  padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 700;
+  white-space: nowrap; font-family: var(--font); transition: background .15s;
+}
+.hub-banner-btn:hover { background: #A84E14; }
 
 .persona-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
 .persona-label {
