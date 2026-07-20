@@ -9,3 +9,6 @@ node_modules/
 npm-debug.log*
 .env
 .env.*
+
+# Superseded placeholder reviews: the real ones live on the technical Hub
+assets/briefs/review-*.pdf

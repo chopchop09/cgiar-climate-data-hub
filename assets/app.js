@@ -21,7 +21,8 @@
       links: [
         { icon: '🗂️', label: 'View the use-case portfolio', href: 'use-cases.html' },
         { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
-        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' },
+        { icon: '🛠️', label: 'Work with the datasets directly', href: 'https://cgiar-climate-data-hub.github.io/', external: true }
       ]
     },
     gcf: {
@@ -32,7 +33,7 @@
       tags:  ['GCF climate rationale', 'Hazard-exposure tables', 'Climate trends and projections', 'Extreme events'],
       links: [
         { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'gcf-preparation-facility-brief.pdf', external: true },
-        { icon: '🔎', label: 'Data and notebook review (PDF)', href: BRIEF + 'review-gcf-preparation-facility.pdf', external: true },
+        { icon: '🔎', label: 'Data, skills and notebook review', href: 'https://cgiar-climate-data-hub.github.io/use-cases/gcf-preparation-facility/gcf-prep-review.html', external: true },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
     },
@@ -44,7 +45,7 @@
       tags:  ['Crop risk index', 'Hazard inputs', 'Breeding prioritisation', 'Climate data audit'],
       links: [
         { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'b4t-crop-risk-index-brief.pdf', external: true },
-        { icon: '🔎', label: 'CRI review: data and methods (PDF)', href: BRIEF + 'review-b4t-crop-risk-index.pdf', external: true },
+        { icon: '🔎', label: 'CRI review: data and methods', href: 'https://cgiar-climate-data-hub.github.io/use-cases/b4t/cri-review.html', external: true },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
     },

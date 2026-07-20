@@ -18,6 +18,7 @@ cgiar-climate-data-hub/
     styles.css            All styling
     app.js                Use-case switcher, search, news tabs, Ask the Hub,
                           FAQ, Flyer Builder, feedback modal
+    review.js             In-page review comment layer (pins, panel, export)
     briefs/               Seven use-case brief PDFs plus two review PDFs
     flyers/               Five sample country briefs, one per topic focus
 ```
@@ -57,6 +58,14 @@ To roll back, promote the previous deployment in the Vercel dashboard.
 - "Give feedback" button with a structured form. It opens a pre-filled email, and then
   shows the message with a copy button, so comments are not lost when a machine has no
   mail client registered.
+- **In-page review comments** (`assets/review.js`), a self-contained annotation layer in
+  the spirit of ruttl: turn on Comment mode, click any part of the page, and type a remark.
+  Pins are anchored to the element beneath them, so they survive reflow and return to the
+  right place on reload. A side panel lists every comment with resolve, show and delete,
+  and "Send all" composes an email while also showing the text with a copy button.
+  Comments are held in the reviewer's own browser and nothing is transmitted until they
+  press send, because the Hub has no server. No accounts and no third-party script.
+  For centralised comments across reviewers, ruttl remains the better tool.
 - Responsive down to 600 px
 
 ## What is still a mock
@@ -69,6 +78,22 @@ To roll back, promote the previous deployment in the Vercel dashboard.
   states plainly that the country and audience selections are not yet reflected and that the
   narrative is placeholder text.
 
+## How this sits alongside the technical Hub
+
+There are two layers, and this repo is the upper one.
+
+- **This site** is the general entry point: what climate data exists across CGIAR, which
+  use cases it serves, and where to find it. Written for a broad audience.
+- **The technical Climate Data Hub** at https://cgiar-climate-data-hub.github.io/ is the
+  layer below: the dataset catalogue, runnable tutorials, documentation, the canonical
+  use-case portfolio with coordinators and action plans, a contribution path and agent
+  access. Written for data scientists working with the datasets directly.
+
+This site signposts across in three places: a "For data scientists" nav item, a dedicated
+band before the news section, and a standing quick link on the default hero view. The two
+use-case reviews (GCF and B4T) link straight to the real review documents there, and
+`use-cases.html` names the technical portfolio as canonical.
+
 ## Known gaps
 
 - Five footer links have no destination yet: STAC Catalogue, API Access, Data policy,
@@ -76,9 +101,9 @@ To roll back, promote the previous deployment in the Vercel dashboard.
   and should not be mocked up.
 - The sample answer's claim that ASALs cover "over 80%" of Kenya is illustrative and has
   not been verified against a source.
-
-Nothing on the site now points at `cgiar-climate-data-hub.github.io`. The portfolio link
-goes to `use-cases.html` and the two review links to sample PDFs.
+- `use-cases.html` duplicates portfolio content that is maintained canonically on the
+  technical Hub, so it can drift. It links across prominently, but if it starts going stale
+  the honest fix is to cut it down to a pointer.
 
 ## Sample use-case briefs
 
