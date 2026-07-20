@@ -687,6 +687,18 @@ body.cdh-commenting .cdh-ui, body.cdh-commenting .cdh-ui * { cursor: default; }
   box-shadow: 0 6px 20px rgba(20,50,20,.3);
 }
 .cdh-toggle.on { background: var(--amber); }
+
+/* RUTTL FEEDBACK BUTTON (replaces the built-in review tool) */
+.ruttl-fab {
+  position: fixed; right: 20px; bottom: 84px; z-index: 950;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-900); color: #fff; text-decoration: none;
+  border-radius: 999px; padding: 12px 18px;
+  font: 700 14px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  box-shadow: 0 6px 20px rgba(20,50,20,.3); transition: background .15s;
+}
+.ruttl-fab:hover { background: var(--green-800); }
+@media (max-width: 640px) { .ruttl-fab { right: 14px; bottom: 78px; padding: 10px 15px; } }
 .cdh-count {
   display: none; min-width: 20px; height: 20px; border-radius: 999px;
   background: rgba(255,255,255,.9); color: var(--green-900);
