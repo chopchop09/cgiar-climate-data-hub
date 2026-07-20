@@ -303,8 +303,14 @@
     toggle.type = 'button';
     toggle.className = 'cdh-toggle cdh-ui';
     toggle.setAttribute('aria-pressed', 'false');
-    toggle.innerHTML = '<span aria-hidden="true">🖈</span> <span class="cdh-toggle-label">Comment</span>' +
-                       '<span class="cdh-count" aria-label="open comments">0</span>';
+    // Inline SVG rather than an emoji pin: U+1F588 is missing from many system
+    // fonts and rendered as a tofu box on the live site.
+    toggle.innerHTML =
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>' +
+      '</svg> <span class="cdh-toggle-label">Comment</span>' +
+      '<span class="cdh-count" aria-label="open comments">0</span>';
     document.body.appendChild(toggle);
 
     var composer = document.createElement('div');
