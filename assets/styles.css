@@ -597,3 +597,16 @@ footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 52
 .flyer-result-head { font-size: 14px; font-weight: 700; color: var(--green-900); margin: 0 0 4px; }
 .flyer-result-sel { font-size: 12.5px; color: var(--text-2); margin: 0 0 10px; line-height: 1.5; }
 .flyer-result-note { font-size: 11.5px; color: var(--text-3); margin: 10px 0 0; line-height: 1.5; }
+
+/* Status and champion badges on light cards. The base .st-* rules are tuned for
+   the dark hero panel, where white-on-translucent works. On the white portfolio
+   cards those same rules render invisible, so they are restated here. */
+.uc-card .st-active {
+  background: var(--green-100); color: var(--green-900); border-color: #C6DCC4;
+}
+.uc-card .st-idea {
+  background: var(--amber-lt); color: #8A4A12; border-color: #F0D3B8;
+}
+.uc-card .st-champ {
+  background: #fff; color: var(--text-2); border-color: var(--border); font-weight: 600;
+}
