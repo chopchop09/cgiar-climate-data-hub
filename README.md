@@ -9,7 +9,8 @@ A working prototype of the Climate Data Hub, shared for review. Static site, no 
 
 ```
 cgiar-climate-data-hub/
-  index.html              The page
+  index.html              The main page
+  use-cases.html          Use-case portfolio page
   README.md               This file
   assets/
     cgiar-logo.png        Header and footer logo
@@ -17,7 +18,8 @@ cgiar-climate-data-hub/
     styles.css            All styling
     app.js                Use-case switcher, search, news tabs, Ask the Hub,
                           FAQ, Flyer Builder, feedback modal
-    briefs/               Seven sample use-case brief PDFs
+    briefs/               Seven use-case brief PDFs plus two review PDFs
+    flyers/               Five sample country briefs, one per topic focus
 ```
 
 ## Deployment
@@ -42,8 +44,10 @@ To roll back, promote the previous deployment in the Vercel dashboard.
   Scored ranking, keyboard navigation (arrows, Enter, Escape), an empty state, and
   click-through that opens platforms externally, expands the matching FAQ, or activates
   the matching use case. No network calls.
+- **Use-case portfolio page** (`use-cases.html`), listing all seven use cases grouped by
+  status, with programme, champion, focus areas and links to every brief
 - **Use-case brief PDFs**, one per use case, generated into `assets/briefs/` and linked
-  from each use case's primary call to action
+  from each use case's primary call to action, plus review PDFs for GCF and B4T
 - 8-card featured dataset grid, all linking to the real source platforms
 - Tabbed news widget (Funding, Conferences, Calls for papers, Publications) with
   verified links
@@ -60,19 +64,21 @@ To roll back, promote the previous deployment in the Vercel dashboard.
 - **Ask the Hub** returns the same fixed sample answer to every question. It is not
   connected to a retrieval back end. Labelled as a demonstration in the section and on
   the answer itself.
-- **Flyer Builder** does not generate a document. The controls show the intended inputs.
-  Labelled as a demonstration.
+- **Flyer Builder** does not assemble text from live evidence. It now returns a real sample
+  PDF matching the chosen topic focus, so the intended format and length can be judged, and
+  states plainly that the country and audience selections are not yet reflected and that the
+  narrative is placeholder text.
 
 ## Known gaps
 
-- These footer links have no destination yet: STAC Catalogue, API Access, Data policy,
-  Contact, Accessibility, and the CC BY 4.0 licence.
-- Three links point at `cgiar-climate-data-hub.github.io/use-cases/`, which was not
-  responding when last checked: "View the use-case portfolio" on the default hero view,
-  and the review links under the GCF and B4T use cases. The seven per-use-case brief
-  buttons no longer depend on it.
+- Five footer links have no destination yet: STAC Catalogue, API Access, Data policy,
+  Contact and Accessibility. Data policy and Accessibility need real institutional content
+  and should not be mocked up.
 - The sample answer's claim that ASALs cover "over 80%" of Kenya is illustrative and has
   not been verified against a source.
+
+Nothing on the site now points at `cgiar-climate-data-hub.github.io`. The portfolio link
+goes to `use-cases.html` and the two review links to sample PDFs.
 
 ## Sample use-case briefs
 
@@ -107,7 +113,7 @@ Change that string to point feedback at a different inbox or shared mailbox.
 
 - Connect Ask the Hub to a real CGIAR-only retrieval back end
 - Build the Flyer Builder draft preview and PDF export flow
-- Publish or retire the `use-cases` Pages site, and repoint the three remaining links
 - Resolve the outstanding footer links
+- Replace the sample flyer output with generation from live evidence
 - Add a country profile page (Ethiopia, Kenya, Mali) as a deep-dive template
 - Add a simple admin route for the editorial team to curate the news widget

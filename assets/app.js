@@ -6,11 +6,9 @@
   'use strict';
 
   /* ---------- Use-case switcher ----------
-   * Mirrors the CDH use-case portfolio:
-   * https://cgiar-climate-data-hub.github.io/use-cases/
+   * The portfolio and every brief are served from this site: see
+   * use-cases.html and assets/briefs/.
    */
-  const UC_BASE = 'https://cgiar-climate-data-hub.github.io/use-cases/use-cases/';
-  // Sample use-case briefs served from this site.
   const BRIEF = 'assets/briefs/';
 
   const useCases = {
@@ -21,7 +19,7 @@
       meta:  [{ cls: 'st-active', label: '3 in active development' }, { cls: 'st-idea', label: '4 ideas' }],
       tags:  ['GCF climate rationale', 'Adaptation options Kenya', 'Rainfall trends Sahel', 'Drought risk East Africa'],
       links: [
-        { icon: '🗂️', label: 'View the use-case portfolio', href: 'https://cgiar-climate-data-hub.github.io/use-cases/', external: true },
+        { icon: '🗂️', label: 'View the use-case portfolio', href: 'use-cases.html' },
         { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
@@ -34,7 +32,7 @@
       tags:  ['GCF climate rationale', 'Hazard-exposure tables', 'Climate trends and projections', 'Extreme events'],
       links: [
         { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'gcf-preparation-facility-brief.pdf', external: true },
-        { icon: '🔎', label: 'Data, skills and notebook review', href: 'https://cgiar-climate-data-hub.github.io/use-cases/gcf-preparation-facility/gcf-prep-review.html', external: true },
+        { icon: '🔎', label: 'Data and notebook review (PDF)', href: BRIEF + 'review-gcf-preparation-facility.pdf', external: true },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
     },
@@ -46,7 +44,7 @@
       tags:  ['Crop risk index', 'Hazard inputs', 'Breeding prioritisation', 'Climate data audit'],
       links: [
         { icon: '📄', label: 'Download the use-case brief (PDF)', href: BRIEF + 'b4t-crop-risk-index-brief.pdf', external: true },
-        { icon: '🔎', label: 'CRI review: data and methods', href: 'https://cgiar-climate-data-hub.github.io/use-cases/b4t/cri-review.html', external: true },
+        { icon: '🔎', label: 'CRI review: data and methods (PDF)', href: BRIEF + 'review-b4t-crop-risk-index.pdf', external: true },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
     },
@@ -445,20 +443,61 @@
     if (!was) item.classList.add('open');
   }
 
-  /* ---------- Flyer Builder (mock) ---------- */
+  /* ---------- Flyer Builder ----------
+   * Still a demonstration: the brief is not generated from live evidence.
+   * But it now returns a real sample PDF matching the chosen topic focus,
+   * so reviewers can judge the intended format and length.
+   */
+  const FLYER_SAMPLES = {
+    'Climate risks': 'assets/flyers/flyer-sample-climate-risks.pdf',
+    'Adaptation options': 'assets/flyers/flyer-sample-adaptation-options.pdf',
+    'Food security': 'assets/flyers/flyer-sample-food-security.pdf',
+    'Water stress': 'assets/flyers/flyer-sample-water-stress.pdf',
+    'Gender and climate': 'assets/flyers/flyer-sample-gender-and-climate.pdf'
+  };
+
+  function selText(id) {
+    const el = document.getElementById(id);
+    if (!el || el.selectedIndex < 0) return '';
+    const t = el.options[el.selectedIndex].text;
+    return (t.indexOf('Select') === 0) ? '' : t;
+  }
+
   function buildFlyer(btn) {
-    const original = btn.textContent;
+    const country = selText('flyerCountry');
+    const audience = selText('flyerAudience');
+    const topic = selText('flyerTopic');
+    const length = selText('flyerLength');
+    const result = document.getElementById('flyerResult');
+
+    const original = btn.dataset.label || btn.textContent;
+    btn.dataset.label = original;
     btn.textContent = 'Generating…';
     btn.disabled = true;
+
     setTimeout(() => {
-      btn.textContent = '✓ Demonstration only, no file created';
-      btn.style.background = 'var(--green-800)';
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
-    }, 1200);
+      btn.textContent = original;
+      btn.disabled = false;
+      if (!result) return;
+
+      const href = FLYER_SAMPLES[topic] || FLYER_SAMPLES['Climate risks'];
+      const chosen = [country, audience, topic, length].filter(Boolean).join(' · ');
+      const matched = !!FLYER_SAMPLES[topic];
+
+      result.innerHTML =
+        '<p class="flyer-result-head">Sample brief ready</p>' +
+        '<p class="flyer-result-sel">' +
+          (chosen ? 'You selected: ' + escapeHtml(chosen) : 'No selections made, showing the default sample.') +
+        '</p>' +
+        '<a class="uc-btn" href="' + href + '" target="_blank" rel="noopener">📄 Open the sample brief (PDF)</a>' +
+        '<p class="flyer-result-note">This is a real PDF showing the intended format and length. ' +
+        (matched
+          ? 'It matches your topic focus. The country and audience you chose are not yet reflected: '
+          : 'It is the climate risks sample. Your selections are not yet reflected: ') +
+        'the finished tool will assemble the text from CGIAR evidence for every selection, with ' +
+        'inline citations. The narrative in this sample is placeholder text and must not be cited.</p>';
+      result.classList.add('visible');
+    }, 900);
   }
 
   /* ---------- Feedback modal ---------- */
