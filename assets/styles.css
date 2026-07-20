@@ -38,6 +38,11 @@ header {
 }
 .brand-link { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
 .brand-link img { display: block; }
+.brand-name {
+  color: #fff; font-family: var(--font); font-size: 17px; font-weight: 700;
+  letter-spacing: .2px; white-space: nowrap;
+  margin-left: 12px; padding-left: 12px; border-left: 1px solid rgba(255,255,255,.28);
+}
 
 nav { display: flex; gap: 2px; flex: 1; }
 nav a {
