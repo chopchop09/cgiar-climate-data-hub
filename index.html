@@ -4,6 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="CGIAR Climate Data Hub: a curated portal connecting users to trusted climate and agricultural datasets, news, and tools.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CGIAR Climate Data Hub">
+<meta property="og:title" content="CGIAR Climate Data Hub">
+<meta property="og:description" content="The CGIAR Climate Data Hub curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Prototype, shared for review.">
+<meta property="og:url" content="https://cgiar-climate-data-hub-lcyq.vercel.app/">
+<meta property="og:image" content="https://cgiar-climate-data-hub-lcyq.vercel.app/assets/social-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CGIAR Climate Data Hub, v0.2 prototype shared for review">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CGIAR Climate Data Hub">
+<meta name="twitter:description" content="The CGIAR Climate Data Hub curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Prototype, shared for review.">
+<meta name="twitter:image" content="https://cgiar-climate-data-hub-lcyq.vercel.app/assets/social-preview.png">
+<meta name="theme-color" content="#1B5E20">
 <title>CGIAR Climate Data Hub</title>
 <link rel="icon" type="image/png" href="assets/cgiar-logo.png">
 <link rel="stylesheet" href="assets/styles.css">
@@ -27,7 +42,7 @@
       <div class="header-search" role="search">
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true" style="color:rgba(255,255,255,.5)"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         <label for="headerSearch" class="sr-only" style="position:absolute;left:-9999px;">Search</label>
-        <input id="headerSearch" type="text" placeholder="Search datasets, countries…">
+        <input id="headerSearch" type="text" placeholder="Search datasets, use cases, news…" role="combobox" aria-expanded="false" aria-controls="searchPanel" aria-autocomplete="list" autocomplete="off">
       </div>
       <button id="headerAskBtn" class="btn-ask" type="button">Ask the Hub ✦</button>
     </div>
@@ -57,7 +72,7 @@
         <p id="heroDesc">The Climate Data Hub curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Choose a use case above, or search across everything.</p>
         <div class="hero-search-lg" role="search">
           <label for="heroInput" style="position:absolute;left:-9999px;">Search the Hub</label>
-          <input id="heroInput" type="text" placeholder="e.g. drought risk in Ethiopia, rainfall trends West Africa…">
+          <input id="heroInput" type="text" placeholder="e.g. drought, MapSPAM, GCF, livestock…" role="combobox" aria-expanded="false" aria-controls="searchPanel" aria-autocomplete="list" autocomplete="off">
           <button id="heroSearchBtn" type="button">Search</button>
         </div>
         <div class="hero-tags" id="heroTags">
@@ -475,6 +490,17 @@
       <button class="btn-primary" type="submit">Send feedback</button>
     </div>
   </form>
+      <div id="fbFallback" class="fb-fallback" style="display:none">
+        <p class="fb-fallback-lead"><strong>Almost done.</strong> Your mail client should have opened
+        with this message ready to send. If nothing happened, copy the text below and send it to
+        <strong>j.choptiany@cgiar.org</strong> yourself, so your comments are not lost.</p>
+        <textarea id="fbFallbackText" class="fb-fallback-text" readonly rows="9"></textarea>
+        <div class="fb-fallback-actions">
+          <button id="fbCopyBtn" class="btn-build" type="button">Copy the message</button>
+          <button id="fbDoneBtn" class="fb-done" type="button">Done</button>
+        </div>
+      </div>
+
 </div>
 
 <script src="assets/app.js"></script>

@@ -491,3 +491,39 @@ footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 52
   font-weight: 600;
   line-height: 1.45;
 }
+
+
+/* ---------- Feedback fallback ---------- */
+.fb-fallback-lead {
+  margin: 0 0 12px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+.fb-fallback-text {
+  width: 100%;
+  font: 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--text);
+  background: var(--green-50);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+.fb-fallback-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+.fb-done {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text-2);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.fb-done:hover { background: var(--green-50); }

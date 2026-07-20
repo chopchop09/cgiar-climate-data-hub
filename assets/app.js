@@ -274,7 +274,9 @@
     if (panel) return panel;
     panel = document.createElement('div');
     panel.className = 'search-panel';
+    panel.id = 'searchPanel';
     panel.setAttribute('role', 'listbox');
+    panel.setAttribute('aria-label', 'Search results');
     document.body.appendChild(panel);
     return panel;
   }
@@ -290,8 +292,16 @@
     panel.style.width = width + 'px';
   }
 
+  function setExpanded(state) {
+    ['heroInput', 'headerSearch'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.setAttribute('aria-expanded', state ? 'true' : 'false');
+    });
+  }
+
   function closePanel() {
     if (panel) panel.classList.remove('visible');
+    setExpanded(false);
     cursor = -1;
   }
 
@@ -323,6 +333,7 @@
     }
     positionPanel(activeInput);
     panel.classList.add('visible');
+    setExpanded(true);
   }
 
   function moveCursor(delta) {
@@ -454,7 +465,42 @@
   // Set this to the address that should receive reviewer feedback.
   const FEEDBACK_EMAIL = 'j.choptiany@cgiar.org';
 
+
+  function showFeedbackFallback(plain) {
+    const body = document.getElementById('fbForm');
+    if (!body) { closeFeedback(); return; }
+    const box = document.getElementById('fbFallback');
+    if (!box) return;
+    document.getElementById('fbFallbackText').value = plain;
+    body.style.display = 'none';
+    box.style.display = 'block';
+  }
+
+  function resetFeedback() {
+    const form = document.getElementById('fbForm');
+    const box = document.getElementById('fbFallback');
+    if (form) form.style.display = '';
+    if (box) box.style.display = 'none';
+  }
+
+  function copyFeedback(btn) {
+    const ta = document.getElementById('fbFallbackText');
+    ta.select();
+    const done = () => {
+      const t = btn.textContent;
+      btn.textContent = '✓ Copied';
+      setTimeout(() => { btn.textContent = t; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(ta.value).then(done, () => { document.execCommand('copy'); done(); });
+    } else {
+      document.execCommand('copy');
+      done();
+    }
+  }
+
   function openFeedback() {
+    resetFeedback();
     document.getElementById('feedbackModal').classList.add('visible');
   }
   function closeFeedback() {
@@ -478,8 +524,18 @@
       'Comment:\n' + message + '\n\n' +
       '(Variant B Medium prototype)'
     );
+    const plain =
+      'To: ' + FEEDBACK_EMAIL + '\n' +
+      'Subject: CGIAR Climate Data Hub - feedback from ' + name + '\n\n' +
+      'Reviewer: ' + name + '\n' +
+      'Role: ' + role + '\n' +
+      'Section: ' + section + '\n\n' +
+      'Comment:\n' + message;
+
+    // Try the mail client, but never assume it worked: some managed and
+    // webmail-only machines have no handler and fail silently.
     window.location.href = 'mailto:' + FEEDBACK_EMAIL + '?subject=' + subject + '&body=' + body;
-    closeFeedback();
+    showFeedbackFallback(plain);
     return false;
   }
 
@@ -541,6 +597,10 @@
     if (fbClose) fbClose.addEventListener('click', closeFeedback);
     const fbForm = document.getElementById('fbForm');
     if (fbForm) fbForm.addEventListener('submit', sendFeedback);
+    const fbCopy = document.getElementById('fbCopyBtn');
+    if (fbCopy) fbCopy.addEventListener('click', () => copyFeedback(fbCopy));
+    const fbDone = document.getElementById('fbDoneBtn');
+    if (fbDone) fbDone.addEventListener('click', closeFeedback);
     const fbBg = document.getElementById('feedbackModal');
     if (fbBg) fbBg.addEventListener('click', e => { if (e.target === fbBg) closeFeedback(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFeedback(); });
