@@ -81,6 +81,22 @@ nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
 }
 .hero-inner { max-width: 1200px; margin: 0 auto; }
 
+/* VISION & ROADMAP */
+.vision-band .vision-lede { font-size: 1.05rem; color: var(--text-2); max-width: 80ch; line-height: 1.7; margin: 0 0 26px; }
+.roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 26px; }
+.roadmap-step {
+  background: var(--green-50); border: 1px solid var(--border);
+  border-left: 4px solid var(--green-700); border-radius: var(--radius); padding: 16px 18px;
+}
+.roadmap-year { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: var(--green-900); margin-bottom: 6px; }
+.roadmap-text { font-size: 14px; color: var(--text-2); line-height: 1.55; }
+.vision-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 12px; }
+.vstat { background: var(--green-900); border-radius: var(--radius); padding: 18px 20px; }
+.vstat-num { display: block; font-family: var(--font-serif); font-size: 1.9rem; font-weight: 700; color: var(--highlight); line-height: 1.1; margin-bottom: 4px; }
+.vstat-lab { font-size: 13px; color: rgba(255,255,255,.8); line-height: 1.4; }
+.vision-note { font-size: 12.5px; color: var(--text-3); margin: 0; }
+@media (max-width: 720px) { .roadmap, .vision-stats { grid-template-columns: 1fr; } }
+
 /* HERO CALL-OUT BANNER (shortcut to the Data Hub) */
 .hub-banner {
   display: flex; align-items: center; justify-content: space-between;

@@ -14,7 +14,7 @@
   const useCases = {
     all: {
       title: 'Trusted climate data for every CGIAR use case',
-      desc:  'The Climate Commons curates quality-assured climate and agricultural datasets and links them to the CGIAR use cases they serve. Choose a use case above, or search across everything.',
+      desc:  'The Climate Commons turns trusted CGIAR climate data into decision-ready evidence for farmers, pastoralists and fishers. It curates quality-assured datasets, links them to the use cases they serve, and complements the national data systems teams already rely on. Choose a use case above, or search across everything.',
       icon:  '🗂️', name: 'All use cases', sub: 'CGIAR Climate Commons use-case portfolio',
       meta:  [{ cls: 'st-active', label: '3 in active development' }, { cls: 'st-idea', label: '4 ideas' }],
       tags:  ['GCF climate rationale', 'Adaptation options Kenya', 'Rainfall trends Sahel', 'Drought risk East Africa'],
