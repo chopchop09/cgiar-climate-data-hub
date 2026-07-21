@@ -5,22 +5,26 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --green-900: #1B5E20;
-  --green-800: #2E7D32;
-  --green-700: #388E3C;
-  --green-100: #E8F0E7;
-  --green-50:  #F4F8F3;
-  --amber:     #C8611A;
-  --amber-lt:  #FDF3EA;
-  --blue:      #1565A8;
-  --blue-lt:   #E3F0FB;
-  --text:      #1A261A;
-  --text-2:    #4A5E48;
-  --text-3:    #7A8C78;
-  --white:     #FAFCF8;
-  --border:    #D8E4D6;
+  /* CGIAR Climate Action visual identity */
+  --green-900: #033529;   /* Primary */
+  --green-800: #065F4A;   /* Lighter Green (hovers) */
+  --green-700: #065F4A;   /* accents, label borders */
+  --green-100: #DBF7EF;   /* pale mint tint */
+  --green-50:  #F1F6F4;   /* light section tint */
+  --amber:     #1955A6;   /* Program Accent (primary CTA) */
+  --amber-lt:  #E7EEF9;   /* light blue tint */
+  --blue:      #1955A6;   /* Program Accent */
+  --blue-lt:   #E4EEFC;   /* Program light */
+  --mint:      #17F1BD;   /* Primary Accent */
+  --highlight: #57FAD3;   /* Highlight Green */
+  --text:      #1D1D1D;   /* Grey 8 */
+  --text-2:    #393939;   /* Grey 7 */
+  --text-3:    #727070;   /* Grey 5 */
+  --white:     #FFFFFF;
+  --border:    #E2E0DF;   /* Primary Light / Grey 1 */
   --radius:    10px;
-  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font: 'Noto Sans', Arial, Helvetica, sans-serif;
+  --font-serif: 'Noto Serif', 'Times New Roman', Georgia, serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -68,11 +72,11 @@ nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
   font-family: var(--font); font-size: 13px; font-weight: 700;
   padding: 9px 18px; border-radius: 6px; transition: background .15s; white-space: nowrap;
 }
-.btn-ask:hover { background: #A84E14; }
+.btn-ask:hover { background: #143F7A; }
 
 /* HERO */
 .hero {
-  background: linear-gradient(170deg, #174E1B 0%, #1B5E20 45%, #245E28 100%);
+  background: linear-gradient(170deg, #02211A 0%, #033529 55%, #065F4A 100%);
   color: #fff; padding: 56px 24px 0;
 }
 .hero-inner { max-width: 1200px; margin: 0 auto; }
@@ -93,7 +97,7 @@ nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
   padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 700;
   white-space: nowrap; font-family: var(--font); transition: background .15s;
 }
-.hub-banner-btn:hover { background: #A84E14; }
+.hub-banner-btn:hover { background: #143F7A; }
 
 .persona-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
 .persona-label {
@@ -111,7 +115,7 @@ nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
 .pill.active { background: #fff; color: var(--green-900); border-color: #fff; font-weight: 700; }
 
 .hero-body { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; padding-bottom: 48px; }
-.hero-body h1 { font-size: 2.4rem; font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
+.hero-body h1 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; line-height: 1.12; margin-bottom: 14px; }
 .hero-body p { font-size: 1rem; color: rgba(255,255,255,.75); margin-bottom: 28px; line-height: 1.6; }
 
 .hero-search-lg {
@@ -159,7 +163,7 @@ nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
   white-space: nowrap;
 }
 .st-active { background: rgba(255,255,255,.92); color: var(--green-900); }
-.st-idea   { background: rgba(255,213,79,.16); color: #FFD54F; border-color: rgba(255,213,79,.4); }
+.st-idea   { background: rgba(87,250,211,.16); color: #57FAD3; border-color: rgba(87,250,211,.4); }
 .st-champ  { background: rgba(255,255,255,.1); color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.2); font-weight: 600; }
 
 .pc-links { display: flex; flex-direction: column; gap: 8px; }
@@ -193,7 +197,7 @@ nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
   padding: 18px; display: flex; flex-direction: column; gap: 6px;
   transition: box-shadow .2s, border-color .2s; cursor: pointer;
 }
-.dataset-card:hover { border-color: var(--green-700); box-shadow: 0 4px 16px rgba(27,94,32,.12); }
+.dataset-card:hover { border-color: var(--green-700); box-shadow: 0 4px 16px rgba(3,53,41,.12); }
 .ds-type {
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
   padding: 2px 8px; border-radius: 10px; width: fit-content;
@@ -269,7 +273,7 @@ nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
   font-family: var(--font); font-size: 14px; font-weight: 700;
   padding: 13px; border-radius: 6px; transition: background .15s; margin-top: 4px;
 }
-.btn-build:hover { background: #A84E14; }
+.btn-build:hover { background: #143F7A; }
 .flyer-note { font-size: 11px; color: var(--text-3); text-align: center; margin-top: 8px; }
 
 /* NEWS WIDGET */
@@ -322,7 +326,7 @@ nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
   text-decoration: none; color: inherit; transition: all .15s;
   min-width: 180px;
 }
-.source-pill:hover { border-color: var(--green-800); box-shadow: 0 2px 8px rgba(27,94,32,.1); }
+.source-pill:hover { border-color: var(--green-800); box-shadow: 0 2px 8px rgba(3,53,41,.1); }
 .sp-name { font-size: 13px; font-weight: 700; color: var(--green-900); }
 .sp-tag { font-size: 10px; color: var(--text-3); }
 
@@ -367,7 +371,7 @@ footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 52
   transition: background .15s, transform .15s;
   display: inline-flex; align-items: center; gap: 8px;
 }
-.feedback-fab:hover { background: #A84E14; transform: translateY(-1px); }
+.feedback-fab:hover { background: #143F7A; transform: translateY(-1px); }
 
 .feedback-modal-bg {
   position: fixed; inset: 0; background: rgba(0,0,0,.45);
@@ -497,7 +501,7 @@ footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 52
   border-left: 3px solid var(--amber);
   border-radius: 0 7px 7px 0;
   background: var(--amber-lt);
-  color: #8A4A12;
+  color: #123E7A;
   font-size: 13px;
   line-height: 1.55;
   max-width: 68ch;
@@ -509,7 +513,7 @@ footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 52
   padding: 7px 11px;
   border-radius: 6px;
   background: var(--amber-lt);
-  color: #8A4A12;
+  color: #123E7A;
   font-size: 12.5px;
   font-weight: 600;
   line-height: 1.45;
@@ -554,7 +558,7 @@ footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 52
 /* ---------- Use-case portfolio page ---------- */
 .uc-hero { background: var(--green-900); color: #fff; padding: 46px 0 40px; }
 .uc-hero-inner { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
-.uc-hero h1 { font-size: 38px; line-height: 1.15; margin: 8px 0 14px; color: #fff; }
+.uc-hero h1 { font-family: var(--font-serif); font-size: 40px; font-weight: 700; line-height: 1.12; margin: 8px 0 14px; color: #fff; }
 .uc-hero p { max-width: 62ch; color: #DCE8DB; font-size: 15.5px; line-height: 1.65; margin: 0; }
 .uc-counts { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
 
@@ -628,7 +632,7 @@ footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 52
   background: var(--green-100); color: var(--green-900); border-color: #C6DCC4;
 }
 .uc-card .st-idea {
-  background: var(--amber-lt); color: #8A4A12; border-color: #F0D3B8;
+  background: var(--amber-lt); color: #123E7A; border-color: #C7D8F0;
 }
 .uc-card .st-champ {
   background: #fff; color: var(--text-2); border-color: var(--border); font-weight: 600;
@@ -694,7 +698,7 @@ body.cdh-commenting .cdh-ui, body.cdh-commenting .cdh-ui * { cursor: default; }
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--green-900); color: #fff; text-decoration: none;
   border-radius: 999px; padding: 12px 18px;
-  font: 700 14px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 700 14px/1 'Noto Sans', Arial, Helvetica, sans-serif;
   box-shadow: 0 6px 20px rgba(20,50,20,.3); transition: background .15s;
 }
 .ruttl-fab:hover { background: var(--green-800); }
