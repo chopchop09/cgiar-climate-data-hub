@@ -18,8 +18,7 @@ cgiar-climate-data-hub/
     styles.css            All styling
     app.js                Use-case switcher, search, news tabs, Ask the Hub,
                           FAQ, Flyer Builder, feedback modal
-    review.js             In-page review comment layer (pins, panel, export)
-    briefs/               Seven use-case brief PDFs plus two review PDFs
+    briefs/               Seven use-case brief PDFs
     flyers/               Five sample country briefs, one per topic focus
 ```
 
@@ -48,24 +47,19 @@ To roll back, promote the previous deployment in the Vercel dashboard.
 - **Use-case portfolio page** (`use-cases.html`), listing all seven use cases grouped by
   status, with programme, champion, focus areas and links to every brief
 - **Use-case brief PDFs**, one per use case, generated into `assets/briefs/` and linked
-  from each use case's primary call to action, plus review PDFs for GCF and B4T
+  from each use case's primary call to action
 - 8-card featured dataset grid, all linking to the real source platforms
 - Tabbed news widget (Funding, Conferences, Calls for papers, Publications) with
   verified links
 - All-sources strip, all nine linking to the real platforms
 - FAQ accordion
 - Open Graph and Twitter card tags, so the link previews properly when shared
-- "Give feedback" button with a structured form. It opens a pre-filled email, and then
-  shows the message with a copy button, so comments are not lost when a machine has no
-  mail client registered.
-- **In-page review comments** (`assets/review.js`), a self-contained annotation layer in
-  the spirit of ruttl: turn on Comment mode, click any part of the page, and type a remark.
-  Pins are anchored to the element beneath them, so they survive reflow and return to the
-  right place on reload. A side panel lists every comment with resolve, show and delete,
-  and "Send all" composes an email while also showing the text with a copy button.
-  Comments are held in the reviewer's own browser and nothing is transmitted until they
-  press send, because the Hub has no server. No accounts and no third-party script.
-  For centralised comments across reviewers, ruttl remains the better tool.
+- **Feedback via ruttl**, a third-party website-review tool. The "Give feedback" button
+  opens the ruttl project, where reviewers comment directly on the page and comments are
+  centralised across the team. The earlier self-contained in-page review layer
+  (`assets/review.js`) was retired in favour of this and has now been deleted; it is kept
+  as a dated backup outside the repo should per-browser offline review ever be wanted.
+  A structured email feedback path also remains in `app.js` (see `FEEDBACK_EMAIL`).
 - Responsive down to 600 px
 
 ## What is still a mock

@@ -413,8 +413,8 @@
   /* ---------- Ask the Hub (mock) ---------- */
   const mockAnswers = {
     default: {
-      text: 'Kenya faces increasing drought frequency, declining and erratic rainfall, and rising temperatures that threaten maize and bean production. The Arid and Semi-Arid Lands (ASALs), covering over 80% of the country, are particularly at risk. CGIAR evidence points to drought-tolerant variety adoption and index-based insurance as cost-effective adaptation options with strong evidence bases.',
-      cite: 'Illustrative sources: African Agriculture Adaptation Atlas (CGIAR), Climate Security Observatory (CGIAR), CGSpace (CGIAR).'
+      text: 'Kenya faces increasing drought frequency, declining and erratic rainfall, and rising temperatures that threaten maize and bean production. The Arid and Semi-Arid Lands (ASALs), which the Government of Kenya reports cover over 80% of the country\'s landmass across 29 counties, are particularly at risk. CGIAR evidence points to drought-tolerant variety adoption and index-based insurance as cost-effective adaptation options with strong evidence bases.',
+      cite: 'ASALs land area: Government of Kenya ASALs portal (asals.go.ke). Illustrative CGIAR sources: African Agriculture Adaptation Atlas, Climate Security Observatory, CGSpace.'
     }
   };
 
