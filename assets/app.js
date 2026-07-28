@@ -633,6 +633,8 @@
     // Feedback FAB
     const fab = document.getElementById('feedbackFab');
     if (fab) fab.addEventListener('click', openFeedback);
+    const footerContact = document.getElementById('footerContact');
+    if (footerContact) footerContact.addEventListener('click', e => { e.preventDefault(); openFeedback(); });
     const fbClose = document.getElementById('fbClose');
     if (fbClose) fbClose.addEventListener('click', closeFeedback);
     const fbForm = document.getElementById('fbForm');
