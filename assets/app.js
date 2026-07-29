@@ -16,7 +16,7 @@
       title: 'Trusted climate data for every CGIAR use case',
       desc:  'The Climate Hub turns trusted CGIAR climate data into decision-ready evidence for farmers, pastoralists and fishers. It curates quality-assured datasets, links them to the use cases they serve, and complements the national data systems teams already rely on. Choose a use case above, or search across everything.',
       icon:  '🗂️', name: 'All use cases', sub: 'CGIAR Climate Hub use-case portfolio',
-      meta:  [{ cls: 'st-active', label: '3 in active development' }, { cls: 'st-idea', label: '4 ideas' }],
+      meta:  [{ cls: 'st-active', label: '3 in active development' }, { cls: 'st-idea', label: '5 ideas' }],
       tags:  ['GCF climate rationale', 'Adaptation options Kenya', 'Rainfall trends Sahel', 'Drought risk East Africa'],
       links: [
         { icon: '🗂️', label: 'View the use-case portfolio', href: 'use-cases.html' },
@@ -108,6 +108,47 @@
         { icon: '📊', label: 'Browse featured datasets', href: '#datasets' },
         { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
       ]
+    },
+    elnino: {
+      title: 'Seasonal ENSO outlooks for anticipatory action',
+      desc:  'Exploring whether the Hub could bring together El Niño Southern Oscillation (ENSO) forecasts and seasonal outlooks to support anticipatory action ahead of El Niño and La Niña events, for early warning, agricultural advisories and preparedness planning. Floated for discussion; scope not yet defined.',
+      icon:  '🌊', name: 'El Niño / ENSO Readiness', sub: 'Climate Action',
+      meta:  [{ cls: 'st-idea', label: 'Idea' }],
+      tags:  ['El Niño / ENSO', 'Seasonal forecasts', 'Anticipatory action', 'Early warning'],
+      links: [
+        { icon: '🗂️', label: 'View in the use-case portfolio', href: 'use-cases.html' },
+        { icon: '💬', label: 'Ask the Hub for evidence and citations', href: '#tools' }
+      ]
+    }
+  };
+
+  /* ---------- Use-case categories ----------
+   * Groups the 8 individual use cases above into 3 "intent" buckets for the hero pills,
+   * so a visitor picks a job-to-be-done rather than choosing from 8 named tools (feedback
+   * from Ibukun Taiwo, 28/07 convening: too busy, pick an ideal user and hide the rest).
+   * This is an editorial grouping, not an official CGIAR taxonomy; relabel freely.
+   */
+  const categories = {
+    policy: {
+      label: 'Policy & Climate Finance',
+      icon:  '💼',
+      intentTitle: "I'm preparing a funding proposal or policy brief",
+      intentDesc:  'Use cases that build the evidence base for climate finance proposals and policy positioning.',
+      members: ['gcf']
+    },
+    model: {
+      label: 'Model & Index Development',
+      icon:  '🌾',
+      intentTitle: "I'm refining a crop or livestock model",
+      intentDesc:  'Use cases that integrate climate data into breeding, agronomic and livestock models and indices.',
+      members: ['b4t', 'agwise', 'tier2']
+    },
+    risk: {
+      label: 'Risk & Adaptation Tracking',
+      icon:  '📈',
+      intentTitle: "I'm monitoring climate risk or adaptation progress",
+      intentDesc:  'Use cases that track adaptation, livestock and landscape risk over time, including seasonal outlooks.',
+      members: ['icleaned', 'meliaf', 'mfl', 'elnino']
     }
   };
 
@@ -117,9 +158,11 @@
       .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
   }
 
-  function switchUseCase(btn, key) {
-    document.querySelectorAll('.persona-pills .pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
+  /* Renders a single use case's full brief in the persona-context panel. When reached via
+   * a category (backTo set), adds a link back up to that category's intent view, so the
+   * category → use case → back flow Ibukun described (self-identify, get a short brief,
+   * follow the link) stays a closed loop rather than a dead end. */
+  function renderLeaf(key, backTo) {
     const u = useCases[key];
     if (!u) return;
     document.getElementById('heroTitle').textContent = u.title;
@@ -132,14 +175,66 @@
       `<span class="pc-status ${escapeHtml(m.cls)}">${escapeHtml(m.label)}</span>`
     ).join('');
 
-    document.getElementById('pcLinks').innerHTML = u.links.map(l =>
+    let linksHtml = '';
+    if (backTo && categories[backTo]) {
+      linksHtml += `<button type="button" class="pc-link pc-back" data-cat="${escapeHtml(backTo)}">← Back to ${escapeHtml(categories[backTo].label)}</button>`;
+    }
+    linksHtml += u.links.map(l =>
       `<a href="${escapeHtml(l.href)}" class="pc-link"${l.external ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(l.icon + ' ' + l.label)} <span class="pc-link-arrow">→</span></a>`
     ).join('');
+    document.getElementById('pcLinks').innerHTML = linksHtml;
 
     document.getElementById('heroTags').innerHTML = u.tags.map(t =>
       `<span class="hero-tag" data-tag>${escapeHtml(t)}</span>`
     ).join('');
     bindHeroTags();
+    bindPcActions(backTo);
+  }
+
+  /* Renders a category's intent view: a short "who is this for" framing, then one row per
+   * member use case to drill into (renderLeaf), rather than exposing all 8 use cases as
+   * separate top-level pills. */
+  function renderCategory(key) {
+    const c = categories[key];
+    if (!c) return;
+    document.getElementById('heroTitle').textContent = c.intentTitle;
+    document.getElementById('heroDesc').textContent  = c.intentDesc;
+    document.getElementById('pcIcon').textContent    = c.icon;
+    document.getElementById('pcName').textContent    = c.label;
+    document.getElementById('pcSub').textContent     = c.members.length + (c.members.length === 1 ? ' use case in this category' : ' use cases in this category');
+    document.getElementById('pcMeta').innerHTML = '';
+
+    const memberLinks = c.members.map(mKey => {
+      const m = useCases[mKey];
+      if (!m) return '';
+      return `<button type="button" class="pc-link pc-member" data-usecase="${escapeHtml(mKey)}" data-cat="${escapeHtml(key)}">${escapeHtml(m.icon + ' ' + m.name)} <span class="pc-link-arrow">→</span></button>`;
+    }).join('');
+    document.getElementById('pcLinks').innerHTML = memberLinks +
+      '<a href="use-cases.html" class="pc-link">🗂️ View the full use-case portfolio <span class="pc-link-arrow">→</span></a>';
+
+    document.getElementById('heroTags').innerHTML = '';
+    bindPcActions(null);
+  }
+
+  /* Pill click handler. Top-level pills are now 'all' and the 3 category keys only;
+   * individual use cases (gcf, b4t, ...) are reached by drilling into a category, not
+   * from a top-level pill, so this only ever needs to choose between the two. */
+  function switchUseCase(btn, key) {
+    document.querySelectorAll('.persona-pills .pill').forEach(p => p.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    if (categories[key]) renderCategory(key);
+    else renderLeaf(key);
+  }
+
+  /* Wires the buttons rendered inside the persona-context panel: category member rows
+   * (drill into that use case) and the "back to category" row (drill back out). */
+  function bindPcActions() {
+    document.querySelectorAll('#pcLinks .pc-member').forEach(el => {
+      el.addEventListener('click', () => renderLeaf(el.dataset.usecase, el.dataset.cat));
+    });
+    document.querySelectorAll('#pcLinks .pc-back').forEach(el => {
+      el.addEventListener('click', () => renderCategory(el.dataset.cat));
+    });
   }
 
   function bindHeroTags() {
@@ -346,12 +441,26 @@
     if (items[cursor]) items[cursor].scrollIntoView({ block: 'nearest' });
   }
 
+  /* Individual use cases no longer have their own top-level pill (they're reached by
+   * drilling into a category), so a search hit on one activates its parent category's
+   * pill and renders the use case's brief directly, with the usual back link. */
+  function catKeyFor(ucKey) {
+    return Object.keys(categories).find(k => categories[k].members.indexOf(ucKey) !== -1) || null;
+  }
+
   function go(item) {
     if (!item) return;
     closePanel();
     if (item.ucKey) {
-      const pill = document.querySelector('.persona-pills .pill[data-usecase="' + item.ucKey + '"]');
-      if (pill) { switchUseCase(pill, item.ucKey); pill.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      const catKey = catKeyFor(item.ucKey);
+      const pillKey = catKey || 'all';
+      const pill = document.querySelector('.persona-pills .pill[data-usecase="' + pillKey + '"]');
+      if (pill) {
+        document.querySelectorAll('.persona-pills .pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        renderLeaf(item.ucKey, catKey);
+        pill.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
     if (item.el) {
