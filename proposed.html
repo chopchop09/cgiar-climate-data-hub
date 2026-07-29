@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposed structure | CGIAR Climate Hub</title>
+<meta name="description" content="A structural proposal for the CGIAR Climate Hub landing page, organised by the five areas of work. Not the live site.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#123E7A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .prop-notice {
+    background: #FAEEDA; border-bottom: 1px solid #E0C68C;
+    padding: 12px 24px; font-size: 13.5px; line-height: 1.6; color: #5A4310;
+  }
+  .prop-notice-inner { max-width: 1200px; margin: 0 auto; }
+  .prop-notice strong { font-weight: 700; }
+  .prop-notice a { color: #5A4310; font-weight: 600; }
+
+  .desk { background: var(--blue-900); color: #fff; padding: 52px 24px 56px; }
+  .desk-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+  .desk h1 { font-family: var(--font-serif); font-size: 2.3rem; line-height: 1.15; margin-bottom: 14px; }
+  .desk p.desk-lede { color: var(--on-dark); font-size: 1.02rem; line-height: 1.65; margin-bottom: 28px; }
+  .desk-form { display: flex; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 32px rgba(0,0,0,.25); }
+  .desk-form input {
+    flex: 1; border: none; outline: none; padding: 16px 20px;
+    font-size: 15.5px; font-family: var(--font); color: var(--text);
+  }
+  .desk-form button {
+    background: var(--cta); color: #fff; border: none; cursor: pointer;
+    padding: 0 30px; font-size: 14.5px; font-weight: 700; font-family: var(--font);
+  }
+  .desk-form button:hover { background: #143F7A; }
+  .desk-egs { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .desk-eg {
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+    color: var(--on-dark); font-size: 12.5px; padding: 6px 14px; border-radius: 20px;
+  }
+  .desk-status {
+    margin-top: 22px; font-size: 12.5px; color: var(--on-dark);
+    background: rgba(0,0,0,.22); border-radius: 6px; padding: 9px 14px; display: inline-block;
+  }
+
+  .aow-band { max-width: 1200px; margin: 0 auto; padding: 44px 24px 8px; }
+  .aow-band > h2 { font-family: var(--font-serif); font-size: 1.7rem; color: var(--blue-900); margin-bottom: 6px; }
+  .aow-band > p.aow-lede { color: var(--text-2); font-size: 15px; max-width: 74ch; line-height: 1.7; margin-bottom: 26px; }
+
+  .aow {
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px 22px; margin-bottom: 14px; background: var(--white);
+  }
+  .aow-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .aow-num {
+    background: var(--blue-900); color: #fff; font-size: 12.5px; font-weight: 700;
+    width: 26px; height: 26px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .aow-head h3 { font-size: 1.12rem; color: var(--blue-900); font-weight: 700; }
+  .aow-handle { font-size: 12.5px; color: var(--text-3); }
+  .aow p.aow-what { font-size: 14.5px; color: var(--text-2); line-height: 1.65; margin-bottom: 14px; }
+  .aow-res { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .aow-res-lab { font-size: 11.5px; text-transform: uppercase; letter-spacing: .6px; color: var(--text-3); font-weight: 600; margin-right: 2px; }
+  .aow-res a {
+    font-size: 13px; text-decoration: none; color: var(--blue-800);
+    background: var(--blue-100); border: 1px solid #C7D8F0;
+    padding: 5px 12px; border-radius: 20px;
+  }
+  .aow-res a:hover { background: var(--cta-lt); }
+  .aow-res a.aow-data {
+    background: var(--blue-900); color: #fff; border-color: var(--blue-900); font-weight: 600;
+  }
+
+  .ev { background: var(--blue-50); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-top: 34px; padding: 42px 24px; }
+  .ev-inner { max-width: 1200px; margin: 0 auto; }
+  .ev h2 { font-family: var(--font-serif); font-size: 1.7rem; color: var(--blue-900); margin-bottom: 6px; }
+  .ev p.ev-lede { color: var(--text-2); font-size: 15px; max-width: 74ch; line-height: 1.7; margin-bottom: 24px; }
+  .ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .ev-card { background: var(--blue-900); border-radius: var(--radius); padding: 20px 22px; }
+  .ev-num { display: block; font-family: var(--font-serif); font-size: 1.95rem; font-weight: 700; color: var(--highlight); line-height: 1.1; margin-bottom: 5px; }
+  .ev-lab { font-size: 13px; color: var(--on-dark); line-height: 1.45; }
+  .ev-note { font-size: 12.5px; color: var(--text-3); }
+  .ev-gap {
+    margin-top: 18px; padding: 14px 16px; border-radius: var(--radius);
+    background: #FAEEDA; border: 1px solid #E0C68C;
+    font-size: 13.5px; line-height: 1.6; color: #5A4310;
+  }
+
+  .feeds { max-width: 1200px; margin: 0 auto; padding: 42px 24px 56px; }
+  .feeds h2 { font-family: var(--font-serif); font-size: 1.7rem; color: var(--blue-900); margin-bottom: 6px; }
+  .feeds p.feeds-lede { color: var(--text-2); font-size: 15px; max-width: 74ch; line-height: 1.7; margin-bottom: 22px; }
+  .feeds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .feed-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+  .feed-card h3 { font-size: 1rem; color: var(--blue-900); margin-bottom: 6px; }
+  .feed-card p { font-size: 13.5px; color: var(--text-2); line-height: 1.6; margin-bottom: 12px; }
+  .feed-card a { font-size: 13px; color: var(--blue-800); font-weight: 600; text-decoration: none; }
+  .feed-card a:hover { text-decoration: underline; }
+
+  @media (max-width: 760px) {
+    .ev-grid, .feeds-grid { grid-template-columns: 1fr; }
+    .desk h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="prop-notice">
+  <div class="prop-notice-inner">
+    <strong>Structural proposal, not the live site.</strong>
+    This page shows how the landing page would be organised if decisions D2 and D3 in the concept note are adopted: one primary action, then the five areas of work. It is here for comparison with the
+    <a href="index.html">current prototype</a>. Copy is placeholder and has not been through comms review.
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand-link" aria-label="CGIAR Climate Hub home">
+      <img src="assets/cgiar-logo.png" alt="CGIAR Climate Action" height="42">
+      <span class="brand-name">CGIAR Climate Hub</span>
+    </a>
+    <nav>
+      <a href="#aow">Areas of work</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#feeds">News</a>
+      <a href="index.html">Current prototype</a>
+    </nav>
+  </div>
+</header>
+
+<section class="desk" id="main" tabindex="-1">
+  <div class="desk-inner">
+    <h1>What do you need to know about climate and agriculture?</h1>
+    <p class="desk-lede">
+      Ask a question and get an answer drawn from CGIAR's climate evidence, with the sources
+      named so you can check them. This is the digital front desk: the single thing this page
+      is for.
+    </p>
+    <form class="desk-form" onsubmit="return false;">
+      <label for="deskQ" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your question</label>
+      <input id="deskQ" type="text" placeholder="For example: what adaptation options have the strongest evidence in the Sahel?">
+      <button type="submit">Ask</button>
+    </form>
+    <div class="desk-egs">
+      <span class="desk-eg">Drought risk in East Africa</span>
+      <span class="desk-eg">Evidence for index-based insurance</span>
+      <span class="desk-eg">Livestock emissions inventories</span>
+      <span class="desk-eg">Building a GCF climate rationale</span>
+    </div>
+    <div class="desk-status">
+      Not yet connected to a retrieval back end. Placement shown; function still to be resourced.
+    </div>
+  </div>
+</section>
+
+<div class="aow-band" id="aow" style="scroll-margin-top:80px;">
+  <h2>Five areas of work</h2>
+  <p class="aow-lede">
+    The CGIAR Climate Action programme works through five areas of work. This Hub is the entry
+    point to all five. Each has its own page carrying what the area does, who to contact, the
+    datasets and tools it draws on, its current use cases and its evidence base.
+  </p>
+
+  <div class="aow">
+    <div class="aow-head">
+      <span class="aow-num" aria-hidden="true">1</span>
+      <h3>Prioritization and Coordination of Climate Action</h3>
+      <span class="aow-handle">Accelerating Climate Action</span>
+    </div>
+    <p class="aow-what">
+      Connects climate science, modelling and expertise from across CGIAR to support adaptation
+      and mitigation planning, investment decisions and global climate agendas. This Hub is the
+      vehicle for that work.
+    </p>
+    <div class="aow-res">
+      <span class="aow-res-lab">Goes to</span>
+      <a href="use-cases.html">Use-case portfolio</a>
+      <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">Programme overview</a>
+      <a href="https://hdl.handle.net/10568/182581" target="_blank" rel="noopener">Annual technical report 2025</a>
+    </div>
+  </div>
+
+  <div class="aow">
+    <div class="aow-head">
+      <span class="aow-num" aria-hidden="true">2</span>
+      <h3>Digital Advisories and Climate Risk Management</h3>
+      <span class="aow-handle">Adapt to Variability and Extremes</span>
+    </div>
+    <p class="aow-what">
+      Develops and scales digital weather and climate advisories, early warning systems,
+      anticipatory action, insurance and other risk management products, working through national
+      meteorological agencies, extension systems and humanitarian organisations.
+    </p>
+    <div class="aow-res">
+      <span class="aow-res-lab">Goes to</span>
+      <a href="https://adaptationatlas.cgiar.org/" target="_blank" rel="noopener">African Agriculture Adaptation Atlas</a>
+      <a href="https://acasa-bisa.org/" target="_blank" rel="noopener">ACASA</a>
+      <a href="https://agwise.org/" target="_blank" rel="noopener">AgWise</a>
+      <a href="https://www.iwmi.org/data/sadms/" target="_blank" rel="noopener">South Asia Drought Monitoring</a>
+      <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener" class="aow-data">Work with the data directly</a>
+    </div>
+  </div>
+
+  <div class="aow">
+    <div class="aow-head">
+      <span class="aow-num" aria-hidden="true">3</span>
+      <h3>Locally-Led Adaptation</h3>
+      <span class="aow-handle">Empower Locally Led Action</span>
+    </div>
+    <p class="aow-what">
+      Addresses the institutional, financial, governance and information barriers that prevent
+      locally led adaptation from happening in practice, and works to embed successful models in
+      policies, institutions and financing systems.
+    </p>
+    <div class="aow-res">
+      <span class="aow-res-lab">Goes to</span>
+      <a href="assets/briefs/meliaf-adaptation-activator-brief.pdf">MELIAF Adaptation Activator</a>
+      <a href="index.html#vision">Gender, equity and social inclusion</a>
+    </div>
+    <p class="aow-what" style="margin-top:12px;margin-bottom:0;color:var(--text-3);font-size:13.5px">
+      Thinnest area on the site at present. Needs content from the area-of-work lead.
+    </p>
+  </div>
+
+  <div class="aow">
+    <div class="aow-head">
+      <span class="aow-num" aria-hidden="true">4</span>
+      <h3>Low-Emission Transitions</h3>
+      <span class="aow-handle">Transition to Low-Emission Development</span>
+    </div>
+    <p class="aow-what">
+      Helps governments, businesses and development partners design affordable, just and verifiable
+      pathways to reduce greenhouse gas emissions from food, land and water systems, including the
+      measurement systems that implementation depends on.
+    </p>
+    <div class="aow-res">
+      <span class="aow-res-lab">Goes to</span>
+      <a href="https://www.agmrv.org/" target="_blank" rel="noopener">AgMRV</a>
+      <a href="assets/briefs/tier2-livestock-uncertainty-brief.pdf">Tier 2 livestock uncertainty</a>
+      <a href="assets/briefs/icleaned-climate-data-support-brief.pdf">iCLEANED</a>
+    </div>
+  </div>
+
+  <div class="aow">
+    <div class="aow-head">
+      <span class="aow-num" aria-hidden="true">5</span>
+      <h3>Finance and Policy for Scaling Solutions</h3>
+      <span class="aow-handle">Finance Climate Ambition</span>
+    </div>
+    <p class="aow-what">
+      Develops climate risk analytics, adaptation and mitigation investment cases, and supports
+      financing mechanisms that direct capital where it delivers most. This is the area of most
+      direct interest to the primary user proposed in the concept note.
+    </p>
+    <div class="aow-res">
+      <span class="aow-res-lab">Goes to</span>
+      <a href="assets/briefs/gcf-preparation-facility-brief.pdf">GCF Preparation Facility</a>
+      <a href="https://cso.cgiar.org/" target="_blank" rel="noopener">Climate Security Observatory</a>
+      <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener" class="aow-data">Work with the data directly</a>
+    </div>
+  </div>
+</div>
+
+<section class="ev" id="evidence" style="scroll-margin-top:80px;">
+  <div class="ev-inner">
+    <h2>What this is for</h2>
+    <p class="ev-lede">
+      The programme's published targets, which give the Hub a factual spine rather than a
+      self-authored vision statement.
+    </p>
+    <div class="ev-grid">
+      <div class="ev-card">
+        <span class="ev-num">16 million</span>
+        <span class="ev-lab">Smallholder farmers helped</span>
+      </div>
+      <div class="ev-card">
+        <span class="ev-num">USD 15 billion</span>
+        <span class="ev-lab">Unlocked in climate finance</span>
+      </div>
+      <div class="ev-card">
+        <span class="ev-num">1 gigaton</span>
+        <span class="ev-lab">CO<sub>2</sub>-eq reduction by 2030</span>
+      </div>
+    </div>
+    <p class="ev-note">
+      Targets as published by CGIAR for the Climate Action programme. Benefits are expected across
+      20 Tier 1 and 6 Tier 2 countries.
+    </p>
+    <div class="ev-gap">
+      <strong>Missing:</strong> the stories behind these numbers. The MELIAF storytellers are
+      already filming at CGIAR field sites, so this is where that footage and the accompanying
+      written cases would sit.
+    </div>
+  </div>
+</section>
+
+<div class="feeds" id="feeds" style="scroll-margin-top:80px;">
+  <h2>News, events and publications</h2>
+  <p class="feeds-lede">
+    Drawn from the CGIAR feeds already filtered to the Climate Action programme, rather than
+    curated by hand. Nothing here needs maintaining and nothing can go stale.
+  </p>
+  <div class="feeds-grid">
+    <div class="feed-card">
+      <h3>News</h3>
+      <p>Programme news as published on cgiar.org, filtered to Climate Action.</p>
+      <a href="https://www.cgiar.org/news?f%5B0%5D=news_science_program%3AClimate+Action" target="_blank" rel="noopener">View the feed &rarr;</a>
+    </div>
+    <div class="feed-card">
+      <h3>Events</h3>
+      <p>The programme events hub, maintained centrally by CGIAR.</p>
+      <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action#Events" target="_blank" rel="noopener">View the feed &rarr;</a>
+    </div>
+    <div class="feed-card">
+      <h3>Publications</h3>
+      <p>The CGIAR Science Program on Climate Action publications collection.</p>
+      <a href="https://www.cgiar.org/publications?f%5B0%5D=collections_name%3ACGIAR+Science+Program+on+Climate+Action" target="_blank" rel="noopener">View the feed &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/cgiar-logo.png" alt="CGIAR Climate Action" height="48">
+        <p>
+          A structural proposal for the CGIAR Climate Hub landing page, organised by the five areas
+          of work of the CGIAR Climate Action programme. Shared for internal comparison only.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>Compare</h3>
+        <a href="index.html">Current prototype</a>
+        <a href="use-cases.html">Use-case portfolio</a>
+        <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Technical Data Hub</a>
+      </div>
+      <div class="footer-col">
+        <h3>Organisation</h3>
+        <a href="https://www.cgiar.org/" target="_blank" rel="noopener">About CGIAR</a>
+        <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">Climate Action programme</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CGIAR. Structural proposal, not for external circulation.</span>
+      <span>British English &middot; Proposal &middot; Not the live site</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
