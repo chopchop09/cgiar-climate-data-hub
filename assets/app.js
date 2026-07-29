@@ -326,6 +326,7 @@
       panel.querySelectorAll('.sp-item').forEach(btn => {
         btn.addEventListener('mousedown', e => {
           e.preventDefault();
+          trackSearch(activeInput ? activeInput.value : q);
           go(results[parseInt(btn.dataset.i, 10)]);
         });
       });
@@ -368,10 +369,20 @@
     window.open(item.href, '_blank', 'noopener');
   }
 
+  /* Search-term tracking (MELIA/user-tracking proposal, July 2026): fires an anonymous
+   * analytics event per completed search, so terms can be reviewed quarterly. No personal
+   * data is attached, just the query text. */
+  function trackSearch(q) {
+    q = (q || '').trim();
+    if (!q || typeof plausible !== 'function') return;
+    plausible('Search', { props: { query: q } });
+  }
+
   function doSearch() {
     const q = (activeInput && activeInput.value ? activeInput.value : '').trim() ||
               (document.getElementById('heroInput').value || '').trim();
     if (!q) return;
+    trackSearch(q);
     const r = runSearch(q);
     if (r.length) { go(r[0]); return; }
     // Nothing indexed matches: fall back to Ask the Hub with the query.
@@ -390,7 +401,7 @@
       else if (e.key === 'Escape') { closePanel(); }
       else if (e.key === 'Enter') {
         e.preventDefault();
-        if (cursor >= 0 && results[cursor]) go(results[cursor]);
+        if (cursor >= 0 && results[cursor]) { trackSearch(input.value); go(results[cursor]); }
         else doSearch();
       }
     });
@@ -609,6 +620,18 @@
     document.querySelectorAll('.news-tab').forEach(btn => {
       btn.addEventListener('click', () => switchTab(btn, btn.dataset.pane));
     });
+
+    // Newsletter sign-up (demonstration only, not yet connected to a mailing list)
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const confirmMsg = document.getElementById('newsletterConfirm');
+        if (confirmMsg) confirmMsg.classList.add('visible');
+        if (typeof plausible === 'function') plausible('Newsletter signup (demo)');
+        newsletterForm.reset();
+      });
+    }
 
     // Example questions
     document.querySelectorAll('.example-q').forEach(el => {

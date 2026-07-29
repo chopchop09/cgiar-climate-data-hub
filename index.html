@@ -25,6 +25,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<!-- Analytics: Plausible. Cookie-free, no consent banner required in most jurisdictions.
+     Tracks page views plus, via the outbound-links and file-downloads extensions, clicks on
+     external links (e.g. Data Hub, dataset platforms) and same-domain PDF downloads (briefs,
+     flyers), automatically, with no per-link code needed. NOTE: a Plausible site must be
+     created for this domain before any data is actually recorded; see README.md. -->
+<script defer data-domain="cgiar-climate-data-hub-lcyq.vercel.app" src="https://plausible.io/js/script.outbound-links.file-downloads.js"></script>
+<script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
 </head>
 <body>
 
@@ -420,6 +427,22 @@
         <div class="news-source">CGIAR · CGSpace</div>
         <a href="https://cgspace.cgiar.org/items/2a1d0acb-2e0c-48fc-8b39-56e5899ba16c" class="news-cta" target="_blank" rel="noopener">Read →</a>
       </article>
+    </div>
+
+    <div class="newsletter-signup">
+      <div class="newsletter-row">
+        <div>
+          <h3>Stay updated by email</h3>
+          <p>Get funding calls, conferences, calls for papers and publications like these, monthly, direct to your inbox.</p>
+        </div>
+        <form id="newsletterForm" class="newsletter-form">
+          <label for="newsletterEmail" style="position:absolute;left:-9999px;">Email address</label>
+          <input id="newsletterEmail" type="email" placeholder="you@organisation.org" autocomplete="email" required>
+          <button type="submit">Notify me</button>
+        </form>
+      </div>
+      <p class="newsletter-confirm" id="newsletterConfirm" role="status" aria-live="polite">Thanks. We'll be in touch once this is connected to a live mailing list.</p>
+      <p class="demo-banner" style="margin-top:12px"><strong>Demonstration only.</strong> This sign-up is not yet connected to a mailing list; nothing you enter is stored or sent anywhere.</p>
     </div>
   </div>
 </section>

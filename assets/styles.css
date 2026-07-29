@@ -525,6 +525,31 @@ footer { background: var(--blue-900); color: rgba(255,255,255,.75); padding: 52p
   .sp-kind { display: none; }
 }
 
+/* NEWSLETTER SIGN-UP (mockup; not yet connected to a mailing list, see README) */
+.newsletter-signup {
+  background: var(--blue-50); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 22px 26px; margin-top: 28px;
+}
+.newsletter-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.newsletter-row h3 { font-family: var(--font-serif); font-size: 1.15rem; color: var(--blue-900); margin-bottom: 6px; }
+.newsletter-row p { font-size: 13.5px; color: var(--text-2); max-width: 46ch; margin: 0; line-height: 1.5; }
+.newsletter-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.newsletter-form input {
+  border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px;
+  font-family: var(--font); font-size: 14px; min-width: 220px; outline: none; background: #fff;
+}
+.newsletter-form input:focus { border-color: var(--blue-800); }
+.newsletter-form button {
+  background: var(--cta); color: #fff; border: none; cursor: pointer;
+  font-family: var(--font); font-size: 14px; font-weight: 700;
+  padding: 10px 20px; border-radius: 6px; white-space: nowrap; transition: background .15s;
+}
+.newsletter-form button:hover { background: #143F7A; }
+.newsletter-confirm { display: none; font-size: 13px; color: var(--blue-900); font-weight: 600; margin-top: 12px; }
+.newsletter-confirm.visible { display: block; }
+
 /* ---------- Prototype honesty labels ---------- */
 .demo-banner {
   margin: 10px 0 0;

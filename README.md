@@ -99,6 +99,36 @@ use-case reviews (GCF and B4T) link straight to the real review documents there,
   technical Hub, so it can drift. It links across prominently, but if it starts going stale
   the honest fix is to cut it down to a pointer.
 
+## Analytics and user tracking
+
+Added July 2026 in response to the MELIA/user-tracking proposal. A few of the proposal's
+recommendations were implemented; the rest (contact capture on the Flyer Builder, a real
+mailing list, satisfaction pop-ups) are noted but not yet built.
+
+- **Plausible Analytics** (`index.html`, `use-cases.html`, in `<head>`). Cookie-free, no
+  consent banner needed in most jurisdictions. Covers pageviews, session time and visitor
+  geography, the proposal's "Adoption and Use" indicators.
+  **A Plausible site must be created for `cgiar-climate-data-hub-lcyq.vercel.app` before
+  any data is actually recorded.** Until then the script loads but has nowhere to send data.
+- **Outbound-link and file-download click tracking**, via Plausible's
+  `script.outbound-links.file-downloads.js` extension. Automatically tracks clicks on every
+  external link (Data Hub, dataset platforms, GitHub, CGSpace, etc.) and every same-domain
+  PDF (briefs, flyers), with no per-link code. Answers the proposal's "referred traffic %"
+  and download-count indicators.
+- **Search-term tracking** (`assets/app.js`, `trackSearch()`), fires an anonymous Plausible
+  event with the query text whenever a header or hero search completes. No personal data
+  attached. Meant to support the proposal's "review search terms quarterly" suggestion,
+  once a Plausible site exists to view the data in.
+- **Newsletter sign-up mockup** on the News & Events section (`index.html`). UI only: the
+  form shows a confirmation message on submit but is not connected to a mailing list, and no
+  email address is stored or sent. Wire it to a real list (Mailchimp or similar) when one is
+  chosen.
+
+Not implemented from the proposal: Flyer Builder email capture with opt-in (needs a
+decision on where captured addresses go), satisfaction pop-up surveys for Ask the Hub and
+Flyer Builder, citation tracking, and the GitHub-fork/evidence-quality indicators, which
+depend on the Technical Data Hub rather than this site.
+
 ## Sample use-case briefs
 
 `assets/briefs/` holds one PDF per use case. Each carries the real portfolio entry
