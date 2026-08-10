@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CGIAR Climate Hub — Concept B, unified</title>
+<meta name="description" content="Concept B: one surface where a single query moves through resources, projects and an assembled brief. No separate layers.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Webfonts are a progressive enhancement. If the network is unavailable, the
+     local stack in styles.css takes over and the layout is unchanged. -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a href="#band1" class="skip-link">Skip to results</a>
+
+<!-- THREE-WAY REVIEW SWITCHER, added 10/08/2026 ------------------------------
+     Lets a reviewer move between the current site and the two concepts from
+     wherever they landed, so three URLs can be circulated without anyone being
+     stranded on one of them. Deliberately self-contained: every style is inline
+     and prefixed .xsw- so this block cannot collide with any stylesheet on any
+     of the three sites, and it can be removed by deleting from this comment down
+     to its closing one, touching nothing else.
+     ------------------------------------------------------------------------- -->
+<style>
+.xsw{background:#0A1F3D;border-bottom:1px solid rgba(255,255,255,.18);
+  font-family:'Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
+.xsw-in{max-width:1200px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;
+  gap:8px;flex-wrap:wrap}
+.xsw-lab{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:#8FC4FF;margin-right:6px;white-space:nowrap}
+.xsw-item{display:flex;flex-direction:column;gap:1px;text-decoration:none;
+  padding:5px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.06);min-width:0}
+a.xsw-item:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outline-offset:2px}
+.xsw-name{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3}
+.xsw-sub{font-size:10.5px;color:#BCCFE9;line-height:1.3}
+.xsw-here{background:#fff;border-color:#fff}
+.xsw-here .xsw-name{color:#0A1F3D}
+.xsw-here .xsw-sub{color:#4A5A70}
+.xsw-you{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:#1955A6;line-height:1.3}
+.xsw-about{margin-left:auto;font-size:12px;color:#8FC4FF;text-decoration:underline;
+  white-space:nowrap;padding:5px 0}
+.xsw-about:hover{color:#fff}
+@media(max-width:700px){
+  .xsw-in{padding:8px 16px;gap:6px}
+  .xsw-lab{width:100%;margin:0 0 2px}
+  .xsw-item{flex:1;padding:5px 9px}
+  .xsw-about{margin-left:0;width:100%;padding-top:6px}
+}
+</style>
+<div class="xsw">
+  <div class="xsw-in">
+    <span class="xsw-lab">Reviewing three versions</span>
+    <a class="xsw-item" href="../index.html"><span class="xsw-name">Current site</span><span class="xsw-sub">v0.2, in review</span></a>
+    <a class="xsw-item" href="../concept-a/index.html"><span class="xsw-name">Concept A</span><span class="xsw-sub">layered, three tiers</span></a>
+    <span class="xsw-item xsw-here" aria-current="true"><span class="xsw-name">Concept B</span><span class="xsw-sub">unified, one page</span><span class="xsw-you">you are here</span></span>
+    <a class="xsw-about" href="../compare.html">Why three? Read this first &rarr;</a>
+  </div>
+</div>
+<!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
+
+
+<div class="proto-bar">
+  <strong>Concept B of 2, for feedback only.</strong>
+  One page, one query, three bands. The layers are a build sequence, not something a visitor navigates.
+  Not a CGIAR publication. IITA Internal Use.
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand-link" aria-label="CGIAR Climate Hub">
+      <img src="assets/cgiar-logo.png" alt="" height="34">
+      <span class="brand-name">CGIAR Climate Hub</span>
+    </a>
+    <nav class="mainnav" aria-label="Main">
+      <a href="#band1">What exists</a>
+      <a href="#band2">Who is working on it</a>
+      <a href="#band3">Build a brief</a>
+      <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Data Hub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<section class="console">
+  <div class="wrap">
+    <h1>Ask what CGIAR is doing about climate</h1>
+    <p class="lede">One question, answered three ways on this page: the evidence that already exists, the
+    projects working on it, and a brief assembled from both. There is nowhere else to go, and nothing behind
+    a second click.</p>
+
+    <form id="qForm" role="search">
+      <div class="qbox">
+        <label for="q" class="sr-only">Ask about a topic, a country or a hazard</label>
+        <input id="q" type="search" placeholder="drought in East Africa, livestock emissions, breeding risk…" autocomplete="off">
+        <button class="btn on-dark" type="submit">Ask</button>
+      </div>
+    </form>
+
+    <div class="q-suggest">
+      <span class="q-suggest-label">For example</span>
+      <button class="chip q-example" type="button" data-q="drought">drought</button>
+      <button class="chip q-example" type="button" data-q="emissions livestock">livestock emissions</button>
+      <button class="chip q-example" type="button" data-q="breeding">breeding risk</button>
+      <button class="chip q-example" type="button" data-q="climate finance GCF">climate finance</button>
+      <button class="chip q-example" type="button" data-q="seasonal forecast">seasonal forecasts</button>
+    </div>
+
+    <p id="queryEcho" class="muted" style="color:var(--on-dark);margin-top:18px;font-size:13.5px" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- Facets stay on screen for the whole page. In Concept B, filtering is not a
+     destination, it is the state of the page. -->
+<div class="facets">
+  <div class="facets-inner">
+    <div class="facet-group">
+      <label class="facet-label" for="fLens">Climate action</label>
+      <select id="fLens">
+        <option value="all">Adaptation and mitigation</option>
+        <option value="adaptation">Adaptation</option>
+        <option value="mitigation">Mitigation</option>
+        <option value="cross">Cross-cutting</option>
+      </select>
+    </div>
+    <div class="facet-group">
+      <label class="facet-label" for="fGeo">Geography</label>
+      <select id="fGeo"><option value="all">Anywhere</option></select>
+    </div>
+    <div class="facet-group">
+      <label class="facet-label" for="fType">Resource type</label>
+      <select id="fType">
+        <option value="all">Everything</option>
+        <option value="publication">Publications</option>
+        <option value="dataset">Datasets</option>
+        <option value="method">Methods, manuals &amp; tools</option>
+        <option value="innovation">Innovations</option>
+        <option value="expert">Experts</option>
+        <option value="event">News &amp; events</option>
+      </select>
+    </div>
+    <span class="facet-count" id="fCount" role="status" aria-live="polite"></span>
+    <button class="facet-reset" id="fReset" type="button">Clear</button>
+  </div>
+</div>
+
+<div class="bet-strip">
+  <div class="bet-strip-inner">
+    <span class="bet-strip-label">The bet this concept makes</span>
+    <p>That the three layers are a <strong>build sequence for us, not a structure for the visitor</strong>. Someone
+    arriving with a question should not need to know that answering it involves a static collection, a query layer
+    and a synthesis step. So all three sit on one page, all three react to the same query, and there is no
+    navigation between them. The cost of the bet: the page is long, and a visitor who only wanted one link scrolls
+    past two bands that were not for them. <strong>Compare against Concept A before deciding.</strong></p>
+  </div>
+</div>
+
+<main>
+  <!-- BAND 1 -->
+  <section class="band" id="band1" style="scroll-margin-top:120px">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="band-num" aria-hidden="true">1</span>
+        <h2>What already exists</h2>
+      </div>
+      <p class="band-sub" id="band1Sub"></p>
+      <div class="band-body">
+        <div class="demo" style="margin-top:0">
+          <strong>Real search, small corpus.</strong> Plain keyword matching over the <span class="corpus-n">44</span> items catalogued on this
+          prototype, run in your browser. It does not reach CGSpace, Gardian, the Data Hub catalogue or any live
+          source. Nothing you type is sent anywhere. The experts listed are the use-case champions already
+          published on the current prototype, not a directory: the centre-by-centre list does not exist yet and
+          no opt-out process has been agreed.
+        </div>
+        <div id="band1Body"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND 2 -->
+  <section class="band" id="band2" style="background:var(--blue-50);scroll-margin-top:120px">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="band-num" aria-hidden="true">2</span>
+        <h2>Who is working on it</h2>
+      </div>
+      <p class="band-sub" id="band2Sub"></p>
+      <div class="band-body">
+        <div class="demo" style="margin-top:0">
+          <strong>The portfolio is eight use cases.</strong> Status, programme and champion are as recorded on the
+          current prototype. Four of the eight are ideas rather than funded work, and two have no champion named.
+          An empty result in this band is informative: it says nobody has picked the topic up.
+        </div>
+        <div id="band2Body"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND 3 -->
+  <section class="band" id="band3" style="scroll-margin-top:120px">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="band-num" aria-hidden="true">3</span>
+        <h2>Build a brief from it</h2>
+      </div>
+      <p class="band-sub" id="band3Sub"></p>
+      <div class="band-body">
+        <div class="demo" style="margin-top:0">
+          <strong>No figures are populated, on purpose.</strong> The section structure and the named source layers
+          are real, and they update with your query above. The numbers are not there because no country-level
+          figures have been compiled, and filling them with plausible placeholders would make this impossible to
+          review honestly. The programme publishes a count of priority countries, 20 Tier 1 and 6 Tier 2, but the
+          names were not confirmed for this prototype.
+        </div>
+        <div id="band3Body"></div>
+        <p class="muted" style="margin-top:14px">Reading this as a work plan: the first three sections could be
+        assembled from layers that already exist. The next two need work that has not been resourced. The last
+        needs the expert directory, which does not exist.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="assets/cgiar-logo.png" alt="CGIAR" height="42">
+        <p>Concept B of two design interpretations prepared on 10/08/2026 to elicit feedback on the structure of
+        the CGIAR Climate Hub. Content is carried over from the v0.2 prototype. Nothing here is an approved
+        CGIAR position.</p>
+      </div>
+      <div class="footer-col">
+        <h3>On this page</h3>
+        <a href="#band1">1. What exists</a>
+        <a href="#band2">2. Who is working on it</a>
+        <a href="#band3">3. Build a brief</a>
+      </div>
+      <div class="footer-col">
+        <h3>Go deeper</h3>
+        <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub ↗</a>
+        <a href="https://cgiar-climate-data-hub.github.io/ai/" target="_blank" rel="noopener">AI and agent access ↗</a>
+        <a href="https://cgspace.cgiar.org/" target="_blank" rel="noopener">CGSpace ↗</a>
+      </div>
+      <div class="footer-col">
+        <h3>Programme</h3>
+        <a href="https://www.cgiar.org/" target="_blank" rel="noopener">CGIAR ↗</a>
+        <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">Climate Action ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CGIAR. Linked content remains under its own licence; attribution required on all datasets.</span>
+      <span>British English · Concept B, 10/08/2026 · IITA Internal Use</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

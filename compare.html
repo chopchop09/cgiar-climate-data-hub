@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CGIAR Climate Hub — three versions to review</title>
+<meta name="description" content="The current v0.2 site plus two new interpretations of the feedback of 10/08/2026, side by side for review.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="CGIAR Climate Hub — three versions to review">
+<meta property="og:description" content="The current site plus two working interpretations of the same feedback. Open all three and compare.">
+<meta property="og:type" content="website">
+<!-- Links point at index.html explicitly rather than the folder, so this page also
+     works when opened straight from the Mac with file://, where a folder URL shows a
+     directory listing instead of the page. On Vercel both forms work.
+
+     Self-contained on purpose. This page sits at the repository root, where
+     assets/styles.css belongs to the live v0.2 prototype, so it must not depend
+     on it. Only the shared logo is referenced. -->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue-900:#123E7A;--blue-800:#1955A6;--blue-100:#E4EEFC;--blue-50:#F4F8FD;
+  --on-dark:#D7E3F5;--highlight:#8FC4FF;--text:#1D1D1D;--text-2:#393939;--text-3:#6B6969;
+  --border:#E2E0DF;--warn-bg:#FFF8E6;--warn-bd:#E8C97A;--radius:10px;
+  --font:'Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  --font-serif:'Noto Serif',Georgia,'Times New Roman',serif;--wrap:1080px;
+}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);color:var(--text);line-height:1.6;background:#fff}
+img{max-width:100%}
+a{color:var(--blue-800)}
+a:focus-visible,.pick:focus-visible{outline:3px solid var(--blue-800);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.proto-bar{background:#2A2A2A;color:#F2F2F2;font-size:12.5px;padding:8px 24px;text-align:center;line-height:1.45}
+.proto-bar strong{color:#FFD98A}
+header{background:var(--blue-900);color:#fff}
+.header-inner{max-width:var(--wrap);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:14px}
+.header-inner img{height:32px;width:auto;display:block}
+.brand-name{font-size:16px;font-weight:700;margin-left:12px;padding-left:12px;border-left:1px solid rgba(255,255,255,.28)}
+.hero{background:linear-gradient(170deg,#0A1F3D 0%,#123E7A 60%,#1955A6 100%);color:#fff;padding:44px 0}
+h1{font-family:var(--font-serif);font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.2}
+.hero p{color:var(--on-dark);font-size:1.05rem;margin-top:14px;max-width:70ch}
+.quote{
+  margin-top:22px;padding:16px 20px;border-left:4px solid var(--highlight);
+  background:rgba(255,255,255,.08);border-radius:0 var(--radius) var(--radius) 0;
+  font-size:14px;color:var(--on-dark);font-style:italic;max-width:80ch
+}
+section{padding:44px 0}
+section.tint{background:var(--blue-50);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+h2{font-family:var(--font-serif);font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--blue-900);line-height:1.25}
+.lead{color:var(--text-2);margin-top:8px;max-width:76ch}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.pick-live{border-top-color:#6B6969;background:#FCFCFB}
+.pick-live .pick-tag{color:var(--text-3)}
+.pick{
+  display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);
+  border-top:5px solid var(--blue-800);border-radius:var(--radius);padding:24px 24px 22px;
+  text-decoration:none;color:inherit
+}
+.pick:hover{border-color:var(--blue-800);box-shadow:0 4px 18px rgba(18,62,122,.13)}
+.pick-tag{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--blue-800)}
+.pick h3{font-family:var(--font-serif);font-size:1.3rem;color:var(--blue-900);margin:6px 0 10px}
+.pick .shape{font-size:13px;color:var(--text-3);font-weight:600;margin-bottom:12px}
+.pick p{font-size:14px;color:var(--text-2);line-height:1.6}
+.pick ul{margin:12px 0 0 18px;font-size:13.5px;color:var(--text-2)}
+.pick ul li{margin-bottom:5px}
+.pick .open{
+  margin-top:18px;padding-top:14px;border-top:1px solid var(--border);
+  color:var(--blue-800);font-weight:700;font-size:14.5px
+}
+table{border-collapse:collapse;width:100%;margin-top:22px;font-size:14px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+thead th{background:var(--blue-900);color:#fff;font-size:13px}
+tbody th{width:26%;color:var(--blue-900);font-weight:700;background:var(--blue-50)}
+ol.qs{margin:20px 0 0 22px}
+ol.qs li{margin-bottom:14px;color:var(--text-2);font-size:14.5px}
+ol.qs strong{color:var(--blue-900)}
+.demo{
+  background:var(--warn-bg);border:1px solid var(--warn-bd);border-left:4px solid #D9A227;
+  border-radius:6px;padding:14px 16px;font-size:13.5px;color:#5A4200;line-height:1.55;margin-top:20px
+}
+.demo strong{color:#4A3600}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}
+.cols h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-900);margin-bottom:10px}
+.cols ul{margin-left:18px;font-size:13.5px;color:var(--text-2)}
+.cols ul li{margin-bottom:7px}
+footer{background:var(--blue-900);color:var(--on-dark);font-size:13px}
+.footer-inner{max-width:var(--wrap);margin:0 auto;padding:26px 24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+footer a{color:rgba(255,255,255,.85)}
+@media(max-width:1000px){.trio{grid-template-columns:1fr}}
+@media(max-width:820px){
+  .pair,.cols{grid-template-columns:1fr}
+  table,thead,tbody,th,td,tr{display:block}
+  thead{display:none}
+  tbody th{width:auto;border:none;padding-bottom:4px}
+  td{border-bottom:1px solid var(--border);padding-top:4px}
+  td::before{content:attr(data-l) ": ";font-weight:700;color:var(--blue-900)}
+  .header-inner{padding:12px 16px}
+  .wrap,.header-inner,.footer-inner{padding-left:16px;padding-right:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- THREE-WAY REVIEW SWITCHER, added 10/08/2026 ------------------------------
+     Lets a reviewer move between the current site and the two concepts from
+     wherever they landed, so three URLs can be circulated without anyone being
+     stranded on one of them. Deliberately self-contained: every style is inline
+     and prefixed .xsw- so this block cannot collide with any stylesheet on any
+     of the three sites, and it can be removed by deleting from this comment down
+     to its closing one, touching nothing else.
+     ------------------------------------------------------------------------- -->
+<style>
+.xsw{background:#0A1F3D;border-bottom:1px solid rgba(255,255,255,.18);
+  font-family:'Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
+.xsw-in{max-width:1200px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;
+  gap:8px;flex-wrap:wrap}
+.xsw-lab{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:#8FC4FF;margin-right:6px;white-space:nowrap}
+.xsw-item{display:flex;flex-direction:column;gap:1px;text-decoration:none;
+  padding:5px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.06);min-width:0}
+a.xsw-item:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outline-offset:2px}
+.xsw-name{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3}
+.xsw-sub{font-size:10.5px;color:#BCCFE9;line-height:1.3}
+.xsw-here{background:#fff;border-color:#fff}
+.xsw-here .xsw-name{color:#0A1F3D}
+.xsw-here .xsw-sub{color:#4A5A70}
+.xsw-you{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:#1955A6;line-height:1.3}
+.xsw-about{margin-left:auto;font-size:12px;color:#8FC4FF;text-decoration:underline;
+  white-space:nowrap;padding:5px 0}
+.xsw-about:hover{color:#fff}
+@media(max-width:700px){
+  .xsw-in{padding:8px 16px;gap:6px}
+  .xsw-lab{width:100%;margin:0 0 2px}
+  .xsw-item{flex:1;padding:5px 9px}
+  .xsw-about{margin-left:0;width:100%;padding-top:6px}
+}
+</style>
+<div class="xsw">
+  <div class="xsw-in">
+    <span class="xsw-lab">Reviewing three versions</span>
+    <a class="xsw-item" href="index.html"><span class="xsw-name">Current site</span><span class="xsw-sub">v0.2, in review</span></a>
+    <a class="xsw-item" href="concept-a/index.html"><span class="xsw-name">Concept A</span><span class="xsw-sub">layered, three tiers</span></a>
+    <a class="xsw-item" href="concept-b/index.html"><span class="xsw-name">Concept B</span><span class="xsw-sub">unified, one page</span></a>
+
+  </div>
+</div>
+<!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
+<div class="proto-bar">
+  <strong>Three versions, for feedback only.</strong>
+  None of them is agreed scope. All three contain features that deliberately do not work, labelled on the page.
+  Not a CGIAR publication. IITA Internal Use.
+</div>
+
+<header>
+  <div class="header-inner">
+    <img src="assets/cgiar-logo.png" alt="CGIAR">
+    <span class="brand-name">CGIAR Climate Hub</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Three versions to review</h1>
+    <p>The site you have already seen, plus two new interpretations of the feedback from the Climate Data Hub
+    check-in of 10/08/2026. That feedback described the Hub as a stack of layers, and the description fits two
+    quite different websites. Rather than pick one silently, both are built and working, so the choice can be
+    made by looking.</p>
+    <p class="quote">"Static content. Publications, link to innovations, list of experts, news and events.
+    Methods, manuals, tools. A layer on top that would allow a user to query about what CGIAR is doing about
+    topic x, y, z. On top of that, analytics and country profiles. Then a dashboard that allows you to filter
+    projects by keyword."</p>
+    <p style="margin-top:20px;font-size:14px">Every page in all three carries a bar at the very top for moving
+    between them, so you cannot get stranded on one.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Open all three, in any order</h2>
+    <p class="lead">The two concepts share their content, palette and stylesheet byte for byte, so a preference
+    between them is a preference about structure rather than about styling. The current site is included
+    because "neither, keep what we have" is a legitimate answer and should be easy to give.</p>
+
+    <div class="trio">
+      <a class="pick pick-live" href="index.html">
+        <span class="pick-tag">The current site</span>
+        <h3>v0.2 prototype</h3>
+        <div class="shape">One long page · thirteen sections</div>
+        <p>What the group has already reviewed section by section on 29/07. Everything on one page: use-case
+        selector, featured datasets, Ask the Hub, Flyer Builder, news, catalogue, FAQ.</p>
+        <ul>
+          <li>The most complete of the three</li>
+          <li>Also the one described as too busy</li>
+          <li>Included so "keep this" stays an option</li>
+        </ul>
+        <span class="open">Open the current site &rarr;</span>
+      </a>
+
+      <a class="pick" href="concept-a/index.html">
+        <span class="pick-tag">Concept A</span>
+        <h3>Layered</h3>
+        <div class="shape">Three pages · Collections, Query, Analyse</div>
+        <p>Takes the layers literally and keeps them apart. A deliberately plain front page of six browsable
+        collections, with querying and analytics behind their own labelled doors.</p>
+        <ul>
+          <li>Opens on information, not a photograph</li>
+          <li>An explicit tier map showing where you are</li>
+          <li>Each tier can be built, funded or dropped alone</li>
+        </ul>
+        <span class="open">Open Concept A &rarr;</span>
+      </a>
+
+      <a class="pick" href="concept-b/index.html">
+        <span class="pick-tag">Concept B</span>
+        <h3>Unified</h3>
+        <div class="shape">One page · one query · three bands</div>
+        <p>Treats the layering as our build sequence rather than the visitor's structure. One question box, and
+        everything below it re-answers: what exists, who is working on it, build a brief.</p>
+        <ul>
+          <li>Filters stay on screen throughout</li>
+          <li>No navigation, because there is nowhere else to go</li>
+          <li>A long page is the price of that</li>
+        </ul>
+        <span class="open">Open Concept B &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <h2>Side by side</h2>
+    <table>
+      <thead>
+        <tr><th scope="col">&nbsp;</th><th scope="col">Current, v0.2</th><th scope="col">Concept A, layered</th><th scope="col">Concept B, unified</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Shape</th>
+          <td data-l="Current">One page, thirteen sections</td>
+          <td data-l="Concept A">Three pages, one per tier</td>
+          <td data-l="Concept B">One page, three bands, one query</td></tr>
+        <tr><th scope="row">First thing you meet</th>
+          <td data-l="Current">Use-case selector and a search field</td>
+          <td data-l="Concept A">Six browsable collections</td>
+          <td data-l="Concept B">A question box</td></tr>
+        <tr><th scope="row">How you find something</th>
+          <td data-l="Current">Scroll, or search across the page</td>
+          <td data-l="Concept A">Browse a collection, or go to the query tier</td>
+          <td data-l="Concept B">Ask, then narrow with filters that stay on screen</td></tr>
+        <tr><th scope="row">Adaptation and mitigation</th>
+          <td data-l="Current">Present in some sections, not others</td>
+          <td data-l="Concept A">A tag on every item in every collection</td>
+          <td data-l="Concept B">A filter applying to the whole page</td></tr>
+        <tr><th scope="row">Country profiles</th>
+          <td data-l="Current">Flyer Builder controls, no document produced</td>
+          <td data-l="Concept A">A separate tier: structure, no figures</td>
+          <td data-l="Concept B">A band that reacts to your query, no figures</td></tr>
+        <tr><th scope="row">Non-working features</th>
+          <td data-l="Current">Three: Ask the Hub, Flyer Builder, newsletter</td>
+          <td data-l="Concept A">None. They were removed rather than mocked</td>
+          <td data-l="Concept B">None. They were removed rather than mocked</td></tr>
+        <tr><th scope="row">Main criticism to expect</th>
+          <td data-l="Current">Too busy, choice overload</td>
+          <td data-l="Concept A">Too plain, and the tier map is internal plumbing</td>
+          <td data-l="Concept B">A long scroll if you only wanted one link</td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">Both concepts apply the point made in the same meeting that
+    adaptation, mitigation and geography should run through everything as a consistent thread rather than
+    appearing in some places and not others. That is the clearest single difference from the current site.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What we would like you to answer</h2>
+    <p class="lead">Sharper than "what do you think", and each answerable in a minute or two once you have all
+    three open.</p>
+    <ol class="qs">
+      <li><strong>Does either concept actually beat the current site?</strong> "Neither, fix the current one"
+      is a real answer and the easiest one to lose if nobody asks for it.</li>
+      <li><strong>Open Concept A's front page. Is it too plain, or is that the point?</strong> It opens on
+      information rather than imagery, which was the loudest single complaint about the gender platform.</li>
+      <li><strong>Search "drought" in Concept B.</strong> Three resources come back and no project at all. Is
+      showing that gap so plainly a virtue or an embarrassment?</li>
+      <li><strong>Does anyone actually arrive wanting to browse?</strong> If nobody does, Concept A's first
+      tier is a shelf nobody visits. If they do, Concept B makes them scroll past a search result to reach
+      it.</li>
+      <li><strong>Should Concept A's tier map be public at all?</strong> It tells a visitor about our internal
+      build sequence: useful for colleagues, arguably meaningless for a ministry official.</li>
+      <li><strong>Both concepts removed Ask the Hub and the Flyer Builder rather than showing them not
+      working.</strong> Was that right, or does a non-working feature still earn its place by showing intent?</li>
+      <li><strong>Look at the experts collection in either concept.</strong> Six champions, labelled as not a
+      directory. Is that the honest size of this function, or must it be a real directory to earn a place?</li>
+    </ol>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <h2>What is real, and what is not</h2>
+    <p class="lead">Stated plainly, because the value of these prototypes depends on nobody mistaking a
+    demonstration for a capability. This applies to the two concepts; the current site carries its own
+    demonstration notices in place.</p>
+    <div class="cols">
+      <div>
+        <h3>Real in both concepts</h3>
+        <ul>
+          <li>All 44 catalogued items and their sources. Thirty-three carry an outbound link, across 28 unique
+          destinations, each either carried over from the v0.2 prototype or fetched on 10/08/2026.</li>
+          <li>The keyword search and every filter. Real scoring, entirely in your browser, no network calls,
+          and nothing you type is sent anywhere.</li>
+          <li>Every count on the pages, computed from the data rather than typed, so the numbers cannot drift
+          away from the lists.</li>
+          <li>The country brief's sections, its named source layers, and the obstacle recorded against each.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Deliberately not real</h3>
+        <ul>
+          <li>No country figures anywhere. Plausible placeholders would make honest review impossible.</li>
+          <li>No country selector. The programme publishes a count of priority countries, 20 Tier 1 and 6
+          Tier 2, but the names were not confirmed for these prototypes.</li>
+          <li>The experts list is six use-case champions, not a directory. No centre-by-centre list exists and
+          no opt-out process has been agreed.</li>
+          <li>Search covers 44 hand-catalogued items, not CGSpace, Gardian or the Data Hub catalogue.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="demo">
+      <strong>Neither concept includes Ask the Hub, on purpose.</strong> With no retrieval back end, a fixed
+      sample answer draws comment about the answer rather than about the structure, which is the only thing
+      these prototypes exist to test. It is still on the current site, where you can see the difference that
+      choice makes. Working AI access to the Hub exists today via the
+      <a href="https://cgiar-climate-data-hub.github.io/ai/" target="_blank" rel="noopener">Data Hub agent skills &#8599;</a>.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>One finding that may matter more than the choice</h2>
+    <p class="lead">Search either concept for <strong>drought</strong>. Three resources come back, and no
+    project in the portfolio matches at all. Drought was named on 10/08 as the topic recurring across more
+    conversations than any other, and the discussion went as far as sketching a work stream on mapping and
+    characterising drought for different crops and farming systems. Other single-word searches land in the same
+    range: emissions returns five, livestock five, breeding three.</p>
+    <p class="lead" style="margin-top:14px">No architecture causes that thinness and none of the three can fix
+    it. It points instead at the ingestion and tagging work discussed in the same meeting. On this evidence,
+    that work decides whether any of these front ends is worth having.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 CGIAR. Linked content remains under its own licence. Prepared by the Resilience and
+    Climate Adaptation Programme, IITA, 10/08/2026.</span>
+    <span>British English &middot; IITA Internal Use &middot;
+      <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Data Hub &#8599;</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

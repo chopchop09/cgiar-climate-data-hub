@@ -12,3 +12,6 @@ npm-debug.log*
 
 # Superseded placeholder reviews: the real ones live on the technical Hub
 assets/briefs/review-*.pdf
+
+# Scratch: superseded folders awaiting manual deletion
+_to_delete/

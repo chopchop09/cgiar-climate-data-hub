@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CGIAR Climate Hub — Concept A, layered</title>
+<meta name="description" content="Concept A: a static CGIAR climate resource hub, with the query layer and the analytics layer as separate, clearly labelled tiers.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Webfonts are a progressive enhancement. If the network is unavailable, the
+     local stack in styles.css takes over and the layout is unchanged. -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- THREE-WAY REVIEW SWITCHER, added 10/08/2026 ------------------------------
+     Lets a reviewer move between the current site and the two concepts from
+     wherever they landed, so three URLs can be circulated without anyone being
+     stranded on one of them. Deliberately self-contained: every style is inline
+     and prefixed .xsw- so this block cannot collide with any stylesheet on any
+     of the three sites, and it can be removed by deleting from this comment down
+     to its closing one, touching nothing else.
+     ------------------------------------------------------------------------- -->
+<style>
+.xsw{background:#0A1F3D;border-bottom:1px solid rgba(255,255,255,.18);
+  font-family:'Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
+.xsw-in{max-width:1200px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;
+  gap:8px;flex-wrap:wrap}
+.xsw-lab{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:#8FC4FF;margin-right:6px;white-space:nowrap}
+.xsw-item{display:flex;flex-direction:column;gap:1px;text-decoration:none;
+  padding:5px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.06);min-width:0}
+a.xsw-item:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outline-offset:2px}
+.xsw-name{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3}
+.xsw-sub{font-size:10.5px;color:#BCCFE9;line-height:1.3}
+.xsw-here{background:#fff;border-color:#fff}
+.xsw-here .xsw-name{color:#0A1F3D}
+.xsw-here .xsw-sub{color:#4A5A70}
+.xsw-you{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:#1955A6;line-height:1.3}
+.xsw-about{margin-left:auto;font-size:12px;color:#8FC4FF;text-decoration:underline;
+  white-space:nowrap;padding:5px 0}
+.xsw-about:hover{color:#fff}
+@media(max-width:700px){
+  .xsw-in{padding:8px 16px;gap:6px}
+  .xsw-lab{width:100%;margin:0 0 2px}
+  .xsw-item{flex:1;padding:5px 9px}
+  .xsw-about{margin-left:0;width:100%;padding-top:6px}
+}
+</style>
+<div class="xsw">
+  <div class="xsw-in">
+    <span class="xsw-lab">Reviewing three versions</span>
+    <a class="xsw-item" href="../index.html"><span class="xsw-name">Current site</span><span class="xsw-sub">v0.2, in review</span></a>
+    <span class="xsw-item xsw-here" aria-current="true"><span class="xsw-name">Concept A</span><span class="xsw-sub">layered, three tiers</span><span class="xsw-you">you are here</span></span>
+    <a class="xsw-item" href="../concept-b/index.html"><span class="xsw-name">Concept B</span><span class="xsw-sub">unified, one page</span></a>
+    <a class="xsw-about" href="../compare.html">Why three? Read this first &rarr;</a>
+  </div>
+</div>
+<!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
+
+
+<div class="proto-bar">
+  <strong>Concept A of 2, for feedback only.</strong>
+  This reads the 10/08 feedback as three separate tiers: static content here, querying and analytics behind their own doors.
+  Not a CGIAR publication. IITA Internal Use.
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand-link" aria-label="CGIAR Climate Hub, tier 1">
+      <img src="assets/cgiar-logo.png" alt="" height="34">
+      <span class="brand-name">CGIAR Climate Hub</span>
+    </a>
+    <nav class="mainnav" aria-label="Main">
+      <a href="index.html">1. Collections</a>
+      <a href="query.html">2. Query</a>
+      <a href="analyse.html">3. Analyse</a>
+      <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Data Hub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-a" id="main" tabindex="-1">
+  <div class="wrap">
+    <div class="hero-a-grid">
+      <div>
+        <h1>What CGIAR knows about climate, in one place</h1>
+        <p class="lede">Publications, datasets, methods and manuals, innovation catalogues, experts, news and
+        events. Everything here links to the source that holds it. The Hub curates and points; it does not
+        re-host and it does not replace the platforms it links to.</p>
+        <div class="hero-a-stats">
+          <div class="hero-a-stat"><span class="n">6</span><span class="l">collections</span></div>
+          <div class="hero-a-stat"><span class="n">3</span><span class="l">tiers, two working</span></div>
+          <div class="hero-a-stat"><span class="n">9</span><span class="l">source platforms linked</span></div>
+          <div class="hero-a-stat"><span class="n">8</span><span class="l">projects in the portfolio</span></div>
+        </div>
+      </div>
+
+      <aside class="bet" aria-label="What this concept assumes">
+        <h2>The bet this concept makes</h2>
+        <p>That the three layers should stay separate, because they have different costs, different owners and
+        different failure modes.</p>
+        <ul>
+          <li>Tier 1 is cheap, useful on its own, and shippable this year</li>
+          <li>Tier 2 is a modest addition once tier 1 exists</li>
+          <li>Tier 3 is expensive and depends on data nobody has assembled yet</li>
+          <li>Any tier can be dropped without breaking the one below it</li>
+        </ul>
+        <p class="ask">If this is right, the front page should feel plain, and that plainness should read as a
+        feature rather than a fault. Compare against Concept B before deciding.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="tiermap">
+  <div class="tiermap-inner">
+    <p class="tiermap-lead">The feedback described three layers stacked on each other. Concept A keeps them
+    genuinely separate, so each can be built, judged and paid for on its own. You are on tier 1.</p>
+    <div class="tiers">
+      <a class="tier" href="index.html">
+        <div class="tier-n">Tier 1</div>
+        <div class="tier-name">Collections</div>
+        <div class="tier-desc">Static content, well organised. Find the thing, follow the link out.</div>
+        <span class="tier-state built">Buildable now</span>
+      </a>
+      <a class="tier" href="query.html">
+        <div class="tier-n">Tier 2</div>
+        <div class="tier-name">Query</div>
+        <div class="tier-desc">Ask what CGIAR is doing on a topic, in a place. Filter rather than browse.</div>
+        <span class="tier-state built">Working here, on this prototype's own content</span>
+      </a>
+      <a class="tier" href="analyse.html">
+        <div class="tier-n">Tier 3</div>
+        <div class="tier-name">Analyse</div>
+        <div class="tier-desc">Country profiles and evidence synthesis. Make something new from the collections.</div>
+        <span class="tier-state partial">Structure only, no figures</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Tier 1</div>
+      <h2>Browse the collections</h2>
+      <p>Six collections, each one a list of real things with a real link out. Every item carries an
+      adaptation, mitigation or cross-cutting tag, and a geography, so the same two questions can be asked
+      of any collection. Use the tabs; use the tags to narrow within a collection.</p>
+    </div>
+
+    <div class="shelf-tabs" role="tablist" aria-label="Collections">
+      <button class="shelf-tab" role="tab" type="button" data-type="publication" aria-selected="false" aria-controls="shelf-publication">Publications <span class="count">3</span></button>
+      <button class="shelf-tab" role="tab" type="button" data-type="dataset"     aria-selected="false" aria-controls="shelf-dataset">Datasets <span class="count">9</span></button>
+      <button class="shelf-tab" role="tab" type="button" data-type="method"      aria-selected="false" aria-controls="shelf-method">Methods, manuals &amp; tools <span class="count">6</span></button>
+      <button class="shelf-tab" role="tab" type="button" data-type="innovation"  aria-selected="false" aria-controls="shelf-innovation">Innovations <span class="count">3</span></button>
+      <button class="shelf-tab" role="tab" type="button" data-type="expert"      aria-selected="false" aria-controls="shelf-expert">Experts <span class="count">6</span></button>
+      <button class="shelf-tab" role="tab" type="button" data-type="event"       aria-selected="false" aria-controls="shelf-event">News &amp; events <span class="count">9</span></button>
+    </div>
+
+    <!-- PUBLICATIONS -->
+    <div class="shelf" id="shelf-publication" data-type="publication" role="tabpanel" tabindex="0">
+      <p class="shelf-intro">Peer-reviewed articles, flagship reports and drafts. Three entries only: this is
+      what has been catalogued by hand for the prototype, not the CGIAR publication record. A real collection
+      would query CGSpace and Gardian, which between them hold around 150,000 records.</p>
+      <div class="lensbar">
+        <span class="lensbar-label">Narrow by</span>
+        <div class="chip-row">
+          <button class="chip" type="button" data-lens="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-lens="adaptation" aria-pressed="false">Adaptation</button>
+          <button class="chip" type="button" data-lens="mitigation" aria-pressed="false">Mitigation</button>
+          <button class="chip" type="button" data-lens="cross" aria-pressed="false">Cross-cutting</button>
+        </div>
+        <span class="muted shelf-count" style="margin-left:auto"></span>
+      </div>
+      <div class="cards shelf-items"></div>
+    </div>
+
+    <!-- DATASETS -->
+    <div class="shelf" id="shelf-dataset" data-type="dataset" role="tabpanel" tabindex="0">
+      <p class="shelf-intro">Every dataset links to the platform that owns it. Licence, currency and download
+      conditions are set by the source, not by the Hub, and attribution stays visible on each entry.</p>
+      <div class="lensbar">
+        <span class="lensbar-label">Narrow by</span>
+        <div class="chip-row">
+          <button class="chip" type="button" data-lens="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-lens="adaptation" aria-pressed="false">Adaptation</button>
+          <button class="chip" type="button" data-lens="mitigation" aria-pressed="false">Mitigation</button>
+          <button class="chip" type="button" data-lens="cross" aria-pressed="false">Cross-cutting</button>
+        </div>
+        <span class="muted shelf-count" style="margin-left:auto"></span>
+      </div>
+      <div class="cards shelf-items"></div>
+    </div>
+
+    <!-- METHODS -->
+    <div class="shelf" id="shelf-method" data-type="method" role="tabpanel" tabindex="0">
+      <p class="shelf-intro">The collection the pod discussion kept returning to: unified guidance so people
+      stop building the same climate-indices pipeline in isolation. What is here is a start, not that guidance.
+      Producing it is work someone has to be resourced for.</p>
+      <div class="lensbar">
+        <span class="lensbar-label">Narrow by</span>
+        <div class="chip-row">
+          <button class="chip" type="button" data-lens="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-lens="adaptation" aria-pressed="false">Adaptation</button>
+          <button class="chip" type="button" data-lens="mitigation" aria-pressed="false">Mitigation</button>
+          <button class="chip" type="button" data-lens="cross" aria-pressed="false">Cross-cutting</button>
+        </div>
+        <span class="muted shelf-count" style="margin-left:auto"></span>
+      </div>
+      <div class="cards shelf-items"></div>
+    </div>
+
+    <!-- INNOVATIONS -->
+    <div class="shelf" id="shelf-innovation" data-type="innovation" role="tabpanel" tabindex="0">
+      <p class="shelf-intro">Links out to the innovation catalogues, which is the senior-leadership request
+      recorded in round 2: get at TAAT and WOCAT quickly, and answer whether those entries connect to climate.
+      Answering the second half of that question needs the catalogues tagged against climate, which has not been done.</p>
+      <div class="lensbar">
+        <span class="lensbar-label">Narrow by</span>
+        <div class="chip-row">
+          <button class="chip" type="button" data-lens="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-lens="adaptation" aria-pressed="false">Adaptation</button>
+          <button class="chip" type="button" data-lens="mitigation" aria-pressed="false">Mitigation</button>
+          <button class="chip" type="button" data-lens="cross" aria-pressed="false">Cross-cutting</button>
+        </div>
+        <span class="muted shelf-count" style="margin-left:auto"></span>
+      </div>
+      <div class="cards shelf-items"></div>
+    </div>
+
+    <!-- EXPERTS -->
+    <div class="shelf" id="shelf-expert" data-type="expert" role="tabpanel" tabindex="0">
+      <p class="shelf-intro">Six people, being the use-case champions already named on the current prototype.</p>
+      <div class="demo">
+        <strong>Not a directory.</strong> The centre-by-centre list of CGIAR climate expertise does not exist yet,
+        and no process for keeping it current or for letting people opt out has been agreed. On the evidence of
+        the 10/08 discussion this is a small function with a hard maintenance problem behind it, so it is shown
+        here at its real size rather than as a finished feature.
+      </div>
+      <div class="lensbar">
+        <span class="lensbar-label">Narrow by</span>
+        <div class="chip-row">
+          <button class="chip" type="button" data-lens="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-lens="adaptation" aria-pressed="false">Adaptation</button>
+          <button class="chip" type="button" data-lens="mitigation" aria-pressed="false">Mitigation</button>
+          <button class="chip" type="button" data-lens="cross" aria-pressed="false">Cross-cutting</button>
+        </div>
+        <span class="muted shelf-count" style="margin-left:auto"></span>
+      </div>
+      <div class="cards shelf-items"></div>
+    </div>
+
+    <!-- NEWS -->
+    <div class="shelf" id="shelf-event" data-type="event" role="tabpanel" tabindex="0">
+      <p class="shelf-intro">Funding calls, conferences and calls for papers, in one list rather than four tabs.
+      Dates are as published by the organiser and should be checked against the source before anyone relies on them.</p>
+      <div class="lensbar">
+        <span class="lensbar-label">Narrow by</span>
+        <div class="chip-row">
+          <button class="chip" type="button" data-lens="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-lens="adaptation" aria-pressed="false">Adaptation</button>
+          <button class="chip" type="button" data-lens="mitigation" aria-pressed="false">Mitigation</button>
+          <button class="chip" type="button" data-lens="cross" aria-pressed="false">Cross-cutting</button>
+        </div>
+        <span class="muted shelf-count" style="margin-left:auto"></span>
+      </div>
+      <div class="cards shelf-items"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Going further</div>
+      <h2>The two doors out of tier 1</h2>
+      <p>Concept A's central bet: these are separate places, not sections of this page. A visitor who only
+      needs a link never meets them, and each can be dropped or deferred without touching tier 1.</p>
+    </div>
+
+    <div class="door">
+      <div>
+        <div class="section-label">Tier 2</div>
+        <h2>Query the collections</h2>
+        <p>What is CGIAR doing on drought, in East Africa, on the mitigation side? Tier 1 makes you browse six
+        collections to answer that. Tier 2 answers it in one query, across all of them at once.</p>
+        <ul>
+          <li>One keyword field, plus filters for collection, adaptation or mitigation, and geography</li>
+          <li>Searches every item on this prototype, not just one collection</li>
+          <li>Works now, on this prototype's own content only</li>
+        </ul>
+      </div>
+      <a class="btn" href="query.html">Open tier 2 →</a>
+    </div>
+
+    <div class="door">
+      <div>
+        <div class="section-label">Tier 3</div>
+        <h2>Analyse, and build country profiles</h2>
+        <p>The layer that makes something new: a two to four page country brief, portfolio analytics, evidence
+        assembled rather than listed. Shown here as structure with the data layers named and no figures
+        populated, because no country figures have been compiled.</p>
+        <ul>
+          <li>The profile template, section by section, with the datasets that would fill each one</li>
+          <li>Portfolio analytics computed from the eight projects, not typed in by hand</li>
+          <li>Deliberately empty where the evidence does not exist yet</li>
+        </ul>
+      </div>
+      <a class="btn" href="analyse.html">Open tier 3 →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="assets/cgiar-logo.png" alt="CGIAR" height="42">
+        <p>Concept A of two design interpretations prepared on 10/08/2026 to elicit feedback on the
+        structure of the CGIAR Climate Hub. Content is carried over from the v0.2 prototype. Nothing here is
+        an approved CGIAR position.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Tiers</h3>
+        <a href="index.html">1. Collections</a>
+        <a href="query.html">2. Query</a>
+        <a href="analyse.html">3. Analyse</a>
+      </div>
+      <div class="footer-col">
+        <h3>Go deeper</h3>
+        <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub ↗</a>
+        <a href="https://cgiar-climate-data-hub.github.io/ai/" target="_blank" rel="noopener">AI and agent access ↗</a>
+        <a href="https://cgspace.cgiar.org/" target="_blank" rel="noopener">CGSpace ↗</a>
+      </div>
+      <div class="footer-col">
+        <h3>Programme</h3>
+        <a href="https://www.cgiar.org/" target="_blank" rel="noopener">CGIAR ↗</a>
+        <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">Climate Action ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CGIAR. Linked content remains under its own licence; attribution required on all datasets.</span>
+      <span>British English · Concept A, 10/08/2026 · IITA Internal Use</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

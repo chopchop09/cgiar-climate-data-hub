@@ -725,3 +725,74 @@ footer { background: var(--blue-900); color: rgba(255,255,255,.75); padding: 52p
 
 @media (max-width: 600px) { .tier-band h2 { font-size: 22px; } }
 
+
+/* ---------- Responsive header and hero fixes, 10/08/2026 --------------------
+ * Added so the current site can be compared fairly against the two review
+ * concepts at phone and tablet widths, and to close the responsive gap recorded
+ * as outstanding in the design strategy note of 09/08/2026. Before this, the
+ * document scrolled sideways at every width from 320 px to 430 px, and again at
+ * around 1024 px.
+ *
+ * Both defects have the same root cause. Flex and grid children default to
+ * min-width: auto, so an element cannot shrink below the intrinsic width of its
+ * content. Two elements have intrinsically wide content that nothing was allowed
+ * to shrink or wrap:
+ *
+ *   .header-search input   fixed at width: 200px, plus the Ask the Hub button.
+ *                          Hidden below 960 px by the existing rules, but at
+ *                          1024 px it is visible and the pair overflows by 211 px.
+ *   .hero-search-lg        an input plus a 103 px button, giving the hero column
+ *                          a min-content floor of 338 px, wider than a phone.
+ *
+ * Everything here is inside a max-width media query, so desktop rendering at
+ * 1280 px and above is untouched: header geometry was compared before and after
+ * and is identical to the pixel.
+ * ------------------------------------------------------------------------- */
+
+/* Tablet and small-laptop widths, where the header search is still shown. */
+@media (max-width: 1100px) {
+  .header-inner { column-gap: 12px; }
+  .brand-link   { flex-shrink: 1; min-width: 0; }
+  .header-search { flex: 1 1 auto; min-width: 0; }
+  .header-search input { width: 100%; min-width: 0; }
+  .header-right { min-width: 0; }
+}
+
+/* Phones. The header search and nav are already hidden below 960 px by the
+   existing rules above; what follows governs what remains. */
+@media (max-width: 600px) {
+  .header-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 20px;
+    row-gap: 10px;
+  }
+  .brand-link img { height: 30px; width: auto; flex-shrink: 0; }
+  .brand-name {
+    font-size: 14px;
+    margin-left: 9px;
+    padding-left: 9px;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+  /* If the brand and the button still cannot share a line, the button drops to a
+     second row rather than off the side of the screen. */
+  .header-right { margin-left: auto; flex-shrink: 0; }
+  .btn-ask { padding: 9px 14px; }
+
+  /* Let the hero column shrink to the viewport instead of to its widest child. */
+  .hero-body > *, .hero-left, .persona-context { min-width: 0; }
+  .hero-search-lg { flex-wrap: wrap; }
+  .hero-search-lg input { flex: 1 1 140px; min-width: 0; }
+  .hero-search-lg button { flex: 0 0 auto; }
+  .hero-tags { min-width: 0; }
+  .hero-tag { max-width: 100%; }
+
+  /* Same pattern again in the tools section: an input beside a button, inside a
+     grid child that was not allowed to shrink. Visible only below about 340 px,
+     but it is the same one-line cause. */
+  .ask-inner > *, .ask-panel, .flyer-panel, .ask-box { min-width: 0; }
+  .ask-prompt { flex-wrap: wrap; }
+  .ask-prompt input { flex: 1 1 140px; min-width: 0; }
+  .ask-prompt .btn-go { flex: 0 0 auto; }
+}
