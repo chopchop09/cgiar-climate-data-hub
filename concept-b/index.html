@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CGIAR Climate Hub — Concept B, unified</title>
-<meta name="description" content="Concept B: one surface where a single query moves through resources, projects and an assembled brief. No separate layers.">
+<title>CGIAR Climate Hub &mdash; Concept B, the analytical console</title>
+<meta name="description" content="Concept B: a query console over the CGIAR climate catalogue, with a metadata-complete result table, coverage analytics and an assembled evidence pack.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Webfonts are a progressive enhancement. If the network is unavailable, the
-     local stack in styles.css takes over and the layout is unchanged. -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
-<link rel="stylesheet" href="assets/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
+<!-- Concept B loads its own stylesheet INSTEAD of the shared one. B and C were
+     reported as looking too alike, and the shared card grid was the cause. -->
+<link rel="stylesheet" href="assets/concept-b.css">
 </head>
 <body>
-<a href="#band1" class="skip-link">Skip to results</a>
+<a href="#main" class="skip-link">Skip to the results</a>
 
 <!-- THREE-WAY REVIEW SWITCHER, added 10/08/2026 ------------------------------
      Lets a reviewer move between the current site and the two concepts from
@@ -65,198 +65,158 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 </div>
 <!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
 
-
 <div class="proto-bar">
-  <strong>Concept B of 2, for feedback only.</strong>
-  One page, one query, three bands. The layers are a build sequence, not something a visitor navigates.
-  Not a CGIAR publication. IITA Internal Use.
+  <strong>Concept B of 4, for feedback only.</strong>
+  A working console over the catalogue: one query, a metadata table, coverage analytics, and an evidence pack
+  assembled from real entries. Not a CGIAR publication. IITA Internal Use.
 </div>
 
 <header>
   <div class="header-inner">
     <a href="index.html" class="brand-link" aria-label="CGIAR Climate Hub">
-      <img src="assets/cgiar-logo.png" alt="" height="34">
+      <img src="assets/cgiar-logo.png" alt="">
       <span class="brand-name">CGIAR Climate Hub</span>
     </a>
-    <nav class="mainnav" aria-label="Main">
-      <a href="#band1">What exists</a>
-      <a href="#band2">Who is working on it</a>
-      <a href="#band3">Build a brief</a>
-      <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Data Hub ↗</a>
-    </nav>
+    <span class="brand-mode">Evidence console</span>
   </div>
 </header>
 
-<section class="console">
-  <div class="wrap">
-    <h1>Ask what CGIAR is doing about climate</h1>
-    <p class="lede">One question, answered three ways on this page: the evidence that already exists, the
-    projects working on it, and a brief assembled from both. There is nowhere else to go, and nothing behind
-    a second click.</p>
-
+<div class="qbar">
+  <div class="qbar-in">
+    <h1>Query the CGIAR climate evidence base</h1>
+    <p class="sub">One query, assessed rather than browsed. Results carry the metadata a data user needs:
+    resolution, coverage, update cadence, licence and access route. Filters on the left narrow everything on the
+    page at once, including the analytics and the evidence pack at the bottom.</p>
     <form id="qForm" role="search">
-      <div class="qbox">
-        <label for="q" class="sr-only">Ask about a topic, a country or a hazard</label>
-        <input id="q" type="search" placeholder="drought in East Africa, livestock emissions, breeding risk…" autocomplete="off">
-        <button class="btn on-dark" type="submit">Ask</button>
+      <div class="qform">
+        <label for="q" class="sr-only">Query the catalogue</label>
+        <input id="q" type="search" autocomplete="off"
+               placeholder="drought  ·  rainfall  ·  emissions  ·  livestock  ·  reanalysis  ·  climate finance">
+        <button class="btn" type="submit">Run query</button>
+      </div>
+      <div class="qexamples">
+        <span class="lab">try</span>
+        <button class="qchip" type="button" data-q="rainfall">rainfall</button>
+        <button class="qchip" type="button" data-q="drought">drought</button>
+        <button class="qchip" type="button" data-q="reanalysis">reanalysis</button>
+        <button class="qchip" type="button" data-q="livestock">livestock</button>
+        <button class="qchip" type="button" data-q="emissions">emissions</button>
+        <button class="qchip" type="button" data-q="crop models">crop models</button>
+        <button class="qchip" type="button" data-q="climate finance">climate finance</button>
       </div>
     </form>
-
-    <div class="q-suggest">
-      <span class="q-suggest-label">For example</span>
-      <button class="chip q-example" type="button" data-q="drought">drought</button>
-      <button class="chip q-example" type="button" data-q="emissions livestock">livestock emissions</button>
-      <button class="chip q-example" type="button" data-q="breeding">breeding risk</button>
-      <button class="chip q-example" type="button" data-q="climate finance GCF">climate finance</button>
-      <button class="chip q-example" type="button" data-q="seasonal forecast">seasonal forecasts</button>
-    </div>
-
-    <p id="queryEcho" class="muted" style="color:var(--on-dark);margin-top:18px;font-size:13.5px" role="status" aria-live="polite"></p>
-  </div>
-</section>
-
-<!-- Facets stay on screen for the whole page. In Concept B, filtering is not a
-     destination, it is the state of the page. -->
-<div class="facets">
-  <div class="facets-inner">
-    <div class="facet-group">
-      <label class="facet-label" for="fLens">Climate action</label>
-      <select id="fLens">
-        <option value="all">Adaptation and mitigation</option>
-        <option value="adaptation">Adaptation</option>
-        <option value="mitigation">Mitigation</option>
-        <option value="cross">Cross-cutting</option>
-      </select>
-    </div>
-    <div class="facet-group">
-      <label class="facet-label" for="fGeo">Geography</label>
-      <select id="fGeo"><option value="all">Anywhere</option></select>
-    </div>
-    <div class="facet-group">
-      <label class="facet-label" for="fType">Resource type</label>
-      <select id="fType">
-        <option value="all">Everything</option>
-        <option value="publication">Publications</option>
-        <option value="dataset">Datasets</option>
-        <option value="method">Methods, manuals &amp; tools</option>
-        <option value="innovation">Innovations</option>
-        <option value="expert">Experts</option>
-        <option value="event">News &amp; events</option>
-      </select>
-    </div>
-    <span class="facet-count" id="fCount" role="status" aria-live="polite"></span>
-    <button class="facet-reset" id="fReset" type="button">Clear</button>
   </div>
 </div>
 
-<div class="bet-strip">
-  <div class="bet-strip-inner">
-    <span class="bet-strip-label">The bet this concept makes</span>
-    <p>That the three layers are a <strong>build sequence for us, not a structure for the visitor</strong>. Someone
-    arriving with a question should not need to know that answering it involves a static collection, a query layer
-    and a synthesis step. So all three sit on one page, all three react to the same query, and there is no
-    navigation between them. The cost of the bet: the page is long, and a visitor who only wanted one link scrolls
-    past two bands that were not for them. <strong>Compare against Concept A before deciding.</strong></p>
-  </div>
+<div class="console-grid">
+
+  <!-- FACET RAIL -->
+  <aside class="rail" aria-label="Filters">
+    <div class="rail-block">
+      <div class="rail-head">Climate action</div>
+      <div class="rail-body" id="railLens"></div>
+    </div>
+    <div class="rail-block">
+      <div class="rail-head">Area of work</div>
+      <div class="rail-body" id="railAow"></div>
+    </div>
+    <div class="rail-block">
+      <div class="rail-head">Resource type</div>
+      <div class="rail-body" id="railType"></div>
+    </div>
+    <button class="btn ghost sm rail-reset" id="railReset" type="button" style="display:none">Clear all filters</button>
+  </aside>
+
+  <!-- RESULTS AND ANALYTICS -->
+  <main id="main" tabindex="-1">
+
+    <div class="resbar">
+      <span class="resbar-count" id="resCount"></span>
+      <span class="resbar-state" id="resState"></span>
+    </div>
+
+    <div class="tablewrap" id="resTable"></div>
+    <div id="resEmpty"></div>
+
+    <p class="resbar-state" style="margin-top:9px">Click a column heading to sort. Fields nobody has recorded
+    read "not recorded" and always sort last, so a sort never hides a gap.</p>
+
+    <div class="panels">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Coverage: areas of work by climate action</h2>
+          <span class="note">counts from the current selection</span>
+        </div>
+        <div class="panel-body">
+          <div id="matrixBody"></div>
+          <p class="resbar-state" style="margin-top:12px" id="matrixNote"></p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Metadata completeness</h2>
+          <span class="note">six fields per dataset</span>
+        </div>
+        <div class="panel-body">
+          <div id="metaBody"></div>
+          <p class="resbar-state" style="margin-top:10px" id="metaNote"></p>
+        </div>
+      </section>
+    </div>
+
+    <div class="note-box">
+      <strong>What is real here.</strong> All 51 catalogued items, their providers and their links. Every count,
+      bar, matrix cell and completeness score is computed from those items at page load, never typed in. The
+      query and all three filters run entirely in your browser, with no network calls and nothing sent anywhere.
+      Metadata for CHIRPS, ERA5, AgERA5 and the two Data Hub datasets was read from each provider's own dataset
+      page on 10/08/2026. What is not real: the catalogue is 51 hand-entered items, not CGSpace or Gardian.
+    </div>
+
+    <!-- EVIDENCE PACK -->
+    <section class="pack">
+      <div class="pack-head">
+        <h2>Evidence pack for the current query</h2>
+        <p class="meta" id="packMeta"></p>
+      </div>
+      <div class="pack-body" id="packBody"></div>
+    </section>
+
+    <div class="note-box">
+      <strong>The pack lists real sources, and states where it runs out.</strong> Each section is filled from the
+      selection above, with provider, resolution and coverage against every citation, so it can be checked. It
+      does not write prose and it asserts no figures: no country-level figures have been compiled, and inventing
+      plausible ones would make this impossible to review honestly. The gaps in amber are the real limits of the
+      catalogue, not placeholders.
+    </div>
+
+  </main>
 </div>
-
-<main>
-  <!-- BAND 1 -->
-  <section class="band" id="band1" style="scroll-margin-top:120px">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="band-num" aria-hidden="true">1</span>
-        <h2>What already exists</h2>
-      </div>
-      <p class="band-sub" id="band1Sub"></p>
-      <div class="band-body">
-        <div class="demo" style="margin-top:0">
-          <strong>Real search, small corpus.</strong> Plain keyword matching over the <span class="corpus-n">44</span> items catalogued on this
-          prototype, run in your browser. It does not reach CGSpace, Gardian, the Data Hub catalogue or any live
-          source. Nothing you type is sent anywhere. The experts listed are the use-case champions already
-          published on the current prototype, not a directory: the centre-by-centre list does not exist yet and
-          no opt-out process has been agreed.
-        </div>
-        <div id="band1Body"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BAND 2 -->
-  <section class="band" id="band2" style="background:var(--blue-50);scroll-margin-top:120px">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="band-num" aria-hidden="true">2</span>
-        <h2>Who is working on it</h2>
-      </div>
-      <p class="band-sub" id="band2Sub"></p>
-      <div class="band-body">
-        <div class="demo" style="margin-top:0">
-          <strong>The portfolio is eight use cases.</strong> Status, programme and champion are as recorded on the
-          current prototype. Four of the eight are ideas rather than funded work, and two have no champion named.
-          An empty result in this band is informative: it says nobody has picked the topic up.
-        </div>
-        <div id="band2Body"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BAND 3 -->
-  <section class="band" id="band3" style="scroll-margin-top:120px">
-    <div class="wrap">
-      <div class="band-head">
-        <span class="band-num" aria-hidden="true">3</span>
-        <h2>Build a brief from it</h2>
-      </div>
-      <p class="band-sub" id="band3Sub"></p>
-      <div class="band-body">
-        <div class="demo" style="margin-top:0">
-          <strong>No figures are populated, on purpose.</strong> The section structure and the named source layers
-          are real, and they update with your query above. The numbers are not there because no country-level
-          figures have been compiled, and filling them with plausible placeholders would make this impossible to
-          review honestly. The programme publishes a count of priority countries, 20 Tier 1 and 6 Tier 2, but the
-          names were not confirmed for this prototype.
-        </div>
-        <div id="band3Body"></div>
-        <p class="muted" style="margin-top:14px">Reading this as a work plan: the first three sections could be
-        assembled from layers that already exist. The next two need work that has not been resourced. The last
-        needs the expert directory, which does not exist.</p>
-      </div>
-    </div>
-  </section>
-</main>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <img src="assets/cgiar-logo.png" alt="CGIAR" height="42">
-        <p>Concept B of two design interpretations prepared on 10/08/2026 to elicit feedback on the structure of
-        the CGIAR Climate Hub. Content is carried over from the v0.2 prototype. Nothing here is an approved
-        CGIAR position.</p>
-      </div>
-      <div class="footer-col">
-        <h3>On this page</h3>
-        <a href="#band1">1. What exists</a>
-        <a href="#band2">2. Who is working on it</a>
-        <a href="#band3">3. Build a brief</a>
-      </div>
-      <div class="footer-col">
-        <h3>Go deeper</h3>
-        <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub ↗</a>
-        <a href="https://cgiar-climate-data-hub.github.io/ai/" target="_blank" rel="noopener">AI and agent access ↗</a>
-        <a href="https://cgspace.cgiar.org/" target="_blank" rel="noopener">CGSpace ↗</a>
-      </div>
-      <div class="footer-col">
-        <h3>Programme</h3>
-        <a href="https://www.cgiar.org/" target="_blank" rel="noopener">CGIAR ↗</a>
-        <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">Climate Action ↗</a>
-      </div>
+    <div>
+      <p>Concept B of four design interpretations prepared on 10/08/2026 to elicit feedback on the structure of
+      the CGIAR Climate Hub. Built as a console because its proposition is that you arrive with a question and
+      want the evidence assessed, not browsed. Nothing here is an approved CGIAR position.</p>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 CGIAR. Linked content remains under its own licence; attribution required on all datasets.</span>
-      <span>British English · Concept B, 10/08/2026 · IITA Internal Use</span>
+    <div class="footer-col">
+      <h3>Compare</h3>
+      <a href="../index.html">Current site, v0.2</a>
+      <a href="../concept-a/index.html">Concept A, layered</a>
+      <a href="../concept-c/index.html">Concept C, GESI-style</a>
+      <a href="../compare.html">Why four?</a>
     </div>
+    <div class="footer-col">
+      <h3>Go deeper</h3>
+      <a href="https://cgiar-climate-data-hub.github.io/catalog/" target="_blank" rel="noopener">Data Hub catalogue &#8599;</a>
+      <a href="https://cgiar-climate-data-hub.github.io/ai/" target="_blank" rel="noopener">AI and agent access &#8599;</a>
+      <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">Climate Action programme &#8599;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 CGIAR. Linked content remains under its own licence; attribution required on all datasets.</span>
+    <span>British English &middot; Concept B, 10/08/2026 &middot; IITA Internal Use</span>
   </div>
 </footer>
 

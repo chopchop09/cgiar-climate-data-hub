@@ -64,7 +64,6 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 </div>
 <!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
 
-
 <div class="proto-bar">
   <strong>Concept C of 4, for feedback only.</strong>
   Built to resemble gender.cgiar.org: a photograph first, then ten themes, with everything split across tabs.
@@ -95,8 +94,8 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <div class="section-head">
       <div class="section-label">Resources</div>
       <h2>Publications, data, tools and methods</h2>
-      <p>Filter by the kind of resource and by theme, which is how the GENDER Platform's resource pages work.
-      There is no free-text search box on this page, because there is not one on theirs either.</p>
+      <p>Filter by the kind of resource and by theme. Datasets carry their resolution, time coverage, update
+      cadence and licence where a provider has recorded them.</p>
     </div>
 
     <div class="cfilters">
@@ -104,8 +103,8 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         <label for="fType">Resource type</label>
         <select id="fType">
           <option value="all">All types</option>
-          <option value="publication">Publications</option>
           <option value="dataset">Datasets</option>
+          <option value="publication">Publications</option>
           <option value="method">Tools, methods and training</option>
           <option value="innovation">Innovation catalogues</option>
         </select>
@@ -119,13 +118,13 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
       </div>
     </div>
 
-    <p id="rCount" class="muted" style="font-weight:600;color:var(--text-2);margin-bottom:12px" role="status" aria-live="polite"></p>
+    <p id="rCount" class="muted" style="font-weight:600;color:var(--text-2);margin-bottom:14px" role="status" aria-live="polite"></p>
     <div id="rResults"></div>
 
     <div class="demo">
-      <strong>Filters only, no search.</strong> That is faithful to the model, and it is worth noticing how it
-      feels: on this page you must already know which bucket your answer sits in. Concept B takes the opposite
-      position and makes a question the only way in.
+      <strong>Filters only, no search box.</strong> That is faithful to the model, and worth noticing: on this
+      page you must already know which bucket your answer sits in. Concept B takes the opposite position and
+      makes a typed question the only way in.
     </div>
   </div>
 </section>
@@ -170,6 +169,7 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 </footer>
 
 <script src="assets/data.js"></script>
+<script src="assets/themes.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

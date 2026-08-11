@@ -32,7 +32,7 @@
         '<span class="card-kind">' + esc(item.kind) + '</span></div>' +
       '<div class="card-title">' + esc(item.title) + '</div>' +
       '<div class="card-blurb">' + esc(item.blurb) + '</div>' +
-      '<div class="card-foot"><span>' + esc(item.source) +
+      '<div class="card-foot"><span>' + esc(item.provider || '') +
         (item.year ? ' · ' + esc(item.year) : '') + '</span>' +
         '<span class="go">' + go + '</span></div>' +
       '</' + tag + '>';
@@ -48,7 +48,7 @@
       '<div class="row-main">' +
         '<div class="row-title">' + esc(item.title) + '</div>' +
         '<div class="row-meta">' + esc(H.TYPE_LABEL[item.type]) + ' · ' + esc(item.kind) +
-          ' · ' + esc(item.source) + (item.year ? ' · ' + esc(item.year) : '') +
+          ' · ' + esc(item.provider || '') + (item.year ? ' · ' + esc(item.year) : '') +
           ' · ' + esc(item.geo) + '</div>' +
         '<div class="row-blurb">' + esc(item.blurb) + '</div>' +
       '</div>' +

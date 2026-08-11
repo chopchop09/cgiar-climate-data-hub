@@ -90,6 +90,11 @@ footer{background:var(--blue-900);color:var(--on-dark);font-size:13px}
 footer a{color:rgba(255,255,255,.85)}
 @media(max-width:1000px){.trio{grid-template-columns:1fr}}
 .pick-c{border-top-color:#1955A6}
+.pick-b{border-top-color:#6FD0E8;background:#0B1220}
+.pick-b h3,.pick-b .pick-tag{color:#EAF0F8}
+.pick-b p,.pick-b li{color:#B4C4DA}
+.pick-b .shape{color:#8598B3}
+.pick-b .open{color:#6FD0E8;border-top-color:#2C3D59}
 table{font-size:13px}
 th,td{padding:10px 11px}
 tbody th{width:20%}
@@ -221,16 +226,17 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         <span class="open">Open Concept A &rarr;</span>
       </a>
 
-      <a class="pick" href="concept-b/index.html">
+      <a class="pick pick-b" href="concept-b/index.html">
         <span class="pick-tag">Concept B</span>
-        <h3>Unified</h3>
-        <div class="shape">One page &middot; one query &middot; three bands</div>
-        <p>Treats the layering as our build sequence rather than the visitor's structure. One question box, and
-        everything below it re-answers: what exists, who is working on it, build a brief.</p>
+        <h3>Evidence console</h3>
+        <div class="shape">One surface &middot; query, table, analytics</div>
+        <p>Treats the layering as our build sequence, invisible to the visitor. A dark working console: one query,
+        a persistent facet rail, and results as a metadata table you can sort, with coverage analytics and an
+        assembled evidence pack beneath.</p>
         <ul>
-          <li>Filters stay on screen throughout</li>
-          <li>No navigation, because there is nowhere else to go</li>
-          <li>A long page is the price of that</li>
+          <li>Every dataset shows resolution, coverage, cadence and licence</li>
+          <li>Gaps read "not recorded" and always sort last</li>
+          <li>Built for someone doing the work, not reading about it</li>
         </ul>
         <span class="open">Open Concept B &rarr;</span>
       </a>
@@ -257,38 +263,43 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <h2>Side by side</h2>
     <table>
       <thead>
-        <tr><th scope="col">&nbsp;</th><th scope="col">Current, v0.2</th><th scope="col">A, layered</th><th scope="col">B, unified</th><th scope="col">C, GESI-style</th></tr>
+        <tr><th scope="col">&nbsp;</th><th scope="col">Current, v0.2</th><th scope="col">A, layered</th><th scope="col">B, console</th><th scope="col">C, GESI-style</th></tr>
       </thead>
       <tbody>
         <tr><th scope="row">Shape</th>
           <td data-l="Current">One page, thirteen sections</td>
           <td data-l="A">Three pages, one per tier</td>
-          <td data-l="B">One page, three bands</td>
+          <td data-l="B">One console surface</td>
           <td data-l="C">Five tabs</td></tr>
         <tr><th scope="row">First thing you meet</th>
           <td data-l="Current">Use-case selector and a search field</td>
           <td data-l="A">Six browsable collections</td>
-          <td data-l="B">A question box</td>
+          <td data-l="B">A query bar over a facet rail</td>
           <td data-l="C">A full-width photograph</td></tr>
         <tr><th scope="row">How you find something</th>
           <td data-l="Current">Scroll, or search the page</td>
           <td data-l="A">Browse, or go to the query tier</td>
-          <td data-l="B">Ask, then narrow with filters</td>
+          <td data-l="B">Query, then sort the table</td>
           <td data-l="C">Pick a theme, or filter by type</td></tr>
         <tr><th scope="row">Organising spine</th>
           <td data-l="Current">Three intent categories</td>
           <td data-l="A">Six resource collections</td>
-          <td data-l="B">One index, three facets</td>
+          <td data-l="B">Five published areas of work</td>
           <td data-l="C">Ten named themes</td></tr>
         <tr><th scope="row">Free-text search</th>
           <td data-l="Current">Yes, across the page</td>
           <td data-l="A">Yes, on the query tier</td>
           <td data-l="B">Yes, it is the entry point</td>
           <td data-l="C">No, filters only, as on the model</td></tr>
+        <tr><th scope="row">Dataset metadata shown</th>
+          <td data-l="Current">Provider and year</td>
+          <td data-l="A">Provider and year</td>
+          <td data-l="B">Six fields, plus a completeness score per dataset</td>
+          <td data-l="C">Four fields as a spec list on each card</td></tr>
         <tr><th scope="row">Photography</th>
           <td data-l="Current">None</td>
           <td data-l="A">None, deliberately</td>
-          <td data-l="B">None, deliberately</td>
+          <td data-l="B">None. Dark, tabular, numeric</td>
           <td data-l="C">Seven images, all credited</td></tr>
         <tr><th scope="row">Non-working features</th>
           <td data-l="Current">Three: Ask the Hub, Flyer Builder, newsletter</td>
@@ -298,7 +309,7 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         <tr><th scope="row">Main criticism to expect</th>
           <td data-l="Current">Too busy, choice overload</td>
           <td data-l="A">Too plain; tier map is internal plumbing</td>
-          <td data-l="B">A long scroll for one link</td>
+          <td data-l="B">Reads as a tool, not a website</td>
           <td data-l="C">Scrolling past a photo to reach information</td></tr>
       </tbody>
     </table>

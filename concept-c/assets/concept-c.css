@@ -187,3 +187,51 @@
   .newsrow { grid-template-columns: 1fr; gap: 6px; }
   .spotlight-body { padding: 22px 18px; }
 }
+
+/* ---------- Added 10/08/2026: populated blocks --------------------------------
+ * These replace copy that used to describe what a section would contain. Every
+ * figure below comes from the catalogue or from cgiar.org, never from the markup.
+ * -------------------------------------------------------------------------- */
+
+/* Published programme targets */
+.targetstrip { background: var(--blue-900); padding: 22px 0 18px; }
+.targets { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.target { border-left: 3px solid var(--highlight); padding-left: 14px; }
+.target-n {
+  display: block; font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700;
+  color: #fff; line-height: 1.15;
+}
+.target-l { display: block; font-size: 12.5px; color: var(--on-dark); margin-top: 4px; line-height: 1.45; }
+.targets-src { font-size: 11.5px; color: rgba(255,255,255,.6); margin-top: 14px; }
+
+/* Dataset specifications inside an editorial card. Concept B shows the same
+   fields as sortable table columns; here they read as a spec list. */
+.cardspecs {
+  display: grid; grid-template-columns: auto 1fr; gap: 3px 10px;
+  margin: 4px 0 2px; padding: 10px 0 0; border-top: 1px dotted var(--border);
+  font-size: 12.5px;
+}
+.cardspecs dt { color: var(--text-3); font-weight: 600; }
+.cardspecs dd { color: var(--text-2); }
+
+/* The five published areas of work */
+.aowlist { border-top: 2px solid var(--blue-900); }
+.aowrow {
+  display: grid; grid-template-columns: 34px 1fr auto; gap: 16px; align-items: start;
+  padding: 18px 4px; border-bottom: 1px solid var(--border);
+}
+.aowrow-n {
+  font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700;
+  color: var(--blue-800); text-align: center;
+}
+.aowrow-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--blue-900); }
+.aowrow-desc { font-size: 13.5px; color: var(--text-2); margin-top: 5px; line-height: 1.55; max-width: 78ch; }
+
+@media (max-width: 900px) { .targets { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) {
+  .targets { grid-template-columns: 1fr; }
+  .aowrow { grid-template-columns: 26px 1fr; }
+  .aowrow .themerow-n { grid-column: 2; justify-self: start; }
+  .cardspecs { grid-template-columns: 1fr; gap: 0 0; }
+  .cardspecs dt { margin-top: 6px; }
+}

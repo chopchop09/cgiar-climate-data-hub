@@ -25,12 +25,23 @@
     const external = item.url && item.url.indexOf('http') === 0;
     const tag = item.url ? 'a' : 'div';
     const attrs = item.url ? ' href="' + esc(item.url) + '" target="_blank" rel="noopener"' : '';
+    // Metadata shown as a short definition list rather than table columns, so the
+    // card stays editorial. Concept B renders the same fields as a dense table.
+    const specs = [['Resolution', item.resolution], ['Coverage', item.temporal],
+                   ['Updated', item.cadence], ['Access', item.formats]]
+      .filter(function (p) { return p[1]; });
+    const specHTML = specs.length
+      ? '<dl class="cardspecs">' + specs.map(function (p) {
+          return '<dt>' + esc(p[0]) + '</dt><dd>' + esc(p[1]) + '</dd>';
+        }).join('') + '</dl>'
+      : '';
     return '<' + tag + ' class="card"' + attrs + '>' +
       '<div class="card-top">' + lensChip(item.lens) +
         '<span class="card-kind">' + esc(item.kind) + '</span></div>' +
       '<div class="card-title">' + esc(item.title) + '</div>' +
       '<div class="card-blurb">' + esc(item.blurb) + '</div>' +
-      '<div class="card-foot"><span>' + esc(item.source) +
+      specHTML +
+      '<div class="card-foot"><span>' + esc(item.provider || '') +
         (item.year ? ' &middot; ' + esc(item.year) : '') + '</span><span class="go">' +
         (item.url ? (external ? 'Open ↗' : 'Open →') : 'No link yet') + '</span></div>' +
       '</' + tag + '>';
@@ -44,7 +55,7 @@
       '<div class="row-main">' +
         '<div class="row-title">' + esc(item.title) + '</div>' +
         '<div class="row-meta">' + esc(H.TYPE_LABEL[item.type]) + ' &middot; ' + esc(item.kind) +
-          ' &middot; ' + esc(item.source) + (item.year ? ' &middot; ' + esc(item.year) : '') + '</div>' +
+          ' &middot; ' + esc(item.provider || '') + (item.year ? ' &middot; ' + esc(item.year) : '') + '</div>' +
         '<div class="row-blurb">' + esc(item.blurb) + '</div>' +
       '</div>' +
       '<div class="row-side">' + lensChip(item.lens) + '</div>' +
@@ -62,6 +73,16 @@
     });
   })();
 
+  /* ---------- Programme targets, as published ---------- */
+  (function targets() {
+    const host = $('#targets');
+    if (!host) return;
+    host.innerHTML = H.TARGETS.map(function (t) {
+      return '<div class="target"><span class="target-n">' + esc(t.figure) + '</span>' +
+        '<span class="target-l">' + esc(t.label) + '</span></div>';
+    }).join('');
+  })();
+
   /* ---------- Vantage points ---------- */
   (function vantage() {
     const host = $('#vantage');
@@ -70,19 +91,41 @@
       const items = v.types.length
         ? H.all.filter(function (i) { return v.types.indexOf(i.type) > -1; })
         : [];
-      const count = v.types.length
-        ? items.length + (items.length === 1 ? ' item' : ' items')
-        : 'Nothing yet';
-      const cls = v.types.length ? 'vcard-count' : 'vcard-count vcard-empty';
-      const href = v.types.length ? 'resources.html' : '';
-      const tag = href ? 'a' : 'div';
-      const attr = href ? ' href="' + href + '"' : '';
+      const tag = v.href ? 'a' : 'div';
+      const attr = v.href ? ' href="' + esc(v.href) + '"' : '';
       return '<' + tag + ' class="vcard"' + attr + '>' +
         '<div class="vcard-name">' + esc(v.label) + '</div>' +
         '<div class="vcard-desc">' + esc(v.desc) + '</div>' +
         (v.note ? '<div class="vcard-desc" style="font-style:italic">' + esc(v.note) + '</div>' : '') +
-        '<div class="' + cls + '">' + esc(count) + '</div>' +
-      '</' + tag + '>';
+        '<div class="' + (items.length ? 'vcard-count' : 'vcard-count vcard-empty') + '">' +
+          (items.length ? items.length + (items.length === 1 ? ' item' : ' items') : 'Nothing yet') +
+        '</div></' + tag + '>';
+    }).join('');
+  })();
+
+  /* ---------- Foundational datasets, the four with complete metadata ---------- */
+  (function foundational() {
+    const host = $('#foundational');
+    if (!host) return;
+    const pick = H.datasets.filter(function (d) {
+      return ['CHIRPS', 'ERA5', 'AgERA5'].indexOf(d.title) > -1 ||
+             d.title.indexOf('GLW4') > -1;
+    });
+    host.innerHTML = pick.map(cardHTML).join('');
+  })();
+
+  /* ---------- The five published areas of work ---------- */
+  (function areas() {
+    const host = $('#aowList');
+    if (!host) return;
+    host.innerHTML = H.AREAS.map(function (a, idx) {
+      const items = H.all.filter(function (i) { return i.aow === a.id; });
+      return '<div class="aowrow">' +
+        '<div class="aowrow-n">' + (idx + 1) + '</div>' +
+        '<div><div class="aowrow-name">' + esc(a.name) + '</div>' +
+        '<div class="aowrow-desc">' + esc(a.desc) + '</div></div>' +
+        '<div class="themerow-n">' + items.length + ' item' + (items.length === 1 ? '' : 's') + '</div>' +
+      '</div>';
     }).join('');
   })();
 
@@ -97,7 +140,7 @@
       '<h2>' + esc(pick.title) + '</h2>' +
       '<p>' + esc(pick.blurb) + '</p>' +
       '<p style="margin-top:10px;font-size:13px;color:var(--highlight)">' +
-        esc(pick.source) + ' &middot; ' + esc(pick.year) + '</p>' +
+        esc(pick.provider) + ' &middot; ' + esc(pick.year) + '</p>' +
       (pick.url ? '<p style="margin-top:16px"><a class="btn on-dark" href="' + esc(pick.url) +
         '" target="_blank" rel="noopener">Read the paper ↗</a></p>' : '');
   })();
@@ -159,6 +202,14 @@
       themeSel.appendChild(o);
     });
 
+    // Deep link support, so the vantage cards on the home tab can land here
+    // already filtered rather than dumping the visitor at the top of the list.
+    const qs = new URLSearchParams(location.search);
+    const wanted = qs.get('type');
+    if (wanted && $$('#fType option').some(function (o) { return o.value === wanted; })) {
+      typeSel.value = wanted;
+    }
+
     function run() {
       let items = H.all.filter(function (i) { return i.type !== 'expert' && i.type !== 'event' && i.type !== 'project'; });
       if (typeSel.value !== 'all') items = items.filter(function (i) { return i.type === typeSel.value; });
@@ -192,7 +243,7 @@
       return '<div class="expertcard">' +
         '<div class="expert-initials" aria-hidden="true">' + esc(initials) + '</div>' +
         '<div><div class="expert-name">' + esc(e.title) + '</div>' +
-        '<div class="expert-org">' + esc(e.source) + '</div>' +
+        '<div class="expert-org">' + esc(e.provider) + '</div>' +
         '<div class="expert-topic">' + esc(e.blurb) + '</div></div>' +
       '</div>';
     }).join('');

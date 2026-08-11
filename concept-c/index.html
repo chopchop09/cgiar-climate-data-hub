@@ -64,7 +64,6 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 </div>
 <!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
 
-
 <div class="proto-bar">
   <strong>Concept C of 4, for feedback only.</strong>
   Built to resemble gender.cgiar.org: a photograph first, then ten themes, with everything split across tabs.
@@ -91,18 +90,24 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 
 <main id="main" tabindex="-1">
 
-<!-- Image before information. This is the ordering gender.cgiar.org uses and the
-     single most-commented feature of it on 10/08. Concept A inverts it. -->
 <div class="chero">
   <img class="chero-img" src="assets/img/hero-sahel.jpg"
-       alt="Farmers working a field using innovative farming practices in the Sahel">
+       alt="A farmer preparing planting pits using innovative farming practices in the Sahel">
   <div class="chero-caption" id="cap-hero"></div>
 </div>
 <div class="chero-words">
   <div class="chero-words-in">
     <p class="chero-mission">Climate evidence driving just, resilient food, land and water systems</p>
-    <p class="chero-sub">Explore climate research resources from across CGIAR from your preferred vantage
-    point, or browse the ten themes the work is organised under.</p>
+    <p class="chero-sub">The CGIAR Climate Action programme works towards 16 million smallholder farmers
+    benefiting, USD 15 billion in climate finance unlocked, and a 1 gigaton reduction in CO<sub>2</sub>-equivalent
+    emissions by 2030, across 20 priority countries. This is the evidence behind that work.</p>
+  </div>
+</div>
+
+<div class="targetstrip">
+  <div class="wrap">
+    <div class="targets" id="targets"></div>
+    <p class="targets-src">Targets and country count as published on cgiar.org, read 10/08/2026.</p>
   </div>
 </div>
 
@@ -111,22 +116,16 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <div class="section-head">
       <div class="section-label">Start here</div>
       <h2>Choose your vantage point</h2>
-      <p>The GENDER Platform lets a visitor enter by the kind of thing they want rather than the topic. These
-      four routes are its four, translated to what this catalogue actually holds.</p>
     </div>
     <div class="vantage" id="vantage"></div>
-    <p class="muted" style="margin-top:14px">Counts are matched from the 44 catalogued items when the page
-    loads, so a route showing nothing is telling you the truth about the catalogue.</p>
   </div>
 </section>
 
 <section class="section tint">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-label">Featured this week</div>
+      <div class="section-label">Featured</div>
       <h2>Spotlight</h2>
-      <p>The GENDER Platform carries a spotlight it refreshes weekly. Reproduced here as a structure, with a
-      real item from the catalogue in it.</p>
     </div>
     <div class="spotlight">
       <div class="spotlight-media">
@@ -135,29 +134,18 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
       </div>
       <div class="spotlight-body" id="spotlightBody"></div>
     </div>
-    <div class="demo">
-      <strong>Nothing rotates.</strong> A weekly spotlight needs an editor with a weekly slot. That resource
-      has not been identified, and the same gap sank the news widget on the current site. Judge whether the slot
-      is worth having before judging what is in it.
-    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-label">Ten themes</div>
-      <h2>Browse by theme</h2>
-      <p>The GENDER Platform organises everything under ten named research themes with sub-topics listed
-      beneath each. This is that structure, with climate themes built from the tags already in the catalogue.</p>
+      <div class="section-label">Foundational data</div>
+      <h2>The climate data this work runs on</h2>
+      <p>Four records that most analyses start from, with resolution, coverage and update cadence read from each
+      provider on 10/08/2026.</p>
     </div>
-    <div class="themelist" id="themelistShort"></div>
-    <p style="margin-top:20px"><a class="btn ghost" href="themes.html">See all ten themes in full &rarr;</a></p>
-    <div class="demo">
-      <strong>These ten labels are an editorial grouping, not a CGIAR taxonomy.</strong> No climate-terms
-      taxonomy exists yet. They were built from the tags on the 44 catalogued items, exactly as the three
-      categories on the current site were, and they should be argued with.
-    </div>
+    <div class="cards" id="foundational"></div>
   </div>
 </section>
 
@@ -169,11 +157,41 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 <section class="section">
   <div class="wrap">
     <div class="section-head">
+      <div class="section-label">Ten themes</div>
+      <h2>Browse by theme</h2>
+    </div>
+    <div class="themelist" id="themelistShort"></div>
+    <p style="margin-top:20px"><a class="btn ghost" href="themes.html">See all ten themes in full &rarr;</a></p>
+    <div class="demo">
+      <strong>These ten labels are an editorial grouping, not a CGIAR taxonomy.</strong> No climate-terms
+      taxonomy exists yet. They were built from the tags on the catalogued items, and an item can sit under more
+      than one. The five areas of work below are the published structure, and are externally verifiable.
+    </div>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Programme structure</div>
+      <h2>The five areas of work</h2>
+      <p>As published on cgiar.org. Counts are the catalogued evidence sitting under each.</p>
+    </div>
+    <div class="aowlist" id="aowList"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
       <div class="section-label">Recent</div>
       <h2>Latest publications</h2>
     </div>
     <div class="rows" id="latestPubs"></div>
-    <p style="margin-top:18px"><a class="btn ghost" href="resources.html">Browse all resources &rarr;</a></p>
+    <p style="margin-top:18px">
+      <a class="btn ghost" href="resources.html">Browse all resources &rarr;</a>
+      <a class="btn ghost" href="news.html" style="margin-left:8px">Funding calls and events &rarr;</a>
+    </p>
   </div>
 </section>
 
@@ -218,6 +236,7 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 </footer>
 
 <script src="assets/data.js"></script>
+<script src="assets/themes.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>
