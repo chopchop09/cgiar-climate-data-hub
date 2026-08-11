@@ -1,0 +1,189 @@
+/* CGIAR Climate Hub - Concept C, the GESI-style reading
+ * ----------------------------------------------------------------------------
+ * Loaded after the shared styles.css, which it extends rather than replaces.
+ *
+ * This layer reproduces the layout language of gender.cgiar.org, the site named
+ * in the 10/08/2026 discussion as the reference for a static resource hub:
+ *
+ *   - a full-bleed photograph before any information, which is the single most
+ *     commented-on feature of that site, in both directions
+ *   - a "choose your vantage point" row of routes by resource format
+ *   - a weekly spotlight
+ *   - ten named themes as a plain vertical list with sub-topics beneath each,
+ *     not as cards
+ *   - content split across many tabs rather than stacked on one page
+ *   - visible image attribution on every photograph
+ *
+ * The palette stays the Climate Action blue from styles.css. Only the layout is
+ * borrowed, so a reviewer comparing the four versions is comparing structure.
+ * ------------------------------------------------------------------------- */
+
+/* ---------- Tab bar. GESI's defining navigational move: many tabs. ---------- */
+.ctabs { background: #fff; border-bottom: 1px solid var(--border); }
+.ctabs-in {
+  max-width: var(--wrap); margin: 0 auto; padding: 0 24px;
+  display: flex; gap: 4px; flex-wrap: wrap;
+}
+.ctab {
+  display: block; padding: 15px 16px; text-decoration: none;
+  font-size: 14.5px; font-weight: 600; color: var(--text-2);
+  border-bottom: 3px solid transparent;
+}
+.ctab:hover { color: var(--blue-900); background: var(--blue-50); }
+.ctab[aria-current="page"] { color: var(--blue-900); border-bottom-color: var(--blue-800); }
+
+/* ---------- Image-led hero ----------
+ * Deliberately puts the photograph first and the words second. On the gender
+ * platform this is what a visitor meets, and the criticism recorded on 10/08 was
+ * "I have to scroll past a bunch of women to get to their information". Concept C
+ * reproduces that ordering honestly so the group can judge it rather than
+ * remember it. Concept A does the exact opposite by design.
+ */
+.chero { position: relative; background: var(--blue-900); }
+.chero-img {
+  display: block; width: 100%; height: clamp(240px, 34vw, 400px);
+  object-fit: cover; object-position: center 55%;
+}
+.chero-caption {
+  position: absolute; right: 0; bottom: 0;
+  background: rgba(10,31,61,.82); color: #E7EEF9;
+  font-size: 10.5px; line-height: 1.4; padding: 5px 10px;
+  max-width: 100%;
+}
+.chero-words { background: #fff; }
+.chero-words-in { max-width: 860px; margin: 0 auto; padding: 40px 24px 34px; text-align: center; }
+.chero-mission {
+  font-family: var(--font-serif); font-size: clamp(1.5rem, 3.4vw, 2.15rem);
+  line-height: 1.28; color: var(--blue-900); font-weight: 700;
+}
+.chero-sub { font-size: 1.03rem; color: var(--text-2); margin-top: 16px; }
+
+/* ---------- Vantage points ---------- */
+.vantage { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px; }
+.vcard {
+  display: flex; flex-direction: column; gap: 8px;
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px 18px; text-decoration: none; color: inherit;
+}
+.vcard:hover { border-color: var(--blue-800); box-shadow: 0 3px 14px rgba(18,62,122,.10); }
+.vcard-name { font-family: var(--font-serif); font-size: 1.08rem; font-weight: 700; color: var(--blue-900); }
+.vcard-desc { font-size: 13.5px; color: var(--text-2); line-height: 1.5; }
+.vcard-count { margin-top: auto; padding-top: 12px; font-size: 12.5px; font-weight: 700; color: var(--blue-800); }
+.vcard-empty { color: #8A6A00; }
+
+/* ---------- Weekly spotlight ---------- */
+.spotlight { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--blue-900); border-radius: var(--radius); overflow: hidden; }
+.spotlight-media { position: relative; min-height: 260px; }
+.spotlight-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.spotlight-cap {
+  position: absolute; left: 0; bottom: 0; right: 0;
+  background: rgba(10,31,61,.8); color: #E7EEF9; font-size: 10.5px; padding: 5px 10px; line-height: 1.4;
+}
+.spotlight-body { padding: 30px 32px; color: #fff; align-self: center; }
+.spotlight-kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--highlight); }
+.spotlight-body h2 { color: #fff; font-size: 1.5rem; margin: 8px 0 12px; }
+.spotlight-body p { color: var(--on-dark); font-size: 14.5px; line-height: 1.65; }
+
+/* ---------- Theme list. A list, as on GESI, not a card grid. ---------- */
+.themelist { border-top: 2px solid var(--blue-900); }
+.themerow {
+  display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+  padding: 20px 4px; border-bottom: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+}
+.themerow:hover { background: var(--blue-50); }
+.themerow-name { font-family: var(--font-serif); font-size: 1.22rem; font-weight: 700; color: var(--blue-900); }
+.themerow-sub { font-size: 13.5px; color: var(--text-3); margin-top: 5px; line-height: 1.5; }
+.themerow-n {
+  font-size: 13px; font-weight: 700; color: var(--blue-800);
+  background: var(--blue-100); padding: 6px 12px; border-radius: 20px; white-space: nowrap;
+}
+
+/* Theme detail blocks on themes.html */
+.themeblock { padding: 26px 0; border-bottom: 1px solid var(--border); }
+.themeblock:last-child { border-bottom: none; }
+.themeblock-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.themeblock h2 { font-size: 1.3rem; }
+.themeblock-sub { font-size: 13.5px; color: var(--text-3); margin: 6px 0 16px; }
+.themeblock .cards { margin-top: 4px; }
+
+/* ---------- Editorial band with a photograph ---------- */
+.photoband { position: relative; margin: 0; }
+.photoband img { display: block; width: 100%; height: clamp(150px, 20vw, 240px); object-fit: cover; }
+.photoband-cap {
+  position: absolute; right: 0; bottom: 0;
+  background: rgba(10,31,61,.8); color: #E7EEF9; font-size: 10.5px; padding: 5px 10px;
+}
+
+/* ---------- Experts: map plus list, no search ----------
+ * Faithful to GESI, where clicking through to the experts gives a map and a list
+ * and no way to search them. Reproduced rather than improved, and labelled as
+ * such on the page, because the point of Concept C is to show what adopting that
+ * pattern would actually feel like.
+ */
+.expertgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.mapframe {
+  background: var(--blue-50); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px; position: relative;
+}
+.mapframe svg { display: block; width: 100%; height: auto; }
+.map-empty {
+  position: absolute; inset: 14px; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+}
+.map-empty span {
+  background: rgba(255,255,255,.94); border: 1px solid var(--warn-bd);
+  border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #5A4200; max-width: 34ch; line-height: 1.5;
+}
+.expertcard {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 15px 0; border-bottom: 1px solid var(--border);
+}
+.expertcard:last-child { border-bottom: none; }
+.expert-initials {
+  flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--blue-100); color: var(--blue-900);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 15px;
+}
+.expert-name { font-size: 15.5px; font-weight: 700; color: var(--blue-900); }
+.expert-org { font-size: 13px; color: var(--text-3); margin-top: 2px; }
+.expert-topic { font-size: 13.5px; color: var(--text-2); margin-top: 6px; line-height: 1.5; }
+
+/* ---------- Resources page filters ---------- */
+.cfilters {
+  display: grid; grid-template-columns: 1fr 1fr auto; gap: 14px; align-items: end;
+  background: var(--blue-50); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px; margin-bottom: 20px;
+}
+.cfilter label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-3); margin-bottom: 6px; }
+.cfilter select {
+  width: 100%; font-family: var(--font); font-size: 14px; padding: 9px 11px;
+  border: 1.5px solid var(--border); border-radius: 6px; background: #fff; color: var(--text);
+}
+
+/* ---------- News list ---------- */
+.newsrow { display: grid; grid-template-columns: 150px 1fr auto; gap: 18px; align-items: baseline;
+  padding: 16px 4px; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; }
+.newsrow:hover { background: var(--blue-50); }
+.newsrow-when { font-size: 12.5px; font-weight: 700; color: var(--blue-800); }
+.newsrow-title { font-size: 15px; font-weight: 700; color: var(--blue-900); line-height: 1.4; }
+.newsrow-src { font-size: 12.5px; color: var(--text-3); margin-top: 3px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .vantage { grid-template-columns: 1fr 1fr; }
+  .spotlight { grid-template-columns: 1fr; }
+  .expertgrid { grid-template-columns: 1fr; }
+  .cfilters { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .vantage { grid-template-columns: 1fr; }
+  .ctabs-in { padding: 0 16px; gap: 0; }
+  .ctab { padding: 12px 10px; font-size: 13.5px; }
+  .chero-words-in { padding: 28px 16px 24px; }
+  .themerow { grid-template-columns: 1fr; gap: 10px; }
+  .themerow-n { justify-self: start; }
+  .newsrow { grid-template-columns: 1fr; gap: 6px; }
+  .spotlight-body { padding: 22px 18px; }
+}
