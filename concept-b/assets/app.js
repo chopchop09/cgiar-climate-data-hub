@@ -71,7 +71,15 @@
     $$('.facet').forEach(function (b) {
       b.addEventListener('click', function () {
         const f = b.dataset.facet, v = b.dataset.value;
-        state[f] = state[f] === v ? null : v;   // click again to clear
+        const turningOn = state[f] !== v;
+        state[f] = turningOn ? v : null;   // click again to clear
+        // Which facets reviewers reach for is one of the questions this round asks.
+        // Labels rather than internal keys, so the emailed report is readable.
+        if (turningOn && window.HubTrack) {
+          const FACET_LABEL = { lens: 'climate action', aow: 'area of work', type: 'resource type' };
+          const area = f === 'aow' ? H.areaById(v) : null;
+          window.HubTrack.filter(FACET_LABEL[f] || f, area ? area.short : v);
+        }
         render();
       });
     });
@@ -306,6 +314,7 @@
   $('#qForm').addEventListener('submit', function (e) {
     e.preventDefault();
     state.q = $('#q').value.trim();
+    if (window.HubTrack) window.HubTrack.search(state.q);
     render();
   });
   $('#q').addEventListener('input', function () {
@@ -313,7 +322,9 @@
   });
   $$('.qchip').forEach(function (c) {
     c.addEventListener('click', function () {
-      $('#q').value = c.dataset.q; state.q = c.dataset.q; render();
+      $('#q').value = c.dataset.q; state.q = c.dataset.q;
+      if (window.HubTrack) window.HubTrack.search(state.q);
+      render();
     });
   });
   $('#railReset').addEventListener('click', function () {

@@ -226,8 +226,16 @@
           'on this page there is no other way in, which is worth noticing: it is the cost of the pattern.</div>';
     }
 
-    typeSel.addEventListener('change', run);
-    themeSel.addEventListener('change', run);
+    typeSel.addEventListener('change', function () {
+      if (window.HubTrack && typeSel.value !== 'all') window.HubTrack.filter('resource type', typeSel.value);
+      run();
+    });
+    themeSel.addEventListener('change', function () {
+      if (window.HubTrack && themeSel.value !== 'all') {
+        window.HubTrack.filter('theme', H.themes[Number(themeSel.value)].name);
+      }
+      run();
+    });
     $('#fReset').addEventListener('click', function () {
       typeSel.value = 'all'; themeSel.value = 'all'; run();
     });

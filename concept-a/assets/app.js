@@ -164,8 +164,21 @@
       out.innerHTML = '<div class="rows">' + items.map(rowHTML).join('') + '</div>';
     }
 
-    form.addEventListener('submit', function (e) { e.preventDefault(); run(); });
-    [typeSel, lensSel, geoSel].forEach(function (s) { s.addEventListener('change', run); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (window.HubTrack) window.HubTrack.search(input.value.trim());
+      run();
+    });
+    // Human labels, not element ids, so the emailed report is readable.
+    const FACET_LABEL = { queryType: 'collection', queryLens: 'climate action', queryGeo: 'geography' };
+    [typeSel, lensSel, geoSel].forEach(function (sel) {
+      sel.addEventListener('change', function () {
+        if (window.HubTrack && sel.value !== 'all') {
+          window.HubTrack.filter(FACET_LABEL[sel.id] || sel.id, sel.value);
+        }
+        run();
+      });
+    });
     input.addEventListener('input', function () { if (!input.value.trim()) run(); });
 
     $$('.q-example').forEach(function (b) {
