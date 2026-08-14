@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CGIAR Climate Hub — four versions to review</title>
-<meta name="description" content="The current v0.2 site plus three new interpretations of the feedback of 10/08/2026, side by side for review.">
+<title>CGIAR Climate Hub, five versions to review</title>
+<meta name="description" content="The current v0.2 site plus four interpretations of the feedback of 10/08/2026 and of the review comments of 11/08 and 13/08/2026, side by side.">
 <meta name="robots" content="noindex, nofollow">
-<meta property="og:title" content="CGIAR Climate Hub — four versions to review">
-<meta property="og:description" content="The current site plus three working interpretations of the same feedback. Open all four and compare.">
+<meta property="og:title" content="CGIAR Climate Hub, five versions to review">
+<meta property="og:description" content="The current site plus four working interpretations of the same feedback. Open all five and compare.">
 <meta property="og:type" content="website">
 <!-- Links point at index.html explicitly rather than the folder, so this page also
      works when opened straight from the Mac with file://, where a folder URL shows a
@@ -23,7 +23,7 @@
   --on-dark:#D7E3F5;--highlight:#8FC4FF;--text:#1D1D1D;--text-2:#393939;--text-3:#6B6969;
   --border:#E2E0DF;--warn-bg:#FFF8E6;--warn-bd:#E8C97A;--radius:10px;
   --font:'Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
-  --font-serif:'Noto Serif',Georgia,'Times New Roman',serif;--wrap:1080px;
+  --font-serif:'Noto Serif',Georgia,'Times New Roman',serif;--wrap:1180px;
 }
 html{-webkit-text-size-adjust:100%}
 body{font-family:var(--font);color:var(--text);line-height:1.6;background:#fff}
@@ -52,6 +52,7 @@ h2{font-family:var(--font-serif);font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
 .trio{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
 .pick-live{border-top-color:#6B6969;background:#FCFCFB}
+.pick-d{border-top-color:#1B7A4B}
 .pick-live .pick-tag{color:var(--text-3)}
 .pick{
   display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);
@@ -69,10 +70,10 @@ h2{font-family:var(--font-serif);font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(
   margin-top:18px;padding-top:14px;border-top:1px solid var(--border);
   color:var(--blue-800);font-weight:700;font-size:14.5px
 }
-table{border-collapse:collapse;width:100%;margin-top:22px;font-size:14px}
-th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+table{border-collapse:collapse;width:100%;margin-top:22px;font-size:13.5px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top}
 thead th{background:var(--blue-900);color:#fff;font-size:13px}
-tbody th{width:26%;color:var(--blue-900);font-weight:700;background:var(--blue-50)}
+tbody th{width:19%;color:var(--blue-900);font-weight:700;background:var(--blue-50)}
 ol.qs{margin:20px 0 0 22px}
 ol.qs li{margin-bottom:14px;color:var(--text-2);font-size:14.5px}
 ol.qs strong{color:var(--blue-900)}
@@ -114,11 +115,11 @@ tbody th{width:20%}
 <body>
 
 <!-- THREE-WAY REVIEW SWITCHER, added 10/08/2026 ------------------------------
-     Lets a reviewer move between the current site and the two concepts from
-     wherever they landed, so three URLs can be circulated without anyone being
+     Lets a reviewer move between the current site and the four concepts from
+     wherever they landed, so five URLs can be circulated without anyone being
      stranded on one of them. Deliberately self-contained: every style is inline
      and prefixed .xsw- so this block cannot collide with any stylesheet on any
-     of the three sites, and it can be removed by deleting from this comment down
+     of the five sites, and it can be removed by deleting from this comment down
      to its closing one, touching nothing else.
      ------------------------------------------------------------------------- -->
 <style>
@@ -143,7 +144,7 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 .xsw-about{margin-left:auto;font-size:12px;color:#8FC4FF;text-decoration:underline;
   white-space:nowrap;padding:5px 0}
 .xsw-about:hover{color:#fff}
-@media(max-width:860px){
+@media(max-width:980px){
   .xsw-in{padding:8px 16px;gap:6px}
   .xsw-lab{width:100%;margin:0 0 2px}
   .xsw-item{flex:1;padding:5px 9px}
@@ -152,18 +153,19 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 </style>
 <div class="xsw">
   <div class="xsw-in">
-    <span class="xsw-lab">Reviewing four versions</span>
+    <span class="xsw-lab">Reviewing five versions</span>
     <a class="xsw-item" href="index.html"><span class="xsw-name">Current site</span><span class="xsw-sub">v0.2, in review</span></a>
     <a class="xsw-item" href="concept-a/index.html"><span class="xsw-name">Concept A</span><span class="xsw-sub">layered, three tiers</span></a>
     <a class="xsw-item" href="concept-b/index.html"><span class="xsw-name">Concept B</span><span class="xsw-sub">unified, one page</span></a>
     <a class="xsw-item" href="concept-c/index.html"><span class="xsw-name">Concept C</span><span class="xsw-sub">GESI-style, many tabs</span></a>
+    <a class="xsw-item" href="concept-d/index.html"><span class="xsw-name">Concept D</span><span class="xsw-sub">the reviewed reading</span></a>
 
   </div>
 </div>
 <!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
 
 <div class="proto-bar">
-  <strong>Four versions, for feedback only.</strong>
+  <strong>Five versions, for feedback only.</strong>
   None of them is agreed scope. All contain features that deliberately do not work, labelled on the page.
   Not a CGIAR publication. IITA Internal Use.
 </div>
@@ -177,24 +179,26 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 
 <div class="hero">
   <div class="wrap">
-    <h1>Four versions to review</h1>
+    <h1>Five versions to review</h1>
     <p>The site you have already seen, plus three interpretations of the feedback from the Climate Data Hub
     check-in of 10/08/2026. That feedback described the Hub as a stack of layers and named gender.cgiar.org as
     the reference for a static resource hub. Those two things point at genuinely different websites, so rather
-    than pick one silently, all three readings are built and working.</p>
+    than pick one silently, all three readings are built and working. Concept D was added on 13/08/2026 and
+      is different in kind: it is not a fourth guess but the shape the review comments of 11/08 and 13/08 asked
+      for, built so the group can see what its own instructions produce.</p>
     <p class="quote">"Static content. Publications, link to innovations, list of experts, news and events.
     Methods, manuals, tools. A layer on top that would allow a user to query about what CGIAR is doing about
     topic x, y, z. On top of that, analytics and country profiles. Then a dashboard that allows you to filter
     projects by keyword."</p>
-    <p style="margin-top:20px;font-size:14px">Every page in all four carries a bar at the very top for moving
+    <p style="margin-top:20px;font-size:14px">Every page in all five carries a bar at the very top for moving
     between them, so you cannot get stranded on one.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <h2>Open all four, in any order</h2>
-    <p class="lead">The three concepts share their content and their palette, so a preference between them is a
+    <h2>Open all five, in any order</h2>
+    <p class="lead">The four concepts share their content and their palette, so a preference between them is a
     preference about structure rather than about styling. The current site is included because "neither, keep
     what we have" is a legitimate answer and should be easy to give.</p>
 
@@ -206,7 +210,7 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         <p>What the group already reviewed section by section on 29/07. Everything on one page: use-case
         selector, featured datasets, Ask the Hub, Flyer Builder, news, catalogue, FAQ.</p>
         <ul>
-          <li>The most complete of the four</li>
+          <li>The most complete of the five</li>
           <li>Also the one described as too busy</li>
           <li>Included so "keep this" stays an option</li>
         </ul>
@@ -255,6 +259,21 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         </ul>
         <span class="open">Open Concept C &rarr;</span>
       </a>
+
+      <a class="pick pick-d" href="concept-d/index.html">
+        <span class="pick-tag">Concept D</span>
+        <h3>The reviewed reading</h3>
+        <div class="shape">Five pages &middot; areas of work, use cases nested</div>
+        <p>Not an independent guess. Every decision traces to a quoted comment from 11/08 or 13/08, including
+        the one that asked for "a mix of C and the current". Its README lists each decision against the note
+        that produced it.</p>
+        <ul>
+          <li>States where this site ends and the technical data hub begins</li>
+          <li>Use cases folded inside the five published areas of work</li>
+          <li>Lists what the board asked for that it deliberately does not build</li>
+        </ul>
+        <span class="open">Open Concept D &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -264,57 +283,66 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <h2>Side by side</h2>
     <table>
       <thead>
-        <tr><th scope="col">&nbsp;</th><th scope="col">Current, v0.2</th><th scope="col">A, layered</th><th scope="col">B, console</th><th scope="col">C, GESI-style</th></tr>
+        <tr><th scope="col">&nbsp;</th><th scope="col">Current, v0.2</th><th scope="col">A, layered</th><th scope="col">B, console</th><th scope="col">C, GESI-style</th><th scope="col">D, reviewed</th></tr>
       </thead>
       <tbody>
         <tr><th scope="row">Shape</th>
           <td data-l="Current">One page, thirteen sections</td>
           <td data-l="A">Three pages, one per tier</td>
           <td data-l="B">One console surface</td>
-          <td data-l="C">Five tabs</td></tr>
+          <td data-l="C">Five tabs</td>
+            <td data-l="D">Five pages, one per job</td></tr>
         <tr><th scope="row">First thing you meet</th>
           <td data-l="Current">Use-case selector and a search field</td>
           <td data-l="A">Six browsable collections</td>
           <td data-l="B">A query bar over a facet rail</td>
-          <td data-l="C">A full-width photograph</td></tr>
+          <td data-l="C">A full-width photograph</td>
+            <td data-l="D">A short photograph, then one search field</td></tr>
         <tr><th scope="row">How you find something</th>
           <td data-l="Current">Scroll, or search the page</td>
           <td data-l="A">Browse, or go to the query tier</td>
           <td data-l="B">Query, then sort the table</td>
-          <td data-l="C">Pick a theme, or filter by type</td></tr>
+          <td data-l="C">Pick a theme, or filter by type</td>
+            <td data-l="D">Open an area of work and drill in</td></tr>
         <tr><th scope="row">Organising spine</th>
           <td data-l="Current">Three intent categories</td>
           <td data-l="A">Six resource collections</td>
           <td data-l="B">Five published areas of work</td>
-          <td data-l="C">Ten named themes</td></tr>
+          <td data-l="C">Ten named themes</td>
+            <td data-l="D">Five published areas of work, use cases nested inside</td></tr>
         <tr><th scope="row">Free-text search</th>
           <td data-l="Current">Yes, across the page</td>
           <td data-l="A">Yes, on the query tier</td>
           <td data-l="B">Yes, it is the entry point</td>
-          <td data-l="C">No, filters only, as on the model</td></tr>
+          <td data-l="C">No, filters only, as on the model</td>
+            <td data-l="D">Yes, one field, results on the resources page</td></tr>
         <tr><th scope="row">Dataset metadata shown</th>
           <td data-l="Current">Provider and year</td>
           <td data-l="A">Provider and year</td>
           <td data-l="B">Six fields, plus a completeness score per dataset</td>
-          <td data-l="C">Four fields as a spec list on each card</td></tr>
+          <td data-l="C">Four fields as a spec list on each card</td>
+            <td data-l="D">Four fields as a spec list, plus a stated rule for what is shown</td></tr>
         <tr><th scope="row">Photography</th>
           <td data-l="Current">None</td>
           <td data-l="A">None, deliberately</td>
           <td data-l="B">None. Dark, tabular, numeric</td>
-          <td data-l="C">Seven images, all credited</td></tr>
+          <td data-l="C">Seven images, all credited</td>
+            <td data-l="D">One image, credited</td></tr>
         <tr><th scope="row">Non-working features</th>
           <td data-l="Current">Three: Ask the Hub, Flyer Builder, newsletter</td>
           <td data-l="A">None, they were removed</td>
           <td data-l="B">None, they were removed</td>
-          <td data-l="C">One: the spotlight does not rotate</td></tr>
+          <td data-l="C">One: the spotlight does not rotate</td>
+            <td data-l="D">None, and each omission is listed with its reason</td></tr>
         <tr><th scope="row">Main criticism to expect</th>
           <td data-l="Current">Too busy, choice overload</td>
           <td data-l="A">Too plain; tier map is internal plumbing</td>
           <td data-l="B">Reads as a tool, not a website</td>
-          <td data-l="C">Scrolling past a photo to reach information</td></tr>
+          <td data-l="C">Scrolling past a photo to reach information</td>
+            <td data-l="D">Answers the reviewers rather than proposing anything of its own</td></tr>
       </tbody>
     </table>
-    <p class="lead" style="margin-top:20px">A, B and C all apply the point made in the same meeting that
+    <p class="lead" style="margin-top:20px">A, B, C and D all apply the point made in the same meeting that
     adaptation, mitigation and geography should run through everything as a consistent thread. That is the
     clearest single difference from the current site.</p>
   </div>
@@ -324,7 +352,7 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
   <div class="wrap">
     <h2>What we would like you to answer</h2>
     <p class="lead">Sharper than "what do you think", and each answerable in a minute or two once you have all
-    four open.</p>
+    five open.</p>
     <ol class="qs">
       <li><strong>Does any concept actually beat the current site?</strong> "Neither, fix the current one" is a
       real answer and the easiest one to lose if nobody asks for it.</li>
@@ -343,6 +371,14 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
       them not working. Was that right, or does a non-working feature earn its place by showing intent?</li>
       <li><strong>The experts list is six champions in every version.</strong> Is that the honest size of this
       function, or must it be a real directory to earn a place at all?</li>
+      <li><strong>Concept D says where this site ends and the technical data hub begins.</strong> That
+      boundary was the most repeated comment on the review board, six notes across four sections. Is the line
+      drawn in the right place, and if not, what moves?</li>
+      <li><strong>Concept D nests use cases inside the five published areas of work.</strong> Concept C leads
+      with ten editorial themes instead. Which spine would a ministry official arrive already understanding?</li>
+      <li><strong>Concept D lists what it deliberately does not build</strong>, including the expert finder,
+      the chatbot and the flyer builder, with the reason against each. Is naming a gap in public honest, or
+      does it read as an admission?</li>
     </ol>
   </div>
 </section>
@@ -355,11 +391,12 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     demonstration notices in place.</p>
     <div class="cols">
       <div>
-        <h3>Real in all three concepts</h3>
+        <h3>Real in all four concepts</h3>
         <ul>
-          <li>All 44 catalogued items and their sources. Thirty-three carry an outbound link, across 28 unique
-          destinations, each either carried over from the v0.2 prototype or fetched on 10/08/2026.</li>
-          <li>Every filter, and the keyword search in A and B. Entirely in your browser, no network calls, and
+          <li>All 51 catalogued items and their sources. Forty carry an outbound link, to 35 distinct URLs
+          across 20 domains, each either carried over from the v0.2 prototype or fetched on 10/08/2026. Recomputed
+            on 13/08/2026: the previous wording said 44 items and had gone stale as the catalogue grew.</li>
+          <li>Every filter, and the keyword search in A, B and D. Entirely in your browser, no network calls, and
           nothing you type is sent anywhere.</li>
           <li>Every count on every page, matched from the catalogue at load rather than typed, so a number that
           looks wrong is a statement about the catalogue.</li>
@@ -376,13 +413,16 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
           because no location data exists for them.</li>
           <li>Concept C's ten themes are an editorial grouping built from the catalogue's own tags, not a CGIAR
           taxonomy. No climate-terms taxonomy exists yet.</li>
+          <li>Concept D shows no newsletter form, no mailing list and no contact form. Each needs a tool, a
+            cost line and an owner before it is a design question, so all three are named on its Get involved
+            page instead of being mocked up.</li>
           <li>Concept C's weekly spotlight does not rotate. A weekly slot needs an editor who has not been
           identified.</li>
         </ul>
       </div>
     </div>
     <div class="demo">
-      <strong>None of the three concepts includes Ask the Hub, on purpose.</strong> With no retrieval back end, a
+      <strong>None of the four concepts includes Ask the Hub, on purpose.</strong> With no retrieval back end, a
       fixed sample answer draws comment about the answer rather than about the structure, which is the only thing
       these prototypes exist to test. It remains on the current site, so the effect of that choice is visible.
       Working AI access to the Hub exists today via the
@@ -398,8 +438,9 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     project in the portfolio matches at all. Drought was named on 10/08 as the topic recurring across more
     conversations than any other, and the discussion went as far as sketching a work stream on mapping and
     characterising drought for different crops and farming systems. Other single-word searches land in the same
-    range: emissions returns five, livestock five, breeding three.</p>
-    <p class="lead" style="margin-top:14px">No architecture causes that thinness and none of the four can fix
+    range: emissions returns six, livestock seven, breeding four. Those three counts were also recomputed on
+        13/08/2026.</p>
+    <p class="lead" style="margin-top:14px">No architecture causes that thinness and none of the five can fix
     it. Concept C makes it visible a different way: its Water and drought theme holds four items, against
     thirteen under Data, methods and standards. It points at the ingestion and tagging work discussed in the
     same meeting, and on this evidence that work decides whether any of these front ends is worth having.</p>
@@ -410,7 +451,7 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
   <div class="footer-inner">
     <span>&copy; 2026 CGIAR. Linked content remains under its own licence; photographs in Concept C are
     Creative Commons and credited individually. Prepared by the Resilience and Climate Adaptation Programme,
-    IITA, 10/08/2026.</span>
+    IITA, 10/08/2026, revised 13/08/2026 to add Concept D.</span>
     <span>British English &middot; IITA Internal Use &middot;
       <a href="https://gender.cgiar.org/" target="_blank" rel="noopener">The GESI model &#8599;</a></span>
   </div>

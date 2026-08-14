@@ -1,6 +1,6 @@
 /* CGIAR Climate Hub - review analytics
  * ============================================================================
- * ONE config block, loaded by all twelve pages across the four versions.
+ * ONE config block, loaded by every page across the five versions.
  *
  * WHY THIS FILE EXISTS
  * Before 11/08/2026 only the two v0.2 pages carried a tracking snippet. The three
@@ -13,7 +13,7 @@
  * review round is actually asking, and because all three fire while the page stays
  * put, which is what makes them reliable:
  *
- *   Version viewed    which of the four a visitor opened. The comparison metric,
+ *   Version viewed    which of the five a visitor opened. The comparison metric,
  *                     and the way movement between versions is measured.
  *   Search            what someone typed, in Concept A's query tier or B's console.
  *                     This is the "front desk questions" evidence the design
@@ -74,13 +74,14 @@
     } catch (e) { /* analytics must never break a page */ }
   }
 
-  /* ---------- Which of the four versions is this? ----------
+  /* ---------- Which of the five versions is this? ----------
    * Derived from the path so a new page inherits it automatically. */
   function versionOf() {
     var p = location.pathname;
     if (p.indexOf('/concept-a') > -1) return 'A, layered';
     if (p.indexOf('/concept-b') > -1) return 'B, console';
     if (p.indexOf('/concept-c') > -1) return 'C, GESI-style';
+    if (p.indexOf('/concept-d') > -1) return 'D, reviewed reading';
     if (p.indexOf('compare') > -1)    return 'Compare page';
     return 'Current site, v0.2';
   }
@@ -111,7 +112,7 @@
    * the counts would have been silent undercounts that read like findings.
    *
    * Nothing is lost by dropping them. Every page fires "Version viewed" on
-   * arrival, so movement between the four versions is still visible, and
+   * arrival, so movement between the five versions is still visible, and
    * Plausible records entry pages and referrers natively.
    */
 })();
