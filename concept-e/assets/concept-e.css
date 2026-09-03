@@ -1,0 +1,173 @@
+/* CGIAR Climate Hub - Concept E, the lean V1
+ * ============================================================================
+ * Loaded after styles.css, which is shared byte for byte with Concepts A to D
+ * so that a reviewer comparing E with C is comparing structure and content,
+ * not colour or type.
+ *
+ * Three things this layer adds and the others do not:
+ *   1. A split hero, so E does not read as another version of C or D. The
+ *      resemblance between C and D was traced to the full-bleed hero image.
+ *   2. Decision pins: numbered markers on every element whose content depends
+ *      on a decision nobody has taken yet. Toggled on and off by one button.
+ *   3. A provenance convention. Every sentence on the page is either sourced
+ *      or visibly marked as unwritten. Nothing is left as plausible filler.
+ * ========================================================================== */
+
+:root {
+  --pin:      #A8410B;
+  --pin-bg:   #FDEFE6;
+  --gap:      #7A5B00;
+  --gap-bg:   #FFF6DC;
+}
+
+/* ---------- Slim tab bar, four items, down from five ---------- */
+.etabs { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 62px; z-index: 90; }
+.etabs-in { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; flex-wrap: wrap; }
+.etab {
+  display: block; padding: 13px 16px; font-size: 14.5px; font-weight: 600;
+  color: var(--text-2); text-decoration: none; border-bottom: 3px solid transparent;
+}
+.etab:hover { color: var(--blue-800); background: var(--blue-50); }
+.etab[aria-current="page"] { color: var(--blue-900); border-bottom-color: var(--blue-800); }
+
+/* ---------- Decision pins ---------- */
+.pinbar {
+  background: var(--pin-bg); border-bottom: 1px solid #F0D6C4;
+  font-size: 13px; color: #5A2606;
+}
+.pinbar-in {
+  max-width: var(--wrap); margin: 0 auto; padding: 9px 24px;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.pinbar-in p { margin: 0; flex: 1; min-width: 260px; }
+.pinbtn {
+  font: inherit; font-weight: 700; cursor: pointer; border: 1px solid var(--pin);
+  background: var(--white); color: var(--pin); padding: 6px 14px; border-radius: 999px;
+}
+.pinbtn:hover { background: var(--pin); color: var(--white); }
+
+a.pin {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 26px; height: 20px; padding: 0 6px; margin-left: 7px;
+  border-radius: 999px; background: var(--pin); color: var(--white);
+  font-size: 11px; font-weight: 700; letter-spacing: .04em; text-decoration: none;
+  vertical-align: middle; position: relative; top: -1px;
+}
+a.pin:hover { background: #7C2F07; }
+body.pins-off a.pin { display: none; }
+body.pins-off .pinnable { box-shadow: none !important; }
+.pinnable { box-shadow: inset 3px 0 0 var(--pin); padding-left: 16px; }
+
+/* ---------- Unwritten copy, marked rather than invented ---------- */
+.gap {
+  background: var(--gap-bg); border: 1px dashed var(--gap); color: var(--gap);
+  padding: 2px 8px; border-radius: 5px; font-size: .93em; font-weight: 600;
+}
+.gapblock {
+  background: var(--gap-bg); border: 1px dashed var(--gap); color: #4A3800;
+  padding: 14px 18px; border-radius: var(--radius); font-size: 14px; line-height: 1.55;
+}
+.gapblock strong { color: var(--gap); }
+.src { display: block; margin-top: 8px; font-size: 12px; color: var(--text-3); }
+
+/* ---------- Split hero. Deliberately not the full-bleed photo C and D share ---------- */
+.ehero { border-bottom: 1px solid var(--border); background: var(--blue-50); }
+.ehero-in {
+  max-width: var(--wrap); margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: 0; align-items: stretch;
+}
+.ehero-words { padding: 46px 40px 46px 0; align-self: center; }
+.ehero-kicker {
+  font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--blue-800); margin-bottom: 12px;
+}
+.ehero-words h1 {
+  font-family: var(--font-serif); font-size: 34px; line-height: 1.25;
+  color: var(--blue-900); margin-bottom: 14px; font-weight: 700;
+}
+.ehero-words p.lede { font-size: 16.5px; color: var(--text-2); margin-bottom: 22px; }
+.ehero-media { position: relative; min-height: 320px; }
+.ehero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ehero-cap {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 7px 12px;
+  background: rgba(0,0,0,.62); color: #EFEFEF; font-size: 10.5px; line-height: 1.4;
+}
+
+/* ---------- The single search field ---------- */
+.esearch { display: flex; gap: 8px; flex-wrap: wrap; }
+.esearch input[type="search"] {
+  flex: 1; min-width: 220px; font: inherit; font-size: 15px; padding: 13px 16px;
+  border: 2px solid var(--blue-800); border-radius: var(--radius); background: var(--white);
+}
+.esearch button {
+  font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; padding: 13px 24px;
+  border: 2px solid var(--blue-800); background: var(--blue-800); color: var(--white);
+  border-radius: var(--radius);
+}
+.esearch button:hover { background: var(--blue-900); border-color: var(--blue-900); }
+
+/* ---------- The spine ---------- */
+.spine { display: grid; grid-template-columns: repeat(auto-fit, minmax(196px, 1fr)); gap: 14px; }
+.spine-item {
+  display: block; text-decoration: none; color: inherit; background: var(--white);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;
+  border-top: 4px solid var(--blue-800);
+}
+a.spine-item:hover { border-color: var(--blue-800); background: var(--blue-50); }
+.spine-name { font-size: 16px; font-weight: 700; color: var(--blue-900); margin-bottom: 7px; line-height: 1.35; }
+.spine-desc { font-size: 13.5px; color: var(--text-2); margin-bottom: 12px; }
+.spine-n { font-size: 12.5px; font-weight: 700; color: var(--text-3); letter-spacing: .02em; }
+
+/* ---------- Start-here datasets ---------- */
+.starts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.start {
+  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px;
+}
+.start-title { font-size: 15px; font-weight: 700; color: var(--blue-900); margin-bottom: 6px; line-height: 1.35; }
+.start-prov { font-size: 12.5px; color: var(--text-3); margin-bottom: 10px; }
+.start dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font-size: 12.5px; }
+.start dt { color: var(--text-3); }
+.start dd { color: var(--text-2); }
+.start a.start-go { display: inline-block; margin-top: 12px; font-size: 13.5px; font-weight: 600; }
+
+/* ---------- Compact latest list ---------- */
+.mini { border-top: 1px solid var(--border); }
+.mini-row { display: block; padding: 14px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; }
+a.mini-row:hover .mini-title { color: var(--blue-800); text-decoration: underline; }
+.mini-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.4; }
+.mini-meta { font-size: 12.5px; color: var(--text-3); margin-top: 4px; }
+
+/* ---------- Decisions page ---------- */
+.dlist { display: grid; gap: 16px; }
+.dcard { border: 1px solid var(--border); border-left: 5px solid var(--pin); border-radius: var(--radius); padding: 20px 22px; }
+.dcard h3 { font-size: 17px; color: var(--blue-900); margin-bottom: 4px; }
+.dcard .dwho { font-size: 12.5px; color: var(--text-3); margin-bottom: 12px; }
+.dcard .dopts { margin: 12px 0 0 20px; font-size: 14.5px; }
+.dcard .dopts li { margin-bottom: 6px; }
+.dcard .dsrc { margin-top: 12px; font-size: 12.5px; color: var(--text-3); border-top: 1px solid var(--border); padding-top: 10px; }
+
+/* ---------- Cut list table ---------- */
+.cuts { width: 100%; border-collapse: collapse; font-size: 14px; }
+.cuts th, .cuts td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.cuts th { background: var(--blue-50); color: var(--blue-900); font-size: 12.5px; text-transform: uppercase; letter-spacing: .06em; }
+.cuts td:first-child { font-weight: 600; }
+.tablescroll { overflow-x: auto; }
+
+@media (max-width: 900px) {
+  .ehero-in { grid-template-columns: 1fr; }
+  .ehero-words { padding: 34px 0 26px; }
+  .ehero-media { min-height: 210px; margin: 0 -24px; }
+  .ehero-words h1 { font-size: 27px; }
+  .etabs { top: 0; position: static; }
+}
+
+/* ---------- Filter selects on the Find evidence page ---------- */
+.chip-row select {
+  font: inherit; font-size: 14px; padding: 9px 12px; color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px; background: var(--white);
+}
+.chip-row select:hover { border-color: var(--blue-800); }
+.esearch button#fReset {
+  background: transparent; color: var(--blue-800); border-color: var(--blue-800);
+}
+.esearch button#fReset:hover { background: var(--blue-100); color: var(--blue-900); }

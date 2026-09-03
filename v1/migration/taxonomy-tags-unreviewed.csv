@@ -1,0 +1,120 @@
+name,used_by_items
+livestock,5
+crop risk index,4
+geospatial,4
+MRV,4
+call for papers,3
+conference,3
+crops,3
+decision support,3
+emissions,3
+funding,3
+GCF,3
+innovation,3
+metadata,3
+adaptation options,2
+adaptation tracking,2
+advisories,2
+API,2
+breeding prioritisation,2
+catalogue,2
+climate finance,2
+climate rationale,2
+digital twins,2
+drought,2
+early warning,2
+emissions uncertainty,2
+food security,2
+hazard inputs,2
+hazards,2
+IPCC,2
+practices,2
+production,2
+rainfall,2
+UNFCCC,2
+adaptation,1
+adaptation metrics,1
+agents,1
+agrometeorology,1
+agronomy,1
+AI,1
+anticipatory action,1
+audit,1
+breeding,1
+carbon,1
+climate data audit,1
+climate risk,1
+climate security,1
+climate trends and projections,1
+commodities,1
+conflict,1
+country profiles,1
+crop models,1
+daily weather,1
+data portal,1
+density,1
+downscaled,1
+drought mitigation,1
+El Niño / ENSO,1
+emissions intensity,1
+environmental assessment,1
+evidence,1
+expert elicitation,1
+extension,1
+extreme weather,1
+flagship report,1
+food policy,1
+food systems,1
+GCF climate rationale,1
+geospatial intelligence,1
+GIS,1
+greenhouse gas,1
+harmonisation,1
+harmonised,1
+hazard-exposure tables,1
+innovations,1
+inventories,1
+land management,1
+landscapes,1
+livestock interventions,1
+livestock systems,1
+machine-readable,1
+MEL,1
+MEL frameworks,1
+methods,1
+metrics,1
+monitoring,1
+negotiations,1
+onboarding,1
+open access,1
+precipitation,1
+process-based crop models,1
+publications,1
+Python,1
+R,1
+rangeland restoration,1
+readiness,1
+reanalysis,1
+reporting,1
+repository,1
+results,1
+satellite,1
+scaling,1
+seasonal climate forecasts,1
+seasonal forecasts,1
+STAC,1
+subsetting,1
+sustainable land management,1
+technologies,1
+temperature,1
+Tier 2 GHG inventories,1
+Tier 2 inventories,1
+TLU,1
+transformational adaptation,1
+uncertainty,1
+vulnerability,1
+water and feed data,1
+wind,1
+yield,1
+Zarr,1
+zero hunger,1

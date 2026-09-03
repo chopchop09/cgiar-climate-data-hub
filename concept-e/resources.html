@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find evidence &mdash; CGIAR Climate Hub, Concept E</title>
+<meta name="description" content="Concept E: the whole catalogue behind one search field and two filters.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/concept-e.css">
+<script src="assets/analytics.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- REVIEW SWITCHER, six versions ------------------------------------------- -->
+<style>
+.xsw{background:#0A1F3D;border-bottom:1px solid rgba(255,255,255,.18);
+  font-family:'Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
+.xsw-in{max-width:1240px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;
+  gap:7px;flex-wrap:wrap}
+.xsw-lab{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:#8FC4FF;margin-right:6px;white-space:nowrap}
+.xsw-item{display:flex;flex-direction:column;gap:1px;text-decoration:none;
+  padding:5px 11px;border-radius:6px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.06);min-width:0}
+a.xsw-item:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outline-offset:2px}
+.xsw-name{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3}
+.xsw-sub{font-size:10.5px;color:#BCCFE9;line-height:1.3}
+.xsw-here{background:#fff;border-color:#fff}
+.xsw-here .xsw-name{color:#0A1F3D}
+.xsw-here .xsw-sub{color:#4A5A70}
+.xsw-you{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:#1955A6;line-height:1.3}
+.xsw-about{margin-left:auto;font-size:12px;color:#8FC4FF;text-decoration:underline;
+  white-space:nowrap;padding:5px 0}
+.xsw-about:hover{color:#fff}
+@media(max-width:980px){
+  .xsw-in{padding:8px 16px;gap:6px}
+  .xsw-lab{width:100%;margin:0 0 2px}
+  .xsw-item{flex:1;padding:5px 9px}
+  .xsw-about{margin-left:0;width:100%;padding-top:6px}
+}
+</style>
+<div class="xsw">
+  <div class="xsw-in">
+    <span class="xsw-lab">Six versions</span>
+    <a class="xsw-item" href="../index.html"><span class="xsw-name">Current site</span><span class="xsw-sub">v0.2, in review</span></a>
+    <a class="xsw-item" href="../concept-a/index.html"><span class="xsw-name">Concept A</span><span class="xsw-sub">layered, three tiers</span></a>
+    <a class="xsw-item" href="../concept-b/index.html"><span class="xsw-name">Concept B</span><span class="xsw-sub">unified console</span></a>
+    <a class="xsw-item" href="../concept-c/index.html"><span class="xsw-name">Concept C</span><span class="xsw-sub">GESI-style, many tabs</span></a>
+    <a class="xsw-item" href="../concept-d/index.html"><span class="xsw-name">Concept D</span><span class="xsw-sub">the reviewed reading</span></a>
+    <a class="xsw-item xsw-here" href="index.html" aria-current="true"><span class="xsw-name">Concept E</span><span class="xsw-sub">the lean V1</span><span class="xsw-you">you are here</span></a>
+    <a class="xsw-about" href="decisions.html">The ten open decisions &rarr;</a>
+  </div>
+</div>
+<!-- END REVIEW SWITCHER -->
+
+<div class="proto-bar">
+  <strong>Concept E, a decision instrument rather than a design.</strong>
+  Concept C cut to what could launch this year. Every element whose content depends on a decision nobody has taken
+  is marked with a numbered pin. Not a CGIAR publication. IITA Internal Use.
+</div>
+
+<div class="pinbar">
+  <div class="pinbar-in">
+    <p><strong>Ten decisions are pinned to this page.</strong> Click any pin to read the decision it stands for.
+    Turn them off to see the page as a visitor would.</p>
+    <button class="pinbtn" id="pinToggle" type="button" aria-pressed="true">Hide decision pins</button>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand-link" aria-label="CGIAR Climate Hub home">
+      <img src="assets/cgiar-logo.png" alt="" height="34">
+      <span class="brand-name">CGIAR Climate Hub<a class="pin" href="decisions.html#d4" title="Decision 4: the name">D4</a></span>
+    </a>
+  </div>
+</header>
+
+<div class="etabs">
+  <div class="etabs-in">
+    <a class="etab" href="index.html">Home</a>
+    <a class="etab" href="resources.html" aria-current="page">Find evidence</a>
+    <a class="etab" href="news.html">Funding &amp; events</a>
+    <a class="etab" href="more.html">More</a>
+  </div>
+</div>
+
+<main id="main" tabindex="-1">
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head pinnable">
+      <div class="section-label">Find evidence</div>
+      <h2>Everything catalogued<a class="pin" href="decisions.html#d5" title="Decision 5: where this site ends and the Data Hub begins">D5</a></h2>
+      <p>One search field and two filters. Concept C offered filters and no search; Concept B offered a rail of
+      six facets. A lean V1 cannot justify a facet nobody has been observed using.</p>
+    </div>
+
+    <form class="esearch" onsubmit="return false" role="search" style="margin-bottom:18px">
+      <label class="sr-only" for="rq">Search the catalogue</label>
+      <input type="search" id="rq" placeholder="Search">
+      <button type="button" id="fReset">Reset</button>
+    </form>
+
+    <div class="chip-row" style="margin-bottom:14px">
+      <label class="sr-only" for="fType">Filter by type</label>
+      <select id="fType"><option value="all">All types</option></select>
+      <label class="sr-only" for="fAow">Filter by area of work</label>
+      <select id="fAow"><option value="all">All areas of work</option></select>
+      <span class="facet-count" id="resultCount"></span>
+    </div>
+
+    <div class="gapblock pinnable" style="margin-bottom:22px">
+      <strong>Two catalogue faults are visible from this page, and no design fixes either.</strong>
+      Searching <em>drought</em> returns three resources and no project at all, although drought was the most
+      recurrent topic in the check-in of 10/08/2026. Metadata completeness across six fields averages 4.6 of 6,
+      and only 5 of 14 datasets are complete. Nigeria is the only African country named in the item fields, out
+      of <span class="corpus-n">51</span> items. Both figures are from the Climate Hub handover of 12/08/2026,
+      section 5. Decision D8 asks whether V1 ships before this is fixed.
+      <a class="pin" href="decisions.html#d8" title="Decision 8: ingestion and tagging">D8</a>
+    </div>
+
+    <div class="rows" id="results"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="assets/cgiar-logo.png" alt="CGIAR" height="42">
+        <p>Concept E, prepared 01/09/2026. Concept C reduced to a launchable V1 so that a decision meeting has
+        something specific to accept or reject. Nothing here is an approved CGIAR position.</p>
+      </div>
+      <div class="footer-col">
+        <h3>This site</h3>
+        <a href="index.html">Home</a>
+        <a href="resources.html">Find evidence</a>
+        <a href="news.html">Funding &amp; events</a>
+        <a href="more.html">More</a>
+      </div>
+      <div class="footer-col">
+        <h3>For the review</h3>
+        <a href="decisions.html">The ten open decisions</a>
+        <a href="../compare.html">Compare all versions</a>
+        <a href="../concept-c/index.html">Concept C, the parent</a>
+      </div>
+      <div class="footer-col">
+        <h3>Go deeper</h3>
+        <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub &#8599;</a>
+        <a href="https://cgspace.cgiar.org/" target="_blank" rel="noopener">CGSpace &#8599;</a>
+        <a href="https://gardian.cgiar.org/" target="_blank" rel="noopener">Gardian &#8599;</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CGIAR. Photographs are Creative Commons and credited in caption. Linked content remains
+      under its own licence.</span>
+      <span>British English &middot; Concept E, 01/09/2026 &middot; IITA Internal Use</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/themes.js"></script>
+<script src="assets/app-e.js"></script>
+</body>
+</html>

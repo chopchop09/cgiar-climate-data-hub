@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storytelling patterns &mdash; CGIAR Climate Hub V1</title>
+<meta name="description" content="Four storytelling patterns adapted from the Lexicon of Food work, tested against real catalogue material. V2 preview.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/v1.css">
+<script src="assets/analytics.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<style>
+.xsw{background:#0A1F3D;border-bottom:1px solid rgba(255,255,255,.18);
+  font-family:'Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
+.xsw-in{max-width:1240px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;
+  gap:7px;flex-wrap:wrap}
+.xsw-lab{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:#8FC4FF;margin-right:6px;white-space:nowrap}
+.xsw-item{display:flex;flex-direction:column;gap:1px;text-decoration:none;
+  padding:5px 11px;border-radius:6px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.06);min-width:0}
+a.xsw-item:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outline-offset:2px}
+.xsw-name{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3}
+.xsw-sub{font-size:10.5px;color:#BCCFE9;line-height:1.3}
+.xsw-here{background:#fff;border-color:#fff}
+.xsw-here .xsw-name{color:#0A1F3D}
+.xsw-here .xsw-sub{color:#4A5A70}
+.xsw-you{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:#1955A6;line-height:1.3}
+.xsw-about{margin-left:auto;font-size:12px;color:#8FC4FF;text-decoration:underline;
+  white-space:nowrap;padding:5px 0}
+.xsw-about:hover{color:#fff}
+@media(max-width:980px){
+  .xsw-in{padding:8px 16px;gap:6px}
+  .xsw-lab{width:100%;margin:0 0 2px}
+  .xsw-item{flex:1;padding:5px 9px}
+  .xsw-about{margin-left:0;width:100%;padding-top:6px}
+}
+</style>
+<div class="xsw">
+  <div class="xsw-in">
+    <span class="xsw-lab">V1 candidate</span>
+    <a class="xsw-item" href="../index.html"><span class="xsw-name">Current site</span><span class="xsw-sub">v0.2</span></a>
+    <a class="xsw-item" href="../concept-c/index.html"><span class="xsw-name">Concept C</span><span class="xsw-sub">GESI-style</span></a>
+    <a class="xsw-item" href="../concept-e/index.html"><span class="xsw-name">Concept E</span><span class="xsw-sub">the lean V1</span></a>
+    <span class="xsw-item xsw-here" aria-current="true"><span class="xsw-name">V1</span><span class="xsw-sub">Gender-layout port</span><span class="xsw-you">you are here</span></span>
+    <a class="xsw-about" href="../compare.html">All versions &rarr;</a>
+  </div>
+</div>
+<div class="proto-bar">
+  <strong>V1 candidate, 03/09/2026.</strong>
+  The Climate Hub ported to the CGIAR Gender Platform layout, for a Drupal build. Structure read from
+  gender.cgiar.org on 03/09/2026; four storytelling patterns adapted from lexiconoffood.com. Not a CGIAR
+  publication and not approved scope. IITA Internal Use.
+</div>
+<div class="pinbar">
+  <div class="pinbar-in">
+    <p><strong>Decision pins are on.</strong> Orange pins mark content that still depends on a decision nobody
+    has taken. Green pins mark the ones the feedback of 03/09/2026 closed. Turn them off to see the page as a
+    visitor would.</p>
+    <button class="pinbtn" id="pinToggle" type="button" aria-pressed="true">Hide decision pins</button>
+  </div>
+</div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand-link" aria-label="CGIAR Climate Hub home">
+      <img src="assets/cgiar-logo.png" alt="" height="34">
+      <span class="brand-name">CGIAR Climate Hub<a class="pin" href="decisions.html#d4" title="Decision 4: the name, still open">D4</a></span>
+    </a>
+  </div>
+</header>
+<nav class="gnav" aria-label="Main navigation">
+  <div class="gnav-in">
+    <div class="gnav-group here">
+      <button class="gnav-top" type="button" aria-expanded="false">Explore<span class="caret" aria-hidden="true">&#9662;</span></button>
+      <div class="gnav-panel">
+        <a href="areas.html">Areas of work<span class="sub">The five published areas, with live counts</span></a>
+        <a href="resources.html">Find evidence<span class="sub">Search the whole catalogue</span></a>
+        <a href="storytelling.html">Storytelling<span class="sub">V2 preview, patterns from the Lexicon work</span></a>
+      </div>
+    </div>
+    <div class="gnav-group">
+      <button class="gnav-top" type="button" aria-expanded="false">Research<span class="caret" aria-hidden="true">&#9662;</span></button>
+      <div class="gnav-panel">
+        <a href="resources.html?type=publication">Publications</a>
+        <a href="resources.html?type=dataset">Datasets</a>
+        <a href="updates.html#projects">Projects</a>
+        <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub <span class="ext">&#8599;</span><span class="sub">The data piece: datasets, notebooks, tutorials</span></a>
+      </div>
+    </div>
+    <div class="gnav-group">
+      <button class="gnav-top" type="button" aria-expanded="false">Learn and apply<span class="caret" aria-hidden="true">&#9662;</span></button>
+      <div class="gnav-panel">
+        <a href="learn.html">Tools, methods, manuals</a>
+        <a href="learn.html#innovations">Innovations</a>
+        <a href="learn.html#experts">Experts</a>
+        <a href="operating-system.html">Operating system <span class="lockmark">CGIAR sign-in</span><span class="sub">CA-OS. CGIAR sign-in required</span></a>
+      </div>
+    </div>
+    <div class="gnav-group">
+      <button class="gnav-top" type="button" aria-expanded="false">Updates<span class="caret" aria-hidden="true">&#9662;</span></button>
+      <div class="gnav-panel">
+        <a href="updates.html#funding">Funding calls</a>
+        <a href="updates.html#events">Events</a>
+      </div>
+    </div>
+    <div class="gnav-group">
+      <button class="gnav-top" type="button" aria-expanded="false">About<span class="caret" aria-hidden="true">&#9662;</span></button>
+      <div class="gnav-panel">
+        <a href="about.html">Who we are</a>
+        <a href="about.html#our-work">Our work</a>
+        <a href="about.html#how-we-curate">How we curate<span class="sub">The promise, and the measurement that tests it</span></a>
+        <a href="decisions.html">The open decisions<span class="sub">What V1 still needs someone to decide</span></a>
+      </div>
+    </div>
+    <div class="gnav-tail">
+      <form class="gnav-search" role="search" action="resources.html" method="get">
+        <label class="sr-only" for="navq">Search the catalogue</label>
+        <input type="search" id="navq" name="q" placeholder="Search">
+        <button type="submit">Search</button>
+      </form>
+      <button class="listbtn" id="listBtn" type="button">Reading list</button>
+    </div>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+
+<div class="lex">
+  <div class="lex-in">
+    <span class="lex-note">V2 preview &middot; four adapted patterns</span>
+    <h1 style="font-size:clamp(26px,3.6vw,38px);line-height:1.2;max-width:26ch">Storytelling patterns, tested against real material</h1>
+    <p style="max-width:72ch;font-size:16px;color:#4A4740;margin-top:14px">
+      The plan of 03/09/2026 puts the storytelling layer in V2 and frames the Lexicon work as complementary
+      rather than as the foundation: their site carries the external impact narrative, this one carries resource
+      access, and the data piece is a subset of it. Merging the two is the stated goal, but not at their price.
+    </p>
+    <p style="max-width:72ch;font-size:16px;color:#4A4740;margin-top:12px">
+      So this page borrows four <em>patterns</em> from lexiconoffood.com/regen-ag, read on 03/09/2026, and fills
+      each with material the catalogue already holds. Not one word of narrative has been written to make them
+      look better. Where a pattern needs content that does not exist, it says so.
+    </p>
+  </div>
+</div>
+
+<!-- PATTERN 1: the audience-labelled module -->
+<div class="lex">
+  <div class="lex-in" style="border-top:1px solid var(--lex-line)">
+    <h2>Pattern 1. The audience-labelled module</h2>
+    <p style="max-width:72ch;font-size:15px;color:#4A4740;margin-top:10px">
+      Every section of their page opens with an audience label, then a short title, two or three sentences, one
+      image and a single call to action. The label is the part worth stealing: it tells a reader in three words
+      whether the next block is for them, which is exactly what a hub serving four audiences at once cannot
+      currently do.
+    </p>
+    <div class="lex-mods">
+      <div class="lex-mod">
+        <div class="lex-aud">For a proposal writer</div>
+        <h3>Climate rationale, from evidence to narrative</h3>
+        <div class="lex-fig"><img src="assets/img/theme-models.jpg" alt="Crop-climate modelling workshop in Accra"></div>
+        <p>A notebook that turns hazard and exposure data into the risk narrative a Green Climate Fund proposal
+        has to contain. Held in the catalogue as a project with a named champion.</p>
+        <span class="src" data-credit="theme-models.jpg"></span>
+        <a class="lex-btn" href="resources.html?q=GCF">See what the catalogue holds</a>
+      </div>
+      <div class="lex-mod">
+        <div class="lex-aud">For a scientist</div>
+        <h3>Four climate records, with their limits stated</h3>
+        <div class="lex-fig"><img src="assets/img/theme-water.jpg" alt="Working with water terraces in Lower Nyando, Kenya"></div>
+        <p>Resolution, time coverage, update cadence, licence and access format, recorded per dataset, with the
+        gaps visible. The badge is a count of recorded fields, not a quality rating.</p>
+        <span class="src" data-credit="theme-water.jpg"></span>
+        <a class="lex-btn" href="resources.html?type=dataset">Open the datasets</a>
+      </div>
+      <div class="lex-mod">
+        <div class="lex-aud">For an investor</div>
+        <h3>Innovation catalogues, and whether they touch climate</h3>
+        <div class="lex-fig"><img src="assets/img/theme-farm.jpg" alt="Climate-smart farm"></div>
+        <p>The round 2 feedback asked for exactly this: fast extraction from TAAT, ACCRA and WOCAT, and a way to
+        tell whether what they hold connects to climate at all.</p>
+        <span class="src" data-credit="theme-farm.jpg"></span>
+        <a class="lex-btn" href="learn.html#innovations">Open the catalogues</a>
+      </div>
+    </div>
+    <span class="src">Three audience labels are shown because the design strategy note records at least four
+    candidate users and ranks none of them. Which label survives into V1 is decision D1. Photographs are
+    Creative Commons images from the CGIAR Climate Flickr stream, credited above, and illustrate the programme
+    rather than the specific resource.</span>
+  </div>
+</div>
+
+<!-- PATTERN 2: numbered annotations over an image -->
+<div class="lex">
+  <div class="lex-in" style="border-top:1px solid var(--lex-line)">
+    <h2>Pattern 2. Numbered annotations over an image</h2>
+    <p style="max-width:72ch;font-size:15px;color:#4A4740;margin-top:10px">
+      Their signature device: a photograph with numbered notes laid over it, so a reader learns by looking
+      rather than by reading a paragraph. It is the pattern most often asked for and the most dangerous to
+      copy, because annotations invite invented detail. Every note below is a metadata field already recorded
+      against a real catalogue entry, and nothing has been added to make the picture tell a better story.
+    </p>
+    <div class="artwork">
+      <img src="assets/img/theme-adaptation.jpg" alt="A climate-smart farm in Doyogena, Ethiopia">
+      <div class="annot" style="top:6%;left:4%"><b>1</b><span>CHIRPS gives rainfall at 0.05 degrees, 1981 to present, updated monthly. Recorded licence: open.</span></div>
+      <div class="annot" style="top:34%;right:4%"><b>2</b><span>ERA5 gives temperature and other variables hourly from 1940, at roughly 31 km. The field a reader most often wants, bias adjustment, is not recorded.</span></div>
+      <div class="annot" style="bottom:8%;left:8%"><b>3</b><span>Searching <em>drought</em> across all <span class="corpus-n">51</span> items returns three resources and no project, although drought was the most recurrent topic in the check-in of 10/08/2026.</span></div>
+    </div>
+    <div class="annot-list">
+      <ol>
+        <li>CHIRPS gives rainfall at 0.05 degrees, 1981 to present, updated monthly. Recorded licence: open.</li>
+        <li>ERA5 gives temperature and other variables hourly from 1940, at roughly 31 km. The field a reader most often wants, bias adjustment, is not recorded.</li>
+        <li>Searching <em>drought</em> across all <span class="corpus-n">51</span> items returns three resources and no project, although drought was the most recurrent topic in the check-in of 10/08/2026.</li>
+      </ol>
+    </div>
+    <span class="src" data-credit="theme-adaptation.jpg"></span>
+    <span class="src">Notes 1 and 2 are quoted from the catalogue's own metadata fields, read from the
+    providers' pages on 10/08/2026. Note 3 is a live count. On a narrow screen the notes move below the image,
+    because annotations pinned to a photograph stop being legible under about 860 pixels: that is the honest
+    limit of this pattern, and it has to be designed for rather than discovered later.</span>
+  </div>
+</div>
+
+<!-- PATTERN 3: the validation badge -->
+<div class="lex">
+  <div class="lex-in" style="border-top:1px solid var(--lex-line)">
+    <h2>Pattern 3. The validation badge</h2>
+    <p style="max-width:72ch;font-size:15px;color:#4A4740;margin-top:10px">
+      Their case studies carry a small completion marker. Ours carries a count of how many of six metadata
+      fields are recorded, which is the same idea backed by something checkable:
+      <span class="vbadge full">&#10003; 6/6 metadata</span> means every field is recorded, and
+      <span class="vbadge part">4/6 metadata</span> means two are missing and hovering says which.
+    </p>
+    <p style="max-width:72ch;font-size:15px;color:#4A4740;margin-top:10px">
+      This is the one Lexicon pattern worth taking into V1 rather than V2, because it costs nothing to compute
+      and it makes the catalogue's real state visible on every card. It is also the pattern most likely to be
+      objected to, since it publishes the gaps. That objection is the argument for fixing ingestion first,
+      which is decision D8.
+    </p>
+    <span class="src">A badge counts recorded fields. It says nothing about whether a dataset is any good, and
+    it must never be presented as a quality score.</span>
+  </div>
+</div>
+
+<!-- PATTERN 4: the curated journey -->
+<div class="lex">
+  <div class="lex-in" style="border-top:1px solid var(--lex-line)">
+    <h2>Pattern 4. The curated journey</h2>
+    <p style="max-width:72ch;font-size:15px;color:#4A4740;margin-top:10px">
+      Halfway down their page a reader picks a role, and the page reassembles for that role. It is the most
+      tempting pattern here, because the Hub has four candidate audiences and no ranking. It is also the one to
+      be most careful with: a role selector can look like a decision while quietly avoiding one, and the
+      meeting of 01/09/2026 concluded that a site built for all four audiences is the site that already exists.
+    </p>
+    <p style="max-width:72ch;font-size:15px;color:#4A4740;margin-top:10px">
+      Shown here as a working demonstration so the trade-off can be argued from something real. Each route is
+      assembled by filtering fields the catalogue already has.
+    </p>
+    <div class="journey" id="journey"></div>
+    <div class="jout" id="jout"></div>
+    <span class="src">Candidate users and the evidence for each are from the design strategy note of
+    09/08/2026 and the V1 decision meeting pack of 01/09/2026. The national partner route is deliberately left
+    to come back nearly empty: Nigeria is the only African country named anywhere in the item fields across all
+    <span class="corpus-n">51</span> items.</span>
+  </div>
+</div>
+
+<!-- What was not borrowed -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Boundaries</div>
+      <h2>What was deliberately not taken from the Lexicon work</h2>
+    </div>
+    <div class="tablescroll">
+      <table class="cuts">
+        <thead><tr><th>Their element</th><th>Not borrowed, because</th></tr></thead>
+        <tbody>
+          <tr><td>Illustrated concept sequences, eight captionless panels</td>
+              <td>They carry the argument in commissioned artwork. Nothing equivalent exists here, and a sequence of stock photographs would be decoration pretending to be explanation.</td></tr>
+          <tr><td>Contributor bylines under portraits</td>
+              <td>The Hub lists six use-case champions, not authors of narrative. Attaching bylines to material they did not write would misattribute it.</td></tr>
+          <tr><td>The 60-logo partner grid</td>
+              <td>Partner permission and an accurate list are needed before any organisation's mark appears. Neither exists for this site.</td></tr>
+          <tr><td>Their typography and colour</td>
+              <td>Cream ground and near-black type are used only inside these preview blocks, to mark them as a different register. The CGIAR Climate Action palette stays in charge everywhere else.</td></tr>
+          <tr><td>Their impact narrative itself</td>
+              <td>That is their content and their commission. The 03/09/2026 framing is complementary, not foundational, and merging is a negotiation rather than a copy.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <span class="src">Patterns described from lexiconoffood.com/regen-ag as read on 03/09/2026. No markup,
+    stylesheet, imagery or text from that site is used here. If the merge goes ahead, what is theirs and what is
+    ours needs writing down before either site changes, not after.</span>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="assets/cgiar-logo.png" alt="CGIAR" height="42">
+        <p>CGIAR Climate Action. V1 candidate, structured after the CGIAR Gender Platform and intended for a
+        Drupal build. Nothing on these pages is an approved CGIAR position.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact us</h3>
+        <p style="margin:0 0 6px;font-size:13.5px">Climate Action Science Program</p>
+        <span class="gap">Inbox not yet named</span>
+        <a href="decisions.html#d6">Who owns this site &rarr;</a>
+      </div>
+      <div class="footer-col">
+        <h3>Keep up</h3>
+        <a href="https://www.linkedin.com/showcase/cgiar-climate/" target="_blank" rel="noopener">CGIAR Climate Action on LinkedIn &#8599;</a>
+        <span class="gap">Newsletter not yet decided</span>
+        <a href="updates.html">Funding calls and events</a>
+      </div>
+      <div class="footer-col">
+        <h3>How this site works</h3>
+        <a href="about.html#how-we-curate">How we harvest, select and prioritise</a>
+        <a href="decisions.html">The open decisions</a>
+        <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub &#8599;</a>
+      </div>
+      <div class="footer-col">
+        <h3>Support</h3>
+        <a href="https://www.cgiar.org/funders" target="_blank" rel="noopener">CGIAR Trust Fund Contributors &#8599;</a>
+        <a href="https://www.cgiar.org/climate-action/" target="_blank" rel="noopener">CGIAR Climate Action &#8599;</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CGIAR. Photographs are Creative Commons and credited on screen. Linked content stays
+      under its own licence. Analytics are cookie-free, so no consent banner is needed.</span>
+      <span>British English &middot; V1 candidate, 03/09/2026 &middot; IITA Internal Use</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/themes.js"></script>
+<script src="assets/app-v1.js"></script>
+</body>
+</html>

@@ -78,10 +78,12 @@
    * Derived from the path so a new page inherits it automatically. */
   function versionOf() {
     var p = location.pathname;
+    if (p.indexOf('/v1/') > -1 || /\/v1$/.test(p)) return 'V1, Gender-layout port';
     if (p.indexOf('/concept-a') > -1) return 'A, layered';
     if (p.indexOf('/concept-b') > -1) return 'B, console';
     if (p.indexOf('/concept-c') > -1) return 'C, GESI-style';
     if (p.indexOf('/concept-d') > -1) return 'D, reviewed reading';
+    if (p.indexOf('/concept-e') > -1) return 'E, the lean V1';
     if (p.indexOf('compare') > -1)    return 'Compare page';
     return 'Current site, v0.2';
   }
