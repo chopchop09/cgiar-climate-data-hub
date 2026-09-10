@@ -235,3 +235,148 @@
   .cardspecs { grid-template-columns: 1fr; gap: 0 0; }
   .cardspecs dt { margin-top: 6px; }
 }
+
+/* ---------- Nav bar, revised 10/09/2026 -------------------------------------
+ * The Lexicon session put the nav bar first: it is the organising framework,
+ * five to eight top-level headings, and everything else hangs off it. The set
+ * below is theirs (Front Desk, Resources / Data, Impact, Where We Work,
+ * About Us / Contact) with Home retained and Themes kept as the sixth, because
+ * the ten themes are Concept C's defining spine and dropping them would make
+ * this a different concept rather than a revised one.
+ *
+ * Front Desk is treated as a distinct, branded entry point rather than one tab
+ * among seven, which is the request that came out of that session.
+ * ------------------------------------------------------------------------- */
+.ctabs-in { gap: 2px; align-items: stretch; }
+.ctab { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+
+.ctab-desk {
+  color: var(--blue-900); font-weight: 700;
+  background: var(--blue-100);
+  border-bottom-color: transparent;
+  border-radius: 8px 8px 0 0;
+  margin: 6px 6px 0 2px;
+  padding: 9px 15px;
+}
+.ctab-desk:hover { background: #D4E4FA; }
+.ctab-desk[aria-current="page"] {
+  background: var(--blue-900); color: #fff; border-bottom-color: var(--blue-900);
+}
+.ctab-desk[aria-current="page"] .ctab-key { stroke: #fff; }
+
+.ctab-key {
+  width: 15px; height: 15px; flex: none;
+  fill: none; stroke: var(--blue-800); stroke-width: 1.9;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Seven headings will not sit on one line on a phone. Wrapping them produces a
+   ragged two-line block that reads as two navigations; a single scrolling row
+   keeps the framework legible as one thing. */
+@media (max-width: 900px) {
+  .ctabs-in {
+    flex-wrap: nowrap; overflow-x: auto; padding: 0 16px;
+    scrollbar-width: thin; -webkit-overflow-scrolling: touch;
+  }
+  .ctab { font-size: 13.5px; padding: 13px 11px; }
+  .ctab-desk { padding: 8px 12px; margin: 5px 4px 0 2px; }
+}
+
+/* ---------- New sections, 10/09/2026 ---------------------------------------
+ * Furniture for the three pages the Lexicon nav structure requires that
+ * Concept C did not have: Impact, Where We Work, About and Contact. Plus the
+ * flagship tile display on Resources and Data.
+ * ------------------------------------------------------------------------- */
+
+.pagehead { background: var(--blue-900); color: #fff; padding: 44px 0 40px; }
+.pagehead-kicker {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--highlight);
+}
+.pagehead h1 {
+  font-family: var(--font-serif); font-weight: 700; margin-top: 10px;
+  font-size: clamp(1.6rem, 3.8vw, 2.35rem); line-height: 1.22;
+}
+.pagehead-sub { color: var(--on-dark); margin-top: 14px; max-width: 78ch; font-size: 1rem; }
+
+/* ---------- Impact ---------- */
+.impactgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.impactcard {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px 20px;
+}
+.impactcard-n {
+  font-family: var(--font-serif); font-size: 2.1rem; font-weight: 700;
+  color: var(--blue-800); line-height: 1;
+}
+.impactcard-lab {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--text-3); margin-top: 5px;
+}
+.impactcard h3 {
+  font-family: var(--font-serif); font-size: 1.06rem; color: var(--blue-900);
+  margin-top: 14px; line-height: 1.35;
+}
+.impactcard p { font-size: 13.5px; color: var(--text-2); margin-top: 8px; line-height: 1.55; }
+.impactcard-break {
+  border-top: 1px solid var(--border); padding-top: 10px; margin-top: 12px !important;
+  font-size: 12.5px !important; color: var(--text-3) !important;
+}
+
+/* ---------- Where we work ---------- */
+.geogrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.geocard {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 19px;
+}
+.geocard-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.geocard-top h3 { font-family: var(--font-serif); font-size: 1.08rem; color: var(--blue-900); }
+.geocard-n { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--blue-800); }
+.geobar { height: 6px; border-radius: 3px; background: var(--blue-100); margin: 11px 0 12px; overflow: hidden; }
+.geobar span { display: block; height: 100%; background: var(--blue-800); }
+.geocard p { font-size: 13.5px; color: var(--text-2); line-height: 1.55; }
+.geocard-labels { font-size: 12px !important; color: var(--text-3) !important; margin-top: 9px; }
+
+/* ---------- Definition rows, reusing the .rows shell ---------- */
+.rows .row > strong { display: block; color: var(--blue-900); font-size: 14.5px; }
+.rows .row > strong + span { display: block; font-size: 13.5px; color: var(--text-2); margin-top: 3px; line-height: 1.55; }
+
+/* ---------- Flagship assets, the tile display -------------------------------
+ * The Lexicon session asked for curated high-value CGIAR tools shown as tiles
+ * carrying a description, a use case and a link out, explicitly not a mirror of
+ * CGSpace. Each tile below is a catalogued item, so its link and its provider
+ * are the ones already recorded and checked.
+ * ------------------------------------------------------------------------- */
+.flagship { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+.flag {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 21px 20px 19px;
+}
+.flag:hover { border-color: var(--blue-800); box-shadow: 0 3px 14px rgba(18,62,122,.10); }
+.flag-provider {
+  font-size: 11px; font-weight: 700; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--text-3);
+}
+.flag h3 { font-family: var(--font-serif); font-size: 1.12rem; color: var(--blue-900); margin-top: 7px; line-height: 1.32; }
+.flag-desc { font-size: 13.5px; color: var(--text-2); margin-top: 9px; line-height: 1.55; }
+.flag-use {
+  margin-top: 13px; padding: 11px 13px; border-radius: 8px;
+  background: var(--blue-50); border-left: 3px solid var(--blue-800);
+  font-size: 13px; color: var(--text-2); line-height: 1.5;
+}
+.flag-use strong { color: var(--blue-900); }
+.flag-foot {
+  margin-top: auto; padding-top: 14px; display: flex;
+  align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+}
+.flag-foot a { font-size: 13.5px; font-weight: 600; text-decoration: none; }
+.flag-foot a:hover { text-decoration: underline; }
+.flag-geo { font-size: 12px; color: var(--text-3); }
+
+/* Targets shown on a light section rather than the dark strip. Added 10/09/2026
+   for the Impact page: the originals are white-on-blue and vanish on white. */
+.section .target-n { color: var(--blue-900); }
+.section .target-l { color: var(--text-2); }
+.section .target { border-left-color: var(--blue-800); }
+.section .targets-src { color: var(--text-3); }

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>News and events, CGIAR Climate Hub, Concept C</title>
-<meta name="description" content="Funding calls, events and calls for papers in one chronological list.">
+<title>Impact, CGIAR Climate Hub, Concept C</title>
+<meta name="description" content="What the Climate Action programme has committed to, what the catalogued evidence currently supports, and where the gap between the two sits.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,25 +87,99 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <a class="ctab" href="index.html">Home</a>
     <a class="ctab ctab-desk" href="front-desk.html"><svg class="ctab-key" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="4.2"/><path d="M11 11 L19.5 19.5 M16.5 17 L18.5 15 M19 19.5 L21 17.5"/></svg>Front Desk</a>
     <a class="ctab" href="resources.html">Resources &amp; Data</a>
-    <a class="ctab" href="impact.html">Impact</a>
+    <a class="ctab" href="impact.html" aria-current="page">Impact</a>
     <a class="ctab" href="where-we-work.html">Where We Work</a>
     <a class="ctab" href="themes.html">Themes</a>
-    <a class="ctab" href="about.html" aria-current="page">About &amp; Contact</a>
+    <a class="ctab" href="about.html">About &amp; Contact</a>
   </div>
 </nav>
 
 <main id="main" tabindex="-1">
+
+<div class="pagehead">
+  <div class="wrap">
+    <p class="pagehead-kicker">Impact</p>
+    <h1>What this programme is for, and how far the evidence goes</h1>
+    <p class="pagehead-sub">Impact was one of the five top-level headings proposed in the Lexicon session. This
+    page is a first attempt at filling it. It shows the published commitments, then it shows what the
+    catalogue behind this site can currently evidence, and it does not close the gap between them with
+    adjectives.</p>
+  </div>
+</div>
+
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-label">News &amp; events</div>
-      <h2>Funding calls, events and calls for papers</h2>
-      <p>One chronological list on its own tab, rather than a four-tab widget competing for space on the
-      landing page. Dates are as published by each organiser and should be checked at the source.</p>
+      <div class="section-label">Published commitments</div>
+      <h2>The four programme targets</h2>
+      <p>As published on cgiar.org for the Climate Action programme, read on 10/08/2026. These are stated
+      figures, reproduced rather than recomputed.</p>
     </div>
-    <div id="newsList"></div>
+    <div class="targets" id="targets"></div>
+    <p class="targets-src">Source: cgiar.org, Climate Action programme pages, read 10/08/2026.</p>
   </div>
 </section>
+
+<section class="section tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Evidence behind them</div>
+      <h2>What the catalogue currently holds against each target</h2>
+      <p>Counts are of items catalogued on this prototype, not of programme results. They say how much evidence
+      this site can point at, which is a different question from how much work has been done.</p>
+    </div>
+    <div class="impactgrid" id="impactGrid"></div>
+
+    <div class="demo" style="margin-top:22px">
+      <strong>What this page cannot yet do.</strong> An impact section that a donor would take seriously needs
+      results, not counts of documents: farmers reached, finance mobilised, emissions avoided, each with a
+      method and a date. None of that is in the catalogue behind this prototype, and inventing it here would
+      make the site worse than having no impact page at all. Filling this section properly is a data question
+      for the programme, not a design question for the site.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Programme structure</div>
+      <h2>The five areas of work</h2>
+      <p>As published on cgiar.org. Counts are the catalogued evidence sitting under each.</p>
+    </div>
+    <div class="aowlist" id="aowList"></div>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Honest accounting</div>
+      <h2>Three things a reader should know before quoting this page</h2>
+    </div>
+    <div class="errands">
+      <div class="errand">
+        <span class="errand-n">One</span>
+        <h3>Counts are of catalogue entries</h3>
+        <p>Every number on this page counts items recorded on this prototype. It is a measure of what has been
+        catalogued, and nothing more. It is not a measure of activity, spend or reach.</p>
+      </div>
+      <div class="errand">
+        <span class="errand-n">Two</span>
+        <h3>The catalogue is a sample</h3>
+        <p>The entries were assembled to test a design, not to be complete. Absence from this site is not
+        evidence that work does not exist.</p>
+      </div>
+      <div class="errand">
+        <span class="errand-n">Three</span>
+        <h3>Nothing here is cleared</h3>
+        <p>This is a feedback prototype. No figure, framing or claim on it has been through CGIAR
+        communications, and none of it should be reused in a proposal or a brief.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -113,9 +187,9 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <div class="footer-top">
       <div>
         <img src="assets/cgiar-logo.png" alt="CGIAR" height="42">
-        <p>Concept C of five design interpretations prepared on 10/08/2026 to elicit feedback on the structure
-        of the CGIAR Climate Hub. Built deliberately in the shape of gender.cgiar.org. Nothing here is an
-        approved CGIAR position.</p>
+        <p>Concept C of five design interpretations of the CGIAR Climate Hub, built 10/08/2026 in the shape of
+        gender.cgiar.org and revised 10/09/2026 to carry the nav bar structure proposed in the Lexicon session.
+        Nothing here is an approved CGIAR position.</p>
       </div>
       <div class="footer-col">
         <h3>Explore</h3>
@@ -139,24 +213,66 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub &#8599;</a>
         <a href="https://cgspace.cgiar.org/" target="_blank" rel="noopener">CGSpace &#8599;</a>
         <a href="https://gardian.cgiar.org/" target="_blank" rel="noopener">Gardian &#8599;</a>
-      </div>
-      <div class="footer-col">
-        <h3>Programme</h3>
         <a href="https://www.cgiar.org/" target="_blank" rel="noopener">CGIAR &#8599;</a>
-        <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">Climate Action &#8599;</a>
-        <a href="https://gender.cgiar.org/" target="_blank" rel="noopener">GENDER Platform, the model for this concept &#8599;</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 CGIAR. Photographs are Creative Commons and credited individually; see each caption.
       Linked content remains under its own licence.</span>
-      <span>British English &middot; Concept C, 10/08/2026 &middot; IITA Internal Use</span>
+      <span>British English &middot; Concept C, revised 10/09/2026 &middot; IITA Internal Use</span>
     </div>
   </div>
 </footer>
 
 <script src="assets/data.js"></script>
 <script src="assets/themes.js"></script>
-<script src="assets/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var H = window.HUB;
+  if (!H) { return; }
+
+  /* Targets, reproduced as published. */
+  var t = document.getElementById('targets');
+  if (t) {
+    t.innerHTML = H.TARGETS.map(function (x) {
+      return '<div class="target"><span class="target-n">' + x.figure +
+             '</span><span class="target-l">' + x.label + '</span></div>';
+    }).join('');
+  }
+
+  /* What the catalogue holds under each area of work. */
+  var g = document.getElementById('impactGrid');
+  if (g) {
+    g.innerHTML = H.AREAS.map(function (a) {
+      var items = H.all.filter(function (i) { return i.aow === a.id; });
+      var types = {};
+      items.forEach(function (i) { types[i.type] = (types[i.type] || 0) + 1; });
+      var parts = Object.keys(types).sort().map(function (k) {
+        return types[k] + ' ' + (types[k] === 1 ? (H.TYPE_LABEL[k] || k) : (H.TYPE_PLURAL[k] || k));
+      });
+      return '<div class="impactcard">' +
+        '<div class="impactcard-n">' + items.length + '</div>' +
+        '<div class="impactcard-lab">catalogued items</div>' +
+        '<h3>' + a.name + '</h3>' +
+        '<p>' + a.desc + '</p>' +
+        '<p class="impactcard-break">' + (parts.length ? parts.join(' &middot; ') : 'Nothing catalogued yet') + '</p>' +
+        '</div>';
+    }).join('');
+  }
+
+  /* The five areas, reusing the shared renderer if it is present. */
+  var l = document.getElementById('aowList');
+  if (l && !l.innerHTML) {
+    l.innerHTML = H.AREAS.map(function (a) {
+      var n = H.all.filter(function (i) { return i.aow === a.id; }).length;
+      return '<a class="aow" href="resources.html?aow=' + a.id + '">' +
+             '<span class="aow-name">' + a.name + '</span>' +
+             '<span class="aow-desc">' + a.desc + '</span>' +
+             '<span class="aow-count">' + n + ' catalogued</span></a>';
+    }).join('');
+  }
+})();
+</script>
 </body>
 </html>

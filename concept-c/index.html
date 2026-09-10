@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CGIAR Climate Hub &mdash; Concept C, GESI-style</title>
+<title>CGIAR Climate Hub, Concept C, GESI-style</title>
 <meta name="description" content="Concept C: the Climate Hub built in the shape of gender.cgiar.org, image-led with ten themes across many tabs.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/concept-c.css">
+<link rel="stylesheet" href="assets/front-desk.css">
 <script src="assets/analytics.js" defer></script>
 </head>
 <body>
@@ -67,9 +68,10 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 <!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
 
 <div class="proto-bar">
-  <strong>Concept C of 5, for feedback only.</strong>
-  Built to resemble gender.cgiar.org: a photograph first, then ten themes, with everything split across tabs.
-  Not a CGIAR publication. IITA Internal Use.
+  <strong>Concept C of 5, revised 10/09/2026 for feedback only.</strong>
+  Built to resemble gender.cgiar.org, and now carrying the nav bar structure proposed in the
+  Lexicon session: Front Desk, Resources and Data, Impact, Where We Work, About and Contact.
+  Content is placeholder unless a source is shown. Not a CGIAR publication. IITA Internal Use.
 </div>
 
 <header>
@@ -80,15 +82,17 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     </a>
   </div>
 </header>
-<div class="ctabs">
+<nav class="ctabs" aria-label="Main navigation">
   <div class="ctabs-in">
-      <a class="ctab" href="index.html" aria-current="page">Home</a>
-      <a class="ctab" href="themes.html">Themes</a>
-      <a class="ctab" href="resources.html">Resources</a>
-      <a class="ctab" href="experts.html">Experts</a>
-      <a class="ctab" href="news.html">News &amp; events</a>
+    <a class="ctab" href="index.html" aria-current="page">Home</a>
+    <a class="ctab ctab-desk" href="front-desk.html"><svg class="ctab-key" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="4.2"/><path d="M11 11 L19.5 19.5 M16.5 17 L18.5 15 M19 19.5 L21 17.5"/></svg>Front Desk</a>
+    <a class="ctab" href="resources.html">Resources &amp; Data</a>
+    <a class="ctab" href="impact.html">Impact</a>
+    <a class="ctab" href="where-we-work.html">Where We Work</a>
+    <a class="ctab" href="themes.html">Themes</a>
+    <a class="ctab" href="about.html">About &amp; Contact</a>
   </div>
-</div>
+</nav>
 
 <main id="main" tabindex="-1">
 
@@ -211,10 +215,19 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
       <div class="footer-col">
         <h3>Explore</h3>
         <a href="index.html">Home</a>
+        <a href="front-desk.html">Front Desk</a>
+        <a href="resources.html">Resources and data</a>
+        <a href="impact.html">Impact</a>
+        <a href="where-we-work.html">Where we work</a>
         <a href="themes.html">Themes</a>
-        <a href="resources.html">Resources</a>
+        <a href="about.html">About and contact</a>
+      </div>
+      <div class="footer-col">
+        <h3>Also on the site</h3>
         <a href="experts.html">Experts</a>
-        <a href="news.html">News &amp; events</a>
+        <a href="news.html">News, events and calls</a>
+        <a href="front-desk.html#faq">Frequently asked questions</a>
+        <a href="front-desk.html#newsletter">Newsletter sign-up</a>
       </div>
       <div class="footer-col">
         <h3>Go deeper</h3>

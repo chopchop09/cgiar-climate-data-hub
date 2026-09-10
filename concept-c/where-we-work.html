@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Themes, CGIAR Climate Hub, Concept C</title>
-<meta name="description" content="The ten themes in full, with every catalogued item matching each.">
+<title>Where we work, CGIAR Climate Hub, Concept C</title>
+<meta name="description" content="Where the catalogued climate evidence has coverage, region by region, and where it runs out.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,30 +88,97 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <a class="ctab ctab-desk" href="front-desk.html"><svg class="ctab-key" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="4.2"/><path d="M11 11 L19.5 19.5 M16.5 17 L18.5 15 M19 19.5 L21 17.5"/></svg>Front Desk</a>
     <a class="ctab" href="resources.html">Resources &amp; Data</a>
     <a class="ctab" href="impact.html">Impact</a>
-    <a class="ctab" href="where-we-work.html">Where We Work</a>
-    <a class="ctab" href="themes.html" aria-current="page">Themes</a>
+    <a class="ctab" href="where-we-work.html" aria-current="page">Where We Work</a>
+    <a class="ctab" href="themes.html">Themes</a>
     <a class="ctab" href="about.html">About &amp; Contact</a>
   </div>
 </nav>
 
 <main id="main" tabindex="-1">
+
+<div class="pagehead">
+  <div class="wrap">
+    <p class="pagehead-kicker">Where we work</p>
+    <h1>Coverage, region by region, including where it stops</h1>
+    <p class="pagehead-sub">Where We Work was one of the five headings proposed in the Lexicon session, and it
+    is the one most likely to be asked for by a national partner. This page shows what the catalogue behind
+    this prototype covers geographically. It is built from the coverage field recorded on each item, so it is
+    a map of the evidence, not a map of the programme.</p>
+  </div>
+</div>
+
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-label">Themes</div>
-      <h2>The ten themes in full</h2>
-      <p>Each theme lists its sub-topics, then every catalogued item matching it. Matching is plain substring
-      search over the same fields the site search uses, so any count here can be reproduced by searching for
-      the term yourself.</p>
+      <div class="section-label">The published commitment</div>
+      <h2>Twenty priority countries, across Tier 1 and Tier 2</h2>
+      <p>That is what the Climate Action programme publishes on cgiar.org, read on 10/08/2026.</p>
     </div>
-    <div class="demo" style="margin-top:0">
-      <strong>An editorial grouping, not a CGIAR taxonomy.</strong> No climate-terms taxonomy exists yet.
-      These ten themes and their sub-topics were written from the tags already present on the 44 catalogued
-      items. An item can appear under more than one theme, which is why the counts sum to more than 44.
+    <div class="demo">
+      <strong>The country list is not on this site, and should not be guessed.</strong> The number is
+      published. The named twenty, and which sit in Tier 1 and which in Tier 2, were not read from a CGIAR
+      source when this prototype was built, so nothing here lists them. A live Where We Work page needs that
+      list confirmed by the programme before it is drawn on a map, because a wrong country on a public map is
+      the kind of error partners remember.
     </div>
-    <div id="themeBlocks"></div>
   </div>
 </section>
+
+<section class="section tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Evidence coverage</div>
+      <h2>What the catalogue covers</h2>
+      <p>Every catalogued item records the geography it covers, verbatim from its provider. Grouped below, with
+      the number of items behind each.</p>
+    </div>
+    <div class="geogrid" id="geoGrid"></div>
+    <p class="targets-src" id="geoNote"></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">The honest reading</div>
+      <h2>What this distribution actually shows</h2>
+    </div>
+    <div class="errands">
+      <div class="errand">
+        <span class="errand-n">One</span>
+        <h3>Most of it is global</h3>
+        <p>The bulk of the catalogue is global datasets and methods. Useful, but a national partner asking
+        "what do you have for my country" is not served by a global gridded product they then have to clip
+        themselves.</p>
+      </div>
+      <div class="errand">
+        <span class="errand-n">Two</span>
+        <h3>Regional coverage is thin and uneven</h3>
+        <p>Africa and South Asia have atlases. Other regions do not. A page that draws twenty flags and shows
+        an atlas for two of them invites the question of what the other eighteen get.</p>
+      </div>
+      <div class="errand">
+        <span class="errand-n">Three</span>
+        <h3>Country-level pages are a commitment, not a feature</h3>
+        <p>Twenty country pages need someone to keep twenty country pages current. If that owner does not
+        exist, region-level honesty beats country-level decay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">People</div>
+      <h2>Who to talk to in a region</h2>
+      <p>The experts listed on this site are recorded by theme and by centre rather than by country. That is a
+      gap: a partner in a given country usually wants a name before they want a dataset.</p>
+    </div>
+    <p><a class="btn ghost" href="experts.html">See the experts listed so far &rarr;</a></p>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -119,9 +186,9 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <div class="footer-top">
       <div>
         <img src="assets/cgiar-logo.png" alt="CGIAR" height="42">
-        <p>Concept C of five design interpretations prepared on 10/08/2026 to elicit feedback on the structure
-        of the CGIAR Climate Hub. Built deliberately in the shape of gender.cgiar.org. Nothing here is an
-        approved CGIAR position.</p>
+        <p>Concept C of five design interpretations of the CGIAR Climate Hub, built 10/08/2026 in the shape of
+        gender.cgiar.org and revised 10/09/2026 to carry the nav bar structure proposed in the Lexicon session.
+        Nothing here is an approved CGIAR position.</p>
       </div>
       <div class="footer-col">
         <h3>Explore</h3>
@@ -145,24 +212,72 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub &#8599;</a>
         <a href="https://cgspace.cgiar.org/" target="_blank" rel="noopener">CGSpace &#8599;</a>
         <a href="https://gardian.cgiar.org/" target="_blank" rel="noopener">Gardian &#8599;</a>
-      </div>
-      <div class="footer-col">
-        <h3>Programme</h3>
         <a href="https://www.cgiar.org/" target="_blank" rel="noopener">CGIAR &#8599;</a>
-        <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">Climate Action &#8599;</a>
-        <a href="https://gender.cgiar.org/" target="_blank" rel="noopener">GENDER Platform, the model for this concept &#8599;</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 CGIAR. Photographs are Creative Commons and credited individually; see each caption.
       Linked content remains under its own licence.</span>
-      <span>British English &middot; Concept C, 10/08/2026 &middot; IITA Internal Use</span>
+      <span>British English &middot; Concept C, revised 10/09/2026 &middot; IITA Internal Use</span>
     </div>
   </div>
 </footer>
 
 <script src="assets/data.js"></script>
-<script src="assets/themes.js"></script>
-<script src="assets/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var H = window.HUB;
+  var g = document.getElementById('geoGrid');
+  if (!H || !g) { return; }
+
+  /* Group the verbatim coverage strings into readable buckets. The bucket is a
+     presentation choice made here; the underlying value stays verbatim on each
+     item's own record, which is where anyone checking should look. */
+  var BUCKETS = [
+    { name: 'Global', match: function (s) { return /global|50/i.test(s); },
+      note: 'Worldwide coverage, usually gridded and needing clipping to a country.' },
+    { name: 'Africa', match: function (s) { return /africa|nigeria|kenya/i.test(s); },
+      note: 'Continental and country-level products, including the adaptation atlas.' },
+    { name: 'South Asia', match: function (s) { return /south asia/i.test(s); },
+      note: 'Regional atlas and drought monitoring.' },
+    { name: 'Asia-Pacific', match: function (s) { return /asia-pacific/i.test(s); },
+      note: 'Thin. One catalogued item.' },
+    { name: 'Latin America', match: function (s) { return /latin|colombia/i.test(s); },
+      note: 'Thin. Present mainly through multi-country entries.' },
+    { name: 'Multi-country databases', match: function (s) { return /countries/i.test(s); },
+      note: 'Practice and technology databases spanning many countries at once.' }
+  ];
+
+  var used = {};
+  var rows = BUCKETS.map(function (b) {
+    var items = H.all.filter(function (i) {
+      return i.geo && b.match(i.geo);
+    });
+    items.forEach(function (i) { used[i.id] = true; });
+    var labels = {};
+    items.forEach(function (i) { labels[i.geo] = true; });
+    return { name: b.name, note: b.note, n: items.length, labels: Object.keys(labels).sort() };
+  });
+
+  var total = H.all.filter(function (i) { return !!i.geo; }).length;
+  var max = rows.reduce(function (m, r) { return Math.max(m, r.n); }, 1);
+
+  g.innerHTML = rows.map(function (r) {
+    var pct = Math.round((r.n / max) * 100);
+    return '<div class="geocard">' +
+      '<div class="geocard-top"><h3>' + r.name + '</h3><span class="geocard-n">' + r.n + '</span></div>' +
+      '<div class="geobar" aria-hidden="true"><span style="width:' + pct + '%"></span></div>' +
+      '<p>' + r.note + '</p>' +
+      '<p class="geocard-labels">Recorded as: ' + (r.labels.length ? r.labels.join('; ') : 'nothing catalogued') + '</p>' +
+      '</div>';
+  }).join('');
+
+  document.getElementById('geoNote').textContent =
+    'Built from the coverage field on ' + total + ' catalogued items. Items can fall into more than one ' +
+    'bucket, so the numbers above do not sum to the total. Buckets are a presentation choice made on this ' +
+    'page; each item keeps its provider wording.';
+})();
+</script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Resources &mdash; CGIAR Climate Hub, Concept C</title>
+<title>Resources and data, CGIAR Climate Hub, Concept C</title>
 <meta name="description" content="Publications, datasets, tools and methods, filtered by type and theme.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/concept-c.css">
+<link rel="stylesheet" href="assets/front-desk.css">
 <script src="assets/analytics.js" defer></script>
 </head>
 <body>
@@ -67,9 +68,10 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 <!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
 
 <div class="proto-bar">
-  <strong>Concept C of 5, for feedback only.</strong>
-  Built to resemble gender.cgiar.org: a photograph first, then ten themes, with everything split across tabs.
-  Not a CGIAR publication. IITA Internal Use.
+  <strong>Concept C of 5, revised 10/09/2026 for feedback only.</strong>
+  Built to resemble gender.cgiar.org, and now carrying the nav bar structure proposed in the
+  Lexicon session: Front Desk, Resources and Data, Impact, Where We Work, About and Contact.
+  Content is placeholder unless a source is shown. Not a CGIAR publication. IITA Internal Use.
 </div>
 
 <header>
@@ -80,17 +82,133 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     </a>
   </div>
 </header>
-<div class="ctabs">
+<nav class="ctabs" aria-label="Main navigation">
   <div class="ctabs-in">
-      <a class="ctab" href="index.html">Home</a>
-      <a class="ctab" href="themes.html">Themes</a>
-      <a class="ctab" href="resources.html" aria-current="page">Resources</a>
-      <a class="ctab" href="experts.html">Experts</a>
-      <a class="ctab" href="news.html">News &amp; events</a>
+    <a class="ctab" href="index.html">Home</a>
+    <a class="ctab ctab-desk" href="front-desk.html"><svg class="ctab-key" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="4.2"/><path d="M11 11 L19.5 19.5 M16.5 17 L18.5 15 M19 19.5 L21 17.5"/></svg>Front Desk</a>
+    <a class="ctab" href="resources.html" aria-current="page">Resources &amp; Data</a>
+    <a class="ctab" href="impact.html">Impact</a>
+    <a class="ctab" href="where-we-work.html">Where We Work</a>
+    <a class="ctab" href="themes.html">Themes</a>
+    <a class="ctab" href="about.html">About &amp; Contact</a>
   </div>
-</div>
+</nav>
 
 <main id="main" tabindex="-1">
+
+<!-- FLAGSHIP ASSETS, added 10/09/2026 ---------------------------------------
+     The Lexicon session asked for curated high-value CGIAR climate tools shown
+     as tiles carrying a description, a use case and a link out, and explicitly
+     not a mirror of CGSpace. Six tiles, each a catalogued item, so the provider
+     and the link are the ones already recorded and checked.
+     ---------------------------------------------------------------------- -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Flagship climate assets</div>
+      <h2>Six tools worth knowing about</h2>
+      <p>Not a complete list, and not meant to be. These are entry points: what each one is, what people come
+      to it for, and a link out to the people who run it.</p>
+    </div>
+
+    <div class="flagship">
+
+      <div class="flag">
+        <span class="flag-provider">CGIAR</span>
+        <h3>African Agriculture Adaptation Atlas</h3>
+        <p class="flag-desc">Spatial climate risk, adaptation options and food security across Africa, at
+        country and sub-national level.</p>
+        <p class="flag-use"><strong>Come here when</strong> you need to see which adaptation options have
+        evidence behind them for a given place in Africa.</p>
+        <span class="flag-foot">
+          <a href="https://adaptationatlas.cgiar.org/" target="_blank" rel="noopener">Open the atlas &#8599;</a>
+          <span class="flag-geo">Africa &middot; web maps</span>
+        </span>
+      </div>
+
+      <div class="flag">
+        <span class="flag-provider">CIMMYT-BISA</span>
+        <h3>South Asia Climate Adaptation Atlas (ACASA)</h3>
+        <p class="flag-desc">Climate hazards, vulnerability and expert-validated adaptation options for 15
+        crops and six livestock species, at roughly 25 square kilometres.</p>
+        <p class="flag-use"><strong>Come here when</strong> you are working in South Asia and need hazard and
+        adaptation layers at sub-district resolution.</p>
+        <span class="flag-foot">
+          <a href="https://acasa-bisa.org/" target="_blank" rel="noopener">Open ACASA &#8599;</a>
+          <span class="flag-geo">South Asia &middot; web maps</span>
+        </span>
+      </div>
+
+      <div class="flag">
+        <span class="flag-provider">CGIAR</span>
+        <h3>AgMRV</h3>
+        <p class="flag-desc">Monitoring, reporting and verification for agricultural greenhouse gas emissions,
+        built on IPCC-aligned methodology.</p>
+        <p class="flag-use"><strong>Come here when</strong> a project needs to measure or report emissions and
+        you want a method that will survive scrutiny.</p>
+        <span class="flag-foot">
+          <a href="https://www.agmrv.org/" target="_blank" rel="noopener">Open AgMRV &#8599;</a>
+          <span class="flag-geo">Global &middot; web tools</span>
+        </span>
+      </div>
+
+      <div class="flag">
+        <span class="flag-provider">CGIAR</span>
+        <h3>AgWise</h3>
+        <p class="flag-desc">Location-specific climate-smart agronomic recommendations, with API and GIS
+        integration.</p>
+        <p class="flag-use"><strong>Come here when</strong> you are building an advisory service and need
+        agronomy that varies by location rather than one national recommendation.</p>
+        <span class="flag-foot">
+          <a href="https://agwise.org/" target="_blank" rel="noopener">Open AgWise &#8599;</a>
+          <span class="flag-geo">Africa &middot; API, GIS</span>
+        </span>
+      </div>
+
+      <div class="flag">
+        <span class="flag-provider">CGIAR</span>
+        <h3>Climate Security Observatory</h3>
+        <p class="flag-desc">Evidence base on the climate, conflict and food security nexus, with country
+        profiles.</p>
+        <p class="flag-use"><strong>Come here when</strong> a proposal or a briefing has to say something
+        defensible about climate and conflict.</p>
+        <span class="flag-foot">
+          <a href="https://cso.cgiar.org/" target="_blank" rel="noopener">Open the observatory &#8599;</a>
+          <span class="flag-geo">Global &middot; country profiles</span>
+        </span>
+      </div>
+
+      <div class="flag">
+        <span class="flag-provider">TAAT, with CGIAR</span>
+        <h3>TAAT e-catalogues</h3>
+        <p class="flag-desc">Proven agricultural technologies for scaling across Africa, organised by commodity
+        and by value chain stage.</p>
+        <p class="flag-use"><strong>Come here when</strong> you need technologies that are already proven at
+        scale rather than promising in trial.</p>
+        <span class="flag-foot">
+          <a href="https://e-catalogs.taat-africa.org/" target="_blank" rel="noopener">Open the catalogues &#8599;</a>
+          <span class="flag-geo">Africa &middot; web catalogue</span>
+        </span>
+      </div>
+
+    </div>
+
+    <div class="demo" style="margin-top:22px">
+      <strong>Six is a choice, and it is arguable.</strong> These were picked from the catalogue on this
+      prototype as a worked example of the tile display, not as an agreed flagship set. Which assets are
+      flagship, and who decides, is still open. The rule proposed so far is on the
+      <a href="about.html#curation">About page</a>.
+    </div>
+
+    <div class="demo" style="margin-top:14px">
+      <strong>What is deliberately not here.</strong> The full record lives in
+      <a href="https://cgspace.cgiar.org/" target="_blank" rel="noopener">CGSpace</a> and
+      <a href="https://gardian.cgiar.org/" target="_blank" rel="noopener">Gardian</a>. This site links to them
+      rather than reproducing them, because a partial copy of a repository is worse than the repository.
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap">
     <div class="section-head">
@@ -144,10 +262,19 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
       <div class="footer-col">
         <h3>Explore</h3>
         <a href="index.html">Home</a>
+        <a href="front-desk.html">Front Desk</a>
+        <a href="resources.html">Resources and data</a>
+        <a href="impact.html">Impact</a>
+        <a href="where-we-work.html">Where we work</a>
         <a href="themes.html">Themes</a>
-        <a href="resources.html">Resources</a>
+        <a href="about.html">About and contact</a>
+      </div>
+      <div class="footer-col">
+        <h3>Also on the site</h3>
         <a href="experts.html">Experts</a>
-        <a href="news.html">News &amp; events</a>
+        <a href="news.html">News, events and calls</a>
+        <a href="front-desk.html#faq">Frequently asked questions</a>
+        <a href="front-desk.html#newsletter">Newsletter sign-up</a>
       </div>
       <div class="footer-col">
         <h3>Go deeper</h3>
