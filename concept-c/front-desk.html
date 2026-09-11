@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/concept-c.css">
 <link rel="stylesheet" href="assets/front-desk.css">
@@ -109,8 +109,9 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
       <button class="deskbtn" type="button" data-style="cgiar" aria-pressed="true">Restrained, CGIAR blue</button>
       <button class="deskbtn" type="button" data-style="budapest" aria-pressed="false">Grand Budapest</button>
     </div>
-    <p class="deskswitch-note">Same page, same words, two skins. Only the colours, type and framing change.
-    Neither is a CGIAR-approved visual identity.</p>
+    <p class="deskswitch-note">Same content, same layout, two skins. The Budapest treatment also brings the
+    reception furniture: a key wall, a desk front, lamps, a clock. Neither is a CGIAR-approved
+    visual identity, and neither uses any artwork from the film.</p>
   </div>
 </div>
 
@@ -120,12 +121,42 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
 <div class="reception">
   <div class="keyrack" aria-hidden="true"></div>
   <div class="reception-in">
+    <div class="clock" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="27" fill="#F4ECD8" stroke="#B08A2E" stroke-width="3"/>
+        <circle cx="30" cy="30" r="22" fill="none" stroke="#B08A2E" stroke-width="1"/>
+        <g stroke="#5F3B7E" stroke-width="1.6" stroke-linecap="round">
+          <path d="M30 11v3"/><path d="M49 30h-3"/><path d="M30 49v-3"/><path d="M14 30h3"/>
+        </g>
+        <g stroke="#2E1F2E" stroke-width="2.2" stroke-linecap="round">
+          <path d="M30 30V18"/><path d="M30 30l9 6"/>
+        </g>
+        <circle cx="30" cy="30" r="2.2" fill="#B08A2E"/>
+      </svg>
+    </div>
     <span class="desksign">Front Desk</span>
     <h1>How can we help you today?</h1>
     <p class="reception-sub">Ask in your own words. If the answer is on the site we will point you at it, and
     if it is not, we will tell you that instead of sending you round in circles.</p>
 
-    <div class="counter">
+    <div class="deskunit">
+      <div class="lamp lamp-l" aria-hidden="true">
+        <svg viewBox="0 0 60 48">
+          <path d="M3 28a27 19 0 0 1 54 0z" fill="#F4ECD8" stroke="#B08A2E" stroke-width="1.4"/>
+          <path d="M3 28h54" stroke="#B08A2E" stroke-width="2"/>
+          <rect x="27.4" y="28" width="5.2" height="13" fill="#B08A2E"/>
+          <ellipse cx="30" cy="43" rx="12" ry="3.6" fill="#B08A2E"/>
+        </svg>
+      </div>
+      <div class="lamp lamp-r" aria-hidden="true">
+        <svg viewBox="0 0 60 48">
+          <path d="M3 28a27 19 0 0 1 54 0z" fill="#F4ECD8" stroke="#B08A2E" stroke-width="1.4"/>
+          <path d="M3 28h54" stroke="#B08A2E" stroke-width="2"/>
+          <rect x="27.4" y="28" width="5.2" height="13" fill="#B08A2E"/>
+          <ellipse cx="30" cy="43" rx="12" ry="3.6" fill="#B08A2E"/>
+        </svg>
+      </div>
+      <div class="counter">
       <div class="bell" aria-hidden="true">
         <svg viewBox="0 0 44 42" fill="none">
           <path d="M6 32h32" stroke="#B08A2E" stroke-width="3" stroke-linecap="round"/>
@@ -147,6 +178,8 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         <button class="asktry" type="button">Is there funding open right now?</button>
       </div>
       <div class="askanswer" id="askAnswer" hidden></div>
+      </div>
+      <div class="deskfront" aria-hidden="true"></div>
     </div>
   </div>
 </div>
@@ -467,6 +500,23 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
   try { wanted = new URLSearchParams(window.location.search).get('style'); } catch (e) {}
   if (!wanted) { try { wanted = window.localStorage.getItem('hub-desk-style'); } catch (e) {} }
   if (wanted === 'budapest' || wanted === 'cgiar') { setStyle(wanted); }
+
+
+  /* ---- The key wall ----
+     Numbered pigeonholes with a key hanging in most of them, built here rather
+     than written out 260 times in the markup. Decorative and aria-hidden: the
+     CSS pattern underneath is the fallback if this never runs. */
+  var rack = document.querySelector('.keyrack');
+  if (rack) {
+    var cells = [];
+    for (var c = 0; c < 264; c++) {
+      var room = 101 + c;
+      var taken = ((c * 2654435761) % 97) > 28;
+      cells.push('<span class="hole' + (taken ? ' keyed' : '') + '"><b>' + room + '</b></span>');
+    }
+    rack.innerHTML = cells.join('');
+    rack.className += ' built';
+  }
 
   /* ---- FAQ accordion ---- */
   var qs = document.querySelectorAll('.entry-q');

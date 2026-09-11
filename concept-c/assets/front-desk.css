@@ -39,6 +39,7 @@
 }
 
 .desk[data-desk="budapest"] {
+  --d-sign:     "Playfair Display", "Noto Serif", Georgia, serif;
   --d-ink:      #2E1F2E;
   --d-ink-2:    #5A4459;
   --d-wall:     #A2242E;
@@ -81,7 +82,7 @@
   background:
     repeating-linear-gradient(90deg,
       rgba(0,0,0,.10) 0 1px, rgba(0,0,0,0) 1px 62px),
-    linear-gradient(180deg, #B02A34 0%, #8E1F28 100%);
+    linear-gradient(180deg, #B42D37 0%, #A2242E 46%, #7C1A22 100%);
 }
 
 .keyrack {
@@ -184,9 +185,11 @@
 .askanswer a { color: var(--d-accent); }
 
 .bell {
-  position: absolute; right: 22px; top: -21px;
-  width: 44px; height: 42px; pointer-events: none;
+  position: absolute; right: 168px; top: -27px; z-index: 4;
+  width: 46px; height: 44px; pointer-events: none;
+  filter: drop-shadow(0 3px 0 rgba(0,0,0,.20));
 }
+@media (max-width: 700px) { .bell { right: 18px; top: -24px; } }
 .bell svg { width: 100%; height: 100%; }
 .desk[data-desk="cgiar"] .bell { display: none; }
 
@@ -296,3 +299,157 @@
 .desk[data-desk="budapest"] .section-head p { color: var(--d-ink-2); }
 
 @media print { .deskswitch, .keyrack, .bell { display: none; } }
+
+/* ============================================================================
+ * RECEPTION FURNITURE, 11/09/2026
+ * ----------------------------------------------------------------------------
+ * Asked to get closer to the feel of the film. What follows is the grammar of a
+ * grand hotel reception, built from scratch: a numbered key wall, a desk with a
+ * front and a depth to it, two lamps standing on the counter, a lobby clock,
+ * and signage with the ornament and the rigid symmetry that go with all of it.
+ *
+ * None of it reproduces the film's set, and nothing here uses its artwork,
+ * title or type. It is the same furniture any hotel of that period had, drawn
+ * in CSS and SVG, which is also what keeps a public CGIAR page clear of a
+ * licensing conversation it does not need.
+ *
+ * Every rule is scoped to the Budapest skin unless the restrained one is
+ * visibly better for having it. The furniture is decorative and aria-hidden,
+ * so a reader on a screen reader gets the desk without the scenery.
+ * ========================================================================= */
+
+/* ---------- The key wall ---------------------------------------------------
+ * Built by script into numbered pigeonholes with keys hanging in most of them.
+ * The CSS background pattern above stays as the fallback if that never runs.
+ */
+.keyrack.built { background-image: none; display: grid; }
+.keyrack.built {
+  grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
+  grid-auto-rows: 54px;
+}
+.hole {
+  position: relative;
+  border-right: 1px solid rgba(255,255,255,.14);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  box-shadow: inset 0 5px 9px -6px rgba(0,0,0,.55);
+}
+.hole.keyed::after {
+  content: ""; position: absolute; left: 50%; top: 7px;
+  width: 13px; height: 30px; margin-left: -6.5px;
+  background: var(--d-keyimg) no-repeat center top / contain;
+}
+.hole b {
+  position: absolute; left: 0; right: 0; bottom: 3px;
+  text-align: center; font-family: var(--font-serif);
+  font-size: 8px; font-weight: 400; letter-spacing: .04em;
+  color: var(--d-num);
+}
+
+.desk {
+  --d-keyimg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 32'%3E%3Cg fill='none' stroke='%23FFFFFF' opacity='.5' stroke-width='1.7' stroke-linecap='round'%3E%3Ccircle cx='7' cy='5.5' r='3.4'/%3E%3Cpath d='M7 9v18'/%3E%3Cpath d='M7 20h4'/%3E%3Cpath d='M7 24.5h3'/%3E%3C/g%3E%3C/svg%3E");
+  --d-num: rgba(255,255,255,.30);
+}
+.desk[data-desk="budapest"] {
+  --d-keyimg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 32'%3E%3Cg fill='none' stroke='%23D8B15A' stroke-width='1.7' stroke-linecap='round'%3E%3Ccircle cx='7' cy='5.5' r='3.4'/%3E%3Cpath d='M7 9v18'/%3E%3Cpath d='M7 20h4'/%3E%3Cpath d='M7 24.5h3'/%3E%3C/g%3E%3C/svg%3E");
+  --d-num: rgba(240,214,160,.45);
+}
+.desk[data-desk="budapest"] .hole {
+  border-right-color: rgba(0,0,0,.28);
+  border-bottom-color: rgba(0,0,0,.28);
+  box-shadow: inset 0 6px 10px -6px rgba(0,0,0,.7), inset -1px 0 0 rgba(255,255,255,.07);
+}
+
+/* ---------- Lobby clock, above the sign ---------------------------------- */
+.clock { display: none; }
+.desk[data-desk="budapest"] .clock {
+  display: block; width: 58px; height: 58px; margin: 0 auto 18px;
+}
+.clock svg { width: 100%; height: 100%; display: block; }
+
+/* ---------- The desk itself ----------------------------------------------
+ * The counter used to float as a card. A hotel desk has a top you put things
+ * on and a front you stand at, so it now has both.
+ */
+.deskunit { position: relative; max-width: 780px; margin: 30px auto 0; }
+.counter { margin: 0 auto; }
+
+.deskfront { display: none; }
+.desk[data-desk="budapest"] .deskfront {
+  display: block; height: 104px; position: relative;
+  background:
+    /* recessed panels, evenly spaced, because symmetry is the whole point */
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,0) 0 16px,
+      rgba(0,0,0,.13) 16px 17px, rgba(255,255,255,.16) 17px 18px,
+      rgba(0,0,0,0) 18px 94px,
+      rgba(255,255,255,.16) 94px 95px, rgba(0,0,0,.13) 95px 96px,
+      rgba(0,0,0,0) 96px 112px),
+    linear-gradient(180deg, #DFC9A0 0%, #C2A374 62%, #B4945F 100%);
+  border: 2px solid var(--d-brass); border-top: none;
+  box-shadow: 0 10px 0 rgba(0,0,0,.22);
+}
+/* Brass lip along the desktop, and a foot rail near the floor. */
+.desk[data-desk="budapest"] .deskfront::after {
+  content: ""; position: absolute; left: -2px; right: -2px; bottom: 15px;
+  height: 4px; background: var(--d-brass);
+  box-shadow: 0 2px 0 rgba(0,0,0,.18);
+}
+.desk[data-desk="budapest"] .deskfront::before {
+  content: ""; position: absolute; left: -2px; right: -2px; top: 0; height: 7px;
+  background: linear-gradient(180deg, #E4C87E 0%, var(--d-brass) 100%);
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+}
+.desk[data-desk="budapest"] .counter { box-shadow: none; border-bottom: none; }
+
+/* ---------- Two lamps standing on the counter ---------------------------- */
+.lamp { display: none; }
+.desk[data-desk="budapest"] .lamp {
+  display: block; position: absolute; width: 78px; height: 62px; top: -48px; z-index: 3;
+  filter: drop-shadow(0 3px 0 rgba(0,0,0,.22));
+}
+.desk[data-desk="budapest"] .lamp-l { left: 54px; }
+.desk[data-desk="budapest"] .lamp-r { right: 54px; }
+.lamp svg { width: 100%; height: 100%; display: block; }
+@media (max-width: 700px) { .desk[data-desk="budapest"] .lamp { display: none; } }
+
+/* ---------- Signage ------------------------------------------------------- */
+.desk[data-desk="budapest"] .desksign {
+  position: relative; padding: 11px 40px;
+  border: 2px solid var(--d-brass);
+  outline: 1px solid var(--d-brass); outline-offset: 3px;
+  box-shadow: 0 6px 0 rgba(0,0,0,.22);
+  font-size: 12.5px; letter-spacing: .34em;
+}
+/* Mirrored ornaments, because the whole look is built on things being the same
+   on both sides of the middle. */
+.desk[data-desk="budapest"] .desksign::before,
+.desk[data-desk="budapest"] .desksign::after {
+  content: "\2756"; position: absolute; top: 50%; transform: translateY(-50%);
+  font-size: 9px; color: var(--d-brass); letter-spacing: 0;
+}
+.desk[data-desk="budapest"] .desksign::before { left: 13px; }
+.desk[data-desk="budapest"] .desksign::after  { right: 13px; }
+
+.desk[data-desk="budapest"] .reception h1 { letter-spacing: -.01em; }
+
+/* ---------- Chapter cards: centre the section heads ---------------------- */
+.desk[data-desk="budapest"] .section-head { text-align: center; }
+.desk[data-desk="budapest"] .section-head p { margin-left: auto; margin-right: auto; }
+.desk[data-desk="budapest"] .section-label { letter-spacing: .22em; }
+.desk[data-desk="budapest"] .section-head h2 { position: relative; padding-bottom: 13px; }
+.desk[data-desk="budapest"] .section-head h2::after {
+  content: ""; position: absolute; left: 50%; bottom: 0; width: 96px; margin-left: -48px;
+  height: 3px; border-top: 1px solid var(--d-brass); border-bottom: 1px solid var(--d-brass);
+}
+.desk[data-desk="budapest"] .errand,
+.desk[data-desk="budapest"] .staffcard { text-align: center; }
+.desk[data-desk="budapest"] .errand-n { display: block; letter-spacing: .2em; }
+
+/* The restrained treatment inherited the whole key wall, room numbers and all,
+   which is not restrained. It keeps the pigeonhole grid as an abstraction of a
+   key rack and drops the literal furniture. The point of this treatment is that
+   it can go in front of CGIAR communications without a conversation. */
+.desk[data-desk="cgiar"] .keyrack { opacity: .30; }
+.desk[data-desk="cgiar"] .hole b { display: none; }
+.desk[data-desk="cgiar"] .hole.keyed::after { content: none; }
+.desk[data-desk="cgiar"] .hole { box-shadow: none; }
