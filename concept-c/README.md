@@ -118,3 +118,25 @@ without a search box. If reviewers like it, the interesting question is whether 
 like the imagery or the ten-theme spine, because those are separable: Concept A could
 take the themes without the photographs, and Concept C could take a search box without
 ceasing to look like this.
+
+## Wishlist round, 17/09/2026
+
+Concept C is now the working version. The review switcher on every page leads with it and
+folds the current site, A, B, D, E and V1 behind one collapsed line. Changes made against the
+climate.cgiar.org features and functionality wishlist (Ibukun's draft of 08/09/2026, input
+closing 18/09/2026):
+
+- Nav bar at eight headings: Home, Front Desk, Resources & Data, Impact, Where We Work, Themes,
+  News & Events, About & Contact. A search field and a "Sign in" link (the operating system,
+  nothing more) sit at the far right. Search submits to the Front Desk with `?q=`.
+- `front-desk.html`: the "no match" answer hands over to climate@cgiar.org, the FAQ on the AI
+  assistant now carries the V1 routing and V2 answer split, and a new section, "Where each thing
+  on the wishlist lands", maps every wishlist item onto a heading with its proposed version.
+- `response-el-nino.html`: new. Section 3 of the wishlist as a reusable response template: a
+  clickable Africa map (`assets/africa-paths.js`, generated from the working `africa.geojson`),
+  an eight-field country panel, mock filters, print and copy-link. One summary, Nigeria, read from
+  IITA's input to the El Nino Task Team of 21/08/2026 (internal, one Centre); ten other countries
+  shaded as mentioned with no summary behind them. No forecast source has been read in.
+- `where-we-work.html` and `index.html` feature the response page; `where-we-work.html` gains a
+  Partners block (empty, said so). Notes added on `themes.html`, `experts.html`, `about.html`
+  and `news.html` saying what the wishlist asks each page to become.

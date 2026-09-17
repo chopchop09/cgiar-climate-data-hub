@@ -17,61 +17,69 @@
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- THREE-WAY REVIEW SWITCHER, added 10/08/2026 ------------------------------
-     Lets a reviewer move between the current site and the two concepts from
-     wherever they landed, so three URLs can be circulated without anyone being
-     stranded on one of them. Deliberately self-contained: every style is inline
-     and prefixed .xsw- so this block cannot collide with any stylesheet on any
-     of the three sites, and it can be removed by deleting from this comment down
-     to its closing one, touching nothing else.
+<!-- THREE-WAY REVIEW SWITCHER, added 10/08/2026, narrowed 17/09/2026 -----------
+     Concept C is the working version. The earlier versions stay published for
+     the record but sit behind one collapsed line, so a reviewer is not asked to
+     choose between seven things. Self-contained: every style is inline and
+     prefixed .xsw- so this block cannot collide with any stylesheet, and it can
+     be removed by deleting from this comment down to its closing one.
      ------------------------------------------------------------------------- -->
 <style>
 .xsw{background:#0A1F3D;border-bottom:1px solid rgba(255,255,255,.18);
   font-family:'Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
 .xsw-in{max-width:1240px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;
-  gap:7px;flex-wrap:wrap}
+  gap:10px;flex-wrap:wrap}
 .xsw-lab{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-  color:#8FC4FF;margin-right:6px;white-space:nowrap}
+  color:#8FC4FF;white-space:nowrap}
 .xsw-item{display:flex;flex-direction:column;gap:1px;text-decoration:none;
-  padding:5px 11px;border-radius:6px;border:1px solid rgba(255,255,255,.22);
+  padding:5px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.22);
   background:rgba(255,255,255,.06);min-width:0}
 a.xsw-item:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
-a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outline-offset:2px}
+a.xsw-item:focus-visible,.xsw-mini:focus-visible,.xsw-more summary:focus-visible{outline:2px solid #8FC4FF;outline-offset:2px}
 .xsw-name{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3}
 .xsw-sub{font-size:10.5px;color:#BCCFE9;line-height:1.3}
+.xsw-lead{border-color:#8FC4FF}
 .xsw-here{background:#fff;border-color:#fff}
 .xsw-here .xsw-name{color:#0A1F3D}
 .xsw-here .xsw-sub{color:#4A5A70}
 .xsw-you{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   color:#1955A6;line-height:1.3}
-.xsw-about{margin-left:auto;font-size:12px;color:#8FC4FF;text-decoration:underline;
-  white-space:nowrap;padding:5px 0}
-.xsw-about:hover{color:#fff}
+.xsw-more{margin-left:auto;font-size:12px;color:#BCCFE9}
+.xsw-more summary{cursor:pointer;list-style:none;text-decoration:underline;color:#8FC4FF;padding:5px 0;white-space:nowrap}
+.xsw-more summary::-webkit-details-marker{display:none}
+.xsw-more summary:hover{color:#fff}
+.xsw-more[open] summary{color:#fff}
+.xsw-list{display:flex;flex-wrap:wrap;gap:6px 14px;padding:6px 0 4px;width:100%}
+.xsw-mini{color:#BCCFE9;text-decoration:none;font-size:12px;white-space:nowrap}
+.xsw-mini em{font-style:normal;color:#8298B8;font-size:11px}
+a.xsw-mini:hover{color:#fff;text-decoration:underline}
+.xsw-mini-here{color:#fff}
 @media(max-width:980px){
   .xsw-in{padding:8px 16px;gap:6px}
   .xsw-lab{width:100%;margin:0 0 2px}
   .xsw-item{flex:1;padding:5px 9px}
-  .xsw-about{margin-left:0;width:100%;padding-top:6px}
+  .xsw-more{margin-left:0;width:100%}
 }
 </style>
 <div class="xsw">
   <div class="xsw-in">
-    <span class="xsw-lab">Reviewing five versions</span>
-    <a class="xsw-item" href="../index.html"><span class="xsw-name">Current site</span><span class="xsw-sub">v0.2, in review</span></a>
-    <a class="xsw-item" href="../concept-a/index.html"><span class="xsw-name">Concept A</span><span class="xsw-sub">layered, three tiers</span></a>
-    <a class="xsw-item" href="../concept-b/index.html"><span class="xsw-name">Concept B</span><span class="xsw-sub">unified, one page</span></a>
-    <span class="xsw-item xsw-here" aria-current="true"><span class="xsw-name">Concept C</span><span class="xsw-sub">GESI-style, many tabs</span><span class="xsw-you">you are here</span></span>
-    <a class="xsw-item" href="../concept-d/index.html"><span class="xsw-name">Concept D</span><span class="xsw-sub">the reviewed reading</span></a>
-    <a class="xsw-about" href="../compare.html">Why five? Read this first &rarr;</a>
+    <span class="xsw-lab">Working version</span>
+    <span class="xsw-item xsw-here xsw-lead" aria-current="true"><span class="xsw-name">Concept C</span><span class="xsw-sub">the working version, revised 17/09/2026</span><span class="xsw-you">you are here</span></span>
+    <details class="xsw-more">
+      <summary>Earlier versions, kept for the record</summary>
+      <div class="xsw-list"><a class="xsw-mini" href="../index.html">Current site <em>v0.2, in review</em></a><a class="xsw-mini" href="../concept-a/index.html">Concept A <em>layered, three tiers</em></a><a class="xsw-mini" href="../concept-b/index.html">Concept B <em>unified, one page</em></a><a class="xsw-mini" href="../concept-d/index.html">Concept D <em>the reviewed reading</em></a><a class="xsw-mini" href="../concept-e/index.html">Concept E <em>the lean V1</em></a><a class="xsw-mini" href="../v1/index.html">V1 <em>Gender-layout port</em></a><a class="xsw-mini" href="../compare.html">Why the earlier versions exist</a></div>
+    </details>
   </div>
 </div>
 <!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
 
 <div class="proto-bar">
-  <strong>Concept C of 5, revised 10/09/2026 for feedback only.</strong>
-  Built to resemble gender.cgiar.org, and now carrying the nav bar structure proposed in the
-  Lexicon session: Front Desk, Resources and Data, Impact, Where We Work, About and Contact.
-  Content is placeholder unless a source is shown. Not a CGIAR publication. IITA Internal Use.
+  <strong>Concept C, the working version, revised 17/09/2026 for feedback only.</strong>
+  Built to resemble gender.cgiar.org, carrying the nav bar agreed at the Lexicon session (Front Desk,
+  Resources and Data, Impact, Where We Work, About and Contact) and now the climate.cgiar.org features
+  wishlist of 08/09/2026: search in the bar, News and Events, an El Ni&ntilde;o response page with a country
+  map, and a sign-in for the operating system. Content is placeholder unless a source is shown. Not a CGIAR
+  publication. IITA Internal Use.
 </div>
 
 <header>
@@ -90,7 +98,14 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <a class="ctab" href="impact.html">Impact</a>
     <a class="ctab" href="where-we-work.html">Where We Work</a>
     <a class="ctab" href="themes.html">Themes</a>
+    <a class="ctab" href="news.html">News &amp; Events</a>
     <a class="ctab" href="about.html">About &amp; Contact</a>
+    <form class="ctab-search" role="search" action="front-desk.html" method="get">
+      <label class="sr-only" for="navq">Search the Hub</label>
+      <input id="navq" name="q" type="search" placeholder="Search the Hub" autocomplete="off">
+      <button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/></svg></button>
+    </form>
+    <a class="ctab ctab-signin" href="about.html#contact" title="Operating system, for programme staff">Sign in</a>
   </div>
 </nav>
 
@@ -137,7 +152,8 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <span class="desksign">Front Desk</span>
     <h1>How can we help you today?</h1>
     <p class="reception-sub">Ask in your own words. If the answer is on the site we will point you at it, and
-    if it is not, we will tell you that instead of sending you round in circles.</p>
+    if it is not, we will tell you that instead of sending you round in circles. The search field in the bar
+    on every page lands here too.</p>
 
     <div class="deskunit">
       <div class="lamp lamp-l" aria-hidden="true">
@@ -324,8 +340,12 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
       <div class="entry">
         <button class="entry-q" type="button" aria-expanded="false" aria-controls="a6">Is there an AI assistant that can find CGIAR work on a topic?</button>
         <div class="entry-a" id="a6" hidden>
-          <p>Not yet. It was raised as a future consideration, on the condition that anything built
-          interoperates with CGSpace and the institutional repositories rather than creating a parallel index.</p>
+          <p>Not yet. The wishlist puts it in two places. Version 1 is this desk as routing: a question in
+          everyday language, matched to a section, and handed to <a href="mailto:climate@cgiar.org">climate@cgiar.org</a>
+          when a person is needed. Version 2 is an answer written from CGIAR publications, projects, tools,
+          experts and datasets, with every source linked and no answer shown without one, searching this
+          platform and the Climate Data Hub together. Whatever is built has to interoperate with CGSpace and
+          the institutional repositories, not create a parallel index.</p>
           <p>The question box at the top of this page is a mock. It matches on keywords and routes you to a
           section. It does not search the catalogue, and it does not call a language model.</p>
         </div>
@@ -356,6 +376,51 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
   </div>
 </section>
 
+<!-- THE WISHLIST, MAPPED ONTO THE BAR -->
+<section class="section" id="navmap">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">The nav bar wishlist</div>
+      <h2>Where each thing on the wishlist lands</h2>
+      <p>Lexicon's rule was that the nav bar is the organising framework and everything hangs off it. This
+      table takes the climate.cgiar.org features wishlist circulated by Ibukun on 08/09/2026 (Sections 1 and 2,
+      including Michelle's and Sabrina's entries) and gives every item a home in the eight headings above, or
+      says that it has none. Version tags are the wishlist's own proposal, still open for comment until 18/09.</p>
+    </div>
+    <table class="navmap">
+      <thead><tr><th>What the wishlist asks for</th><th>Where it lands</th><th>Version</th></tr></thead>
+      <tbody>
+        <tr><td>Search the whole platform from one place, with a short set of filters.</td><td>Search field in the bar, every page; results answered at the Front Desk</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>Browse by theme, place or type of resource without knowing the search term.</td><td>Themes, Where We Work, Resources &amp; Data</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>Topic pages on drought, heat, adaptation, mitigation and so on, aligned with the Climate Action areas of work and the climate themes of other Programs, with curated CGSpace content and blogs. <span class="tag tag-who">Sabrina</span></td><td>Themes</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>Country and regional pages: work, results, people, partners and resources in one place, with a map, linked to the CGIAR Results Dashboard. <span class="tag tag-who">Sabrina</span></td><td>Where We Work</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>Project and initiative pages: purpose, activities, partners, progress, in one format.</td><td>Impact</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>An El Ni&ntilde;o response page with a clickable country map, country summaries, filters, print and share, dates and sources shown, and the same template reusable for the next crisis or campaign.</td><td>Where We Work &rarr; <a href="response-el-nino.html">El Ni&ntilde;o response</a></td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>A library of publications, briefs, tools and learning materials, each with a plain description, and flagship assets as tiles (description, use case, link) that point at CGSpace and the Climate Data Hub instead of copying them.</td><td>Resources &amp; Data</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>News, blogs, announcements, stories and events with recordings.</td><td>News &amp; Events</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>Researchers and experts by topic or geography; a CGIAR climate expertise database taking in the climate community of practice. <span class="tag tag-who">Sabrina</span></td><td>About &amp; Contact &rarr; Experts, and reached from every Where We Work page</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>A way to feature partners: a partner section on each regional page, or a partner directory with a map. <span class="tag tag-who">Sabrina</span></td><td>Where We Work &rarr; Partners</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>Results, impact and evidence: what changed, for whom and where, with the source behind each figure. The evidence synthesis databases (Aditi's team) showing what works and where the gaps are. <span class="tag tag-who">Michelle</span></td><td>Impact</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>Use cases and support streams shown as success stories or tools, or as pipelines you can run, such as "build a climate rationale". <span class="tag tag-who">Michelle</span></td><td>Front Desk errand No. 4, routing to Resources &amp; Data and Impact</td><td><span class="tag tag-v1">V1</span> stories <span class="tag tag-v2">V2</span> live pipelines</td></tr>
+        <tr><td>A Front Desk chatbot that answers in everyday language and hands over to a person at climate@cgiar.org when it cannot. <span class="tag tag-who">Sabrina</span></td><td>Front Desk</td><td><span class="tag tag-v1">V1</span> routing <span class="tag tag-v2">V2</span> AI answer</td></tr>
+        <tr><td>Newsletter sign-up and open opportunities as drivers of return traffic. <span class="tag tag-who">Lexicon session</span></td><td>Front Desk and News &amp; Events</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>Co-ownership: a place where the rest of the Program and the Portfolio suggest features and content. <span class="tag tag-who">Michelle</span></td><td>Front Desk errand No. 6, and About &amp; Contact</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>The operating system stays underneath the site, sign-in only, possibly hosted in Alliance infrastructure. <span class="tag tag-who">Lexicon session</span></td><td>"Sign in" at the far right of the bar, and nothing else</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>A CMS with templates, drafts and scheduling; a site that works on a phone, on slow connections and with assistive technology; page analytics and simple feedback.</td><td>Not in the bar. Behind the site.</td><td><span class="tag tag-v1">V1</span></td></tr>
+        <tr><td>Saved lists, alerts, side-by-side comparison of countries or approaches, richer map layers over time, other languages.</td><td>No change to the bar</td><td><span class="tag tag-v2">V2</span></td></tr>
+        <tr><td>Tools for adaptive management: assembling evidence to fill an identified gap, or what has and has not worked on an issue before. <span class="tag tag-who">Michelle</span></td><td>Impact, later</td><td><span class="tag tag-v2">V2</span></td></tr>
+      </tbody>
+    </table>
+    <div class="demo" style="margin-top:18px">
+      <strong>Eight headings is the top of Lexicon's range.</strong> News &amp; Events was added on 17/09/2026
+      because the wishlist gives it a section of its own and every earlier concept buried it. If the group
+      wants seven, the candidates to fold are Themes (into Resources &amp; Data) or News &amp; Events (into
+      Front Desk, where the newsletter already sits). Experts, Partners and the response pages sit one level
+      down, and a one-page sitemap of what sits under each heading is still to be drawn.
+    </div>
+  </div>
+</section>
+
 <!-- HOURS AND NEWSLETTER -->
 <section class="section" id="newsletter">
   <div class="wrap">
@@ -368,7 +433,7 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         <table class="hours">
           <tbody>
             <tr><th>A question routed to the right section</th><td>Immediate, by the site</td></tr>
-            <tr><th>A question needing a person</th><td>Target to be agreed</td></tr>
+            <tr><th>A question needing a person</th><td>Handed to climate@cgiar.org; reply time to be agreed</td></tr>
             <tr><th>A submission to the catalogue</th><td>Review process to be agreed</td></tr>
             <tr><th>A correction to a listing</th><td>Route and owner to be agreed</td></tr>
           </tbody>
@@ -443,8 +508,9 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
       <div>
         <img src="assets/cgiar-logo.png" alt="CGIAR" height="42">
         <p>Concept C of five design interpretations of the CGIAR Climate Hub, built 10/08/2026 in the shape of
-        gender.cgiar.org and revised 10/09/2026 to carry the nav bar structure proposed in the Lexicon session.
-        Nothing here is an approved CGIAR position.</p>
+        gender.cgiar.org, revised 10/09/2026 to carry the nav bar structure proposed in the Lexicon session,
+        and again on 17/09/2026 against the climate.cgiar.org features wishlist. Nothing here is an approved
+        CGIAR position.</p>
       </div>
       <div class="footer-col">
         <h3>Explore</h3>
@@ -454,12 +520,13 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         <a href="impact.html">Impact</a>
         <a href="where-we-work.html">Where we work</a>
         <a href="themes.html">Themes</a>
+        <a href="news.html">News and events</a>
         <a href="about.html">About and contact</a>
       </div>
       <div class="footer-col">
         <h3>Also on the site</h3>
         <a href="experts.html">Experts</a>
-        <a href="news.html">News, events and calls</a>
+        <a href="response-el-nino.html">El Ni&ntilde;o response</a>
         <a href="front-desk.html#faq">Frequently asked questions</a>
         <a href="front-desk.html#newsletter">Newsletter sign-up</a>
       </div>
@@ -474,7 +541,7 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
     <div class="footer-bottom">
       <span>&copy; 2026 CGIAR. Photographs are Creative Commons and credited individually; see each caption.
       Linked content remains under its own licence.</span>
-      <span>British English &middot; Concept C, revised 10/09/2026 &middot; IITA Internal Use</span>
+      <span>British English &middot; Concept C, revised 17/09/2026 &middot; IITA Internal Use</span>
     </div>
   </div>
 </footer>
@@ -586,15 +653,23 @@ a.xsw-item:focus-visible,.xsw-about:focus-visible{outline:2px solid #8FC4FF;outl
         'A real desk would search the catalogue and, if it found nothing, say so.</span>';
     } else {
       out.innerHTML = '<strong>Nothing on the site matches that.</strong> ' +
-        'Rather than guess, the desk should say so and offer a person. ' +
-        'Try <a href="resources.html">searching the catalogue</a> or ' +
-        '<a href="about.html">contacting the programme</a>.' +
-        '<br><span style="font-size:12.5px;opacity:.8">Mock answer, matched on keywords.</span>';
+        'The desk should say so and hand you to a person. The wishlist entry of 08/09/2026 names the ' +
+        'route: questions the site cannot answer go to the Front Desk mailbox, ' +
+        '<a href="mailto:climate@cgiar.org">climate@cgiar.org</a>, and someone there replies. ' +
+        'Until then, try <a href="resources.html">the catalogue</a> or ' +
+        '<a href="about.html#contact">the contact page</a>.' +
+        '<br><span style="font-size:12.5px;opacity:.8">Mock answer, matched on keywords. No message is sent.</span>';
     }
     out.hidden = false;
   }
 
   form.addEventListener('submit', function (e) { e.preventDefault(); answer(input.value); });
+  /* The search field in the nav bar submits here with ?q=. One search, one
+     place, which is what the wishlist asks for under "Find and explore". */
+  try {
+    var q = new URLSearchParams(window.location.search).get('q');
+    if (q) { input.value = q; answer(q); out.scrollIntoView({ block: 'nearest' }); }
+  } catch (e) {}
   var tries = document.querySelectorAll('.asktry');
   for (var t = 0; t < tries.length; t++) {
     tries[t].addEventListener('click', function () {
