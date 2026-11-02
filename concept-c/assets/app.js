@@ -19,6 +19,8 @@
     });
   };
 
+  function slug(name) { return String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+
   function lensChip(lens) {
     return '<span class="lens lens-' + lens + '">' + esc(H.LENS_LABEL[lens]) + '</span>';
   }
@@ -118,34 +120,29 @@
   (function areas() {
     const host = $('#aowList');
     if (!host) return;
+    const withThemes = host.hasAttribute('data-themes');
     host.innerHTML = H.AREAS.map(function (a, idx) {
-      const items = H.all.filter(function (i) { return i.aow === a.id; });
-      return '<div class="aowrow">' +
+      const items = H.all.filter(function (i) { return i.aow === a.id && H.SHOWN_TYPES.indexOf(i.type) > -1; });
+      const themes = withThemes ? H.themesUnder(a.id) : [];
+      const chips = themes.length
+        ? '<div class="chips">' + themes.map(function (t) {
+            // Name only. A theme's own count spans every area it touches, so a
+            // number here would sit beside the area's count and read as a
+            // contradiction; the counts live on the Themes page instead.
+            return '<a class="chip" href="themes.html#' + esc(slug(t.name)) + '">' + esc(t.name) + '</a>';
+          }).join('') + '</div>'
+        : (withThemes ? '<div class="chips chips-empty">No theme sits mainly under this area yet</div>' : '');
+      return '<div class="aowrow' + (withThemes ? ' aowrow-themed' : '') + '">' +
         '<div class="aowrow-n">' + (idx + 1) + '</div>' +
         '<div><div class="aowrow-name">' + esc(a.name) + '</div>' +
-        '<div class="aowrow-desc">' + esc(a.desc) + '</div></div>' +
+        '<div class="aowrow-desc">' + esc(a.desc) + '</div>' + chips + '</div>' +
         '<div class="themerow-n">' + items.length + ' item' + (items.length === 1 ? '' : 's') + '</div>' +
       '</div>';
     }).join('');
   })();
 
   /* ---------- Theme list, short form on the home tab ---------- */
-  (function themeShort() {
-    const host = $('#themelistShort');
-    if (!host) return;
-    host.innerHTML = H.themes.map(function (t) {
-      const n = H.themeItems(t).length;
-      return '<a class="themerow" href="themes.html">' +
-        '<div><div class="themerow-name">' + esc(t.name) + '</div>' +
-        '<div class="themerow-sub">' + esc(t.sub.join(' &middot; ').replace(/&amp;middot;/g, '&middot;')) + '</div></div>' +
-        '<div class="themerow-n">' + n + ' item' + (n === 1 ? '' : 's') + '</div>' +
-      '</a>';
-    }).join('');
-    // The join above escapes the separator, so put it back as a real separator.
-    $$('.themerow-sub', host).forEach(function (el, i) {
-      el.innerHTML = H.themes[i].sub.map(esc).join(' &middot; ');
-    });
-  })();
+
 
   /* ---------- Latest publications on the home tab ---------- */
   (function latest() {
@@ -158,17 +155,24 @@
   (function themeBlocks() {
     const host = $('#themeBlocks');
     if (!host) return;
-    host.innerHTML = H.themes.map(function (t) {
-      const items = H.themeItems(t);
-      return '<div class="themeblock">' +
-        '<div class="themeblock-head"><h2>' + esc(t.name) + '</h2>' +
-          '<span class="themerow-n">' + items.length + ' item' + (items.length === 1 ? '' : 's') + '</span></div>' +
-        '<div class="themeblock-sub">' + t.sub.map(esc).join(' &middot; ') + '</div>' +
-        (items.length
-          ? '<div class="cards">' + items.map(cardHTML).join('') + '</div>'
-          : '<div class="empty">Nothing in the catalogue matches this theme. That is a gap in what has been ' +
-            'catalogued, not evidence that CGIAR does no work here.</div>') +
-      '</div>';
+    host.innerHTML = H.AREAS.map(function (a, idx) {
+      const themes = H.themesUnder(a.id);
+      return '<section class="areagroup" id="' + esc(a.id) + '">' +
+        '<div class="areagroup-head"><div class="aowrow-n">' + (idx + 1) + '</div>' +
+          '<div><h2>' + esc(a.name) + '</h2><p>' + esc(a.desc) + '</p></div></div>' +
+        (themes.length ? themes.map(function (t) {
+          const items = H.themeShown(t);
+          return '<div class="themeblock" id="' + esc(slug(t.name)) + '">' +
+            '<div class="themeblock-head"><h3>' + esc(t.name) + '</h3>' +
+              '<span class="themerow-n">' + items.length + ' item' + (items.length === 1 ? '' : 's') + '</span></div>' +
+            '<div class="themeblock-sub">' + t.sub.map(esc).join(' &middot; ') + '</div>' +
+            (items.length
+              ? '<div class="cards">' + items.map(cardHTML).join('') + '</div>'
+              : '<div class="empty">Nothing in the catalogue matches this theme yet.</div>') +
+          '</div>';
+        }).join('') : '<div class="empty">No theme sits mainly under this area yet. Items tagged to it are still ' +
+          'listed under <a href="resources.html">Resources &amp; Data</a>.</div>') +
+      '</section>';
     }).join('');
   })();
 
@@ -204,7 +208,7 @@
       if (typeSel.value !== 'all') items = items.filter(function (i) { return i.type === typeSel.value; });
       if (themeSel.value !== 'all') {
         const ids = {};
-        H.themeItems(H.themes[Number(themeSel.value)]).forEach(function (i) { ids[i.id] = true; });
+        H.themeShown(H.themes[Number(themeSel.value)]).forEach(function (i) { ids[i.id] = true; });
         items = items.filter(function (i) { return ids[i.id]; });
       }
       count.textContent = items.length + (items.length === 1 ? ' resource' : ' resources') +

@@ -178,24 +178,14 @@ HOME = f"""
 <section class="section tint">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-label">Browse by theme</div>
-      <h2>Ten climate themes</h2>
-      <p>An editorial grouping built from the tags on the catalogued items, not a CGIAR taxonomy. An item can sit
-      under more than one theme, and every count is matched from the catalogue at page load.</p>
+      <div class="section-label">Browse</div>
+      <h2>The five areas of work, and the themes within them</h2>
+      <p>The five areas are the programme&rsquo;s published structure, as on cgiar.org. The themes beneath each
+      are an informal grouping built from the tags on the catalogued items, placed under the area where most of
+      their items sit. Counts are matched from the catalogue at page load.</p>
     </div>
-    <div class="themelist" id="themelistShort"></div>
-    <p style="margin-top:20px"><a class="btn ghost" href="themes.html">See all ten themes in full &rarr;</a></p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-label">Programme structure</div>
-      <h2>The five areas of work</h2>
-      <p>As published on cgiar.org. Counts are the catalogued evidence sitting under each.</p>
-    </div>
-    <div class="aowlist" id="aowList"></div>
+    <div class="aowlist" id="aowList" data-themes></div>
+    <p style="margin-top:20px"><a class="btn ghost" href="themes.html">All themes, with every item &rarr;</a></p>
   </div>
 </section>
 
@@ -291,10 +281,12 @@ THEMES = """
 <div class="pagehead">
   <div class="wrap">
     <div class="section-label">Themes</div>
-    <h1>The ten themes in full</h1>
-    <p>An editorial grouping, not a CGIAR taxonomy. The labels were written from the tags already on the
-    catalogued items, so every count below can be reproduced by searching for the term. An item can sit under more
-    than one theme, which is why the counts add up to more than the catalogue.</p>
+    <h1>Themes, within the five areas of work</h1>
+    <p>The five areas are the programme&rsquo;s published structure. The themes beneath them are an informal
+    grouping written from the tags on the catalogued items, not a CGIAR taxonomy. Each theme sits under the area
+    where most of its items are catalogued; where two areas tie, the one whose published name shares a word
+    with the theme&rsquo;s name takes it, then its description. An item can match more than one theme, so the counts add up to more
+    than the catalogue. Every count is matched at page load and can be reproduced by searching for the term.</p>
   </div>
 </div>
 

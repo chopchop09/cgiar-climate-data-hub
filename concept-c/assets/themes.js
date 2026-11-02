@@ -56,6 +56,37 @@
 
   /* Substring match over the same fields the site search uses, so any count on
      screen can be reproduced by searching for the term. */
+  /* Only the five types the publication cut shows. People and projects are
+     still in the catalogue but have no page, so they do not count here. */
+  H.SHOWN_TYPES = ['dataset', 'publication', 'method', 'innovation', 'event'];
+  H.themeShown = function (theme) {
+    return H.themeItems(theme).filter(function (i) { return H.SHOWN_TYPES.indexOf(i.type) > -1; });
+  };
+
+  /* Folding the ten themes into the five published areas of work, 02/11/2026.
+     Each theme is placed under the area where most of its catalogued items
+     sit, counted at page load. A tie is broken by the area whose published
+     name shares a word with the theme's name, then by its description; failing
+     both, the area that comes first in the published order. This is a reproducible
+     rule over the catalogue, not a CGIAR taxonomy, and the page says so. */
+  H.themeArea = function (theme) {
+    var count = {};
+    H.AREAS.forEach(function (a) { count[a.id] = 0; });
+    H.themeShown(theme).forEach(function (i) { if (count[i.aow] != null) count[i.aow]++; });
+    var best = H.AREAS.slice().sort(function (a, b) { return count[b.id] - count[a.id]; });
+    var top = count[best[0].id];
+    var tied = best.filter(function (a) { return count[a.id] === top; });
+    if (tied.length === 1) return tied[0].id;
+    var words = theme.name.toLowerCase().split(/[^a-z]+/).filter(function (w) { return w.length > 3; });
+    var hit = function (text) { text = text.toLowerCase(); return words.some(function (w) { return text.indexOf(w) > -1; }); };
+    for (var k = 0; k < tied.length; k++) if (hit(tied[k].name)) return tied[k].id;   // a shared word in the area's name wins
+    for (var m = 0; m < tied.length; m++) if (hit(tied[m].desc)) return tied[m].id;   // then in its description
+    return tied[0].id;
+  };
+  H.themesUnder = function (areaId) {
+    return H.themes.filter(function (t) { return H.themeArea(t) === areaId; });
+  };
+
   H.themeItems = function (theme) {
     return H.all.filter(function (i) {
       var hay = [i.title, i.blurb, i.kind, i.provider, (i.tags || []).join(' ')].join(' ').toLowerCase();

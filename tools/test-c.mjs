@@ -68,7 +68,8 @@ await page.goto(BASE + 'index.html', { waitUntil: 'domcontentloaded' }); await p
 for (const [sel, want] of [['#typecards .typecard', 3], ['#aowList .aowrow', 5], ['#foundational .card', 4], ['#targets .target', 4]]) {
   const n = await page.locator(sel).count(); if (n !== want) problems.push(`home: ${sel} = ${n}, expected ${want}`);
 }
-const themesShort = await page.locator('#themelistShort .themerow').count(); notes.push(`home: ${themesShort} theme rows`);
+const chips = await page.locator('#aowList .chip').count(); if (chips !== 10) problems.push(`home: ${chips} theme chips under the areas, expected 10`);
+notes.push('home chips by area: ' + (await page.evaluate(() => Array.from(document.querySelectorAll('#aowList .aowrow')).map(r => r.querySelector('.aowrow-name').textContent.split(' ')[0] + ':' + r.querySelectorAll('.chip').length).join(' '))));
 const pubs = await page.locator('#latestPubs .row').count(); notes.push(`home: ${pubs} latest publications`);
 const cap = (await page.locator('#cap-hero').textContent()).trim(); if (cap.length < 20) problems.push('home: hero credit empty'); notes.push(`hero credit: ${cap.slice(0, 50)}…`);
 const typeN = await page.evaluate(() => Array.from(document.querySelectorAll('.typecard-n')).map(e => e.textContent)); notes.push(`doors: ${typeN.join(' / ')}`);
@@ -98,7 +99,9 @@ if (!/^3 /.test(deep)) problems.push(`deep link type filter not applied: "${deep
 
 // themes, news, about
 await page.goto(BASE + 'themes.html', { waitUntil: 'domcontentloaded' }); await page.waitForTimeout(300);
-const tb = await page.locator('#themeBlocks > *').count(); if (tb < 10) problems.push(`themes: ${tb} blocks`);
+const ag = await page.locator('#themeBlocks .areagroup').count(); if (ag !== 5) problems.push(`themes: ${ag} area groups`);
+const tb = await page.locator('#themeBlocks .themeblock').count(); if (tb !== 10) problems.push(`themes: ${tb} theme blocks, expected 10`);
+notes.push('themes page: ' + (await page.evaluate(() => Array.from(document.querySelectorAll('.areagroup')).map(g => g.querySelector('h2').textContent.split(' ')[0] + ':' + Array.from(g.querySelectorAll('.themeblock h3')).map(h => h.textContent).join('/')).join(' | '))));
 await page.goto(BASE + 'news.html', { waitUntil: 'domcontentloaded' }); await page.waitForTimeout(300);
 const nr = await page.locator('#newsList .newsrow').count(); if (nr !== 9) problems.push(`news: ${nr} rows, expected 9`);
 const srcBlank = await page.evaluate(() => Array.from(document.querySelectorAll('.newsrow-src')).filter(e => /·\s*$/.test(e.textContent.trim())).length);
