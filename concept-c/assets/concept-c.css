@@ -59,30 +59,8 @@
 .chero-sub { font-size: 1.03rem; color: var(--text-2); margin-top: 16px; }
 
 /* ---------- Vantage points ---------- */
-.vantage { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px; }
-.vcard {
-  display: flex; flex-direction: column; gap: 8px;
-  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 20px 18px; text-decoration: none; color: inherit;
-}
-.vcard:hover { border-color: var(--blue-800); box-shadow: 0 3px 14px rgba(18,62,122,.10); }
-.vcard-name { font-family: var(--font-serif); font-size: 1.08rem; font-weight: 700; color: var(--blue-900); }
-.vcard-desc { font-size: 13.5px; color: var(--text-2); line-height: 1.5; }
-.vcard-count { margin-top: auto; padding-top: 12px; font-size: 12.5px; font-weight: 700; color: var(--blue-800); }
-.vcard-empty { color: #8A6A00; }
 
 /* ---------- Weekly spotlight ---------- */
-.spotlight { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--blue-900); border-radius: var(--radius); overflow: hidden; }
-.spotlight-media { position: relative; min-height: 260px; }
-.spotlight-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.spotlight-cap {
-  position: absolute; left: 0; bottom: 0; right: 0;
-  background: rgba(10,31,61,.8); color: #E7EEF9; font-size: 10.5px; padding: 5px 10px; line-height: 1.4;
-}
-.spotlight-body { padding: 30px 32px; color: #fff; align-self: center; }
-.spotlight-kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--highlight); }
-.spotlight-body h2 { color: #fff; font-size: 1.5rem; margin: 8px 0 12px; }
-.spotlight-body p { color: var(--on-dark); font-size: 14.5px; line-height: 1.65; }
 
 /* ---------- Theme list. A list, as on GESI, not a card grid. ---------- */
 .themelist { border-top: 2px solid var(--blue-900); }
@@ -121,34 +99,6 @@
  * such on the page, because the point of Concept C is to show what adopting that
  * pattern would actually feel like.
  */
-.expertgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-.mapframe {
-  background: var(--blue-50); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 14px; position: relative;
-}
-.mapframe svg { display: block; width: 100%; height: auto; }
-.map-empty {
-  position: absolute; inset: 14px; display: flex; align-items: center; justify-content: center;
-  text-align: center; padding: 20px;
-}
-.map-empty span {
-  background: rgba(255,255,255,.94); border: 1px solid var(--warn-bd);
-  border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #5A4200; max-width: 34ch; line-height: 1.5;
-}
-.expertcard {
-  display: flex; gap: 14px; align-items: flex-start;
-  padding: 15px 0; border-bottom: 1px solid var(--border);
-}
-.expertcard:last-child { border-bottom: none; }
-.expert-initials {
-  flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
-  background: var(--blue-100); color: var(--blue-900);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 15px;
-}
-.expert-name { font-size: 15.5px; font-weight: 700; color: var(--blue-900); }
-.expert-org { font-size: 13px; color: var(--text-3); margin-top: 2px; }
-.expert-topic { font-size: 13.5px; color: var(--text-2); margin-top: 6px; line-height: 1.5; }
 
 /* ---------- Resources page filters ---------- */
 .cfilters {
@@ -172,20 +122,20 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .vantage { grid-template-columns: 1fr 1fr; }
-  .spotlight { grid-template-columns: 1fr; }
-  .expertgrid { grid-template-columns: 1fr; }
+  
+  
+  
   .cfilters { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .vantage { grid-template-columns: 1fr; }
+  
   .ctabs-in { padding: 0 16px; gap: 0; }
   .ctab { padding: 12px 10px; font-size: 13.5px; }
   .chero-words-in { padding: 28px 16px 24px; }
   .themerow { grid-template-columns: 1fr; gap: 10px; }
   .themerow-n { justify-self: start; }
   .newsrow { grid-template-columns: 1fr; gap: 6px; }
-  .spotlight-body { padding: 22px 18px; }
+  
 }
 
 /* ---------- Added 10/08/2026: populated blocks --------------------------------
@@ -250,26 +200,6 @@
 .ctabs-in { gap: 2px; align-items: stretch; }
 .ctab { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
 
-.ctab-desk {
-  color: var(--blue-900); font-weight: 700;
-  background: var(--blue-100);
-  border-bottom-color: transparent;
-  border-radius: 8px 8px 0 0;
-  margin: 6px 6px 0 2px;
-  padding: 9px 15px;
-}
-.ctab-desk:hover { background: #D4E4FA; }
-.ctab-desk[aria-current="page"] {
-  background: var(--blue-900); color: #fff; border-bottom-color: var(--blue-900);
-}
-.ctab-desk[aria-current="page"] .ctab-key { stroke: #fff; }
-
-.ctab-key {
-  width: 15px; height: 15px; flex: none;
-  fill: none; stroke: var(--blue-800); stroke-width: 1.9;
-  stroke-linecap: round; stroke-linejoin: round;
-}
-
 /* Seven headings will not sit on one line on a phone. Wrapping them produces a
    ragged two-line block that reads as two navigations; a single scrolling row
    keeps the framework legible as one thing. */
@@ -279,7 +209,7 @@
     scrollbar-width: thin; -webkit-overflow-scrolling: touch;
   }
   .ctab { font-size: 13.5px; padding: 13px 11px; }
-  .ctab-desk { padding: 8px 12px; margin: 5px 4px 0 2px; }
+  
 }
 
 /* ---------- New sections, 10/09/2026 ---------------------------------------
@@ -381,7 +311,6 @@
 .section .target { border-left-color: var(--blue-800); }
 .section .targets-src { color: var(--text-3); }
 
-
 /* ---------- Wishlist round, 17/09/2026 ---------------------------------------
  * The climate.cgiar.org features wishlist (Ibukun's draft of 08/09/2026, input
  * closing 18/09) asked for search from one place, a News and Events section,
@@ -415,45 +344,17 @@
 }
 
 /* Where the wishlist lands in the bar: a plain table on the Front Desk. */
-.navmap { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 18px; background: #fff; }
-.navmap th, .navmap td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
-.navmap th { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-2); background: var(--blue-50); }
-.navmap td:nth-child(2) { white-space: nowrap; font-weight: 600; color: var(--blue-900); }
+
 .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
 .tag-v1 { background: #DCEFE0; color: #145A2A; }
 .tag-v2 { background: #EEE6F7; color: #4B2A7A; }
 .tag-who { background: var(--blue-50); color: var(--blue-900); font-weight: 600; letter-spacing: 0; }
-@media (max-width: 700px) { .navmap td:nth-child(2) { white-space: normal; } }
 
 /* The response page: a clickable country map and a summary panel beside it. */
-.respgrid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
-@media (max-width: 860px) { .respgrid { grid-template-columns: 1fr; } }
-.respmap { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
-.respmap svg { width: 100%; height: auto; display: block; }
-.respmap path { fill: #EEF0F2; stroke: #fff; stroke-width: 1.4; cursor: pointer; transition: fill .15s; }
-.respmap path:hover { fill: #C9DCF6; }
-.respmap path.mentioned { fill: #C9DCF6; }
-.respmap path.summary { fill: #1955A6; }
-.respmap path.summary:hover { fill: #123E7A; }
-.respmap path.active { fill: #0A1F3D; stroke: var(--highlight); stroke-width: 2; }
-.respmap path:focus-visible { outline: none; stroke: #0A1F3D; stroke-width: 2.4; }
+
 .maplegend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 12.5px; color: var(--text-2); margin-top: 10px; }
 .maplegend span::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -2px; background: #EEF0F2; border: 1px solid #ddd; }
 .maplegend .l-m::before { background: #C9DCF6; }
 .maplegend .l-s::before { background: #1955A6; }
-.resppanel { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; }
-.resppanel h3 { font-family: var(--font-serif); font-size: 1.35rem; margin: 0; }
-.resppanel .updated { font-size: 12.5px; color: var(--text-2); margin-top: 4px; }
-.resppanel dl { margin: 16px 0 0; }
-.resppanel dt { font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-900); margin-top: 14px; }
-.resppanel dd { margin: 4px 0 0; font-size: 14.5px; }
-.resppanel dd.nr { color: #7A5300; font-style: italic; }
-.resppanel .panel-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
-.respfilters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-.respfilters select { font: inherit; font-size: 13.5px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
-.featured-response { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; background: var(--blue-900); color: #fff; border-radius: 10px; padding: 22px 26px; }
-.featured-response h3 { font-family: var(--font-serif); font-size: 1.3rem; margin: 6px 0 8px; }
-.featured-response p { color: var(--on-dark); font-size: 14.5px; max-width: 70ch; }
-.featured-response .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--highlight); }
-@media (max-width: 700px) { .featured-response { grid-template-columns: 1fr; } }
-@media print { .ctabs, .deskswitch, .respfilters, .panel-actions, .xsw { display: none !important; } }
+
+@media print { .ctabs { display: none !important; } }

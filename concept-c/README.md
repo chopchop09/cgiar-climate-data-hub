@@ -1,142 +1,87 @@
-# Concept C: the GESI-style reading
+# CGIAR Climate Hub: the publication cut
 
-One of three design interpretations built on 10/08/2026, circulated alongside the
-current v0.2 site as a four-way review set. IITA Internal Use.
+Concept C, the working version, reduced on 02/11/2026 to what can be published at CGIAR
+without a model, a sign-in, or a service other than this folder and the links it points to.
+IITA Internal Use until approved.
 
-**The interpretation.** The 10/08 discussion named gender.cgiar.org as the reference
-for what a static resource hub looks like: "a very static resource hub on a specific
-topic". Concept C stops describing that site and builds it, so the group can react to
-the thing rather than to a memory of it.
+## What it is
 
-**What is copied, deliberately.** The homepage opens on a full-width photograph before
-any information. Entry is by "vantage point", the four routes by resource format that
-the GENDER Platform offers. There is a weekly spotlight. Everything sits under ten
-named themes with sub-topics listed beneath each, presented as a plain list rather than
-cards. Content is split across five tabs rather than stacked on one page. The experts
-page is a map and a list with no way to search them.
-
-That last one matters. It was the specific criticism raised on 10/08, and it is
-reproduced rather than improved, with a notice saying so. Concept C is only useful if it
-carries what was disliked about the model as well as what was liked.
-
-## Files
+Five pages, one shared catalogue, no build step. Open `index.html` in a browser and it works.
 
 ```
 concept-c/
-  index.html          Photograph, mission line, vantage points, spotlight, ten themes
-  themes.html         All ten themes with every matching catalogue item
-  resources.html      Publications, data, tools and methods. Filters only, no search
-  experts.html        Africa outline map plus a list of six. No search
-  news.html           Funding calls, events and calls for papers, one list
-  README.md           This file
+  index.html        Photograph, one sourced mission line, one search field, targets,
+                    three doors by resource type, ten themes, five areas of work,
+                    the Climate Data Hub call-out, four foundational records,
+                    latest publications
+  resources.html    The whole catalogue behind one search field and two filters
+  themes.html       Ten themes with every matching item
+  news.html         Funding calls, events and calls for papers
+  about.html        The programme, quoted from cgiar.org; what the site holds,
+                    measured at load; how to reach the programme
   assets/
-    styles.css        Shared with Concepts A and B, byte for byte
-    concept-c.css     The GESI layout layer, loaded after it
-    data.js           Shared catalogue, plus the ten themes and the image credits
-    app.js            Renders every page from the catalogue
-    cgiar-logo.png
-    img/              Seven photographs, 577 kB total
+    styles.css      Shared base, unchanged
+    concept-c.css   The GESI layout layer, with the rules for removed pages pruned
+    publish.css     Only what this cut adds: shorter hero, search, three doors,
+                    Data Hub call-out, page heads, filters, quotation, nav wrapping
+    data.js         The catalogue, unchanged
+    themes.js       The ten themes and the photograph credits, unchanged
+    app.js          One renderer for the five pages
+    analytics.js    Identical to every other copy in the repository
+    img/            Seven Creative Commons photographs, credited on screen
 ```
 
-No build step. Open `index.html` in a browser and it works.
+`tools/build-c-publish.py` regenerates the five pages from one set of shared furniture, so they
+cannot drift apart. It is not needed to view the site.
 
-## The ten themes
+## What came out, and why
 
-The GENDER Platform runs on ten research themes. Concept C mirrors that with ten
-climate themes: climate risk and hazards; water and drought; crops and breeding;
-livestock and aquatic foods; mitigation and emissions; seasonal forecasts and
-advisories; climate finance and policy; adaptation options and tracking; landscapes and
-biodiversity; data, methods and standards.
+| Removed | Reason |
+|---|---|
+| Front Desk, and the search that routed into it | Needs a model to answer. Search now goes straight to Resources & Data, where it needs nothing but the catalogue |
+| Impact and Where We Work | Wishlist items with no content behind them yet: an empty Stories of change route, an empty Partners block, no country content behind the map |
+| El Niño response page | Mock filters and one country summary from an internal input; no forecast source was ever read in |
+| Experts | Six names with no search, criticised in review round 3 and never fixed. Not a directory |
+| Weekly spotlight and the four vantage points | The spotlight needs an editor nobody has named; the vantage points overlapped with the type filter and were criticised for it |
+| Review switcher and prototype bar | Review scaffolding. One line in the footer still leads to the earlier versions, and can be deleted |
+| The wishlist notes on each page | They described what a page should become; a published page should be what it is |
 
-**These are an editorial grouping, not a CGIAR taxonomy.** No climate-terms taxonomy
-exists yet, and the design strategy note records that as outstanding. The labels were
-written from the tags already present on the 44 catalogued items, exactly as the three
-hero categories on the v0.2 prototype were, and they carry the same caveat on the page.
-Argue with them.
+Kept on request: the "Sign in" link at the far right of the bar, which goes to the contact
+section and nothing else, and the Climate Data Hub, which is now in the bar as an outward link,
+in a call-out on the home page, and in the footer.
 
-Item counts are matched from the catalogue at page load by plain substring search over
-the same fields the site search uses. Nothing is typed in, so every count can be
-reproduced by searching for the term yourself, and a theme showing a small number is
-telling the truth about the catalogue. An item can match more than one theme, which is
-why the counts sum to more than 44.
+## Copy
+
+Every sentence about the programme is quoted from the Climate Action page on cgiar.org, with the
+source stated beneath it, or is a published figure. Everything about a resource is written from
+the catalogue at page load. Nothing on these pages was written to sound plausible; where the
+earlier version carried placeholders, the block came out.
+
+One address appears: climate@cgiar.org. It is the mailbox the climate.cgiar.org wishlist of
+08/09/2026 named, and the earlier version recorded it as proposed and not yet staffed. **Confirm it
+is read before the site is promoted.**
+
+The catalogue still holds six people and eight projects. Neither has a page in this cut, so the
+counts on the About page cover only what the site shows: 37 items across five types.
 
 ## Photographs
 
-Seven images, all Creative Commons, all credited in a visible caption on the page:
+All seven are CGIAR or CGIAR-centre images under Creative Commons, credited on screen from one
+licence record. Six carry a NonCommercial licence, which is fine for a programme site and should be
+checked before any commercial or sponsored use.
 
-- Hero: "Innovative farming practices in the Sahel", CGIAR Climate / Flickr / CC BY-NC-SA 2.0
-- Spotlight: "Community engagement in Tibtenga Climate-Smart Village", CGIAR Climate / Flickr / CC BY-NC-SA 2.0
-- Band: "Harvesting season in Nyando climate-smart villages", CGIAR Climate / Flickr / CC BY-NC-SA 2.0
-- Themes: Doyogena, Ethiopia (G. Ambaw / CCAFS); Lower Nyando water terraces (CGIAR Climate);
-  Accra crop-climate modelling workshop (IITA); climate-smart farm (Neil Palmer / CIAT, CC BY-SA 2.0)
+## Verification, 02/11/2026
 
-Source records and full attribution strings are in the RCA Dashboard Image Library,
-with `IMAGE-ATTRIBUTIONS.txt`. Six of the seven are NonCommercial licences, which is
-appropriate for an internal review prototype but should be checked before any
-commercial or externally promoted use.
+Tested in headless Chromium with every third-party host blocked, so nothing was sent anywhere.
 
-Every image was resized and recompressed for the web, from 2,062 kB to 577 kB. Round 2
-of the Mural feedback asked for speed explicitly, and an image-led page is the easiest
-way to lose it.
+- All five pages: no console or JavaScript errors, one analytics loader each, nothing linking to
+  a removed page or to an outside sign-in, no review scaffolding left in the markup.
+- No horizontal document overflow at 320, 390, 768, 1024, 1280 or 1600 pixels. One defect found
+  and fixed: the nav bar scrolled the whole document sideways on phones; it now wraps.
+- Search from the home page lands on Resources with the query applied; search, both filters, the
+  deep links `?type=` and `?q=`, the empty state and reset all work; search and filter events are
+  recorded with readable labels.
+- Every page still renders readable text with JavaScript off.
 
-## The map
-
-The Africa outline is drawn from `africa.geojson`, already held in the programme's
-working files, on an equirectangular projection. It is a locator, not an analytical map.
-
-Nigeria is highlighted because it is the only African country named anywhere in the item
-fields of the catalogue, appearing twice and both times through the Tier 2 livestock
-uncertainty work. The other 48 countries drawn are unnamed across all 44 items. No
-expert pins are plotted, because no location has been recorded for any of the six people
-listed and placing them anywhere would be invention.
-
-## What is real
-
-- All 44 catalogued items, shared byte for byte with Concepts A and B.
-- The type and theme filters on `resources.html`.
-- Every count on every page, matched at load rather than typed.
-- The ten themes' membership, reproducible by search.
-- The image credits, written from the licence records.
-- The Nigeria finding on the map.
-
-## What is deliberately not real
-
-- **The spotlight does not rotate.** A weekly slot needs an editor with a weekly slot,
-  and nobody has been identified. The same gap already undermines the news widget on the
-  current site. Said plainly on the page.
-- **"Stories of change" is empty.** The GENDER Platform's strongest route has no
-  equivalent here, because no impact narrative has been written for this Hub. Shown as
-  empty rather than filled with something invented.
-- **No search anywhere.** Faithful to the model, and labelled.
-- **No country figures, and no country selector.** As in the other concepts.
-- **The experts list is six champions, not a directory.**
-
-## What to watch for in feedback
-
-Concept C is the only version that puts an image before information, and the only one
-without a search box. If reviewers like it, the interesting question is whether they
-like the imagery or the ten-theme spine, because those are separable: Concept A could
-take the themes without the photographs, and Concept C could take a search box without
-ceasing to look like this.
-
-## Wishlist round, 17/09/2026
-
-Concept C is now the working version. The review switcher on every page leads with it and
-folds the current site, A, B, D, E and V1 behind one collapsed line. Changes made against the
-climate.cgiar.org features and functionality wishlist (Ibukun's draft of 08/09/2026, input
-closing 18/09/2026):
-
-- Nav bar at eight headings: Home, Front Desk, Resources & Data, Impact, Where We Work, Themes,
-  News & Events, About & Contact. A search field and a "Sign in" link (the operating system,
-  nothing more) sit at the far right. Search submits to the Front Desk with `?q=`.
-- `front-desk.html`: the "no match" answer hands over to climate@cgiar.org, the FAQ on the AI
-  assistant now carries the V1 routing and V2 answer split, and a new section, "Where each thing
-  on the wishlist lands", maps every wishlist item onto a heading with its proposed version.
-- `response-el-nino.html`: new. Section 3 of the wishlist as a reusable response template: a
-  clickable Africa map (`assets/africa-paths.js`, generated from the working `africa.geojson`),
-  an eight-field country panel, mock filters, print and copy-link. One summary, Nigeria, read from
-  IITA's input to the El Nino Task Team of 21/08/2026 (internal, one Centre); ten other countries
-  shaded as mentioned with no summary behind them. No forecast source has been read in.
-- `where-we-work.html` and `index.html` feature the response page; `where-we-work.html` gains a
-  Partners block (empty, said so). Notes added on `themes.html`, `experts.html`, `about.html`
-  and `news.html` saying what the wishlist asks each page to become.
+Not verified: the LinkedIn page identity, which LinkedIn blocks from being fetched; that
+climate@cgiar.org is staffed; and how any of this renders inside Drupal once it is built there.

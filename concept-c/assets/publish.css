@@ -1,0 +1,111 @@
+/* CGIAR Climate Hub - publication cut of Concept C, 02/11/2026
+ * ============================================================================
+ * Loaded after styles.css and concept-c.css. Adds only the blocks the
+ * publication cut introduces: a shorter hero with one search field, the
+ * three "what are you looking for" cards, the Climate Data Hub call-out, a
+ * plain page head for inner pages, the search-and-filter bar on Resources,
+ * and a quotation style for the About page. Nothing here restyles an
+ * existing component.
+ * ========================================================================== */
+
+/* ---------- Hero, shorter so content arrives sooner ---------- */
+.chero-short .chero-img { height: clamp(220px, 32vw, 380px); }
+.herosearch { display: flex; gap: 8px; flex-wrap: wrap; max-width: 620px; margin: 22px auto 0; }
+.herosearch input[type="search"] {
+  flex: 1; min-width: 200px; font: inherit; font-size: 15.5px; padding: 13px 16px;
+  border: 2px solid var(--blue-800); border-radius: var(--radius); background: #fff;
+}
+.herosearch button {
+  font: inherit; font-size: 15.5px; font-weight: 700; cursor: pointer; padding: 13px 24px;
+  border: 2px solid var(--blue-800); background: var(--blue-800); color: #fff; border-radius: var(--radius);
+}
+.herosearch button:hover { background: var(--blue-900); border-color: var(--blue-900); }
+.chero-words .src { margin-top: 12px; text-align: center; }
+.src { display: block; font-size: 12px; color: var(--text-3); line-height: 1.5; }
+
+/* ---------- Nav: the data piece sits in the bar as an outward link ---------- */
+.ctab-hub { color: var(--blue-800); font-weight: 700; }
+.ctab-hub span { font-size: 12px; opacity: .8; }
+
+/* ---------- "What are you looking for" ---------- */
+.typecards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.typecard {
+  display: block; text-decoration: none; color: inherit; background: #fff;
+  border: 1px solid var(--border); border-top: 4px solid var(--blue-800); border-radius: var(--radius);
+  padding: 22px 22px 20px; min-width: 0;
+}
+a.typecard:hover { background: var(--blue-50); border-color: var(--blue-800); }
+.typecard-n { font-family: var(--font-serif); font-size: 2rem; line-height: 1; color: var(--blue-900); }
+.typecard-name { font-size: 17px; font-weight: 700; color: var(--blue-900); margin: 8px 0 6px; }
+.typecard-desc { font-size: 14px; color: var(--text-2); line-height: 1.55; }
+.typecard-go { display: inline-block; margin-top: 12px; font-size: 13.5px; font-weight: 700; color: var(--blue-800); }
+
+/* ---------- Climate Data Hub call-out ---------- */
+.hubcall { background: var(--blue-900); color: #fff; }
+.hubcall-in {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center;
+  padding-top: 40px; padding-bottom: 40px;
+}
+.hubcall h2 { color: #fff; margin: 6px 0 10px; }
+.hubcall p { color: var(--on-dark); font-size: 15px; max-width: 68ch; line-height: 1.6; }
+@media (max-width: 760px) { .hubcall-in { grid-template-columns: 1fr; } }
+
+/* ---------- Inner page head ---------- */
+.pagehead { background: var(--blue-50); border-bottom: 1px solid var(--border); padding: 34px 0 30px; }
+.pagehead h1 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); color: var(--blue-900); margin: 6px 0 10px; }
+.pagehead p { color: var(--text-2); max-width: 76ch; font-size: 15.5px; }
+.wrap.narrow { max-width: 860px; }
+.wrap.narrow h2 { margin-bottom: 12px; }
+.wrap.narrow p { margin-bottom: 12px; line-height: 1.65; }
+
+/* ---------- Search and filters on Resources ---------- */
+.filters { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
+.filters-in { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding-top: 14px; padding-bottom: 14px; }
+.filters-in input[type="search"], .filters-in select {
+  font: inherit; font-size: 14px; padding: 9px 12px; color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px; background: #fff; min-width: 0;
+}
+.filters-in input[type="search"] { flex: 1; min-width: 180px; }
+.filters-in input:hover, .filters-in select:hover { border-color: var(--blue-800); }
+.filters-in .ghostbtn {
+  font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; padding: 9px 16px;
+  border: 1px solid var(--blue-800); border-radius: 8px; background: transparent; color: var(--blue-800);
+}
+.filters-in .ghostbtn:hover { background: var(--blue-100); }
+.resultcount { font-size: 13.5px; color: var(--text-3); font-weight: 600; }
+
+/* ---------- About page ---------- */
+.quote { border-left: 4px solid var(--blue-800); background: var(--blue-50); padding: 14px 20px; margin: 14px 0; border-radius: 0 var(--radius) var(--radius) 0; }
+.quote p { font-size: 16px; color: var(--text); margin-bottom: 8px; }
+.quote p:last-child { margin-bottom: 0; }
+table.plain { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.plain td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.plain td:last-child { font-weight: 700; color: var(--blue-900); white-space: nowrap; }
+.tablescroll { overflow-x: auto; }
+
+@media (max-width: 640px) {
+  .pagehead { padding: 24px 0 22px; }
+  .hubcall-in { padding-top: 28px; padding-bottom: 28px; }
+}
+@media print { .filters, .herosearch, .ctab-search { display: none; } }
+
+/* ---------- Nav on narrow screens: wrap rather than scroll ----------
+   Concept C scrolled the bar sideways on phones. For publication the links
+   wrap into rows and the search field takes a full row beneath them, so
+   nothing is hidden off-screen and the document never scrolls sideways. */
+@media (max-width: 900px) {
+  .ctabs-in { flex-wrap: wrap; overflow-x: visible; padding: 6px 12px; gap: 2px 0; }
+  .ctab { font-size: 13.5px; padding: 11px 10px; white-space: normal; }
+  .ctab-hub { order: 1; }
+  .ctab-signin { order: 2; margin-left: auto; }
+  .ctab-search { order: 3; flex: 1 1 100%; margin: 6px 0 4px; }
+  .ctab-search input { flex: 1; width: auto; min-width: 0; }
+}
+
+/* ---------- Footer: five columns, blurb spanning two ---------- */
+.footer-top { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
+@media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } .footer-top > div:first-child { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .footer-top { grid-template-columns: 1fr; } }
+
+/* ---------- Four foundational records sit four across on a wide screen ---------- */
+@media (min-width: 1100px) { #foundational.cards { grid-template-columns: repeat(4, 1fr); } }

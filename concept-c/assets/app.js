@@ -1,6 +1,8 @@
-/* CGIAR Climate Hub - Concept C, the GESI-style reading
- * One script for all five tabs. Each block checks for its own hooks and exits
- * quietly if the page does not contain them.
+/* CGIAR Climate Hub - publication cut of Concept C, 02/11/2026
+ * One script for all five pages. Each block checks for its own hooks and exits
+ * quietly if the page does not contain them. Nothing on these pages needs a
+ * model, a sign-in, or a service other than this folder and the links it
+ * points to.
  *
  * Everything rendered here is matched from the shared catalogue in data.js at
  * page load. No count on any page is typed in, so a number that looks wrong is a
@@ -65,7 +67,6 @@
   /* ---------- Image credits, written from data rather than into the markup ----- */
   (function credits() {
     const map = [['#cap-hero', 'hero-sahel.jpg'],
-                 ['#cap-spotlight', 'spotlight.jpg'],
                  ['#cap-banner', 'banner-harvest.jpg']];
     map.forEach(function (pair) {
       const el = $(pair[0]);
@@ -83,23 +84,22 @@
     }).join('');
   })();
 
-  /* ---------- Vantage points ---------- */
-  (function vantage() {
-    const host = $('#vantage');
+  /* ---------- "What are you looking for": three doors by resource type ---------- */
+  (function typecards() {
+    const host = $('#typecards');
     if (!host) return;
-    host.innerHTML = H.vantage.map(function (v) {
-      const items = v.types.length
-        ? H.all.filter(function (i) { return v.types.indexOf(i.type) > -1; })
-        : [];
-      const tag = v.href ? 'a' : 'div';
-      const attr = v.href ? ' href="' + esc(v.href) + '"' : '';
-      return '<' + tag + ' class="vcard"' + attr + '>' +
-        '<div class="vcard-name">' + esc(v.label) + '</div>' +
-        '<div class="vcard-desc">' + esc(v.desc) + '</div>' +
-        (v.note ? '<div class="vcard-desc" style="font-style:italic">' + esc(v.note) + '</div>' : '') +
-        '<div class="' + (items.length ? 'vcard-count' : 'vcard-count vcard-empty') + '">' +
-          (items.length ? items.length + (items.length === 1 ? ' item' : ' items') : 'Nothing yet') +
-        '</div></' + tag + '>';
+    const doors = [
+      { type: 'publication', name: 'Publications', desc: 'Journal articles, reports and briefs, each linked to its publisher.' },
+      { type: 'dataset',     name: 'Datasets',     desc: 'Climate records with resolution, coverage, cadence and licence stated where the provider publishes them.' },
+      { type: 'method',      name: 'Tools and methods', desc: 'Tutorials, manuals and notebooks: how to do the work, not only what exists.' }
+    ];
+    host.innerHTML = doors.map(function (d) {
+      const n = H.all.filter(function (i) { return i.type === d.type; }).length;
+      return '<a class="typecard" href="resources.html?type=' + esc(d.type) + '">' +
+        '<div class="typecard-n">' + n + '</div>' +
+        '<div class="typecard-name">' + esc(d.name) + '</div>' +
+        '<div class="typecard-desc">' + esc(d.desc) + '</div>' +
+        '<span class="typecard-go">Browse &rarr;</span></a>';
     }).join('');
   })();
 
@@ -127,22 +127,6 @@
         '<div class="themerow-n">' + items.length + ' item' + (items.length === 1 ? '' : 's') + '</div>' +
       '</div>';
     }).join('');
-  })();
-
-  /* ---------- Spotlight: a real catalogue item, not invented copy ---------- */
-  (function spotlight() {
-    const host = $('#spotlightBody');
-    if (!host) return;
-    // The Nature Climate Change paper is the most recent peer-reviewed item held.
-    const pick = H.publications[0];
-    host.innerHTML =
-      '<div class="spotlight-kicker">' + esc(pick.kind) + '</div>' +
-      '<h2>' + esc(pick.title) + '</h2>' +
-      '<p>' + esc(pick.blurb) + '</p>' +
-      '<p style="margin-top:10px;font-size:13px;color:var(--highlight)">' +
-        esc(pick.provider) + ' &middot; ' + esc(pick.year) + '</p>' +
-      (pick.url ? '<p style="margin-top:16px"><a class="btn on-dark" href="' + esc(pick.url) +
-        '" target="_blank" rel="noopener">Read the paper ↗</a></p>' : '');
   })();
 
   /* ---------- Theme list, short form on the home tab ---------- */
@@ -202,16 +186,21 @@
       themeSel.appendChild(o);
     });
 
-    // Deep link support, so the vantage cards on the home tab can land here
+    // Deep link support, so the three doors on the home page can land here
     // already filtered rather than dumping the visitor at the top of the list.
     const qs = new URLSearchParams(location.search);
     const wanted = qs.get('type');
     if (wanted && $$('#fType option').some(function (o) { return o.value === wanted; })) {
       typeSel.value = wanted;
     }
+    const qIn = $('#fq');
+    if (qIn && qs.get('q')) qIn.value = qs.get('q');
 
     function run() {
-      let items = H.all.filter(function (i) { return i.type !== 'expert' && i.type !== 'event' && i.type !== 'project'; });
+      const q = qIn ? qIn.value.trim() : '';
+      let items = (q ? H.search(q) : H.all).filter(function (i) {
+        return i.type !== 'expert' && i.type !== 'event' && i.type !== 'project';
+      });
       if (typeSel.value !== 'all') items = items.filter(function (i) { return i.type === typeSel.value; });
       if (themeSel.value !== 'all') {
         const ids = {};
@@ -222,8 +211,19 @@
         (themeSel.value !== 'all' ? ' under ' + H.themes[Number(themeSel.value)].name : '');
       out.innerHTML = items.length
         ? '<div class="cards">' + items.map(cardHTML).join('') + '</div>'
-        : '<div class="empty"><strong>Nothing matches those two filters together.</strong> With no search box ' +
-          'on this page there is no other way in, which is worth noticing: it is the cost of the pattern.</div>';
+        : '<div class="empty"><strong>Nothing matches.</strong> Every search word has to appear in an item, so try ' +
+          'one word rather than a phrase, or clear a filter.</div>';
+    }
+
+    if (qIn) {
+      let tmr = null;
+      qIn.addEventListener('input', function () {
+        clearTimeout(tmr);
+        tmr = setTimeout(function () {
+          run();
+          if (window.HubTrack && qIn.value.trim().length > 2) window.HubTrack.search(qIn.value.trim());
+        }, 240);
+      });
     }
 
     typeSel.addEventListener('change', function () {
@@ -237,26 +237,12 @@
       run();
     });
     $('#fReset').addEventListener('click', function () {
-      typeSel.value = 'all'; themeSel.value = 'all'; run();
+      typeSel.value = 'all'; themeSel.value = 'all'; if (qIn) qIn.value = ''; run();
     });
     run();
   })();
 
   /* ---------- experts.html ---------- */
-  (function experts() {
-    const host = $('#expertList');
-    if (!host) return;
-    host.innerHTML = H.experts.map(function (e) {
-      const initials = e.title.split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
-      return '<div class="expertcard">' +
-        '<div class="expert-initials" aria-hidden="true">' + esc(initials) + '</div>' +
-        '<div><div class="expert-name">' + esc(e.title) + '</div>' +
-        '<div class="expert-org">' + esc(e.provider) + '</div>' +
-        '<div class="expert-topic">' + esc(e.blurb) + '</div></div>' +
-      '</div>';
-    }).join('');
-  })();
-
   /* ---------- news.html ---------- */
   (function news() {
     const host = $('#newsList');
@@ -265,14 +251,33 @@
       return '<a class="newsrow" href="' + esc(n.url) + '" target="_blank" rel="noopener">' +
         '<div class="newsrow-when">' + esc(n.year) + '</div>' +
         '<div><div class="newsrow-title">' + esc(n.title) + '</div>' +
-          '<div class="newsrow-src">' + esc(n.kind) + ' &middot; ' + esc(n.source) + '</div></div>' +
+          '<div class="newsrow-src">' + esc(n.kind) + ' &middot; ' + esc(n.provider) + '</div></div>' +
         '<div>' + lensChip(n.lens) + '</div>' +
       '</a>';
     }).join('');
   })();
 
+  /* ---------- About: what the catalogue holds, measured at load ---------- */
+  (function measures() {
+    const host = $('#measures');
+    if (!host) return;
+    const ds = H.datasets;
+    const full = ds.filter(function (d) { const c = H.completeness(d); return c && c.have === c.of; }).length;
+    // Only the types this cut of the site actually shows. The catalogue also
+    // holds people and projects, which have no page here and are not counted.
+    const SHOWN = ['dataset', 'publication', 'method', 'innovation', 'event'];
+    const byType = SHOWN.map(function (t) {
+      return [H.TYPE_PLURAL[t], H.all.filter(function (i) { return i.type === t; }).length];
+    }).filter(function (r) { return r[1] > 0; });
+    host.innerHTML = '<div class="tablescroll"><table class="plain"><tbody>' +
+      byType.map(function (r) { return '<tr><td>' + esc(r[0]) + '</td><td>' + r[1] + '</td></tr>'; }).join('') +
+      '<tr><td>Datasets with all six metadata fields recorded</td><td>' + full + ' of ' + ds.length + '</td></tr>' +
+      '</tbody></table></div>';
+  })();
+
   /* ---------- Keep any stated corpus size honest ---------- */
   (function corpusSize() {
-    $$('.corpus-n').forEach(function (el) { el.textContent = H.all.length; });
+    const shown = H.all.filter(function (i) { return ['dataset', 'publication', 'method', 'innovation', 'event'].indexOf(i.type) > -1; }).length;
+    $$('.corpus-n').forEach(function (el) { el.textContent = shown; });
   })();
 })();

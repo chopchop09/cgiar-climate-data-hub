@@ -3,84 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Resources and data, CGIAR Climate Hub, Concept C</title>
-<meta name="description" content="Publications, datasets, tools and methods, filtered by type and theme.">
+<title>Resources and data &mdash; CGIAR Climate Hub</title>
+<meta name="description" content="Search and filter the Climate Hub catalogue of publications, datasets, tools and methods.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet" media="all" onerror="this.remove()">
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/concept-c.css">
-<link rel="stylesheet" href="assets/front-desk.css">
+<link rel="stylesheet" href="assets/publish.css">
 <script src="assets/analytics.js" defer></script>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
-
-<!-- THREE-WAY REVIEW SWITCHER, added 10/08/2026, narrowed 17/09/2026 -----------
-     Concept C is the working version. The earlier versions stay published for
-     the record but sit behind one collapsed line, so a reviewer is not asked to
-     choose between seven things. Self-contained: every style is inline and
-     prefixed .xsw- so this block cannot collide with any stylesheet, and it can
-     be removed by deleting from this comment down to its closing one.
-     ------------------------------------------------------------------------- -->
-<style>
-.xsw{background:#0A1F3D;border-bottom:1px solid rgba(255,255,255,.18);
-  font-family:'Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
-.xsw-in{max-width:1240px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;
-  gap:10px;flex-wrap:wrap}
-.xsw-lab{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-  color:#8FC4FF;white-space:nowrap}
-.xsw-item{display:flex;flex-direction:column;gap:1px;text-decoration:none;
-  padding:5px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.22);
-  background:rgba(255,255,255,.06);min-width:0}
-a.xsw-item:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
-a.xsw-item:focus-visible,.xsw-mini:focus-visible,.xsw-more summary:focus-visible{outline:2px solid #8FC4FF;outline-offset:2px}
-.xsw-name{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3}
-.xsw-sub{font-size:10.5px;color:#BCCFE9;line-height:1.3}
-.xsw-lead{border-color:#8FC4FF}
-.xsw-here{background:#fff;border-color:#fff}
-.xsw-here .xsw-name{color:#0A1F3D}
-.xsw-here .xsw-sub{color:#4A5A70}
-.xsw-you{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  color:#1955A6;line-height:1.3}
-.xsw-more{margin-left:auto;font-size:12px;color:#BCCFE9}
-.xsw-more summary{cursor:pointer;list-style:none;text-decoration:underline;color:#8FC4FF;padding:5px 0;white-space:nowrap}
-.xsw-more summary::-webkit-details-marker{display:none}
-.xsw-more summary:hover{color:#fff}
-.xsw-more[open] summary{color:#fff}
-.xsw-list{display:flex;flex-wrap:wrap;gap:6px 14px;padding:6px 0 4px;width:100%}
-.xsw-mini{color:#BCCFE9;text-decoration:none;font-size:12px;white-space:nowrap}
-.xsw-mini em{font-style:normal;color:#8298B8;font-size:11px}
-a.xsw-mini:hover{color:#fff;text-decoration:underline}
-.xsw-mini-here{color:#fff}
-@media(max-width:980px){
-  .xsw-in{padding:8px 16px;gap:6px}
-  .xsw-lab{width:100%;margin:0 0 2px}
-  .xsw-item{flex:1;padding:5px 9px}
-  .xsw-more{margin-left:0;width:100%}
-}
-</style>
-<div class="xsw">
-  <div class="xsw-in">
-    <span class="xsw-lab">Working version</span>
-    <span class="xsw-item xsw-here xsw-lead" aria-current="true"><span class="xsw-name">Concept C</span><span class="xsw-sub">the working version, revised 17/09/2026</span><span class="xsw-you">you are here</span></span>
-    <details class="xsw-more">
-      <summary>Earlier versions, kept for the record</summary>
-      <div class="xsw-list"><a class="xsw-mini" href="../index.html">Current site <em>v0.2, in review</em></a><a class="xsw-mini" href="../concept-a/index.html">Concept A <em>layered, three tiers</em></a><a class="xsw-mini" href="../concept-b/index.html">Concept B <em>unified, one page</em></a><a class="xsw-mini" href="../concept-d/index.html">Concept D <em>the reviewed reading</em></a><a class="xsw-mini" href="../concept-e/index.html">Concept E <em>the lean V1</em></a><a class="xsw-mini" href="../v1/index.html">V1 <em>Gender-layout port</em></a><a class="xsw-mini" href="../compare.html">Why the earlier versions exist</a></div>
-    </details>
-  </div>
-</div>
-<!-- END THREE-WAY REVIEW SWITCHER ---------------------------------------------->
-
-<div class="proto-bar">
-  <strong>Concept C, the working version, revised 17/09/2026 for feedback only.</strong>
-  Built to resemble gender.cgiar.org, carrying the nav bar agreed at the Lexicon session (Front Desk,
-  Resources and Data, Impact, Where We Work, About and Contact) and now the climate.cgiar.org features
-  wishlist of 08/09/2026: search in the bar, News and Events, an El Ni&ntilde;o response page with a country
-  map, and a sign-in for the operating system. Content is placeholder unless a source is shown. Not a CGIAR
-  publication. IITA Internal Use.
-</div>
 
 <header>
   <div class="header-inner">
@@ -93,14 +28,12 @@ a.xsw-mini:hover{color:#fff;text-decoration:underline}
 <nav class="ctabs" aria-label="Main navigation">
   <div class="ctabs-in">
     <a class="ctab" href="index.html">Home</a>
-    <a class="ctab ctab-desk" href="front-desk.html"><svg class="ctab-key" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="4.2"/><path d="M11 11 L19.5 19.5 M16.5 17 L18.5 15 M19 19.5 L21 17.5"/></svg>Front Desk</a>
     <a class="ctab" href="resources.html" aria-current="page">Resources &amp; Data</a>
-    <a class="ctab" href="impact.html">Impact</a>
-    <a class="ctab" href="where-we-work.html">Where We Work</a>
     <a class="ctab" href="themes.html">Themes</a>
     <a class="ctab" href="news.html">News &amp; Events</a>
     <a class="ctab" href="about.html">About &amp; Contact</a>
-    <form class="ctab-search" role="search" action="front-desk.html" method="get">
+    <a class="ctab ctab-hub" href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub <span aria-hidden="true">&#8599;</span></a>
+    <form class="ctab-search" role="search" action="resources.html" method="get">
       <label class="sr-only" for="navq">Search the Hub</label>
       <input id="navq" name="q" type="search" placeholder="Search the Hub" autocomplete="off">
       <button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/></svg></button>
@@ -111,158 +44,47 @@ a.xsw-mini:hover{color:#fff;text-decoration:underline}
 
 <main id="main" tabindex="-1">
 
-<!-- FLAGSHIP ASSETS, added 10/09/2026 ---------------------------------------
-     The Lexicon session asked for curated high-value CGIAR climate tools shown
-     as tiles carrying a description, a use case and a link out, and explicitly
-     not a mirror of CGSpace. Six tiles, each a catalogued item, so the provider
-     and the link are the ones already recorded and checked.
-     ---------------------------------------------------------------------- -->
-<section class="section">
+<div class="pagehead">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-label">Flagship climate assets</div>
-      <h2>Six tools worth knowing about</h2>
-      <p>Not a complete list, and not meant to be. These are entry points: what each one is, what people come
-      to it for, and a link out to the people who run it.</p>
-    </div>
-
-    <div class="flagship">
-
-      <div class="flag">
-        <span class="flag-provider">CGIAR</span>
-        <h3>African Agriculture Adaptation Atlas</h3>
-        <p class="flag-desc">Spatial climate risk, adaptation options and food security across Africa, at
-        country and sub-national level.</p>
-        <p class="flag-use"><strong>Come here when</strong> you need to see which adaptation options have
-        evidence behind them for a given place in Africa.</p>
-        <span class="flag-foot">
-          <a href="https://adaptationatlas.cgiar.org/" target="_blank" rel="noopener">Open the atlas &#8599;</a>
-          <span class="flag-geo">Africa &middot; web maps</span>
-        </span>
-      </div>
-
-      <div class="flag">
-        <span class="flag-provider">CIMMYT-BISA</span>
-        <h3>South Asia Climate Adaptation Atlas (ACASA)</h3>
-        <p class="flag-desc">Climate hazards, vulnerability and expert-validated adaptation options for 15
-        crops and six livestock species, at roughly 25 square kilometres.</p>
-        <p class="flag-use"><strong>Come here when</strong> you are working in South Asia and need hazard and
-        adaptation layers at sub-district resolution.</p>
-        <span class="flag-foot">
-          <a href="https://acasa-bisa.org/" target="_blank" rel="noopener">Open ACASA &#8599;</a>
-          <span class="flag-geo">South Asia &middot; web maps</span>
-        </span>
-      </div>
-
-      <div class="flag">
-        <span class="flag-provider">CGIAR</span>
-        <h3>AgMRV</h3>
-        <p class="flag-desc">Monitoring, reporting and verification for agricultural greenhouse gas emissions,
-        built on IPCC-aligned methodology.</p>
-        <p class="flag-use"><strong>Come here when</strong> a project needs to measure or report emissions and
-        you want a method that will survive scrutiny.</p>
-        <span class="flag-foot">
-          <a href="https://www.agmrv.org/" target="_blank" rel="noopener">Open AgMRV &#8599;</a>
-          <span class="flag-geo">Global &middot; web tools</span>
-        </span>
-      </div>
-
-      <div class="flag">
-        <span class="flag-provider">CGIAR</span>
-        <h3>AgWise</h3>
-        <p class="flag-desc">Location-specific climate-smart agronomic recommendations, with API and GIS
-        integration.</p>
-        <p class="flag-use"><strong>Come here when</strong> you are building an advisory service and need
-        agronomy that varies by location rather than one national recommendation.</p>
-        <span class="flag-foot">
-          <a href="https://agwise.org/" target="_blank" rel="noopener">Open AgWise &#8599;</a>
-          <span class="flag-geo">Africa &middot; API, GIS</span>
-        </span>
-      </div>
-
-      <div class="flag">
-        <span class="flag-provider">CGIAR</span>
-        <h3>Climate Security Observatory</h3>
-        <p class="flag-desc">Evidence base on the climate, conflict and food security nexus, with country
-        profiles.</p>
-        <p class="flag-use"><strong>Come here when</strong> a proposal or a briefing has to say something
-        defensible about climate and conflict.</p>
-        <span class="flag-foot">
-          <a href="https://cso.cgiar.org/" target="_blank" rel="noopener">Open the observatory &#8599;</a>
-          <span class="flag-geo">Global &middot; country profiles</span>
-        </span>
-      </div>
-
-      <div class="flag">
-        <span class="flag-provider">TAAT, with CGIAR</span>
-        <h3>TAAT e-catalogues</h3>
-        <p class="flag-desc">Proven agricultural technologies for scaling across Africa, organised by commodity
-        and by value chain stage.</p>
-        <p class="flag-use"><strong>Come here when</strong> you need technologies that are already proven at
-        scale rather than promising in trial.</p>
-        <span class="flag-foot">
-          <a href="https://e-catalogs.taat-africa.org/" target="_blank" rel="noopener">Open the catalogues &#8599;</a>
-          <span class="flag-geo">Africa &middot; web catalogue</span>
-        </span>
-      </div>
-
-    </div>
-
-    <div class="demo" style="margin-top:22px">
-      <strong>Six is a choice, and it is arguable.</strong> These were picked from the catalogue on this
-      prototype as a worked example of the tile display, not as an agreed flagship set. Which assets are
-      flagship, and who decides, is still open. The rule proposed so far is on the
-      <a href="about.html#curation">About page</a>.
-    </div>
-
-    <div class="demo" style="margin-top:14px">
-      <strong>What is deliberately not here.</strong> The full record lives in
-      <a href="https://cgspace.cgiar.org/" target="_blank" rel="noopener">CGSpace</a> and
-      <a href="https://gardian.cgiar.org/" target="_blank" rel="noopener">Gardian</a>. This site links to them
-      rather than reproducing them, because a partial copy of a repository is worse than the repository.
-    </div>
+    <div class="section-label">Resources &amp; Data</div>
+    <h1>Publications, data, tools and methods</h1>
+    <p>Everything catalogued, behind one search field and two filters. Search needs every word to appear, so a
+    phrase narrows rather than widens. The full record of each item lives with its publisher; this page links to it
+    rather than copying it.</p>
   </div>
-</section>
+</div>
+
+<div class="filters">
+  <div class="wrap filters-in">
+    <label class="sr-only" for="fq">Search</label>
+    <input type="search" id="fq" placeholder="Search the catalogue">
+    <label class="sr-only" for="fType">Resource type</label>
+    <select id="fType">
+      <option value="all">All resource types</option>
+      <option value="publication">Publications</option>
+      <option value="dataset">Datasets</option>
+      <option value="method">Tools and methods</option>
+      <option value="innovation">Innovation catalogues</option>
+    </select>
+    <label class="sr-only" for="fTheme">Theme</label>
+    <select id="fTheme"><option value="all">All themes</option></select>
+    <button class="ghostbtn" id="fReset" type="button">Reset</button>
+    <span class="resultcount" id="rCount"></span>
+  </div>
+</div>
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-label">Resources</div>
-      <h2>Publications, data, tools and methods</h2>
-      <p>Filter by the kind of resource and by theme. Datasets carry their resolution, time coverage, update
-      cadence and licence where a provider has recorded them.</p>
-    </div>
-
-    <div class="cfilters">
-      <div class="cfilter">
-        <label for="fType">Resource type</label>
-        <select id="fType">
-          <option value="all">All types</option>
-          <option value="dataset">Datasets</option>
-          <option value="publication">Publications</option>
-          <option value="method">Tools, methods and training</option>
-          <option value="innovation">Innovation catalogues</option>
-        </select>
-      </div>
-      <div class="cfilter">
-        <label for="fTheme">Theme</label>
-        <select id="fTheme"><option value="all">All ten themes</option></select>
-      </div>
-      <div class="cfilter">
-        <button class="btn ghost" id="fReset" type="button">Clear</button>
-      </div>
-    </div>
-
-    <p id="rCount" class="muted" style="font-weight:600;color:var(--text-2);margin-bottom:14px" role="status" aria-live="polite"></p>
     <div id="rResults"></div>
-
-    <div class="demo">
-      <strong>Filters only, no search box.</strong> That is faithful to the model, and worth noticing: on this
-      page you must already know which bucket your answer sits in. Concept B takes the opposite position and
-      makes a typed question the only way in.
-    </div>
+    <p class="src" style="margin-top:22px">Every entry was either carried over from the earlier prototype, where its
+    link had already been checked, or read from the provider&rsquo;s own page on 10/08/2026. Fields nobody has
+    recorded are left empty rather than filled in. The complete records live in
+    <a href="https://cgspace.cgiar.org/" target="_blank" rel="noopener">CGSpace</a> and
+    <a href="https://gardian.cgiar.org/" target="_blank" rel="noopener">Gardian</a>; the data itself is on the
+    <a href="https://cgiar-climate-data-hub.github.io/" target="_blank" rel="noopener">Climate Data Hub</a>.</p>
   </div>
 </section>
+
 </main>
 
 <footer>
@@ -270,27 +92,16 @@ a.xsw-mini:hover{color:#fff;text-decoration:underline}
     <div class="footer-top">
       <div>
         <img src="assets/cgiar-logo.png" alt="CGIAR" height="42">
-        <p>Concept C of five design interpretations prepared on 10/08/2026 to elicit feedback on the structure
-        of the CGIAR Climate Hub. Built deliberately in the shape of gender.cgiar.org. Nothing here is an
-        approved CGIAR position.</p>
+        <p>The evidence behind the CGIAR Climate Action Science Program: datasets, publications, tools and
+        methods, curated as one front door and linked to where each lives.</p>
       </div>
       <div class="footer-col">
         <h3>Explore</h3>
         <a href="index.html">Home</a>
-        <a href="front-desk.html">Front Desk</a>
         <a href="resources.html">Resources and data</a>
-        <a href="impact.html">Impact</a>
-        <a href="where-we-work.html">Where we work</a>
         <a href="themes.html">Themes</a>
         <a href="news.html">News and events</a>
         <a href="about.html">About and contact</a>
-      </div>
-      <div class="footer-col">
-        <h3>Also on the site</h3>
-        <a href="experts.html">Experts</a>
-        <a href="response-el-nino.html">El Ni&ntilde;o response</a>
-        <a href="front-desk.html#faq">Frequently asked questions</a>
-        <a href="front-desk.html#newsletter">Newsletter sign-up</a>
       </div>
       <div class="footer-col">
         <h3>Go deeper</h3>
@@ -300,15 +111,20 @@ a.xsw-mini:hover{color:#fff;text-decoration:underline}
       </div>
       <div class="footer-col">
         <h3>Programme</h3>
-        <a href="https://www.cgiar.org/" target="_blank" rel="noopener">CGIAR &#8599;</a>
-        <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">Climate Action &#8599;</a>
-        <a href="https://gender.cgiar.org/" target="_blank" rel="noopener">GENDER Platform, the model for this concept &#8599;</a>
+        <a href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action" target="_blank" rel="noopener">CGIAR Climate Action &#8599;</a>
+        <a href="https://www.linkedin.com/showcase/cgiar-climate/" target="_blank" rel="noopener">Climate Action on LinkedIn &#8599;</a>
+        <a href="https://www.cgiar.org/funders" target="_blank" rel="noopener">CGIAR Trust Fund Contributors &#8599;</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <a href="mailto:climate@cgiar.org">climate@cgiar.org</a>
+        <a href="about.html#contact">How to reach the programme</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 CGIAR. Photographs are Creative Commons and credited individually; see each caption.
-      Linked content remains under its own licence.</span>
-      <span>British English &middot; Concept C, 10/08/2026 &middot; IITA Internal Use</span>
+      <span>&copy; 2026 CGIAR. Photographs are Creative Commons and credited in their captions. Linked content
+      stays under its own licence. Analytics are cookie-free, so no consent banner is needed.</span>
+      <span>Publication cut, 02/11/2026 &middot; <a href="../compare.html" style="color:inherit">Earlier versions, for the record</a></span>
     </div>
   </div>
 </footer>
